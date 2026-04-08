@@ -25,17 +25,6 @@ Output: `web/public/`.
 
 Repository root includes **`netlify.toml`**: base directory **`web`**, publish **`public`**, Node **20**. Connect this repo to Netlify and deploy with the default settings from that file.
 
-## GitHub (first push)
+## Repository
 
-From the **repository root** (this folder, not `web/`):
-
-```bash
-git init
-git add .
-git commit -m "Initial commit: Specialized Medical Gatsby site"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-git push -u origin main
-```
-
-Replace the remote URL with your GitHub repository.
+**https://github.com/MalikTayyabDev/Specialized_medical**
