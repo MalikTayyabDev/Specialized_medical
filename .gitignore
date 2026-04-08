@@ -1,0 +1,16 @@
+# Gatsby app (see /web)
+web/node_modules/
+web/.cache/
+web/public/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local env / secrets
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log*

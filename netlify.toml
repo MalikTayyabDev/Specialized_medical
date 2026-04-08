@@ -1,0 +1,10 @@
+# Netlify build for Gatsby app in /web
+# Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  base = "web"
+  command = "npm run build"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "20"

@@ -1,0 +1,636 @@
+/* Services page — layout aligned with Services screenshot */
+
+.services-page {
+  overflow-x: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hero                                                                       */
+/* -------------------------------------------------------------------------- */
+.services-hero {
+  position: relative;
+  padding: clamp(2.5rem, 6vw, 4.5rem) 0;
+  background: #f4f4f4;
+}
+
+.services-hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 35%;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.services-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.88) 45%,
+    rgba(255, 255, 255, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
+.services-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.services-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.services-hero__title {
+  font-family: var(--font-sans);
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.services-hero__title .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.services-hero__lead {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.75rem;
+  max-width: 28rem;
+  line-height: 1.55;
+}
+
+.services-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+.services-hero__actions .btn--outline {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.services-hero__actions .btn--outline:hover {
+  background: rgba(192, 36, 45, 0.06);
+  border-color: var(--color-red-dark);
+  color: var(--color-red-dark);
+}
+
+.services-hero__photo {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(35, 31, 30, 0.12);
+}
+
+.services-hero__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+@media (max-width: 900px) {
+  .services-hero__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-hero__photo {
+    max-width: 28rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Test capabilities — 6 icons                                                */
+/* -------------------------------------------------------------------------- */
+.services-cap {
+  padding: var(--section-y) 0;
+  background: #fff;
+}
+
+.services-cap__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 2.5rem;
+  color: var(--color-red);
+}
+
+.services-cap__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.25rem 1rem;
+  align-items: start;
+}
+
+.services-cap__item {
+  text-align: center;
+}
+
+.services-cap__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-cap__icon img {
+  max-width: 48px;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+}
+
+.services-cap__label {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-text);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .services-cap__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .services-cap__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Alternating split sections                                                 */
+/* -------------------------------------------------------------------------- */
+.services-split {
+  padding: clamp(3rem, 7vw, 5rem) 0;
+}
+
+.services-split--alt {
+  background: var(--color-bg-muted);
+}
+
+.services-split__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.services-split--reverse .services-split__inner {
+  direction: rtl;
+}
+
+.services-split--reverse .services-split__copy,
+.services-split--reverse .services-split__media {
+  direction: ltr;
+}
+
+.services-split__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+}
+
+.services-split__title .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.services-split__text {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0 0 1.25rem;
+}
+
+.services-split__list {
+  font-family: var(--font-sans);
+  margin: 0 0 1.5rem;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.services-split__list li {
+  margin-bottom: 0.5rem;
+}
+
+.services-split__media {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(35, 31, 30, 0.1);
+}
+
+.services-split__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .services-split__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .services-split--reverse .services-split__inner {
+    direction: ltr;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Wireless benefits — 2×2                                                      */
+/* -------------------------------------------------------------------------- */
+.services-wireless {
+  padding: var(--section-y) 0;
+  background: #fff;
+}
+
+.services-wireless__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 2.5rem;
+  color: var(--color-text);
+}
+
+.services-wireless__title .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.services-wireless__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+}
+
+.services-wireless__card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem 1.35rem;
+  background: #fff;
+}
+
+.services-wireless__card-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 0.85rem;
+}
+
+.services-wireless__card-icon img {
+  width: 40px;
+  height: auto;
+}
+
+.services-wireless__card h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--color-text);
+}
+
+.services-wireless__card p {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .services-wireless__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Specialized advantage — checklist                                            */
+/* -------------------------------------------------------------------------- */
+.services-advantage {
+  padding: var(--section-y) 0;
+  background: var(--color-bg-muted);
+}
+
+.services-advantage__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 2rem;
+  color: var(--color-text);
+}
+
+.services-advantage__title .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.services-advantage__list {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.services-advantage__list li {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+}
+
+.services-advantage__check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 0.15rem;
+  color: var(--color-red);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Reporting                                                                  */
+/* -------------------------------------------------------------------------- */
+.services-reporting {
+  padding: var(--section-y) 0;
+  background: #fff;
+}
+
+.services-reporting__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: clamp(1.75rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.services-reporting__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.65rem, 3.5vw, 2.1rem);
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+}
+
+.services-reporting__title .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.services-reporting__text {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.services-reporting__shot {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(35, 31, 30, 0.12);
+}
+
+.services-reporting__shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .services-reporting__inner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Product catalog                                                            */
+/* -------------------------------------------------------------------------- */
+.services-products {
+  padding: var(--section-y) 0;
+  background: var(--color-bg-muted);
+}
+
+.services-products__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 2.5rem;
+  color: var(--color-text);
+}
+
+.services-products__title .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.services-products__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.services-product-card {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  padding: 1.25rem;
+  background: #fff;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+}
+
+.services-product-card__thumb {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.services-product-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.services-product-card__body h3 {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-red);
+  margin: 0 0 0.5rem;
+}
+
+.services-product-card__body p {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0 0 0.65rem;
+}
+
+.services-product-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1rem;
+}
+
+.services-product-card__link {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #b8860b;
+  text-decoration: none;
+}
+
+.services-product-card__link:hover {
+  text-decoration: underline;
+}
+
+.services-product-card .stars {
+  display: inline-flex;
+  gap: 2px;
+}
+
+.services-product-card .stars img {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 560px) {
+  .services-product-card {
+    grid-template-columns: 1fr;
+  }
+
+  .services-product-card__thumb {
+    max-width: 140px;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Trust block                                                                */
+/* -------------------------------------------------------------------------- */
+.services-trust {
+  padding: clamp(3rem, 7vw, 5rem) 0;
+  background: #fff;
+  text-align: center;
+}
+
+.services-trust__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 400;
+  margin: 0 0 1rem;
+  color: var(--color-text);
+}
+
+.services-trust__title .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.services-trust__text {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Bottom CTA                                                                 */
+/* -------------------------------------------------------------------------- */
+.services-cta {
+  padding: clamp(3rem, 8vw, 5.5rem) 0;
+  background: var(--color-bg-pink);
+  text-align: center;
+}
+
+.services-cta__title {
+  font-family: var(--font-sans);
+  font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
+}
+
+.services-cta__title .accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.services-cta__lead {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+  margin: 0 0 1.75rem;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem;
+}
+
+.services-cta__actions .btn--outline {
+  border-color: var(--color-red);
+  color: var(--color-red);
+}
+
+.services-cta__actions .btn--outline:hover {
+  background: rgba(192, 36, 45, 0.06);
+}
