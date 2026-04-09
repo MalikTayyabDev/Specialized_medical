@@ -4,6 +4,7 @@ import "./src/styles/services.css"
 import "./src/styles/about.css"
 import "./src/styles/faq.css"
 import "./src/styles/contact.css"
+import "./src/styles/equipment.css"
 import * as React from "react"
 import Layout from "./src/components/Layout"
 

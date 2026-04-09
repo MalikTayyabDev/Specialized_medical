@@ -5,22 +5,22 @@ export const ICON = (p) => `/icons/${p}`
 
 export function BrandLockup() {
   return (
-    <div className="site-brand__text">
-      <span className="site-brand__name">Specialized Medical</span>
-      <img
-        className="site-brand__tagline"
-        src={ICON("expertcardiacmonitoringservices3525-5iyz.svg")}
-        alt=""
-        width={197}
-        height={12}
-      />
-    </div>
+    <img
+      className="site-brand__logo"
+      src={ICON("brand-logo.svg")}
+      alt="Specialized Medical — Expert Cardiac Monitoring Services"
+      width={236}
+      height={71}
+    />
   )
 }
 
-function pathMatch(pathname, to) {
+function pathMatch(pathname, to, { prefix } = {}) {
   const p = (pathname || "/").replace(/\/$/, "") || "/"
   const t = to.replace(/\/$/, "") || "/"
+  if (prefix) {
+    return p === t || p.startsWith(`${t}/`)
+  }
   return p === t
 }
 
@@ -28,24 +28,13 @@ function SiteHeader({ location }) {
   const [navOpen, setNavOpen] = React.useState(false)
   const path = location?.pathname || "/"
 
-  const linkClass = (to) =>
-    pathMatch(path, to) ? "site-nav__link is-active" : "site-nav__link"
+  const linkClass = (to, options) =>
+    pathMatch(path, to, options)
+      ? "site-nav__link is-active"
+      : "site-nav__link"
 
   return (
     <header className="site-header">
-      <div className="site-header__topbar">
-        <div className="container site-header__topbar-inner">
-          <a className="site-header__topbar-phone" href="tel:+18557732633">
-            <img src={ICON("vector3525-jq8.svg")} alt="" />
-            1-855-773-2633
-          </a>
-          <div className="site-header__social">
-            <a href="https://www.facebook.com/" aria-label="Facebook">
-              <img src={ICON("vector3527-h9kk.svg")} alt="" width={20} height={20} />
-            </a>
-          </div>
-        </div>
-      </div>
       <div
         className={`container site-header__inner${navOpen ? " nav-open" : ""}`}
       >
@@ -70,20 +59,23 @@ function SiteHeader({ location }) {
           <Link className={linkClass("/about")} to="/about/">
             About Us
           </Link>
-          <Link className={linkClass("/services")} to="/services/">
-            Services
+          <Link
+            className={linkClass("/services", { prefix: true })}
+            to="/services/"
+          >
+            Solutions
           </Link>
-          <Link className={linkClass("/faq")} to="/faq/">
-            FAQs
+          <Link className={linkClass("/contact")} to="/contact/#contact-form">
+            Forms
           </Link>
           <Link className={linkClass("/contact")} to="/contact/">
-            Contact Us
+            Contact
           </Link>
         </nav>
 
         <div className="site-header__cta">
-          <Link className="btn btn--portal" to="/patient-portal/">
-            Patient Portal
+          <Link className="btn btn--header-cta" to="/contact/">
+            Request a Demo
           </Link>
         </div>
       </div>

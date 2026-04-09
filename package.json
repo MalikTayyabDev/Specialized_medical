@@ -1,0 +1,13 @@
+{
+  "name": "specialized-medical-site",
+  "private": true,
+  "description": "Gatsby app lives in /web — scripts forward there.",
+  "scripts": {
+    "develop": "npm run develop --prefix web",
+    "start": "npm run start --prefix web",
+    "build": "npm run build --prefix web",
+    "serve": "npm run serve --prefix web",
+    "clean": "npm run clean --prefix web",
+    "static:build": "node static-site/build-faq-fragment.mjs && node static-site/merge-faq-html.mjs && node static-site/build-services-html.mjs && node static-site/build-equipment-html.mjs"
+  }
+}

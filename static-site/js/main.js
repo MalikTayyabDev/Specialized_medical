@@ -1,0 +1,146 @@
+/**
+ * Specialized Medical — static site behaviors (nav, FAQ, contact form, hero CSS bg fallback).
+ */
+(function () {
+  function qs(sel, root) {
+    return (root || document).querySelector(sel);
+  }
+
+  function qsa(sel, root) {
+    return Array.prototype.slice.call((root || document).querySelectorAll(sel));
+  }
+
+  function initNav() {
+    var toggle = qs(".nav-toggle");
+    var inner = qs(".site-header__inner");
+    if (!toggle || !inner) return;
+
+    function setOpen(open) {
+      inner.classList.toggle("nav-open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+
+    toggle.addEventListener("click", function () {
+      setOpen(!inner.classList.contains("nav-open"));
+    });
+
+    qsa(".site-nav a", inner).forEach(function (link) {
+      link.addEventListener("click", function () {
+        setOpen(false);
+      });
+    });
+  }
+
+  function initFooterYear() {
+    var el = document.getElementById("footer-year");
+    if (el) el.textContent = String(new Date().getFullYear());
+  }
+
+  function initHeroVisualFallback() {
+    var el = qs(".hero.hero--reference");
+    if (!el) return;
+    var local = "/images/hero-banner.jpg";
+    var fallback =
+      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=85";
+    var probe = new Image();
+    probe.onerror = function () {
+      el.style.backgroundImage = "url(" + fallback + ")";
+      el.style.backgroundSize = "cover";
+      el.style.backgroundPosition = "70% center";
+    };
+    probe.src = local;
+  }
+
+  function initFaqAccordion() {
+    var root = qs(".faq-accordion");
+    if (!root) return;
+
+    qsa(".faq-item__trigger", root).forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var item = btn.closest(".faq-item");
+        if (!item) return;
+        var wasOpen = item.classList.contains("is-open");
+
+        qsa(".faq-item", root).forEach(function (other) {
+          other.classList.remove("is-open");
+          var p = other.querySelector(".faq-item__panel");
+          var t = other.querySelector(".faq-item__trigger");
+          if (p) p.hidden = true;
+          if (t) t.setAttribute("aria-expanded", "false");
+          var ch = other.querySelector(".faq-item__chevron");
+          if (ch) ch.classList.remove("is-open");
+        });
+
+        if (!wasOpen) {
+          item.classList.add("is-open");
+          var panel = item.querySelector(".faq-item__panel");
+          if (panel) panel.hidden = false;
+          btn.setAttribute("aria-expanded", "true");
+          var chev = btn.querySelector(".faq-item__chevron");
+          if (chev) chev.classList.add("is-open");
+        }
+      });
+    });
+  }
+
+  function initContactPage() {
+    var form = qs(".contact-form");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      var first = String(fd.get("firstName") || "").trim();
+      var last = String(fd.get("lastName") || "").trim();
+      var email = String(fd.get("email") || "").trim();
+      var phone = String(fd.get("phone") || "").trim();
+      var interest = String(fd.get("interest") || "").trim();
+      var message = String(fd.get("message") || "").trim();
+
+      var subject = encodeURIComponent("Contact form — Specialized Medical");
+      var body = encodeURIComponent(
+        [
+          "Name: " + first + " " + last,
+          "Email: " + email,
+          "Phone: " + phone,
+          "Interest: " + (interest || "(not selected)"),
+          "",
+          message,
+        ].join("\n")
+      );
+      window.location.href =
+        "mailto:info@specialized-med.com?subject=" + subject + "&body=" + body;
+    });
+
+    qsa(".contact-action-card").forEach(function (card) {
+      card.addEventListener("click", function () {
+        var hash = card.getAttribute("data-interest") || "";
+        var wrap = qs(".contact-main__form-wrap");
+        if (wrap) {
+          wrap.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+        if (hash && form) {
+          var select = form.querySelector('select[name="interest"]');
+          if (select) select.value = hash;
+        }
+      });
+    });
+  }
+
+  function initVideoPlayStub() {
+    qsa(".video-frame__play").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initNav();
+    initFooterYear();
+    initHeroVisualFallback();
+    initFaqAccordion();
+    initContactPage();
+    initVideoPlayStub();
+  });
+})();

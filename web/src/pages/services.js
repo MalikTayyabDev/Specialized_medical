@@ -142,6 +142,17 @@ const ServicesPage = () => (
       </div>
     </section>
 
+    <section className="services-subpage-banner" aria-label="Equipment detail">
+      <div className="container">
+        <Link className="services-subpage-banner__link" to="/services/equipment/">
+          Monitoring equipment options
+          <span className="services-subpage-banner__arrow" aria-hidden>
+            →
+          </span>
+        </Link>
+      </div>
+    </section>
+
     <section
       className="services-cap"
       id="capabilities"

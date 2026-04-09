@@ -1,10 +1,9 @@
 import * as React from "react"
 import { ICON } from "../components/Layout"
 
-/* Drop your landscape banner at: web/static/images/hero-banner.jpg */
 const HERO_BANNER = "/images/hero-banner.jpg"
 const HERO_FALLBACK =
-  "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1600&q=85"
+  "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=85"
 
 const IMG = {
   video:
@@ -27,17 +26,29 @@ function StarRow() {
 }
 
 const IndexPage = () => {
+  React.useEffect(() => {
+    const el = document.querySelector(".hero.hero--reference")
+    if (!el) return
+    const probe = new Image()
+    probe.onerror = () => {
+      el.style.backgroundImage = `url(${HERO_FALLBACK})`
+      el.style.backgroundSize = "cover"
+      el.style.backgroundPosition = "70% center"
+    }
+    probe.src = HERO_BANNER
+  }, [])
+
   return (
     <main className="home-page">
         {/* ================================================================ */}
         {/* Hero — headline, supporting copy, primary actions, hero visual   */}
         {/* ================================================================ */}
-        <section className="hero" aria-label="Hero banner">
-          <div className="container hero__banner">
-            <div className="hero__content">
+        <section className="hero hero--reference" aria-label="Hero banner">
+          <div className="hero--reference__grid">
+            <div className="hero--reference__copy">
               <p className="hero__pill">
                 <span className="hero__pill-dot" aria-hidden />
-                Complete Turn-Key Cardiac Monitoring
+                A complete cardiac monitoring solution
               </p>
               <h1 className="hero__title">
                 <span className="hero__title-line hero__title--sans">
@@ -47,70 +58,35 @@ const IndexPage = () => {
                   Better.
                 </span>
               </h1>
-              <div className="hero__lead">
-                <div className="hero__subhead">
-                  <div className="hero__subhead-title">LIVE ECG DATA</div>
-                  <div className="hero__subhead-meta">
-                    Holter · Extended Holter · Event · Telemetry (MCT)
-                  </div>
-                </div>
-                <div className="hero__subhead hero__subhead--compact">
-                  <div className="hero__subhead-title hero__subhead-title--accent">
-                    ALL FROM ONE DEVICE
-                  </div>
-                  <div className="hero__subhead-meta">
-                    Industry-Leading ECG / P-Wave Clarity
-                  </div>
-                </div>
-              </div>
-              <div className="hero-cta-strip">
-                <a className="btn btn--outline" href="/contact/">
-                  Request a Demo
+              <p className="hero--reference__tagline">
+                <strong>LIVE ECG DATA.</strong> Real-time monitoring from the
+                palm of your hand.
+              </p>
+              <div className="hero__actions">
+                <a className="btn btn--video" href="#video-overview">
+                  Watch Video
                 </a>
                 <a className="btn btn--primary" href="/contact/">
-                  Start Your No-Risk Beta Trial
-                </a>
-                <a className="hero-cta-strip__link" href="/contact/">
-                  Talk to Our Team<span aria-hidden>→</span>
+                  Get Started Now
                 </a>
               </div>
             </div>
-            <div className="hero__media">
-              <img
-                className="hero__media-img"
-                src={HERO_BANNER}
-                onError={(e) => {
-                  const el = e.currentTarget
-                  if (el.dataset.fallbackApplied !== "1") {
-                    el.dataset.fallbackApplied = "1"
-                    el.src = HERO_FALLBACK
-                  }
-                }}
-                alt="Clinical care and cardiac monitoring"
-                loading="eager"
-                decoding="async"
-                width={1200}
-                height={675}
-              />
-              <div className="hero__chips" aria-hidden>
-                <div className="hero__chip hero__chip--top">
-                  Four tests from one device
-                </div>
-                <div className="hero__chip hero__chip--right">
-                  24/7 monitoring and alerts
-                </div>
-                <div className="hero__chip hero__chip--bottom">
-                  Live-streaming ECG data
-                </div>
-              </div>
-            </div>
+            <div
+              className="hero--reference__visual"
+              aria-hidden="true"
+              role="presentation"
+            />
           </div>
         </section>
 
         {/* ================================================================ */}
         {/* Video overview — title + video thumbnail with play control        */}
         {/* ================================================================ */}
-        <section className="section-video" aria-labelledby="video-heading">
+        <section
+          className="section-video"
+          id="video-overview"
+          aria-labelledby="video-heading"
+        >
           <div className="container video-band">
             <h2 id="video-heading" className="video-band__title">
               Watch The Specialized
@@ -158,7 +134,7 @@ const IndexPage = () => {
                 <div className="card-apart__icon">
                   <img src={ICON("vector3525-f3b.svg")} alt="" />
                 </div>
-                <h3>No Steering, No Hassle</h3>
+                <h3>No Leasing, No Hassle</h3>
                 <p>
                   Our platform is designed for continuous, resilient real-time
                   data streaming across patient environments, including rural
@@ -171,7 +147,7 @@ const IndexPage = () => {
                 <div className="card-apart__icon">
                   <img src={ICON("vector3525-kmvj.svg")} alt="" />
                 </div>
-                <h3>Real Time Results</h3>
+                <h3>Real-Time Data</h3>
                 <p>
                   Perform Holter, Extended Holter, Event, and Telemetry (MCT)
                   tests—individually or in sequence—with one monitor and rapid
@@ -182,7 +158,7 @@ const IndexPage = () => {
                 <div className="card-apart__icon">
                   <img src={ICON("vector3525-wjr6.svg")} alt="" />
                 </div>
-                <h3>Symptomatic &amp; Asymptomatic Clarity</h3>
+                <h3>Symptomatic vs. Asymptomatic Clarity</h3>
                 <p>
                   Symptoms are captured digitally during the test and appear on
                   the final report with the related ECG strips—so it is clear
@@ -194,10 +170,11 @@ const IndexPage = () => {
                 <div className="card-apart__icon">
                   <img src={ICON("fi18181343526-83wj.svg")} alt="" />
                 </div>
-                <h3>Ideal For TAVI Programs</h3>
+                <h3>Flexible Staff Programs</h3>
                 <p>
                   Continuous live-streaming ECG supports closer post-procedure
-                  monitoring and faster awareness of concerning rhythm changes.
+                  monitoring and faster awareness of concerning rhythm
+                  changes—aligned with how your team works.
                 </p>
               </article>
             </div>
@@ -215,24 +192,16 @@ const IndexPage = () => {
             <div className="services-row">
               {[
                 ["Holter", "24–48 hours"],
-                ["Extended Holter", "48h – 7 days"],
-                ["Extended Holter", "7 – 14 days"],
-                ["MCT (Telemetry)", "1 – 30 days"],
-                ["MCT (Telemetry)", "Post TAVR"],
-                ["Event Monitoring", "1 – 30 days"],
+                ["Event / MCT", "1 – 30 days"],
+                ["Extended Holter", "48h – 14 days"],
+                ["Clinic Monitoring", "On-site support"],
+                ["MCT (Relationship)", "Partnership programs"],
+                ["MCT (Patient-pay)", "Flexible options"],
               ].map(([title, sub]) => (
                 <article key={title + sub} className="card-service">
                   <h3>{title}</h3>
-                  <p
-                    style={{
-                      margin: 0,
-                      fontSize: "0.8125rem",
-                      color: "var(--color-text-soft)",
-                    }}
-                  >
-                    {sub}
-                  </p>
-                  <a href="/solutions/">Learn More</a>
+                  <p className="card-service__meta">{sub}</p>
+                  <a href="/services/">Learn More</a>
                 </article>
               ))}
             </div>
@@ -263,17 +232,18 @@ const IndexPage = () => {
               </div>
               <div className="workflow-step">
                 <div className="workflow-step__num">02</div>
-                <h3>Hook Up</h3>
+                <h3>Monitor</h3>
                 <p>
-                  Attach electrodes and the monitor to the patient in your
-                  office.
+                  Live ECG streams to our team with alerts and review while the
+                  patient goes about daily life.
                 </p>
               </div>
               <div className="workflow-step">
                 <div className="workflow-step__num">03</div>
-                <h3>Disconnect</h3>
+                <h3>Document</h3>
                 <p>
-                  Send the patient home—we take over monitoring from here.
+                  Reports and summaries are delivered into your workflow—clear,
+                  timely, and ready for clinical action.
                 </p>
               </div>
             </div>
@@ -342,7 +312,7 @@ const IndexPage = () => {
                 <div className="card-turnkey__icon">
                   <img src={ICON("vector3526-owz9.svg")} alt="" />
                 </div>
-                <h3>Lightweight &amp; Water Resistant Device</h3>
+                <h3>Advanced Monitoring Devices</h3>
                 <p>
                   A discreet monitor that fits real life—designed for comfort and
                   durability while delivering dependable signal quality for
@@ -353,7 +323,7 @@ const IndexPage = () => {
                 <div className="card-turnkey__icon">
                   <img src={ICON("vector3526-3i69.svg")} alt="" />
                 </div>
-                <h3>24/7/365 Monitoring Support</h3>
+                <h3>Superior Support Team</h3>
                 <p>
                   Around-the-clock monitoring and responsive support so your team
                   is never alone when timing matters for patient outcomes.
@@ -435,9 +405,10 @@ const IndexPage = () => {
         {/* AI-generated testimonial — headline + portrait media              */}
         {/* ================================================================ */}
         <section className="section-ai" aria-labelledby="ai-heading">
-          <div className="container ai-band">
+          <div className="container ai-band ai-band--split">
             <h2 id="ai-heading" className="ai-band__title">
-              AI-Generated <span className="accent">Testimonial</span>
+              AI-Generated Testimonial: What It&apos;s Like Wearing the{" "}
+              <span className="accent">S-Patch Monitor</span>
             </h2>
             <div className="ai-band__media">
               <img
@@ -465,7 +436,7 @@ const IndexPage = () => {
             </p>
             <div className="section-cta__actions">
               <a className="btn btn--primary" href="/contact/">
-                Start Your Free Trial
+                Get Started Now
               </a>
               <a className="btn btn--ghost" href="/contact/">
                 Talk to an Expert →

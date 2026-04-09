@@ -5,6 +5,7 @@ import "./src/styles/services.css"
 import "./src/styles/about.css"
 import "./src/styles/faq.css"
 import "./src/styles/contact.css"
+import "./src/styles/equipment.css"
 import Layout from "./src/components/Layout"
 
 export const wrapPageElement = ({ element, props }) => (
