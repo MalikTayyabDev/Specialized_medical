@@ -24,7 +24,7 @@
       setOpen(!inner.classList.contains("nav-open"));
     });
 
-    qsa(".site-nav a", inner).forEach(function (link) {
+    qsa(".site-nav a, .figma-nav a", inner).forEach(function (link) {
       link.addEventListener("click", function () {
         setOpen(false);
       });
@@ -37,9 +37,19 @@
   }
 
   function initHeroVisualFallback() {
+    var img = qs(".figma-hero__photo");
+    if (img) {
+      var fallback =
+        "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=85";
+      img.addEventListener("error", function onHeroImgErr() {
+        img.removeEventListener("error", onHeroImgErr);
+        img.src = fallback;
+      });
+      return;
+    }
     var el = qs(".hero.hero--reference");
     if (!el) return;
-    var local = "/images/hero-banner.jpg";
+    var local = "images/hero-banner.jpg";
     var fallback =
       "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=85";
     var probe = new Image();
@@ -135,6 +145,42 @@
     });
   }
 
+  function initOverviewVideo() {
+    var frame = qs("[data-overview-video]");
+    var video = frame ? frame.querySelector(".figma-video__media") : null;
+    var overlay = qs("[data-overview-overlay]");
+    var btn = qs("[data-overview-play]");
+    if (!frame || !video || !overlay || !btn) return;
+
+    function setPlaying(on) {
+      frame.classList.toggle("is-playing", on);
+      btn.setAttribute("aria-label", on ? "Pause overview video" : "Play overview video");
+    }
+
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (video.paused) {
+        video.play().catch(function () {});
+      } else {
+        video.pause();
+      }
+    });
+
+    video.addEventListener("click", function () {
+      if (!video.paused) {
+        video.pause();
+      }
+    });
+
+    video.addEventListener("playing", function () {
+      setPlaying(true);
+    });
+
+    video.addEventListener("pause", function () {
+      setPlaying(false);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initNav();
     initFooterYear();
@@ -142,5 +188,6 @@
     initFaqAccordion();
     initContactPage();
     initVideoPlayStub();
+    initOverviewVideo();
   });
 })();
