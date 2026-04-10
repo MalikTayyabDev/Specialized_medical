@@ -37,33 +37,44 @@
     </header>
 
     <main class="home-page home-page--figma">
-      <section class="figma-hero" aria-label="Hero">
-        <div class="figma-hero__plate">
-          <img class="figma-hero__photo" src="images/figma-assets/hero-panel.jpg" alt="" width="1420" height="850" decoding="async">
-          <div class="figma-hero__gradient" aria-hidden="true"></div>
-          <div class="figma-hero__content figma-container">
-            <p class="figma-hero__pill">
-              <span class="figma-hero__pill-dot" aria-hidden="true"></span>
-              Complete Turn-Key Cardiac Monitoring
-            </p>
-            <h1 class="figma-hero__title">
-              <span class="figma-hero__title-row">
-                <span class="figma-hero__uc">D</span><span class="figma-hero__lc">OCTORS </span>
-                <span class="figma-hero__uc">D</span><span class="figma-hero__lc">ESERVE</span>
-              </span>
-              <span class="figma-hero__title-accent">Better.</span>
-            </h1>
-            <div class="figma-hero__sub">
-              <p class="figma-hero__sub-line figma-hero__sub-line--lg">LIVE ECG DATA</p>
-              <p class="figma-hero__sub-line">Holter - Extended Holter - Event - Telemetry (MCT)</p>
-              <p class="figma-hero__sub-line figma-hero__sub-line--spaced"><span class="figma-hero__allcaps">ALL FROM ONE DEVICE</span></p>
-              <p class="figma-hero__sub-line">Industry-Leading ECG / P-Wave Clarity</p>
+      <!-- Hero: Figma node 12:11 — split layout (copy + image + chips) -->
+      <section class="figma-hero figma-hero--split" aria-label="Hero">
+        <div class="figma-hero__split-plate">
+          <div class="figma-container figma-hero__split-inner">
+            <div class="figma-hero__copy">
+              <p class="figma-hero__pill">
+                <span class="figma-hero__pill-dot" aria-hidden="true"></span>
+                Complete Turn-Key Cardiac Monitoring
+              </p>
+              <h1 class="figma-hero__title">
+                  <span class="figma-hero__lc">DOCTORS DESERVE</span>
+                <span class="figma-hero__title-accent">Better.</span>
+              </h1>
+              <div class="figma-hero__sub">
+                <p class="figma-hero__sub-line figma-hero__sub-line--lg">LIVE ECG DATA</p>
+                <p class="figma-hero__sub-line">Holter - Extended Holter - Event - Telemetry (MCT)</p>
+                <p class="figma-hero__sub-line figma-hero__sub-line--spaced"><span class="figma-hero__allcaps">ALL FROM ONE DEVICE</span></p>
+                <p class="figma-hero__sub-line">Industry-Leading ECG / P-Wave Clarity</p>
+              </div>
+              <div class="figma-hero__actions">
+                <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+                <a class="figma-btn figma-btn--solid" href="contact.html">Start Your No-Risk Beta Trial</a>
+              </div>
+              <p class="figma-hero__talk"><a href="contact.html">Talk to Our Team→</a></p>
             </div>
-            <div class="figma-hero__actions">
-              <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
-              <a class="figma-btn figma-btn--solid" href="contact.html">Start Your No-Risk Beta Trial</a>
+            <div class="figma-hero__visual">
+              <p class="figma-hero__chip figma-hero__chip--tl">Four tests from one device</p>
+              <p class="figma-hero__chip figma-hero__chip--bl">Live-streaming ECG data</p>
+              <p class="figma-hero__chip figma-hero__chip--mr">24/7 monitoring and alerts</p>
+              <img
+                class="figma-hero__photo"
+                src="images/figma-assets/hero-split-photo.jpg"
+                alt="Patient wearing a lightweight cardiac monitor"
+                width="631"
+                height="745"
+                decoding="async"
+              >
             </div>
-            <p class="figma-hero__talk"><a href="contact.html">Talk to Our Team→</a></p>
           </div>
         </div>
       </section>
@@ -215,7 +226,7 @@
       <section class="figma-section figma-ecg" aria-labelledby="figma-ecg-heading">
         <div class="figma-container figma-ecg__grid">
           <div class="figma-ecg__visual">
-            <video class="figma-ecg__video" src="video/WhatsApp Video 2026-04-02 at 10.32.10 PM.mp4" type="video/mp4" controls="controls" autoplay="autoplay" loop="loop"></video>
+            <video class="figma-ecg__video" src="video/WhatsApp Video 2026-04-02 at 10.32.10 PM.mp4" type="video/mp4" controls="controls" loop="loop"></video>
 
           </div>
           <div class="figma-ecg__copy">
@@ -314,7 +325,7 @@
             </h2>
           </div>
           <div class="figma-ai__media">
-           <video class="figma-ai__video" src="video/Avatar_Video_Take_14_buttons.mp4" width="520" height="906" type="video/mp4" controls="controls" autoplay="autoplay" loop="loop"></video>
+           <video class="figma-ai__video" src="video/Avatar_Video_Take_14_buttons.mp4" width="520" height="906" type="video/mp4" controls="controls" loop="loop"></video>
           </div>
         </div>
       </section>
