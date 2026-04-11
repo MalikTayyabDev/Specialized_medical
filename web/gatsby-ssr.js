@@ -13,7 +13,8 @@ export const wrapPageElement = ({ element, props }) => (
 )
 
 /** Global fonts for all routes (avoid duplicating in every page Head) */
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
+  setHtmlAttributes({ lang: "en" })
   setHeadComponents([
     <link
       key="preconnect-gfonts"

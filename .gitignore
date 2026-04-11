@@ -2,6 +2,8 @@
 web/node_modules/
 web/.cache/
 web/public/
+# Duplicate of repo-root static-site (do not commit)
+web/static-site/
 
 # OS
 .DS_Store

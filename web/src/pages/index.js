@@ -1,449 +1,658 @@
 import * as React from "react"
-import { ICON } from "../components/Layout"
+import { Link } from "gatsby"
+import { ICON, imagesPath } from "../components/Layout"
 
-const HERO_BANNER = "/images/hero-banner.jpg"
-const HERO_FALLBACK =
+const HERO_IMG_FALLBACK =
   "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=85"
 
-const IMG = {
-  video:
-    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80",
-  ecgApp:
-    "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
-  aiTestimonial:
-    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=900&q=80",
-}
-
-function StarRow() {
-  const src = ICON("star13663-lr4m.svg")
-  return (
-    <div className="stars" aria-hidden>
-      {[0, 1, 2, 3, 4].map((i) => (
-        <img key={i} src={src} alt="" width={22} height={22} />
-      ))}
-    </div>
-  )
+const VIDEO = {
+  overview: `/video/${encodeURIComponent(
+    "WhatsApp Video 2026-04-02 at 1.51.27 AM.mp4"
+  )}`,
+  ecg: `/video/${encodeURIComponent(
+    "WhatsApp Video 2026-04-02 at 10.32.10 PM.mp4"
+  )}`,
+  ai: `/video/${encodeURIComponent("Avatar_Video_Take_14_buttons.mp4")}`,
 }
 
 const IndexPage = () => {
+  const overviewFrameRef = React.useRef(null)
+
   React.useEffect(() => {
-    const el = document.querySelector(".hero.hero--reference")
-    if (!el) return
-    const probe = new Image()
-    probe.onerror = () => {
-      el.style.backgroundImage = `url(${HERO_FALLBACK})`
-      el.style.backgroundSize = "cover"
-      el.style.backgroundPosition = "70% center"
+    const frame = overviewFrameRef.current
+    if (!frame) return
+    const video = frame.querySelector(".figma-video__media")
+    const btn = frame.querySelector("[data-overview-play]")
+    if (!video || !btn) return
+
+    function setPlaying(on) {
+      frame.classList.toggle("is-playing", on)
+      btn.setAttribute(
+        "aria-label",
+        on ? "Pause overview video" : "Play overview video"
+      )
     }
-    probe.src = HERO_BANNER
+
+    const onBtnClick = (e) => {
+      e.stopPropagation()
+      if (video.paused) {
+        video.play().catch(() => {})
+      } else {
+        video.pause()
+      }
+    }
+    const onVideoClick = () => {
+      if (!video.paused) video.pause()
+    }
+    const onPlaying = () => setPlaying(true)
+    const onPause = () => setPlaying(false)
+
+    btn.addEventListener("click", onBtnClick)
+    video.addEventListener("click", onVideoClick)
+    video.addEventListener("playing", onPlaying)
+    video.addEventListener("pause", onPause)
+
+    return () => {
+      btn.removeEventListener("click", onBtnClick)
+      video.removeEventListener("click", onVideoClick)
+      video.removeEventListener("playing", onPlaying)
+      video.removeEventListener("pause", onPause)
+    }
   }, [])
 
   return (
-    <main className="home-page">
-        {/* ================================================================ */}
-        {/* Hero — headline, supporting copy, primary actions, hero visual   */}
-        {/* ================================================================ */}
-        <section className="hero hero--reference" aria-label="Hero banner">
-          <div className="hero--reference__grid">
-            <div className="hero--reference__copy">
-              <p className="hero__pill">
-                <span className="hero__pill-dot" aria-hidden />
-                A complete cardiac monitoring solution
+    <main className="home-page home-page--figma">
+      <section className="figma-hero figma-hero--split" aria-label="Hero">
+        <div className="figma-hero__split-plate">
+          <div className="figma-container figma-hero__split-inner">
+            <div className="figma-hero__copy">
+              <p className="figma-hero__pill">
+                <span className="figma-hero__pill-dot" aria-hidden="true" />
+                Complete Turn-Key Cardiac Monitoring
               </p>
-              <h1 className="hero__title">
-                <span className="hero__title-line hero__title--sans">
-                  Doctors Deserve
-                </span>
-                <span className="hero__title-line hero__title--display">
-                  Better.
-                </span>
+              <h1 className="figma-hero__title">
+                <span className="figma-hero__lc">DOCTORS DESERVE</span>
+                <span className="figma-hero__title-accent">Better.</span>
               </h1>
-              <p className="hero--reference__tagline">
-                <strong>LIVE ECG DATA.</strong> Real-time monitoring from the
-                palm of your hand.
+              <div className="figma-hero__sub">
+                <p className="figma-hero__sub-line figma-hero__sub-line--lg">
+                  LIVE ECG DATA
+                </p>
+                <p className="figma-hero__sub-line">
+                  Holter - Extended Holter - Event - Telemetry (MCT)
+                </p>
+                <p className="figma-hero__sub-line figma-hero__sub-line--spaced">
+                  <span className="figma-hero__allcaps">ALL FROM ONE DEVICE</span>
+                </p>
+                <p className="figma-hero__sub-line">
+                  Industry-Leading ECG / P-Wave Clarity
+                </p>
+              </div>
+              <div className="figma-hero__actions">
+                <Link
+                  className="figma-btn figma-btn--outline-dark"
+                  to="/contact/"
+                >
+                  Request a Demo
+                </Link>
+                <Link className="figma-btn figma-btn--solid" to="/contact/">
+                  Start Your No-Risk Beta Trial
+                </Link>
+              </div>
+              <p className="figma-hero__talk">
+                <Link to="/contact/">Talk to Our Team→</Link>
               </p>
-              <div className="hero__actions">
-                <a className="btn btn--video" href="#video-overview">
-                  Watch Video
-                </a>
-                <a className="btn btn--primary" href="/contact/">
-                  Get Started Now
-                </a>
+            </div>
+            <div className="figma-hero__visual">
+              <p className="figma-hero__chip figma-hero__chip--tl">
+                Four tests from one device
+              </p>
+              <p className="figma-hero__chip figma-hero__chip--bl">
+                Live-streaming ECG data
+              </p>
+              <p className="figma-hero__chip figma-hero__chip--mr">
+                24/7 monitoring and alerts
+              </p>
+              <img
+                className="figma-hero__photo"
+                src={imagesPath("figma-assets/hero-split-photo.jpg")}
+                alt="Patient wearing a lightweight cardiac monitor"
+                width={631}
+                height={745}
+                decoding="async"
+                onError={(e) => {
+                  const el = e.currentTarget
+                  el.onerror = null
+                  el.src = HERO_IMG_FALLBACK
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="figma-section figma-video"
+        id="video-overview"
+        aria-labelledby="figma-video-heading"
+      >
+        <div className="figma-container figma-video__grid">
+          <div className="figma-video__copy">
+            <h2 id="figma-video-heading" className="figma-h2">
+              Watch the Specialized
+              <br />
+              <span className="figma-h2__accent">Medical Overview</span>
+            </h2>
+          </div>
+          <div
+            className="figma-video__frame"
+            data-overview-video
+            ref={overviewFrameRef}
+          >
+            <video
+              className="figma-video__media"
+              id="overview-video"
+              poster={imagesPath("figma-assets/Rectangle 34.png")}
+              playsInline
+              preload="metadata"
+              width={738}
+              height={442}
+            >
+              <source src={VIDEO.overview} type="video/mp4" />
+            </video>
+            <div className="figma-video__overlay" data-overview-overlay>
+              <div className="figma-video__shade" aria-hidden="true" />
+              <button
+                type="button"
+                className="figma-video__play"
+                data-overview-play
+                aria-label="Play overview video"
+              >
+                <span className="figma-video__play-circle">
+                  <img
+                    src={ICON("Group.svg")}
+                    alt=""
+                    width={87}
+                    height={87}
+                    decoding="async"
+                  />
+                </span>
+              </button>
+              <p className="figma-video__caption">
+                See how Specialized Medical works in under 60 seconds
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="figma-section figma-apart"
+        aria-labelledby="figma-apart-heading"
+      >
+        <div className="figma-container">
+          <h2 id="figma-apart-heading" className="figma-h2 figma-h2--center">
+            What Sets
+            <br />
+            <span className="figma-h2__accent">Specialized</span>{" "}
+            <span className="figma-h2__accent">Medical Apart</span>
+          </h2>
+          <div className="figma-grid-apart">
+            <article className="figma-card figma-card--apart">
+              <div className="figma-card__icon">
+                <img
+                  src={ICON("vector3525-f3b.svg")}
+                  alt=""
+                  width={22}
+                  height={22}
+                />
+              </div>
+              <h3 className="figma-card__title">
+                Live Streaming , Real-Time Data
+              </h3>
+              <p className="figma-card__body">
+                Our platform is designed for continuous, resilient real-time data
+                streaming across a wide range of patient environments, including
+                rural areas. This supports uninterrupted data capture, reduces the
+                likelihood of incomplete studies, and gives physicians greater
+                confidence in every test. Data is sent live to our monitoring
+                center no manual uploading, no data delays.
+              </p>
+            </article>
+            <article className="figma-card figma-card--apart">
+              <div className="figma-card__icon">
+                <img
+                  src={ICON("vector3525-kmvj.svg")}
+                  alt=""
+                  width={22}
+                  height={22}
+                />
+              </div>
+              <h3 className="figma-card__title">Four Tests, One Device</h3>
+              <p className="figma-card__body">
+                Perform Holter, Extended Holter, Event, and Telemetry (MCT) tests
+                — individually or in sequence — using a single monitor.
+              </p>
+            </article>
+            <article className="figma-card figma-card--apart">
+              <div className="figma-card__icon">
+                <img
+                  src={ICON("fi_3022315.png")}
+                  alt=""
+                  width={22}
+                  height={22}
+                />
+              </div>
+              <h3 className="figma-card__title">
+                Symptomatic vs. Asymptomatic Clarity
+              </h3>
+              <p className="figma-card__body">
+                Patient symptoms are entered digitally during the test and
+                automatically populate on the final report above the corresponding
+                ECG strips, making it immediately clear whether an event was
+                symptomatic or asymptomatic - with no separate handwritten symptom
+                diary required.
+              </p>
+            </article>
+            <article className="figma-card figma-card--apart">
+              <div className="figma-card__icon">
+                <img
+                  src={ICON("fi18181343526-83wj.svg")}
+                  alt=""
+                  width={22}
+                  height={22}
+                />
+              </div>
+              <h3 className="figma-card__title">Ideal for TAVR Programs</h3>
+              <p className="figma-card__body">
+                Continuous live-streaming ECG data supports closer post-procedure
+                monitoring and faster awareness of concerning rhythm changes.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="figma-section figma-services"
+        aria-labelledby="figma-services-heading"
+      >
+        <div className="figma-container">
+          <h2 id="figma-services-heading" className="figma-h2 figma-h2--left">
+            Services <span className="figma-h2__accent">Summary</span>
+          </h2>
+          <p className="figma-services__eyebrow">
+            one system, multiple monitoring options.
+          </p>
+          <div className="figma-services__row">
+            <article className="figma-svc">
+              <h3 className="figma-svc__title">Holter</h3>
+              <p className="figma-svc__meta">24–48 Hours</p>
+            </article>
+            <article className="figma-svc">
+              <h3 className="figma-svc__title">Extended Holter</h3>
+              <p className="figma-svc__meta">Greater than 48 hours up to 7 days</p>
+            </article>
+            <article className="figma-svc">
+              <h3 className="figma-svc__title">Extended Holter</h3>
+              <p className="figma-svc__meta">Greater than 7 days up to 14 days</p>
+            </article>
+            <article className="figma-svc">
+              <h3 className="figma-svc__title">Event Monitoring</h3>
+              <p className="figma-svc__meta">01 to 30 Days</p>
+            </article>
+            <article className="figma-svc">
+              <h3 className="figma-svc__title">MCT (Telemetry)</h3>
+              <p className="figma-svc__meta">1 to 30 days</p>
+            </article>
+            <article className="figma-svc">
+              <h3 className="figma-svc__title">MCT (Telemetry)</h3>
+              <p className="figma-svc__meta">for Post TAVR Patients</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="figma-section figma-workflow"
+        id="workflow"
+        aria-labelledby="figma-workflow-heading"
+      >
+        <div className="figma-container">
+          <h2 id="figma-workflow-heading" className="figma-h2 figma-h2--center">
+            Streamlined Workflow
+            <br />
+            <span className="figma-h2__accent">for Your Office</span>
+          </h2>
+          <p className="figma-workflow__intro">
+            Your medical assistant completes a simple 3-step process:{" "}
+            <strong className="figma-workflow__highlight">(Under 15 Minutes)</strong>
+          </p>
+          <div className="figma-workflow__steps">
+            <article className="figma-wstep">
+              <div className="figma-wstep__head">
+                <span className="figma-wstep__badge">01</span>
+              </div>
+              <h3 className="figma-wstep__title">Enroll</h3>
+              <p className="figma-wstep__body">
+                Register the patient in our system with a quick digital enrollment.
+              </p>
+            </article>
+            <article className="figma-wstep">
+              <div className="figma-wstep__head">
+                <span className="figma-wstep__badge">02</span>
+              </div>
+              <h3 className="figma-wstep__title">Hook-Up</h3>
+              <p className="figma-wstep__body">
+                Attach electrodes and the monitor to the patient in your office.
+              </p>
+            </article>
+            <article className="figma-wstep">
+              <div className="figma-wstep__head">
+                <span className="figma-wstep__badge">03</span>
+              </div>
+              <h3 className="figma-wstep__title">Disconnect</h3>
+              <p className="figma-wstep__body">
+                Send the patient home. We take over the monitoring from here.
+              </p>
+            </article>
+          </div>
+
+          <div className="figma-workflow__panel">
+            <p className="figma-workflow__panel-lead">
+              Once the patient leaves, we take over the rest:
+            </p>
+            <div className="figma-workflow__checks">
+              <div className="figma-workflow__check">
+                <span className="figma-dot" aria-hidden="true" /> 24/7 live
+                monitoring across all test types
+              </div>
+              <div className="figma-workflow__check">
+                <span className="figma-dot" aria-hidden="true" /> Real-time
+                arrhythmia alerts by email, text, or phone call
+              </div>
+              <div className="figma-workflow__check">
+                <span className="figma-dot" aria-hidden="true" /> Automatic
+                generation and delivery of final reports
+              </div>
+              <div className="figma-workflow__check">
+                <span className="figma-dot" aria-hidden="true" /> Patient support
+                through our 24/7 multilingual call center
               </div>
             </div>
-            <div
-              className="hero--reference__visual"
-              aria-hidden="true"
-              role="presentation"
+            <p className="figma-workflow__footnote">
+              When the patient returns the device, it is ready for the next patient
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="figma-section figma-ecg" aria-labelledby="figma-ecg-heading">
+        <div className="figma-container figma-ecg__grid">
+          <div className="figma-ecg__visual">
+            <video
+              className="figma-ecg__video"
+              src={VIDEO.ecg}
+              controls
+              loop
             />
           </div>
-        </section>
-
-        {/* ================================================================ */}
-        {/* Video overview — title + video thumbnail with play control        */}
-        {/* ================================================================ */}
-        <section
-          className="section-video"
-          id="video-overview"
-          aria-labelledby="video-heading"
-        >
-          <div className="container video-band">
-            <h2 id="video-heading" className="video-band__title">
-              Watch The Specialized
+          <div className="figma-ecg__copy">
+            <h2
+              id="figma-ecg-heading"
+              className="figma-h2 figma-h2--left figma-h2--tight"
+            >
+              Live ECG &amp;
               <br />
-              <span className="accent">Medical Overview</span>
+              <span className="figma-h2__accent">Symptom Logging</span>
             </h2>
-            <div className="video-frame">
-              <img
-                src={IMG.video}
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <a
-                className="video-frame__play"
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                aria-label="Play Specialized Medical overview video (add your video URL)"
-              >
-                <span className="video-frame__play-btn">
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 5v14l11-7L8 5z" fill="currentColor" />
-                  </svg>
-                </span>
-              </a>
-            </div>
+            <p className="figma-ecg__lead">
+              Our platform streams ECG data in real-time, allowing physicians to
+              monitor patients remotely with confidence. Patient symptoms are
+              entered digitally and automatically populate on the final report,
+              making it immediately clear whether an event was symptomatic or
+              asymptomatic.
+            </p>
+            <ul className="figma-ecg__list">
+              <li>Physicians see live rhythm data as it is acquired.</li>
+              <li>Patients log symptoms digitally during the study.</li>
+              <li className="figma-ecg__emph">
+                Symptoms are logged digitally and matched directly to ECG events on
+                the final report.
+              </li>
+            </ul>
+            <p
+              className="figma-ecg__lead"
+              style={{ color: "#231F1E", fontSize: 16, fontWeight: 500 }}
+            >
+              Symptoms are logged digitally and matched directly to ECG events on
+              the final report.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ================================================================ */}
-        {/* What sets us apart — 2×2 feature cards                           */}
-        {/* ================================================================ */}
-        <section
-          className="section-apart"
-          aria-labelledby="apart-heading"
-        >
-          <div className="container">
-            <h2 id="apart-heading" className="section-title">
-              What Sets
-              <br />
-              <span className="accent">Specialized Medical Apart</span>
-            </h2>
-            <div className="grid-apart">
-              <article className="card-apart">
-                <div className="card-apart__icon">
-                  <img src={ICON("vector3525-f3b.svg")} alt="" />
-                </div>
-                <h3>No Leasing, No Hassle</h3>
-                <p>
-                  Our platform is designed for continuous, resilient real-time
-                  data streaming across patient environments, including rural
-                  areas—so studies stay complete and physicians can trust every
-                  test. Data streams live to our monitoring center with no manual
-                  uploads and no unnecessary delays.
-                </p>
-              </article>
-              <article className="card-apart">
-                <div className="card-apart__icon">
-                  <img src={ICON("vector3525-kmvj.svg")} alt="" />
-                </div>
-                <h3>Real-Time Data</h3>
-                <p>
-                  Perform Holter, Extended Holter, Event, and Telemetry (MCT)
-                  tests—individually or in sequence—with one monitor and rapid
-                  visibility into what matters for patient care.
-                </p>
-              </article>
-              <article className="card-apart">
-                <div className="card-apart__icon">
-                  <img src={ICON("vector3525-wjr6.svg")} alt="" />
-                </div>
-                <h3>Symptomatic vs. Asymptomatic Clarity</h3>
-                <p>
-                  Symptoms are captured digitally during the test and appear on
-                  the final report with the related ECG strips—so it is clear
-                  whether an event was symptomatic or asymptomatic, with no
-                  separate paper diary.
-                </p>
-              </article>
-              <article className="card-apart">
-                <div className="card-apart__icon">
-                  <img src={ICON("fi18181343526-83wj.svg")} alt="" />
-                </div>
-                <h3>Flexible Staff Programs</h3>
-                <p>
-                  Continuous live-streaming ECG supports closer post-procedure
-                  monitoring and faster awareness of concerning rhythm
-                  changes—aligned with how your team works.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* ================================================================ */}
-        {/* Services summary — horizontal service cards                      */}
-        {/* ================================================================ */}
-        <section className="section-services" aria-labelledby="services-heading">
-          <div className="container">
-            <h2 id="services-heading" className="section-title">
-              Services <span className="accent">Summary</span>
-            </h2>
-            <div className="services-row">
-              {[
-                ["Holter", "24–48 hours"],
-                ["Event / MCT", "1 – 30 days"],
-                ["Extended Holter", "48h – 14 days"],
-                ["Clinic Monitoring", "On-site support"],
-                ["MCT (Relationship)", "Partnership programs"],
-                ["MCT (Patient-pay)", "Flexible options"],
-              ].map(([title, sub]) => (
-                <article key={title + sub} className="card-service">
-                  <h3>{title}</h3>
-                  <p className="card-service__meta">{sub}</p>
-                  <a href="/services/">Learn More</a>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ================================================================ */}
-        {/* Workflow — 3 steps + 2×2 benefit grid                             */}
-        {/* ================================================================ */}
-        <section
-          className="section-workflow"
-          id="workflow"
-          aria-labelledby="workflow-heading"
-        >
-          <div className="container">
-            <h2 id="workflow-heading" className="section-title">
-              Streamlined Workflow{" "}
-              <span className="accent">For Your Office</span>
-            </h2>
-            <div className="workflow-steps">
-              <div className="workflow-step">
-                <div className="workflow-step__num">01</div>
-                <h3>Enroll</h3>
-                <p>
-                  Register the patient in our system with a quick digital
-                  enrollment.
-                </p>
+      <section
+        className="figma-section figma-turnkey"
+        aria-labelledby="figma-turnkey-heading"
+      >
+        <div className="figma-container">
+          <p className="figma-turnkey__eyebrow">
+            Everything needed from start to finish.
+          </p>
+          <h2 id="figma-turnkey-heading" className="figma-h2 figma-h2--center">
+            The Complete
+            <br />
+            <span className="figma-h2__accent">Turnkey Package</span>
+          </h2>
+          <div className="figma-grid-turnkey">
+            <article className="figma-card figma-card--turnkey">
+              <div className="figma-card__icon">
+                <img
+                  src={ICON("Group (1).svg")}
+                  alt=""
+                  width={22}
+                  height={22}
+                />
               </div>
-              <div className="workflow-step">
-                <div className="workflow-step__num">02</div>
-                <h3>Monitor</h3>
-                <p>
-                  Live ECG streams to our team with alerts and review while the
-                  patient goes about daily life.
-                </p>
-              </div>
-              <div className="workflow-step">
-                <div className="workflow-step__num">03</div>
-                <h3>Document</h3>
-                <p>
-                  Reports and summaries are delivered into your workflow—clear,
-                  timely, and ready for clinical action.
-                </p>
-              </div>
-            </div>
-            <div className="check-grid">
-              <div className="check-cell">
-                24/7 live monitoring across Holter, Extended Holter, Event, and
-                Telemetry (MCT).
-              </div>
-              <div className="check-cell">
-                Real-time arrhythmia alerts delivered by email, text, or phone
-                call.
-              </div>
-              <div className="check-cell">
-                Automatic generation and delivery of final reports to your
-                workflow.
-              </div>
-              <div className="check-cell">
-                Multilingual patient support through our 24/7 call center.
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================================================================ */}
-        {/* Live ECG & symptom logging — device visual + bullets               */}
-        {/* ================================================================ */}
-        <section className="section-ecg" aria-labelledby="ecg-heading">
-          <div className="container ecg-band">
-            <div className="ecg-band__visual">
-              <img
-                src={IMG.ecgApp}
-                alt="Mobile app interface showing live ECG monitoring"
-                loading="lazy"
-              />
-            </div>
-            <div className="ecg-band__copy">
-              <h2 id="ecg-heading">
-                Live ECG &amp;{" "}
-                <span className="accent">Symptom Logging</span>
-              </h2>
-              <p>
-                Our platform streams ECG data in real time so physicians can
-                monitor patients remotely with confidence. Symptoms are captured
-                digitally and reflected on the final report for clear
-                symptomatic vs. asymptomatic context.
+              <h3 className="figma-card__title">
+                Significant Reimbursement Potential
+              </h3>
+              <p className="figma-card__body">
+                Practices routinely receive gross reimbursements exceeding $875.00
+                for a Holter test followed by a Telemetry test, based on current
+                Medicare rates.
               </p>
-              <ul className="ecg-list">
-                <li>Real-time data visibility for your clinical team</li>
-                <li>Digital symptom logging tied to ECG segments</li>
-                <li>Clear reporting for symptomatic vs. asymptomatic events</li>
-              </ul>
-            </div>
+            </article>
+            <article className="figma-card figma-card--turnkey">
+              <div className="figma-card__icon">
+                <img
+                  src={ICON("fi_6895300.svg")}
+                  alt=""
+                  width={22}
+                  height={22}
+                />
+              </div>
+              <h3 className="figma-card__title">Zero Cost Equipment Program</h3>
+              <p className="figma-card__body">
+                We provide as many monitors as your patient volume requires, along
+                with all necessary supplies: electrodes, batteries, razors, alcohol
+                wipes, and more. There is no equipment to buy - ever.
+              </p>
+            </article>
+            <article className="figma-card figma-card--turnkey">
+              <div className="figma-card__icon">
+                <img
+                  src={ICON("fi151927003526-1meh.svg")}
+                  alt=""
+                  width={22}
+                  height={22}
+                />
+              </div>
+              <h3 className="figma-card__title">Patient-Friendly Design</h3>
+              <p className="figma-card__body">
+                Each monitor weighs less than four sheets of paper (0.6 oz), runs
+                up to 10 days per battery, is waterresistant (IP55), and offers
+                industry-leading ECG clarity, including precise P-wave definition.
+              </p>
+            </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ================================================================ */}
-        {/* Turnkey package — 3 benefit cards on soft pink background         */}
-        {/* ================================================================ */}
-        <section className="section-turnkey" aria-labelledby="turnkey-heading">
-          <div className="container">
-            <h2 id="turnkey-heading" className="section-title">
-              The Complete <span className="accent">Turnkey Package</span>
-            </h2>
-            <div className="grid-turnkey">
-              <article className="card-turnkey">
-                <div className="card-turnkey__icon">
-                  <img src={ICON("vector3526-owz9.svg")} alt="" />
-                </div>
-                <h3>Advanced Monitoring Devices</h3>
-                <p>
-                  A discreet monitor that fits real life—designed for comfort and
-                  durability while delivering dependable signal quality for
-                  confident reads.
+      <section
+        className="figma-section figma-testimonials"
+        aria-labelledby="figma-testimonials-heading"
+      >
+        <div className="figma-container">
+          <h2
+            id="figma-testimonials-heading"
+            className="figma-h2 figma-h2--center"
+          >
+            Real Experiences with
+            <br />
+            <span className="figma-h2__accent">Specialized Medical</span>
+          </h2>
+          <div className="figma-deco-line" aria-hidden="true" />
+          <div className="figma-testimonial-grid">
+            <article className="figma-tcard">
+              <div className="figma-tcard__contect-container">
+                <h3 className="figma-tcard__label">Patient comfort / ease of use</h3>
+                <p className="figma-tcard__quote">
+                  “I wore the S-Patch Monitor from Specialized Medical all week. It
+                  was easy and hassle free. Was not a problem at all. The monitor I
+                  wore was very small. I didn’t even realize I was wearing it...”{" "}
+                  <a
+                    className="figma-tcard__more"
+                    href="#"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    see more
+                  </a>
                 </p>
-              </article>
-              <article className="card-turnkey">
-                <div className="card-turnkey__icon">
-                  <img src={ICON("vector3526-3i69.svg")} alt="" />
-                </div>
-                <h3>Superior Support Team</h3>
-                <p>
-                  Around-the-clock monitoring and responsive support so your team
-                  is never alone when timing matters for patient outcomes.
+              </div>
+              <div className="figma-tcard__stars-container">
+                <img
+                  className="figma-tcard__stars"
+                  src={imagesPath("figma-assets/stars-row.png")}
+                  alt=""
+                  width={136}
+                  height={24}
+                  decoding="async"
+                />
+                <p className="figma-tcard__author">R. Gall</p>
+              </div>
+            </article>
+            <article className="figma-tcard">
+              <div className="figma-tcard__contect-container">
+                <h3 className="figma-tcard__label">Life-saving detection</h3>
+                <p className="figma-tcard__quote">
+                  “If it was not for Specialized Medical’s technology and service I
+                  am not sureif this patient would be around today.”
                 </p>
-              </article>
-              <article className="card-turnkey">
-                <div className="card-turnkey__icon">
-                  <img src={ICON("fi151927003526-1meh.svg")} alt="" />
-                </div>
-                <h3>Patient-Friendly Design</h3>
-                <p>
-                  Lightweight monitors, multi-day battery life, water
-                  resistance, and industry-leading ECG clarity—including precise
-                  P-wave definition when it matters most.
-                </p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* ================================================================ */}
-        {/* Testimonials — three cards + pager dots                           */}
-        {/* ================================================================ */}
-        <section
-          className="section-testimonials"
-          aria-labelledby="testimonials-heading"
-        >
-          <div className="container">
-            <h2 id="testimonials-heading" className="section-title">
-              Real Experiences With{" "}
-              <span className="accent">Specialized Medical</span>
-            </h2>
-            <div className="testimonial-grid">
-              <article className="card-testimonial">
-                <p className="card-testimonial__label">
-                  Patient comfort / ease of use
-                </p>
-                <p>
-                  “I wore the S-Patch monitor from Specialized Medical all week.
-                  It was easy and hassle free—the device was so small I barely
-                  noticed it.”
-                </p>
-                <StarRow />
-                <span className="card-testimonial__author">R. Gall</span>
-              </article>
-              <article className="card-testimonial">
-                <p className="card-testimonial__label">Life-saving detection</p>
-                <p>
-                  “If it was not for Specialized Medical&apos;s technology and
-                  service I am not sure this patient would be around today.”
-                </p>
-                <StarRow />
-                <span className="card-testimonial__author">
-                  — Dr. Catalina R.S.
-                </span>
-              </article>
-              <article className="card-testimonial">
-                <p className="card-testimonial__label">
+                <a
+                  className="figma-tcard__link"
+                  href="#"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  View Full Case Study→
+                </a>
+              </div>
+              <div className="figma-tcard__stars-container">
+                <img
+                  className="figma-tcard__stars"
+                  src={imagesPath("figma-assets/stars-row.png")}
+                  alt=""
+                  width={136}
+                  height={24}
+                  decoding="async"
+                />
+                <p className="figma-tcard__author">— Dr. Catalina R.S.</p>
+              </div>
+            </article>
+            <article className="figma-tcard">
+              <div className="figma-tcard__contect-container">
+                <h3 className="figma-tcard__label">
                   Rapid physician notification
-                </p>
-                <p>
+                </h3>
+                <p className="figma-tcard__quote">
                   “When Specialized Medical saw these results they immediately
                   transmitted the reports to me and then called me on my cell
                   phone.”
                 </p>
-                <StarRow />
-                <span className="card-testimonial__author">— Michael</span>
-              </article>
-            </div>
-            <div className="testimonial-dots" aria-hidden>
-              <span className="is-active" />
-              <span />
-              <span />
-            </div>
+              </div>
+              <div className="figma-tcard__stars-container">
+                <img
+                  className="figma-tcard__stars"
+                  src={imagesPath("figma-assets/stars-row.png")}
+                  alt=""
+                  width={136}
+                  height={24}
+                  decoding="async"
+                />
+                <p className="figma-tcard__author">— Michael</p>
+              </div>
+            </article>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ================================================================ */}
-        {/* AI-generated testimonial — headline + portrait media              */}
-        {/* ================================================================ */}
-        <section className="section-ai" aria-labelledby="ai-heading">
-          <div className="container ai-band ai-band--split">
-            <h2 id="ai-heading" className="ai-band__title">
-              AI-Generated Testimonial: What It&apos;s Like Wearing the{" "}
-              <span className="accent">S-Patch Monitor</span>
+      <section className="figma-section figma-ai" aria-labelledby="figma-ai-heading">
+        <div className="figma-container figma-ai__grid">
+          <div className="figma-ai__copy">
+            <h2 id="figma-ai-heading" className="figma-h2 figma-h2--left">
+              AI-Generated Testimonial: What It’s Like Wearing the
+              <br />
+              <span className="figma-h2__accent figma-h2__accent--bold">
+                S-Patch Monitor
+              </span>
             </h2>
-            <div className="ai-band__media">
-              <img
-                src={IMG.aiTestimonial}
-                alt="Patient wearing a lightweight cardiac monitor"
-                loading="lazy"
-              />
-            </div>
           </div>
-        </section>
+          <div className="figma-ai__media">
+            <video
+              className="figma-ai__video"
+              src={VIDEO.ai}
+              width={520}
+              height={906}
+              controls
+              loop
+            />
+          </div>
+        </div>
+      </section>
 
-        {/* ================================================================ */}
-        {/* Final CTA — beta trial                                              */}
-        {/* ================================================================ */}
-        <section className="section-cta" aria-labelledby="cta-heading">
-          <div className="container">
-            <h2 id="cta-heading" className="section-title">
-              Start Your No-Risk <span className="accent">Beta Trial</span>
+      <section className="figma-section figma-cta" aria-labelledby="figma-cta-heading">
+        <div className="figma-container">
+          <div className="figma-cta__box">
+            <h2
+              id="figma-cta-heading"
+              className="figma-h2 figma-h2--center figma-h2--narrow"
+            >
+              Start Your No-Risk
+              <br />
+              <span className="figma-h2__accent">Beta Trial</span>
             </h2>
-            <p>
-              See how Specialized Medical can support your practice with live
-              streaming ECG data and a simplified office workflow. Try it on a
-              few patients—if it isn&apos;t the right fit, we&apos;ll take
-              everything back. No hassle. No obligation.
+            <p className="figma-cta__p figma-cta__p--lead">
+              See how Specialized Medical can support your practice with:
+              live-streaming ECG data; simplified office workflow.
             </p>
-            <div className="section-cta__actions">
-              <a className="btn btn--primary" href="/contact/">
-                Get Started Now
-              </a>
-              <a className="btn btn--ghost" href="/contact/">
-                Talk to an Expert →
-              </a>
+            <p className="figma-cta__p">
+              No-Risk Beta Trial. Anyone can make promises. We would rather prove
+              it. Try Specialized Medical on a few patients. If it is not the right
+              fit, we will take everything back - no hassle, no obligation. Let us
+              prove our value to you and your patients.
+            </p>
+            <div className="figma-cta__actions">
+              <Link className="figma-btn figma-btn--solid" to="/contact/">
+                Start Your No-Risk Beta Trial
+              </Link>
+              <Link className="figma-cta__talk" to="/contact/">
+                Talk to Our Team→
+              </Link>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
     </main>
   )
 }
@@ -455,7 +664,7 @@ export const Head = () => (
     <title>Specialized Medical | Cardiac Monitoring</title>
     <meta
       name="description"
-      content="Complete turn-key cardiac monitoring. Live ECG data. Four tests. One device."
+      content="Live ECG and remote cardiac monitoring for your practice. Holter, extended studies, event and MCT—no upfront costs, streamlined workflow, 24/7 support."
     />
   </>
 )
