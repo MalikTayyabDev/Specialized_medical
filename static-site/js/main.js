@@ -18,10 +18,18 @@
     function setOpen(open) {
       inner.classList.toggle("nav-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      document.body.style.overflow = open ? "hidden" : "";
     }
 
     toggle.addEventListener("click", function () {
       setOpen(!inner.classList.contains("nav-open"));
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && inner.classList.contains("nav-open")) {
+        setOpen(false);
+      }
     });
 
     qsa(".site-nav a, .figma-nav a", inner).forEach(function (link) {

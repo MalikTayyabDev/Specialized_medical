@@ -9,7 +9,7 @@
 
 /* ----- Hero ----- */
 .contact-figma-hero {
-  padding: 14px 10px 0;
+  padding: 14px 0 0;
 }
 
 .contact-figma-hero__plate {
@@ -42,10 +42,14 @@
   );
 }
 
-.contact-figma-hero__inner {
+.contact-figma-hero .figma-container.contact-figma-hero__inner {
+  margin-left: 0;
+  margin-right: 0;
   position: relative;
   z-index: 1;
-  padding: clamp(3rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(3rem, 8vw, 7rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-inline: var(--figma-inline);
   max-width: 720px;
 }
 
@@ -116,6 +120,13 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 0.85rem;
+}
+
+.contact-action-card__icon img {
+  width: 20px;
+  height: 20px;
+  display: block;
+  object-fit: contain;
 }
 
 .contact-action-card__title {
@@ -369,6 +380,12 @@
 
   .contact-main__form-wrap {
     order: -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-figma-hero .figma-container.contact-figma-hero__inner {
+    padding-top: 2.5rem;
   }
 }
 

@@ -4,6 +4,10 @@ import { ICON } from "../components/Layout"
 
 const IMG = (file) => `/images/figma-services/${file}`
 
+/** Same asset as static-site/video (Gatsby `static/video/`) — Figma node 27:358 */
+const ECG_APP_VIDEO_SRC =
+  "/video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4"
+
 const BREAKDOWN = [
   ["Holter", "24–48 Hours"],
   ["Extended Holter", "Greater than 48 hours up to 7 days"],
@@ -14,7 +18,7 @@ const BREAKDOWN = [
 ]
 
 const PRACTICE = [
-  "Final reports are EMR-ready and can be automatically pushed into your system. Reports are typically delivered within 24 to 48 hours after test completion, supporting faster physician review and a more efficient office workflow.",
+  "Final reports are EMR-ready and can be automatically pushed into your system",
   "Electronically review, interpret, date, and sign final reports",
   "Customized billing templates with all CPT and ICD-10 codes provided",
   "We work directly with your billing staff or third-party biller for seamless claims submission",
@@ -31,7 +35,7 @@ const CASE_STUDIES = [
     title: "Easy for Patients to Wear",
     body:
       '"I wore the S-Patch Monitor from Specialized Medical all week. It was easy and hassle free. Was not a problem at all. The monitor I wore was very small. I didn\'t even realize I was wearing it. The technology is incredible. I\'m looking forward to seeing the results, since I\'m pretty sure I have occasional Afib. This monitor system is SO MUCH better than the old way!"',
-    by: "— R. Gall",
+    by: "- R. Gall",
   },
   {
     key: "2",
@@ -40,7 +44,7 @@ const CASE_STUDIES = [
     tag: "Case Study 02 (S-Patch)",
     title: "The ER Missed It",
     body:
-      '"I am so grateful for Specialized Medical and the care I received during my heart monitoring. I wore the monitor for a 15-day test, and on day 12 it detected a serious rhythm issue that needed immediate attention. I truly believe that this monitoring made a life-saving difference for me. What stood out to me just as much as the technology was the people behind it. The customer service team at Specialized Medical was outstanding from beginning to end."',
+      '"I am so grateful for Specialized Medical and the care I received during my heart monitoring. I wore the monitor for a 15-day test, and on day 12 it detected a serious rhythm issue that needed immediate attention. I truly believe that this monitoring made a life-saving difference for me. What stood out to me just as much as the technology was the people behind it. The customer service team at Specialized Medical was outstanding from beginning to end. They were kind, responsive, patient, and made me feel supported every step of the way.\n\nThe monitor itself was also much easier than I expected. It was simple to use, comfortable to wear, and easy to manage throughout the testing period. That gave me peace of mind and made it possible for me to go about my normal routine while still being monitored. I\'m incredibly thankful that this issue was found when it was. Specialized Medical gave me not only answers, but confidence that someone was looking out for me".',
     by: "— Marguerite C.",
   },
   {
@@ -50,7 +54,7 @@ const CASE_STUDIES = [
     tag: "Case Study 03 (S-Patch)",
     title: "The ER Missed It",
     body:
-      '"I am so thankful for Specialized Medical. I wore the monitor from March 4 to March 6, 2026, and it found a serious heart problem that I did not know was happening. I truly believe that test may have saved my life. What meant the most to me was how kind and helpful everyone was. The customer service was outstanding."',
+      '"I am so thankful for Specialized Medical. I wore the monitor from March 4 to March 6, 2026, and it found a serious heart problem that I did not know was happening. I truly believe that test may have saved my life. What meant the most to me was how kind and helpful everyone was. The customer service was outstanding. Any time I had a question, someone was there to help me and explain things in a way I could understand. That made a scary situation feel a little easier. The monitor itself was also very easy to use. It was simple, comfortable to wear, and did not make my day harder. I was able to go about my normal routine while feeling better knowing my heart was being watched. I will always be grateful to Specialized Medical for finding something so important and for treating me with so much care and respect. I would recommend them to anyone who needs heart monitoring."',
     by: "— Rhonda B.",
   },
   {
@@ -60,8 +64,8 @@ const CASE_STUDIES = [
     tag: "Case Study 04 (Lead Wire System)",
     title: "The ER Missed It",
     body:
-      "\"I am a Family Medicine doctor located in Central New York and applied Specialized Medical's Cardiac Holter Monitor to a 60-year-old male patient complaining of cardiac-related issues. The patient wore the Specialized Medical Cardiac Holter Monitor for 24 hours. During this test the Cardiac Monitor picked up 3 Paroxysmal AV blocks between 2:18 p.m. and 2:42 p.m. When Specialized Medical saw these results they immediately transmitted the reports to me and then called me on my cell phone.\"",
-    by: "— Michael",
+      "\"I am a Family Medicine doctor located in Central New York and applied Specialized Medical's Cardiac Holter Monitor to a 60-year-old male patient complaining of cardiac-related issues. The patient wore the Specialized Medical Cardiac Holter Monitor for 24 hours. During this test the Cardiac Monitor picked up 3 Paroxysmal AV blocks between 2:18 p.m. and 2:42 p.m. When Specialized Medical saw these results they immediately transmitted the reports to me and then called me on my cell phone. That day the doctor discussed the results with the patient and then referred him to a Cardiologist. We later found out the patient had been walking up a hill and after about 5 minutes into his walk he experienced the aforementioned cardiac arrhythmia. I highly recommend Specialized Medical for their cardiac monitoring services.\"",
+    by: "- Michael",
   },
   {
     key: "5",
@@ -71,8 +75,8 @@ const CASE_STUDIES = [
     tag: "Case Study 05 (Lead Wire System)",
     title: "A Life-Saving Second Opinion",
     body:
-      '"I am an Internal Medicine doctor located in Brooklyn, NY and applied a Specialized Medical Cardiac Monitor to a female patient complaining of cardiac related issues. The patient wore a Cardiac Event Monitor and on the 5th day into the test at approximately 9:00 a.m., the patient experienced a cardiac episode that caused her to call me."',
-    by: "— Dr. Catalina R.S.",
+      "\"I am an Internal Medicine doctor located in Brooklyn, NY and applied a Specialized Medical Cardiac Monitor to a female patient complaining of cardiac related issues. The patient wore a Cardiac Event Monitor and on the 5th day into the test at approximately 9:00 a.m., the patient experienced a cardiac episode that caused her to call me. I immediately had the patient go to hospital emergency room where I met her. I removed the monitor as they admitted her and sent the data into Specialized Medical. Shortly thereafter, I received a phone call on my cellular number that Specialized Medical found a significant cardiac arrhythmia. After reviewing the cardiac reports supplied by Specialized Medical, I called the hospital and forwarded the test results to the 'Fellow Cardiologist' who to my surprise was in the process of releasing my patient because they could not find anything wrong. When the cardiologist at the hospital received the test results they determined that the patient required immediate medical care and scheduled the necessary procedures to take place. If it was not for Specialized Medical's technology and service I am not sure if this patient would be around today.\"",
+    by: "- Dr. Catalina R.S.",
   },
 ]
 
@@ -88,7 +92,7 @@ function CaseStars() {
 }
 
 const ServicesPage = () => (
-  <main className="services-page services-page--figma" data-design="figma-20-816">
+  <main className="services-page services-page--figma" data-design="figma-27-13">
     <section className="svc-hero" aria-labelledby="svc-hero-heading">
       <div className="svc-hero__plate">
         <div className="svc-hero__bg" role="presentation" />
@@ -99,7 +103,7 @@ const ServicesPage = () => (
             Our Services
           </p>
           <h1 id="svc-hero-heading" className="svc-hero__title">
-            Four tests
+            <span className="svc-hero__title-line">Four tests</span>
             <br />
             <span className="svc-hero__title-accent">One device</span>
           </h1>
@@ -140,8 +144,9 @@ const ServicesPage = () => (
               Four Tests, <span className="svc-split__title-accent">One Device</span>
             </h2>
             <p className="svc-split__text">
-              Perform Holter, Extended Holter, Event, and Telemetry (MCT) tests —
-              individually or in sequence — using a single monitor.
+              Perform Holter, Extended Holter, Event, and Telemetry{"\u00a0\u00a0"}
+              (MCT) tests — individually or in sequence — using a{"\u00a0\u00a0"}
+              single monitor.
             </p>
           </div>
           <div className="svc-split__media">
@@ -159,20 +164,25 @@ const ServicesPage = () => (
     </section>
 
     <section
-      className="figma-section svc-split svc-split--muted svc-split--reverse"
+      className="figma-section svc-split svc-split--muted svc-split--live"
       aria-labelledby="svc-live-heading"
     >
       <div className="figma-container">
         <div className="svc-split__inner">
-          <div className="svc-split__media">
-            <img
-              src={IMG("live-streaming-ecg.jpg")}
-              alt="Live ECG monitoring display"
-              width={522}
-              height={390}
-              loading="lazy"
-              decoding="async"
-            />
+          <div className="svc-split__media svc-split__media--live-ecg">
+            <div className="svc-live-ecg-card">
+              <p className="svc-live-ecg-card__label">Live ECG Signal</p>
+              <div className="svc-live-ecg-card__frame">
+                <img
+                  src={IMG("live-streaming-ecg.jpg")}
+                  alt="Live ECG waveform display"
+                  width={522}
+                  height={390}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
           </div>
           <div className="svc-split__copy">
             <h2 id="svc-live-heading" className="svc-split__title">
@@ -243,7 +253,7 @@ const ServicesPage = () => (
     </section>
 
     <section
-      className="figma-section svc-split svc-split--muted svc-split--reverse"
+      className="figma-section svc-split svc-split--muted svc-split--lead"
       aria-labelledby="svc-lead-heading"
     >
       <div className="figma-container">
@@ -260,7 +270,7 @@ const ServicesPage = () => (
           </div>
           <div className="svc-split__copy">
             <h2 id="svc-lead-heading" className="svc-split__title">
-              Lead-Wire
+              <span className="svc-split__title-line">Lead-Wire</span>
               <br />
               <span className="svc-split__title-accent">Monitoring System</span>
             </h2>
@@ -295,8 +305,8 @@ const ServicesPage = () => (
           <span className="svc-workflow__heading-accent">for Your Office</span>
         </h2>
         <p className="svc-workflow__sub">
-          Your medical assistant completes a simple 3-step process: Enroll in Web
-          Portal → Hook-Up → Disconnect (Under 15 Minutes)
+          Your medical assistant completes a simple 3-step process: Hook-Up -&gt;
+          Enroll -&gt; Disconnect (Under 15 Minutes)
         </p>
         <div className="svc-workflow__panel">
           <p>Once the patient leaves, we take over the rest:</p>
@@ -386,17 +396,22 @@ const ServicesPage = () => (
               </p>
               <ul className="svc-reporting__sublist">
                 <li>
-                  <strong>Electronic Review:</strong> Access comprehensive data and
-                  full-disclosure strips from any secure device.
+                  <span className="svc-reporting__label">Electronic Review :</span>{" "}
+                  Access comprehensive data and full-disclosure strips from any secure
+                  device.
                 </li>
                 <li>
-                  <strong>Professional Interpretation:</strong> Document your findings
-                  directly within the digital report interface.
+                  <span className="svc-reporting__label">
+                    Professional Interpretation :
+                  </span>{" "}
+                  Document your findings directly within the digital report interface.
                 </li>
                 <li>
-                  <strong>Digital Authentication:</strong> Finalize reports with an
-                  electronic signature, date, and time stamp—ready for billing and
-                  clinical filing.
+                  <span className="svc-reporting__label">
+                    Digital Authentication :
+                  </span>{" "}
+                  Finalize reports with an electronic signature, date, and time
+                  stamp—ready for billing and clinical filing.
                 </li>
               </ul>
             </div>
@@ -450,19 +465,20 @@ const ServicesPage = () => (
     </section>
 
     <section
-      className="figma-section svc-split svc-split--reverse"
+      className="figma-section svc-split svc-split--symptom"
       aria-labelledby="svc-symptom-heading"
     >
       <div className="figma-container">
         <div className="svc-split__inner">
-          <div className="svc-split__media">
-            <img
-              src={IMG("live-ecg-phone.jpg")}
-              alt="Mobile app showing live ECG"
-              width={414}
-              height={746}
-              loading="lazy"
-              decoding="async"
+          <div className="figma-ecg__visual">
+            <video
+              className="figma-ecg__video"
+              src={ECG_APP_VIDEO_SRC}
+              controls
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="S-Patch app: live ECG and symptom logging"
             />
           </div>
           <div className="svc-split__copy">
@@ -482,14 +498,7 @@ const ServicesPage = () => (
               <li>Digital symptom logging tied to ECG events</li>
               <li>Clear symptomatic vs. asymptomatic labeling on the final report</li>
             </ul>
-            <p
-              className="svc-split__text"
-              style={{
-                marginTop: "1rem",
-                fontWeight: 500,
-                color: "rgba(35,31,30,0.85)",
-              }}
-            >
+            <p className="svc-split__text svc-split__text--symptom-footer">
               Symptoms are logged digitally and matched directly to ECG events on the
               final report.
             </p>
@@ -531,7 +540,7 @@ const ServicesPage = () => (
     <section className="figma-section svc-tavr" aria-labelledby="svc-tavr-heading">
       <div className="figma-container">
         <h2 id="svc-tavr-heading" className="svc-tavr__heading">
-          For <span className="svc-tavr__heading-accent">TAVR Programs</span>
+          Ideal for <span className="svc-tavr__heading-accent">TAVR Programs</span>
         </h2>
         <p className="svc-tavr__sub">Post-TAVR Monitoring, Built for Continuity</p>
         <p className="svc-tavr__text">

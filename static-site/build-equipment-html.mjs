@@ -138,7 +138,7 @@ const html = `<!DOCTYPE html>
           1-855-773-2633
         </a>
         <div class="site-header__social">
-          <a href="https://www.facebook.com/" aria-label="Facebook">
+          <a href="https://www.facebook.com/specializedmedical" aria-label="Facebook">
             <img src="${p}/icons/vector3527-h9kk.svg" alt="" width="20" height="20">
           </a>
         </div>
@@ -156,7 +156,7 @@ const html = `<!DOCTYPE html>
           <a class="site-nav__link" href="${p}/contact.html">Contact Us</a>
         </nav>
         <div class="site-header__cta">
-          <a class="btn btn--portal" href="#patient-portal">Patient Portal</a>
+          <a class="btn btn--portal" href="https://sft.specialized-med-business.com/specMed/">Physician Portal</a>
         </div>
       </div>
     </header>
@@ -204,7 +204,7 @@ const html = `<!DOCTYPE html>
                 <span>Specialized Medical, LLC<br>34145 Pacific Coast Highway, #700<br>Dana Point, CA 92629</span>
               </div>
               <div class="social-row">
-                <a href="https://www.facebook.com/" aria-label="Facebook">
+                <a href="https://www.facebook.com/specializedmedical" aria-label="Facebook">
                   <img src="${p}/icons/vector3527-h9kk.svg" alt="">
                 </a>
               </div>

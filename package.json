@@ -8,6 +8,7 @@
     "build": "npm run build --prefix web",
     "serve": "npm run serve --prefix web",
     "clean": "npm run clean --prefix web",
-    "static:build": "node static-site/build-faq-fragment.mjs && node static-site/merge-faq-html.mjs && node static-site/build-services-html.mjs && node static-site/build-equipment-html.mjs"
+    "static:partials": "node static-site/scripts/apply-partials.mjs",
+    "static:build": "node static-site/build-faq-fragment.mjs && node static-site/merge-faq-html.mjs && node static-site/scripts/apply-partials.mjs"
   }
 }

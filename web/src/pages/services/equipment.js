@@ -3,11 +3,11 @@ import { Link } from "gatsby"
 
 const IMG = (file) => `/images/figma-services/${file}`
 
+/* Copy aligned with Figma node 21:1200 */
 const SPATCH_SPECS = [
   "4-in-1 monitoring system",
   "Supports Holter, Extended Holter, Event, and Telemetry (MCT)",
-  "Live-streaming, real-time ECG data",
-  "Continuous, resilient real-time data streaming even in rural areas",
+  "Live-streaming, real-time ECG data. Continuous, resilient real-time data streaming even in rural areas",
   "No manual uploading",
   "No data delays",
   "Dual-disk design: Disk 1 = 1.57 in diameter × 0.40 in thickness; Disk 2 = 1.41 in diameter × 0.24 in thickness",
@@ -30,10 +30,9 @@ const FEATURE_HIGHLIGHTS = [
   "Four tests from one device",
   "Simplified office workflow",
   "Designed for strong patient comfort and wearability",
-  "Very small, lightweight dual-disk design that many patients often forget they are wearing",
-  "Symptomatic vs. asymptomatic event clarity",
+  "Very small, lightweight dual-disk design that many patients often forget they are wearing Symptomatic vs. asymptomatic event clarity",
   "No data delays",
-  "For TAVR monitoring support",
+  "Ideal for TAVR Monitoring support",
   "Built for uninterrupted live-streaming performance across a wide range of patient environments, including rural areas",
 ]
 
@@ -104,6 +103,7 @@ const EquipmentPage = () => (
           </div>
         </div>
 
+        <hr className="eq-divider--red" aria-hidden />
         <div className="eq-cards">
           <div className="eq-card eq-card--spec">
             <h3 className="eq-card__title">Specifications</h3>
@@ -127,10 +127,10 @@ const EquipmentPage = () => (
       </div>
     </section>
 
-    <section className="eq-section" aria-labelledby="eq-lead-heading">
+    <section className="eq-section eq-section--lead" aria-labelledby="eq-lead-heading">
       <div className="figma-container">
         <div className="eq-panel">
-          <div className="eq-panel__split eq-panel__split--reverse">
+          <div className="eq-panel__split eq-panel__split--lead">
             <div className="eq-panel__media">
               <img
                 src={IMG("lead-wire.jpg")}
@@ -153,9 +153,15 @@ const EquipmentPage = () => (
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
+    <section className="eq-section eq-section--lead-spec" aria-labelledby="eq-lead-spec-heading">
+      <div className="figma-container">
         <div className="eq-card eq-card--lead">
-          <h3 className="eq-card__title">Lead-Wire Monitoring System Specifications</h3>
+          <h3 id="eq-lead-spec-heading" className="eq-card__title">
+            Lead-Wire Monitoring System Specifications
+          </h3>
           <hr className="eq-card__rule" aria-hidden />
           <ul className="eq-list">
             {LEAD_SPECS.map((line) => (
@@ -177,11 +183,15 @@ const EquipmentPage = () => (
             <br />
             <span className="figma-h2__accent">Beta Trial</span>
           </h2>
-          <p className="figma-cta__p figma-cta__p--lead">
-            See how Specialized Medical can support your practice with: live-streaming ECG data; simplified office workflow.
+          <p className="figma-cta__p figma-cta__p--about-italic">
+            See how Specialized Medical can support your practice with: live-streaming ECG
+            data; simplified office workflow.
           </p>
-          <p className="figma-cta__p">
-            No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try Specialized Medical on a few patients. If it is not the right fit, we will take everything back - no hassle, no obligation. Let us prove our value to you and your patients.
+          <p className="figma-cta__p figma-cta__p--about-italic">
+            No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try
+            Specialized Medical on a few patients. If it is not the right fit, we will take
+            everything back - no hassle, no obligation. Let us prove our value to you and
+            your patients.
           </p>
           <div className="figma-cta__actions">
             <Link className="figma-btn figma-btn--solid" to="/contact/">

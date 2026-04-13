@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/* Monitoring equipment subpage — Figma frame 21:1200                          */
+/* Monitoring equipment subpage — Figma node 21:1200                          */
 /* -------------------------------------------------------------------------- */
 
 .equipment-page--figma {
@@ -11,6 +11,12 @@
 .eq-hero {
   padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(1.5rem, 4vw, 2.5rem);
   background: #fff;
+}
+
+.eq-hero .figma-container {
+  margin-left: 0;
+  margin-right: 0;
+  padding-inline: var(--figma-inline);
 }
 
 .eq-hero__back {
@@ -47,7 +53,7 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: #231f1e;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 .eq-hero__title-accent {
@@ -61,8 +67,9 @@
 .eq-hero__line {
   height: 0;
   border: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 2px solid var(--color-red);
   margin: 0;
+  width: 100%;
   max-width: 1280px;
 }
 
@@ -76,8 +83,10 @@
   border: 1px solid #e0e0e0;
   border-radius: 20px;
   padding: clamp(1.25rem, 3vw, 2rem);
+  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .eq-panel__split {
@@ -85,6 +94,19 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 522px);
   gap: clamp(1.25rem, 4vw, 2rem);
   align-items: start;
+}
+
+/* Lead-Wire: image left, copy right (Figma) */
+.eq-panel__split--lead {
+  grid-template-columns: minmax(0, 522px) minmax(0, 1fr);
+}
+
+.eq-panel__split--lead > .eq-panel__media {
+  order: 0;
+}
+
+.eq-panel__split--lead > .eq-panel__copy {
+  order: 1;
 }
 
 .eq-panel__split--reverse {
@@ -118,8 +140,9 @@
 
 .eq-panel__tag {
   margin: 0 0 1rem;
-  font-size: 1.5rem;
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 400;
+  line-height: 1.2;
   color: #231f1e;
 }
 
@@ -147,12 +170,28 @@
   object-fit: cover;
 }
 
+/* Lead-Wire: second section — specs card only (separate from intro panel) */
+.eq-section--lead-spec {
+  padding-top: 0;
+}
+
+/* Red rule between S-Patch intro panel and spec / feature cards */
+.eq-divider--red {
+  height: 0;
+  border: none;
+  border-top: 2px solid var(--color-red);
+  margin: clamp(2rem, 5vw, 3rem) 0 clamp(1.25rem, 3vw, 1.75rem);
+  max-width: 1280px;
+}
+
 /* ----- Spec + feature cards (S-Patch) ----- */
 .eq-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.25rem);
   align-items: stretch;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .eq-card {
@@ -160,6 +199,7 @@
   border-radius: 20px;
   padding: clamp(1rem, 2.5vw, 1.5rem);
   min-height: 120px;
+  box-sizing: border-box;
 }
 
 .eq-card--spec {
@@ -172,8 +212,9 @@
 
 .eq-card__title {
   margin: 0 0 0.75rem;
-  font-size: 1.75rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.75rem);
   font-weight: 400;
+  line-height: 1.2;
   color: #231f1e;
   text-align: left;
 }
@@ -194,7 +235,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .eq-list li {
@@ -216,23 +257,38 @@
   background: var(--color-red);
 }
 
-/* Cards sit below intro panels (Figma: separate blocks) */
-.eq-section .eq-panel + .eq-cards,
-.eq-section .eq-panel + .eq-card--lead {
-  margin-top: clamp(1.25rem, 3vw, 1.75rem);
-}
-
-/* Lead full-width spec card */
 .eq-card--lead {
   background: #fcf4f5;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: clamp(1.25rem, 3vw, 2rem);
   max-width: 1064px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .eq-card--lead .eq-list {
-  max-width: 640px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2rem;
+  max-width: none;
+  margin: 0;
+}
+
+/* Cards sit below intro panels */
+.eq-section .eq-panel + .eq-divider--red + .eq-cards,
+.eq-section .eq-panel + .eq-cards {
+  margin-top: 0;
+}
+
+/* CTA — match About / Figma pink well */
+.equipment-page--figma .figma-cta__box {
+  background: #fcf4f5;
+}
+
+.equipment-page--figma .figma-cta__p--about-italic {
+  font-style: italic;
+  font-weight: 400;
 }
 
 @media (max-width: 900px) {
@@ -242,7 +298,19 @@
     direction: ltr;
   }
 
+  .eq-panel__split--lead {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-panel__split--lead > .eq-panel__media {
+    order: -1;
+  }
+
   .eq-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .eq-card--lead .eq-list {
     grid-template-columns: 1fr;
   }
 }

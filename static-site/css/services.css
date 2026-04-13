@@ -1,5 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/* Services — Figma frame 20:816 (CEqlbeRjRpITLLtOzvvVUQ)                    */
+/* Services — Figma SERVICES frame (node 27:13, CEqlbeRjRpITLLtOzvvVUQ)      */
 /* -------------------------------------------------------------------------- */
 
 .services-page--figma {
@@ -9,7 +9,7 @@
 
 /* ----- Hero ----- */
 .svc-hero {
-  padding: 14px 10px 0;
+  padding: 14px 0 0;
 }
 
 .svc-hero__plate {
@@ -36,16 +36,20 @@
   inset: 0;
   pointer-events: none;
   background: linear-gradient(
-    60.12deg,
-    rgb(255, 255, 255) 40.98%,
+    60.11756752997465deg,
+    rgb(255, 255, 255) 40.977%,
     rgba(255, 255, 255, 0) 72.62%
   );
 }
 
-.svc-hero__inner {
+.svc-hero .figma-container.svc-hero__inner {
+  margin-left: 0;
+  margin-right: 0;
   position: relative;
   z-index: 1;
-  padding: clamp(2.75rem, 7vw, 6.5rem) 0 clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(2.75rem, 7vw, 6.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  padding-inline: var(--figma-inline);
   max-width: 720px;
 }
 
@@ -57,6 +61,10 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: #231f1e;
+}
+
+.svc-hero__title-line {
+  display: block;
   text-transform: uppercase;
 }
 
@@ -67,7 +75,7 @@
   font-style: italic;
   font-weight: 600;
   color: var(--color-red);
-  text-transform: none;
+  text-transform: uppercase;
 }
 
 .svc-hero__lead {
@@ -148,13 +156,9 @@
   background: #fff;
 }
 
-.svc-split--muted {
-  background: #fafafa;
-}
-
 .svc-split__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 522px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 50%);
   gap: clamp(1.5rem, 4vw, 2.5rem);
   align-items: center;
 }
@@ -257,6 +261,117 @@
   object-fit: cover;
 }
 
+/* Live Streaming (Figma node 27:76) — image left, copy right; label + framed ECG */
+.svc-split__media--live-ecg {
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.svc-live-ecg-card__frame {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e8f2fa;
+}
+
+.svc-live-ecg-card__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.svc-split--live .svc-split__text {
+  line-height: 19px;
+}
+
+/* Lead-Wire (Figma node 27:278) — image left, copy right; intro line-height 19px */
+.svc-split--lead .svc-split__copy > .svc-split__text {
+  line-height: 19px;
+}
+
+.svc-split--lead .svc-split__title {
+  line-height: 1.125;
+}
+
+.svc-split--lead .svc-split__list li {
+  line-height: 24px;
+}
+
+.svc-split--lead .svc-split__list li::before {
+  top: 7px;
+}
+
+@media (min-width: 901px) {
+  .svc-split--lead .svc-split__media {
+    height: 748px;
+    max-height: 748px;
+  }
+
+  .svc-split--lead .svc-split__media img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 22%;
+  }
+}
+
+@media (max-width: 900px) {
+  .svc-split--lead .svc-split__media {
+    height: auto;
+    max-height: none;
+  }
+
+  .svc-split--lead .svc-split__media img {
+    height: auto;
+    object-position: center center;
+  }
+}
+
+.svc-split__media--patient-radius {
+  border-radius: 30px;
+}
+
+.svc-split__text--symptom-footer {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: rgba(35, 31, 30, 0.85);
+}
+
+/* See Live ECG + app video (Figma node 27:358) — video left, copy right */
+.svc-split--symptom .svc-split__inner {
+  grid-template-columns: minmax(0, 414px) minmax(0, 1fr);
+  align-items: center;
+}
+
+.figma-ecg__visual {
+  position: relative;
+  width: 100%;
+  max-width: 414px;
+  aspect-ratio: 414 / 746;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0a0a0a;
+  box-shadow: 0 16px 48px rgba(35, 31, 30, 0.1);
+}
+
+.figma-ecg__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.svc-split--symptom .svc-split__copy > .svc-split__text:not(.svc-split__text--symptom-footer) {
+  line-height: 24px;
+  color: rgba(35, 31, 30, 0.7);
+}
+
+.svc-split--symptom .svc-split__list li {
+  line-height: 24px;
+}
+
 /* ----- Workflow ----- */
 .svc-workflow {
   padding: clamp(2.5rem, 6vw, 4rem) 0;
@@ -313,7 +428,7 @@
 
 .svc-workflow__cell {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.65rem;
   min-height: 74px;
   padding: 0.85rem 1rem;
@@ -330,7 +445,6 @@
   border-radius: 50%;
   background: var(--color-red);
   flex-shrink: 0;
-  margin-top: 0.35rem;
 }
 
 .svc-workflow__footer {
@@ -344,7 +458,6 @@
 /* ----- Practice integration ----- */
 .svc-practice {
   padding: clamp(2.5rem, 6vw, 4rem) 0;
-  background: #fafafa;
 }
 
 .svc-practice__heading {
@@ -375,7 +488,7 @@
 
 .svc-practice__item {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 0.75rem;
   min-height: 74px;
   padding: 0.85rem 1.25rem;
@@ -393,7 +506,6 @@
   border-radius: 50%;
   background: var(--color-red);
   flex-shrink: 0;
-  margin-top: 0.35rem;
 }
 
 /* ----- Detailed reporting ----- */
@@ -433,8 +545,7 @@
 }
 
 .svc-reporting__block {
-  padding-bottom: 1.25rem;
-  margin-bottom: 1.25rem;
+  padding-block:3rem ;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -478,6 +589,11 @@
   font-weight: 500;
 }
 
+.svc-reporting__label {
+  font-weight: 500;
+  color: #231f1e;
+}
+
 .svc-reporting__shot {
   border-radius: 20px;
   overflow: hidden;
@@ -493,7 +609,6 @@
 /* ----- Clinical proof ----- */
 .svc-cases {
   padding: clamp(2.5rem, 6vw, 4rem) 0;
-  background: #fafafa;
 }
 
 .svc-cases__heading {
@@ -526,8 +641,12 @@
   background: #fafafa;
   border: 1px solid #e0e0e0;
   border-radius: 20px;
-  padding: clamp(1rem, 2.5vw, 1.5rem);
+  padding: clamp(1.25rem, 4vw, 2.5rem);
   align-items: start;
+}
+
+.svc-case-card > div {
+  min-width: 0;
 }
 
 .svc-case-card__media {
@@ -574,6 +693,7 @@
   font-size: 0.875rem;
   line-height: 1.55;
   color: rgba(35, 31, 30, 0.5);
+  white-space: pre-line;
 }
 
 .svc-case-card__stars {
@@ -635,6 +755,12 @@
 
 .svc-figma-cta {
   padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+
+@media (max-width: 700px) {
+  .svc-hero .figma-container.svc-hero__inner {
+    padding-top: 2.5rem;
+  }
 }
 
 /* ----- Responsive ----- */

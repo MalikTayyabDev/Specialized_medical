@@ -19,7 +19,9 @@
         <a href="index.html" class="figma-brand" aria-label="Specialized Medical home">
           <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="236" height="52" decoding="async">
         </a>
-        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button type="button" class="nav-toggle nav-toggle--figma" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
         <nav id="primary-nav" class="figma-nav" aria-label="Primary">
           <a class="figma-nav__link" href="index.html">Home</a>
           <a class="figma-nav__link" href="about.html">About Us</a>
@@ -33,10 +35,12 @@
             <span class="figma-phone__num">1-855-773-2633</span>
           </a>
           <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
-          <a class="figma-header__portal" href="https://www.specialized-med.com/patient-portal/" target="_blank" rel="noopener noreferrer">Patient Portal</a>
+          <a class="figma-header__portal" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
         </div>
       </div>
     </header>
+
+
 
     <main class="contact-page contact-page--figma" data-design="figma-19-604">
       <section class="contact-figma-hero" aria-labelledby="contact-hero-heading">
@@ -61,28 +65,28 @@
           <div class="contact-actions__grid">
             <button type="button" class="contact-action-card" data-interest="demo">
               <div class="contact-action-card__icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 12a8 8 0 01-8 8H8l-5 3v-3H5a8 8 0 118-11h8v3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                <img src="icons/contact-action-demo.svg" alt="" width="20" height="20" decoding="async">
               </div>
               <h2 class="contact-action-card__title">Request a Demo</h2>
               <p class="contact-action-card__text">See Specialized Medical in action with a live demonstration.</p>
             </button>
             <button type="button" class="contact-action-card" data-interest="beta">
               <div class="contact-action-card__icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l5 3-5 3V9z" fill="currentColor"/></svg>
+                <img src="icons/contact-action-beta.svg" alt="" width="20" height="20" decoding="async">
               </div>
               <h2 class="contact-action-card__title">Start Your No-Risk Beta Trial</h2>
               <p class="contact-action-card__text">Try it on a few patients — no obligation.</p>
             </button>
             <button type="button" class="contact-action-card" data-interest="sales">
               <div class="contact-action-card__icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5v3a2 2 0 01-2 2A17 17 0 016.5 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                <img src="icons/contact-action-sales.svg" alt="" width="20" height="20" decoding="async">
               </div>
               <h2 class="contact-action-card__title">Talk to Sales</h2>
               <p class="contact-action-card__text">Speak directly with our team about partnership opportunities.</p>
             </button>
             <button type="button" class="contact-action-card" data-interest="support">
               <div class="contact-action-card__icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 15a3 3 0 100-6 3 3 0 000 6z"/><path stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33h.06a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51h.06a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v.06a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                <img src="icons/contact-action-support.svg" alt="" width="20" height="20" decoding="async">
               </div>
               <h2 class="contact-action-card__title">Existing Client Support</h2>
               <p class="contact-action-card__text">Get help with your current Specialized Medical system.</p>
@@ -192,7 +196,6 @@
         </div>
       </section>
     </main>
-
     <footer class="site-footer site-footer--figma">
       <div class="figma-container">
         <div class="figma-footer__hr" aria-hidden="true"></div>
@@ -210,7 +213,7 @@
               <a href="services.html">Services</a>
               <a href="faq.html">FAQ’s</a>
               <a href="contact.html">Contact</a>
-              <a href="https://www.specialized-med.com/patient-portal/" target="_blank" rel="noopener noreferrer">Patient Portal</a>
+              <a href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
             </nav>
             <div class="figma-footer__line">
               <span class="figma-footer__icon figma-footer__icon--phone" aria-hidden="true">
@@ -238,11 +241,13 @@
           <p class="figma-footer__copy">© <span id="footer-year">2026</span> Specialized Medical, LLC. All rights reserved.</p>
           <div class="figma-footer__social">
             <img src="images/figma-assets/hipaa-badge.png" alt="HIPAA" width="69" height="20" class="figma-footer__hipaa" loading="lazy" decoding="async">
-            <a href="https://www.facebook.com/" class="figma-footer__fb" aria-label="Facebook"><img src="icons/vector3527-h9kk.svg" alt="" width="20" height="20" class="figma-footer__fb-icon" loading="lazy" decoding="async"><span>Facebook</span></a>
+            <a href="https://www.facebook.com/specializedmedical" class="figma-footer__fb" aria-label="Facebook"><img src="icons/vector3527-h9kk.svg" alt="" width="20" height="20" class="figma-footer__fb-icon" loading="lazy" decoding="async"><span>Facebook</span></a>
           </div>
         </div>
       </div>
     </footer>
+
+
   </div>
   <script src="js/main.js" defer></script>
 </body>

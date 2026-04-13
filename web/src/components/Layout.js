@@ -1,3 +1,8 @@
+/**
+ * Site-wide header and footer for the Gatsby app — edit here to change all pages.
+ * Static HTML mirrors live in static-site/partials/header.html and footer.html
+ * (run npm run static:partials after editing those).
+ */
 import * as React from "react"
 import { Link } from "gatsby"
 import { PATIENT_PORTAL_URL } from "../config/urls"
@@ -20,6 +25,21 @@ function pathMatch(pathname, to, { prefix } = {}) {
 function SiteHeader({ location }) {
   const [navOpen, setNavOpen] = React.useState(false)
   const path = location?.pathname || "/"
+
+  React.useEffect(() => {
+    document.body.style.overflow = navOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [navOpen])
+
+  React.useEffect(() => {
+    function onKey(e) {
+      if (e.key === "Escape") setNavOpen(false)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [])
 
   const navClass = (to, options) =>
     pathMatch(path, to, options)
@@ -50,12 +70,17 @@ function SiteHeader({ location }) {
         </Link>
         <button
           type="button"
-          className="nav-toggle"
+          className="nav-toggle nav-toggle--figma"
           aria-expanded={navOpen}
           aria-controls="primary-nav"
+          aria-label={navOpen ? "Close menu" : "Open menu"}
           onClick={() => setNavOpen((o) => !o)}
         >
-          Menu
+          <span className="nav-toggle__bars" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
         <nav id="primary-nav" className="figma-nav" aria-label="Primary">
           <Link className={navClass("/")} to="/" onClick={() => setNavOpen(false)}>
@@ -116,7 +141,7 @@ function SiteHeader({ location }) {
             rel="noopener noreferrer"
             onClick={() => setNavOpen(false)}
           >
-            Patient Portal
+            Physician Portal
           </a>
         </div>
       </div>
@@ -160,7 +185,7 @@ function SiteFooter() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Patient Portal
+                Physician Portal
               </a>
             </nav>
             <div className="figma-footer__line">
@@ -227,7 +252,7 @@ function SiteFooter() {
               decoding="async"
             />
             <a
-              href="https://www.facebook.com/"
+              href="https://www.facebook.com/specializedmedical"
               className="figma-footer__fb"
               aria-label="Facebook"
             >

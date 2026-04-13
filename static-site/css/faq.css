@@ -9,7 +9,7 @@
 
 /* ----- Hero (rounded plate + photo + gradient, matches About flow) ----- */
 .faq-figma-hero {
-  padding: 14px 10px 0;
+  padding: 14px 0 0;
 }
 
 .faq-figma-hero__plate {
@@ -42,10 +42,14 @@
   );
 }
 
-.faq-figma-hero__inner {
+.faq-figma-hero .figma-container.faq-figma-hero__inner {
+  margin-left: 0;
+  margin-right: 0;
   position: relative;
   z-index: 1;
-  padding: clamp(3rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem);
+  padding-top: clamp(3rem, 8vw, 7rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-inline: var(--figma-inline);
   max-width: 720px;
 }
 
@@ -321,6 +325,12 @@
 
   .faq-testimonials__title {
     text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .faq-figma-hero .figma-container.faq-figma-hero__inner {
+    padding-top: 2.5rem;
   }
 }
 

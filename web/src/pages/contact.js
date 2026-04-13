@@ -24,25 +24,25 @@ const ACTION_CARDS = [
     title: "Request a Demo",
     text: "See Specialized Medical in action with a live demonstration.",
     hash: "demo",
-    icon: "chat",
+    iconFile: "contact-action-demo.svg",
   },
   {
     title: "Start Your No-Risk Beta Trial",
     text: "Try it on a few patients — no obligation.",
     hash: "beta",
-    icon: "play",
+    iconFile: "contact-action-beta.svg",
   },
   {
     title: "Talk to Sales",
     text: "Speak directly with our team about partnership opportunities.",
     hash: "sales",
-    icon: "phone",
+    iconFile: "contact-action-sales.svg",
   },
   {
     title: "Existing Client Support",
     text: "Get help with your current Specialized Medical system.",
     hash: "support",
-    icon: "gear",
+    iconFile: "contact-action-support.svg",
   },
 ]
 
@@ -53,68 +53,6 @@ const INTEREST_OPTIONS = [
   { value: "support", label: "Existing client support" },
   { value: "other", label: "Other / general inquiry" },
 ]
-
-function CardIcon({ name }) {
-  const common = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none" }
-  switch (name) {
-    case "chat":
-      return (
-        <svg {...common} aria-hidden>
-          <path
-            d="M21 12a8 8 0 01-8 8H8l-5 3v-3H5a8 8 0 118-11h8v3z"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
-    case "play":
-      return (
-        <svg {...common} aria-hidden>
-          <circle
-            cx="12"
-            cy="12"
-            r="9"
-            stroke="currentColor"
-            strokeWidth="1.8"
-          />
-          <path d="M10 9l5 3-5 3V9z" fill="currentColor" />
-        </svg>
-      )
-    case "phone":
-      return (
-        <svg {...common} aria-hidden>
-          <path
-            d="M6.5 3h3l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5v3a2 2 0 01-2 2A17 17 0 016.5 3z"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinejoin="round"
-          />
-        </svg>
-      )
-    case "gear":
-      return (
-        <svg {...common} aria-hidden>
-          <path
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M12 15a3 3 0 100-6 3 3 0 000 6z"
-          />
-          <path
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33h.06a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51h.06a1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v.06a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"
-          />
-        </svg>
-      )
-    default:
-      return null
-  }
-}
 
 const ContactPage = () => {
   const formRef = React.useRef(null)
@@ -191,7 +129,13 @@ const ContactPage = () => {
                 onClick={() => scrollToForm(card.hash)}
               >
                 <div className="contact-action-card__icon" aria-hidden>
-                  <CardIcon name={card.icon} />
+                  <img
+                    src={ICON(card.iconFile)}
+                    alt=""
+                    width={20}
+                    height={20}
+                    decoding="async"
+                  />
                 </div>
                 <h2 className="contact-action-card__title">{card.title}</h2>
                 <p className="contact-action-card__text">{card.text}</p>

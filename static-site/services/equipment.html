@@ -20,7 +20,9 @@
         <a href="../index.html" class="figma-brand" aria-label="Specialized Medical home">
           <img class="figma-brand__mark" src="../images/figma-assets/Group 1261157085.svg" alt="" width="236" height="52" decoding="async">
         </a>
-        <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
+        <button type="button" class="nav-toggle nav-toggle--figma" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+          <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+        </button>
         <nav id="primary-nav" class="figma-nav" aria-label="Primary">
           <a class="figma-nav__link" href="../index.html">Home</a>
           <a class="figma-nav__link" href="../about.html">About Us</a>
@@ -34,10 +36,12 @@
             <span class="figma-phone__num">1-855-773-2633</span>
           </a>
           <a class="figma-btn figma-btn--outline-dark" href="../contact.html">Request a Demo</a>
-          <a class="figma-header__portal" href="https://www.specialized-med.com/patient-portal/" target="_blank" rel="noopener noreferrer">Patient Portal</a>
+          <a class="figma-header__portal" href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
         </div>
       </div>
     </header>
+
+
 
     <main class="equipment-page equipment-page--figma" data-design="figma-21-1200">
       <section class="eq-hero" aria-labelledby="eq-hero-heading">
@@ -71,8 +75,8 @@
               <div class="eq-panel__media">
                 <img src="../images/figma-services/s-patch.jpg" alt="Patient wearing the S-Patch monitoring system" width="522" height="727" loading="eager" decoding="async">
               </div>
-            </div>
           </div>
+        </div>
 
           <div class="eq-cards">
             <div class="eq-card eq-card--spec">
@@ -81,8 +85,7 @@
               <ul class="eq-list">
                 <li>4-in-1 monitoring system</li>
                 <li>Supports Holter, Extended Holter, Event, and Telemetry (MCT)</li>
-                <li>Live-streaming, real-time ECG data</li>
-                <li>Continuous, resilient real-time data streaming even in rural areas</li>
+                <li>Live-streaming, real-time ECG data. Continuous, resilient real-time data streaming even in rural areas</li>
                 <li>No manual uploading</li>
                 <li>No data delays</li>
                 <li>Dual-disk design: Disk 1 = 1.57 in diameter × 0.40 in thickness; Disk 2 = 1.41 in diameter × 0.24 in thickness</li>
@@ -108,10 +111,9 @@
                 <li>Four tests from one device</li>
                 <li>Simplified office workflow</li>
                 <li>Designed for strong patient comfort and wearability</li>
-                <li>Very small, lightweight dual-disk design that many patients often forget they are wearing</li>
-                <li>Symptomatic vs. asymptomatic event clarity</li>
+                <li>Very small, lightweight dual-disk design that many patients often forget they are wearing Symptomatic vs. asymptomatic event clarity</li>
                 <li>No data delays</li>
-                <li>For TAVR monitoring support</li>
+                <li>Ideal for TAVR Monitoring support</li>
                 <li>Built for uninterrupted live-streaming performance across a wide range of patient environments, including rural areas</li>
               </ul>
             </div>
@@ -119,10 +121,12 @@
         </div>
       </section>
 
-      <section class="eq-section" aria-labelledby="eq-lead-heading">
+      <hr class="eq-divider--red" aria-hidden="true">
+
+      <section class="eq-section eq-section--lead" aria-labelledby="eq-lead-heading">
         <div class="figma-container">
           <div class="eq-panel">
-            <div class="eq-panel__split eq-panel__split--reverse">
+            <div class="eq-panel__split eq-panel__split--lead">
               <div class="eq-panel__media">
                 <img src="../images/figma-services/lead-wire.jpg" alt="Patient wearing the lead-wire monitoring system" width="522" height="748" loading="lazy" decoding="async">
               </div>
@@ -136,9 +140,13 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
+      <section class="eq-section eq-section--lead-spec" aria-labelledby="eq-lead-spec-heading">
+        <div class="figma-container">
           <div class="eq-card eq-card--lead">
-            <h3 class="eq-card__title">Lead-Wire Monitoring System Specifications</h3>
+            <h3 id="eq-lead-spec-heading" class="eq-card__title">Lead-Wire Monitoring System Specifications</h3>
             <hr class="eq-card__rule" aria-hidden="true">
             <ul class="eq-list">
               <li>4-in-1 live-streaming monitoring system</li>
@@ -168,8 +176,8 @@
               Start Your No-Risk<br>
               <span class="figma-h2__accent">Beta Trial</span>
             </h2>
-            <p class="figma-cta__p figma-cta__p--lead">See how Specialized Medical can support your practice with: live-streaming ECG data; simplified office workflow.</p>
-            <p class="figma-cta__p">No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try Specialized Medical on a few patients. If it is not the right fit, we will take everything back - no hassle, no obligation. Let us prove our value to you and your patients.</p>
+            <p class="figma-cta__p figma-cta__p--about-italic">See how Specialized Medical can support your practice with: live-streaming ECG data; simplified office workflow.</p>
+            <p class="figma-cta__p figma-cta__p--about-italic">No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try Specialized Medical on a few patients. If it is not the right fit, we will take everything back - no hassle, no obligation. Let us prove our value to you and your patients.</p>
             <div class="figma-cta__actions">
               <a class="figma-btn figma-btn--solid" href="../contact.html">Start Your No-Risk Beta Trial</a>
               <a class="figma-cta__talk" href="../contact.html">Talk to Our Team→</a>
@@ -178,7 +186,6 @@
         </div>
       </section>
     </main>
-
     <footer class="site-footer site-footer--figma">
       <div class="figma-container">
         <div class="figma-footer__hr" aria-hidden="true"></div>
@@ -196,7 +203,7 @@
               <a href="../services.html">Services</a>
               <a href="../faq.html">FAQ’s</a>
               <a href="../contact.html">Contact</a>
-              <a href="https://www.specialized-med.com/patient-portal/" target="_blank" rel="noopener noreferrer">Patient Portal</a>
+              <a href="https://sft.specialized-med-business.com/specMed/" target="_blank" rel="noopener noreferrer">Physician Portal</a>
             </nav>
             <div class="figma-footer__line">
               <span class="figma-footer__icon figma-footer__icon--phone" aria-hidden="true">
@@ -224,11 +231,13 @@
           <p class="figma-footer__copy">© <span id="footer-year">2026</span> Specialized Medical, LLC. All rights reserved.</p>
           <div class="figma-footer__social">
             <img src="../images/figma-assets/hipaa-badge.png" alt="HIPAA" width="69" height="20" class="figma-footer__hipaa" loading="lazy" decoding="async">
-            <a href="https://www.facebook.com/" class="figma-footer__fb" aria-label="Facebook"><img src="../icons/vector3527-h9kk.svg" alt="" width="20" height="20" class="figma-footer__fb-icon" loading="lazy" decoding="async"><span>Facebook</span></a>
+            <a href="https://www.facebook.com/specializedmedical" class="figma-footer__fb" aria-label="Facebook"><img src="../icons/vector3527-h9kk.svg" alt="" width="20" height="20" class="figma-footer__fb-icon" loading="lazy" decoding="async"><span>Facebook</span></a>
           </div>
         </div>
       </div>
     </footer>
+
+
   </div>
   <script src="../js/main.js" defer></script>
 </body>
