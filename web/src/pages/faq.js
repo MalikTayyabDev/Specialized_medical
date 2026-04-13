@@ -1,85 +1,85 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-const HERO_BG =
-  "https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=2000&q=80"
-const IMG_TESTIMONIAL =
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+const IMG = {
+  hero: "/images/figma-faq/faq-hero.jpg",
+  testimonial: "/images/figma-faq/faq-testimonial-portrait.jpg",
+}
 
 const FAQ_SECTIONS = [
   {
     title: "How It Works",
     items: [
       {
-        q: "Why should I choose Specialized Medical?",
-        a: "We deliver true turn-key cardiac monitoring—enrollment, device logistics, 24/7 monitoring, and physician-ready reporting—so your practice gets live ECG clarity without adding operational burden. Our team is built around responsiveness, signal quality, and reports designed for fast clinical review.",
+        q: "How does the office workflow work?",
+        a: "Your medical assistant completes a simple 3-step process: Enroll the patient in the web portal, Hook-Up, and Disconnect. The workflow is designed to be straightforward for office staff and easy to repeat across patients. Once the patient is enrolled and leaves the office, Specialized Medical takes over the rest with continuous monitoring, real-time alerts, report generation, and patient support.",
       },
       {
-        q: "How long is the setup process?",
-        a: "Most practices are up and running quickly. We provide training materials, hook-up guidance, and a dedicated onboarding path so your staff knows exactly what to expect from day one. Timelines can vary based on workflow preferences and volume.",
+        q: "How long does setup take?",
+        a: "Most hook-ups are completed in minutes: enroll the patient, apply the monitor, and confirm the connection. We provide training materials and support so your team can repeat the same simple steps confidently across patients.",
       },
       {
-        q: "What if my patient has clinical issues during monitoring?",
-        a: "Our monitoring center is staffed to support timely review and escalation pathways aligned with your practice’s protocols. Alerts can be delivered by phone, text, or email—so concerning patterns get in front of the right clinician faster.",
+        q: "What happens after the patient leaves?",
+        a: "Specialized Medical provides 24/7 monitoring, real-time alerts when clinically appropriate, report generation, and patient support—so your practice is not managing connectivity, uploads, or study logistics after the visit.",
       },
       {
-        q: "Is there technical support?",
-        a: "Yes. Practices and patients can reach support for device questions, connectivity issues, and logistics. We focus on resolving issues quickly so studies stay on track and data stays complete.",
-      },
-    ],
-  },
-  {
-    title: "Reports And Data",
-    items: [
-      {
-        q: "How soon will I get results?",
-        a: "Report timing depends on study type, duration, and event volume. Our workflows prioritize timely processing and clear delivery into your preferred workflow so you can act on results without chasing files.",
-      },
-      {
-        q: "Can I customize my reports or delivery preferences?",
-        a: "We work with practices to align report formatting and delivery methods where supported. Tell us your preferences during onboarding and we’ll map the best available options for your team.",
-      },
-      {
-        q: "How do I access reports and study status?",
-        a: "Depending on your configuration, reports and status updates are available through the channels we set up with your practice—designed to keep your team informed without extra steps.",
-      },
-      {
-        q: "Is patient data secure?",
-        a: "We take privacy and security seriously and follow industry-appropriate safeguards for protected health information. If you need specific compliance documentation, our team can provide details during onboarding.",
+        q: "How are alerts delivered?",
+        a: "Alerts can be delivered by phone, text, or email based on your practice preferences and escalation protocols, so the right clinician is notified quickly when action may be needed.",
       },
     ],
   },
   {
-    title: "Billing And Reimbursement",
+    title: "Reports and Data",
     items: [
       {
-        q: "Are CPT codes (93224–93227) applicable to these services?",
-        a: "Coding and billing depend on medical necessity, payer rules, and documentation. We recommend confirming coverage and coding guidance with your billing team or coding advisor for your patient population and contracts.",
+        q: "Are reports EMR-ready?",
+        a: "Yes. Final reports are formatted for integration with your workflow and can be delivered in EMR-ready formats where supported, helping your team document and close the loop without chasing files.",
       },
       {
-        q: "What is the billing process for monitoring services?",
-        a: "Billing workflows vary by arrangement. Our team can walk you through how monitoring services are typically billed in partnership models and what documentation supports clean claims.",
+        q: "Can physicians electronically review, interpret, date, and sign reports?",
+        a: "Yes. Physicians can complete review, interpretation, dating, and electronic signature through the supported workflow we configure with your practice.",
       },
       {
-        q: "What insurance plans are currently accepted?",
-        a: "Accepted plans can change. Contact us for the most current information relevant to your region and practice, and we’ll help you understand options available to your patients.",
+        q: "How are symptomatic vs. asymptomatic events shown?",
+        a: "Reporting distinguishes patient-triggered (symptomatic) events from device-detected (asymptomatic) events so clinicians can interpret findings in the right clinical context.",
+      },
+      {
+        q: "Is data live, or is it uploaded later?",
+        a: "Our platform is built around live-streaming ECG data—there is no manual uploading step and no unnecessary delay in rhythm visibility during the monitoring period.",
       },
     ],
   },
   {
-    title: "Supplies And Equipment",
+    title: "Billing and Reimbursement",
     items: [
       {
-        q: "Do I need to buy any equipment?",
-        a: "In most programs, practices receive what they need to run monitoring without purchasing hardware upfront. Details depend on your service arrangement—our team will outline exactly what is included.",
+        q: "Are CPT and ICD-10 billing templates provided?",
+        a: "Yes. We provide customized billing templates with applicable CPT and ICD-10 codes to support clean claims submission aligned to your documentation and payer requirements.",
+      },
+      {
+        q: "Do you work with billing staff or third-party billers?",
+        a: "Yes. We coordinate directly with your billing team or third-party biller to streamline submission and reduce back-and-forth on routine monitoring claims.",
+      },
+      {
+        q: "What is the reimbursement potential?",
+        a: "Reimbursement depends on medical necessity, payer rules, coding, and documentation. Your billing team or coding advisor should confirm coverage and fee schedules for your contracts and patient population.",
+      },
+    ],
+  },
+  {
+    title: "Supplies and Equipment",
+    items: [
+      {
+        q: "Do practices have to buy equipment?",
+        a: "In most programs, practices do not purchase hardware upfront. Your agreement outlines what is included so you can scale monitoring without a capital equipment burden.",
       },
       {
         q: "What supplies are included?",
-        a: "Typical supplies include monitors, electrodes, and patient instruction materials as applicable to the study type. We’ll confirm the exact kit for each workflow during onboarding.",
+        a: "Typical kits include monitors, electrodes, and patient instruction materials appropriate to the study type. We confirm the exact contents during onboarding.",
       },
       {
-        q: "How do I order more supplies?",
-        a: "Practices can reorder through the process we establish with your office—designed to be simple so you’re never stuck waiting on basics during patient volume spikes.",
+        q: "How many monitors can be provided?",
+        a: "Inventory scales with your expected volume and workflow. Our team works with you to right-size device availability so you are not waiting on equipment during busy weeks.",
       },
     ],
   },
@@ -88,19 +88,19 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "Is the monitor comfortable?",
-        a: "The device is designed for ambulatory wear with patient comfort in mind. Lightweight profiles and flexible wear options help improve compliance across multi-day studies.",
+        a: "The S-Patch monitor is designed to be lightweight and low-profile for ambulatory wear, supporting better compliance across multi-day studies.",
       },
       {
-        q: "Can patients shower?",
-        a: "Many devices support daily activity within published wear and water-resistance guidelines. We provide clear patient instructions so expectations match the device specifications.",
+        q: "Is it water-resistant?",
+        a: "Yes. The device is water-resistant (IP55 rated). Patients receive clear wear-and-care instructions so daily routines match the device specifications.",
       },
       {
-        q: "How long is the monitoring period?",
-        a: "Duration depends on the clinical test ordered—Holter, extended Holter, event, or telemetry (MCT). Your team selects the study length that matches the clinical question.",
+        q: "How long does the battery last?",
+        a: "Battery life supports extended monitoring—typically a minimum of about 10 days per charge depending on study settings—so patients are not constantly swapping power during the test.",
       },
       {
-        q: "How do patients return the monitor?",
-        a: "Return logistics are included as part of the turn-key workflow. Patients receive simple packaging and instructions to send equipment back promptly after the study ends.",
+        q: "How small is the monitor?",
+        a: "The monitor is extremely compact—about the weight of a few sheets of paper—with a minimal footprint that many patients barely notice during wear.",
       },
     ],
   },
@@ -108,12 +108,12 @@ const FAQ_SECTIONS = [
     title: "Beta Trial",
     items: [
       {
-        q: "What is the “No-Risk Beta Trial”?",
-        a: "It’s a structured way for practices to experience our monitoring workflow with guided onboarding and support—so you can evaluate fit for your office before making a long-term commitment. Terms vary; ask our team for current availability.",
+        q: "What is the No-Risk Beta Trial?",
+        a: "It is a no-obligation way to try Specialized Medical on a small number of patients with guided onboarding and support—so you can evaluate workflow, reporting, and fit for your practice before committing long term.",
       },
       {
-        q: "What’s included in the Beta Trial?",
-        a: "Typically includes onboarding support, equipment logistics, monitoring services, and reporting aligned to your trial scope. We’ll provide a clear checklist up front so there are no surprises.",
+        q: "What happens if it is not the right fit?",
+        a: "If it is not the right fit, we take everything back—no hassle, no obligation. We would rather prove our value on your terms than lock you into a program that does not work for your team or your patients.",
       },
     ],
   },
@@ -122,18 +122,16 @@ const FAQ_SECTIONS = [
 const TESTIMONIALS = [
   {
     quote:
-      "The workflow is straightforward for staff and patients. Reports are clear and easy to review—exactly what we needed.",
-    author: "M. Smith",
+      "They immediately transmitted the reports to me and then called me on my cell phone.",
+    author: "Michael",
   },
   {
-    quote:
-      "We get consistent signal quality and fast answers when questions come up. That reliability matters in a busy practice.",
-    author: "Dr. John D.",
+    quote: "I did not even realize I was wearing it",
+    author: "R. Gall",
   },
   {
-    quote:
-      "Having one platform for multiple test types simplified training and follow-up. Support has been responsive.",
-    author: "Practice Manager",
+    quote: "I am not sure if this patient would be around today",
+    author: "Dr. Catalina R.S.",
   },
 ]
 
@@ -168,34 +166,34 @@ function FaqPage() {
   }
 
   return (
-    <main className="faq-page">
-      <section className="faq-hero" aria-labelledby="faq-hero-heading">
-        <div
-          className="faq-hero__bg"
-          style={{ backgroundImage: `url(${HERO_BG})` }}
-          role="presentation"
-        />
-        <div className="faq-hero__overlay" />
-        <div className="container faq-hero__inner">
-          <p className="faq-hero__pill">
-            <span className="faq-hero__pill-dot" aria-hidden />
-            FAQs
-          </p>
-          <h1 id="faq-hero-heading" className="faq-hero__title">
-            <span className="faq-hero__title-line">Frequently Asked</span>
-            <span className="faq-hero__title-line faq-hero__title-accent">
-              Questions
-            </span>
-          </h1>
-          <p className="faq-hero__lead">
-            Find answers about monitoring workflows, reporting, billing, supplies,
-            and the patient experience—organized by topic below.
-          </p>
+    <main className="faq-page faq-page--figma" data-design="figma-17-396">
+      <section className="faq-figma-hero" aria-labelledby="faq-hero-heading">
+        <div className="faq-figma-hero__plate">
+          <div
+            className="faq-figma-hero__bg"
+            style={{ backgroundImage: `url(${IMG.hero})` }}
+            role="presentation"
+          />
+          <div className="faq-figma-hero__gradient" aria-hidden="true" />
+          <div className="figma-container faq-figma-hero__inner">
+            <p className="figma-hero__pill">
+              <span className="figma-hero__pill-dot" aria-hidden="true" />
+              FAQ
+            </p>
+            <h1 id="faq-hero-heading" className="faq-figma-hero__title">
+              Frequently Asked{" "}
+              <span className="faq-figma-hero__title-accent">Questions</span>
+            </h1>
+            <p className="faq-figma-hero__lead">
+              Everything you need to know about Specialized Medical&apos;s cardiac
+              monitoring services.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="faq-accordion" aria-label="FAQ topics">
-        <div className="container faq-accordion__inner">
+      <section className="figma-section faq-accordion" aria-label="FAQ topics">
+        <div className="figma-container faq-accordion__inner">
           {FAQ_SECTIONS.map((section, sectionIndex) => (
             <div key={section.title} className="faq-category">
               <h2 className="faq-category__title">{section.title}</h2>
@@ -241,55 +239,76 @@ function FaqPage() {
       </section>
 
       <section
-        className="faq-testimonials"
+        className="figma-section faq-testimonials"
         aria-labelledby="testimonials-heading"
       >
-        <div className="container">
-          <h2 id="testimonials-heading" className="faq-testimonials__title">
-            What People Are <span className="accent">Saying</span>
-          </h2>
-          <div className="faq-testimonials__grid">
+        <div className="figma-container">
+          <div className="faq-testimonials__layout">
             <div className="faq-testimonials__photo">
               <img
-                src={IMG_TESTIMONIAL}
-                alt="Patient wearing a cardiac monitor"
+                src={IMG.testimonial}
+                alt="Patient during daily activity"
                 loading="lazy"
                 decoding="async"
-                width={480}
-                height={640}
+                width={305}
+                height={426}
               />
+              <div className="faq-testimonials__dots" aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
             </div>
-            <div className="faq-testimonials__cards">
-              {TESTIMONIALS.map((t) => (
-                <blockquote key={t.author} className="faq-testimonial-card">
-                  <p>{t.quote}</p>
-                  <footer>{t.author}</footer>
-                </blockquote>
-              ))}
+            <div className="faq-testimonials__right">
+              <h2 id="testimonials-heading" className="faq-testimonials__title">
+                What People Are{" "}
+                <span className="faq-testimonials__title-accent">Saying</span>
+              </h2>
+              <div className="faq-testimonials__cards">
+                {TESTIMONIALS.map((t) => (
+                  <blockquote key={t.author} className="faq-testimonial-card">
+                    <p>{t.quote}</p>
+                    <footer>{t.author}</footer>
+                  </blockquote>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section
-        className="section-cta faq-cta"
+        className="figma-section figma-cta faq-figma-cta"
         aria-labelledby="faq-cta-heading"
       >
-        <div className="container">
-          <h2 id="faq-cta-heading">
-            Start Your No-Risk <span className="accent">Beta Trial</span>
-          </h2>
-          <p>
-            Experience turnkey monitoring, live ECG visibility, and reporting
-            built for busy practices—without the operational drag.
-          </p>
-          <div className="section-cta__actions faq-cta__actions">
-            <Link className="btn btn--primary" to="/contact/">
-              Start your no-risk trial
-            </Link>
-            <Link className="faq-cta__link" to="/contact/">
-              Or schedule a demo
-            </Link>
+        <div className="figma-container">
+          <div className="figma-cta__box">
+            <h2
+              id="faq-cta-heading"
+              className="figma-h2 figma-h2--center figma-h2--narrow"
+            >
+              Start Your No-Risk
+              <br />
+              <span className="figma-h2__accent">Beta Trial</span>
+            </h2>
+            <p className="figma-cta__p figma-cta__p--lead">
+              See how Specialized Medical can support your practice with:
+              live-streaming ECG data; simplified office workflow.
+            </p>
+            <p className="figma-cta__p">
+              No-Risk Beta Trial. Anyone can make promises. We would rather prove
+              it. Try Specialized Medical on a few patients. If it is not the
+              right fit, we will take everything back - no hassle, no obligation.
+              Let us prove our value to you and your patients.
+            </p>
+            <div className="figma-cta__actions">
+              <Link className="figma-btn figma-btn--solid" to="/contact/">
+                Start Your No-Risk Beta Trial
+              </Link>
+              <Link className="figma-cta__talk" to="/contact/">
+                Talk to Our Team→
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -302,10 +321,10 @@ export default FaqPage
 export function Head() {
   return (
     <>
-      <title>FAQs | Specialized Medical</title>
+      <title>FAQ | Specialized Medical</title>
       <meta
         name="description"
-        content="Answers about cardiac monitoring, reports, billing, supplies, patient experience, and the no-risk beta trial."
+        content="Everything you need to know about Specialized Medical's cardiac monitoring services—workflow, reports, billing, supplies, patient experience, and the no-risk beta trial."
       />
     </>
   )
