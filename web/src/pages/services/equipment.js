@@ -1,106 +1,125 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-const IMG_SPATCH =
-  "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1000&q=80"
-const IMG_LEAD =
-  "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
+const IMG = (file) => `/images/figma-services/${file}`
 
 const SPATCH_SPECS = [
-  "1–3 lead monitoring",
-  "Live-streaming ECG",
-  "Rechargeable",
-  "Slim disk design (~0.3 oz)",
-  "Up to 100-hour battery life",
-  "Water resistant (IP22)",
-  "Android & iPhone compatible",
+  "4-in-1 monitoring system",
+  "Supports Holter, Extended Holter, Event, and Telemetry (MCT)",
+  "Live-streaming, real-time ECG data",
+  "Continuous, resilient real-time data streaming even in rural areas",
+  "No manual uploading",
+  "No data delays",
+  "Dual-disk design: Disk 1 = 1.57 in diameter × 0.40 in thickness; Disk 2 = 1.41 in diameter × 0.24 in thickness",
+  "Weight: 0.6 oz",
+  "Battery lasts a minimum of 10 days",
+  "Up to 30-day wear duration",
+  "Water-resistant (IP55)",
+  "Strong ECG clarity",
+  "Precise P-Wave clarity",
+  "Full Disclosure Holter Reports",
+  "Advanced arrhythmia detection",
+  "Encrypted data and secure reporting",
+  "24/7 multilingual patient support",
+  "Auto-generated billing templates",
+  "Exclusive S-Patch reporting workflow: electronically review, interpret, date, and sign final reports",
+  "Patient-friendly design",
 ]
 
-const SPATCH_HIGHLIGHTS = [
-  '"No-touch" provider-friendly service model',
-  "Simplified workflow from hook-up through report",
-  "Minimalist design for patient comfort",
-  "Built-in Wi-Fi for reliable data transmission",
+const FEATURE_HIGHLIGHTS = [
+  "Four tests from one device",
+  "Simplified office workflow",
+  "Designed for strong patient comfort and wearability",
+  "Very small, lightweight dual-disk design that many patients often forget they are wearing",
+  "Symptomatic vs. asymptomatic event clarity",
+  "No data delays",
+  "Ideal for TAVR monitoring support",
+  "Built for uninterrupted live-streaming performance across a wide range of patient environments, including rural areas",
 ]
 
 const LEAD_SPECS = [
-  "Three-lead acquisition system",
-  "Water resistant (IP67)",
-  "~1.5 oz total weight",
-  "Up to 100-hour battery life",
-  "Cloud-based analysis and reporting",
+  "4-in-1 live-streaming monitoring system",
+  "Supports Holter, Extended Holter, Event, and Telemetry (MCT)",
+  "Live-streaming monitoring capability",
+  "No manual uploading",
+  "Dimensions: 4.2 in × 2.6 in × 0.8 in",
+  "Weight: 4 oz (113 g)",
+  "Battery must be changed every 2 days",
+  "Up to 30-day wear duration",
+  "Strong ECG clarity",
+  "Precise P-Wave clarity",
+  "Full Disclosure Holter Reports",
+  "Advanced arrhythmia detection",
+  "Encrypted data and secure reporting",
+  "24/7 multilingual patient support",
+  "Auto-generated billing templates",
 ]
 
 const EquipmentPage = () => (
-  <main className="equipment-page">
-    <section className="equipment-hero" aria-labelledby="equipment-heading">
-      <div className="container">
-        <p className="equipment-hero__crumb">
-          <Link to="/services/">Services</Link>
-          <span className="equipment-hero__crumb-sep" aria-hidden>
-            /
-          </span>
-          <span>For our doctors</span>
-        </p>
-        <h1 id="equipment-heading" className="equipment-hero__title">
-          Monitoring Equipment{" "}
-          <span className="equipment-hero__title-accent">Options</span>
+  <main className="equipment-page equipment-page--figma" data-design="figma-21-1200">
+    <section className="eq-hero" aria-labelledby="eq-hero-heading">
+      <div className="figma-container">
+        <Link className="eq-hero__back" to="/services/">
+          <span className="eq-hero__back-dot" aria-hidden />
+          Our Services
+        </Link>
+        <h1 id="eq-hero-heading" className="eq-hero__title">
+          Monitoring Equipment
+          <span className="eq-hero__title-accent">Options</span>
         </h1>
-        <p className="equipment-hero__rule" aria-hidden />
+        <hr className="eq-hero__line" aria-hidden />
       </div>
     </section>
 
-    <section className="equipment-block" aria-labelledby="spatch-heading">
-      <div className="container">
-        <div className="equipment-block__grid equipment-block__grid--img-right">
-          <div className="equipment-block__copy">
-            <h2 id="spatch-heading" className="equipment-block__name">
-              S-Patch Monitoring System
-            </h2>
-            <p className="equipment-block__tag">Premium monitoring system</p>
-            <p className="equipment-block__text">
-              The S-Patch is designed for discreet, comfortable wear—so patients
-              can move through daily life while your team receives dependable
-              rhythm data. Lightweight hardware and thoughtful ergonomics help
-              improve compliance across longer monitoring windows.
-            </p>
-            <p className="equipment-block__text">
-              Real-time streaming keeps your clinical team aligned with what is
-              happening on the rhythm strip, supporting timely decisions when
-              symptoms and events need context.
-            </p>
-            <p className="equipment-block__text">
-              When signal quality and patient experience both matter, the S-Patch
-              delivers a premium monitoring experience without adding complexity
-              to your office workflow.
-            </p>
-          </div>
-          <div className="equipment-block__media">
-            <img
-              src={IMG_SPATCH}
-              alt="Patient wearing the S-Patch monitoring device"
-              loading="eager"
-              decoding="async"
-              width={640}
-              height={720}
-            />
+    <section className="eq-section" aria-labelledby="eq-spatch-heading">
+      <div className="figma-container">
+        <div className="eq-panel">
+          <div className="eq-panel__split">
+            <div className="eq-panel__copy">
+              <h2 id="eq-spatch-heading" className="eq-panel__h2">
+                S-Patch
+                <span className="eq-panel__h2-accent">Monitoring System</span>
+              </h2>
+              <p className="eq-panel__tag">Primary Featured System</p>
+              <p className="eq-panel__text">
+                The S-Patch Monitoring System is our primary featured 4-in-1 monitoring system. It is designed to support Holter, Extended Holter, Event, and Telemetry (MCT) from one device while delivering live-streaming, real-time ECG data. The S-Patch should be presented as our main monitoring solution throughout the website.
+              </p>
+              <p className="eq-panel__text">
+                It is especially important to emphasize that the S-Patch is designed for continuous, resilient real-time data streaming even in rural areas, helping support uninterrupted data capture, fewer incomplete studies, and greater physician confidence in every test. Data is sent live to our monitoring center with no manual uploading and no data delays.
+              </p>
+              <p className="eq-panel__text">
+                A major advantage of the S-Patch Monitoring System is patient comfort and wearability. Its very small, lightweight dual-disk design is intended to make the monitor easier for patients to wear during normal daily life. This is an important point the website should communicate clearly, because patients often report that they forget they are even wearing it.
+              </p>
+            </div>
+            <div className="eq-panel__media">
+              <img
+                src={IMG("s-patch.jpg")}
+                alt="Patient wearing the S-Patch monitoring system"
+                width={522}
+                height={727}
+                loading="eager"
+                decoding="async"
+              />
+            </div>
           </div>
         </div>
 
-        <div className="equipment-spec-grid">
-          <div className="equipment-spec-box">
-            <h3 className="equipment-spec-box__title">Specifications</h3>
-            <ul className="equipment-list equipment-list--diamond">
-              {SPATCH_SPECS.map((item) => (
-                <li key={item}>{item}</li>
+        <div className="eq-cards">
+          <div className="eq-card eq-card--spec">
+            <h3 className="eq-card__title">Specifications</h3>
+            <hr className="eq-card__rule" aria-hidden />
+            <ul className="eq-list">
+              {SPATCH_SPECS.map((line) => (
+                <li key={line}>{line}</li>
               ))}
             </ul>
           </div>
-          <div className="equipment-spec-box">
-            <h3 className="equipment-spec-box__title">Feature highlights</h3>
-            <ul className="equipment-list equipment-list--diamond">
-              {SPATCH_HIGHLIGHTS.map((item) => (
-                <li key={item}>{item}</li>
+          <div className="eq-card eq-card--feat">
+            <h3 className="eq-card__title">Feature Highlights</h3>
+            <hr className="eq-card__rule" aria-hidden />
+            <ul className="eq-list">
+              {FEATURE_HIGHLIGHTS.map((line) => (
+                <li key={line}>{line}</li>
               ))}
             </ul>
           </div>
@@ -108,67 +127,70 @@ const EquipmentPage = () => (
       </div>
     </section>
 
-    <section
-      className="equipment-block equipment-block--alt"
-      aria-labelledby="lead-heading"
-    >
-      <div className="container">
-        <div className="equipment-block__grid equipment-block__grid--img-left">
-          <div className="equipment-block__media">
-            <img
-              src={IMG_LEAD}
-              alt="Patient wearing the lead-wire monitoring system"
-              loading="lazy"
-              decoding="async"
-              width={640}
-              height={720}
-            />
-          </div>
-          <div className="equipment-block__copy">
-            <h2 id="lead-heading" className="equipment-block__name">
-              Lead-Wire Monitoring System
-            </h2>
-            <p className="equipment-block__tag">Secondary monitoring option</p>
-            <p className="equipment-block__text">
-              For patients who may not be ideal candidates for patch-based wear
-              or when your protocol calls for a traditional wired setup, our
-              lead-wire system provides a dependable alternative—without
-              sacrificing the clarity your team expects from ambulatory monitoring.
-            </p>
+    <section className="eq-section" aria-labelledby="eq-lead-heading">
+      <div className="figma-container">
+        <div className="eq-panel">
+          <div className="eq-panel__split eq-panel__split--reverse">
+            <div className="eq-panel__media">
+              <img
+                src={IMG("lead-wire.jpg")}
+                alt="Patient wearing the lead-wire monitoring system"
+                width={522}
+                height={748}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div className="eq-panel__copy">
+              <h2 id="eq-lead-heading" className="eq-panel__h2">
+                Lead-Wire
+                <span className="eq-panel__h2-accent">Monitoring System</span>
+              </h2>
+              <p className="eq-panel__tag">Secondary Monitoring Option</p>
+              <p className="eq-panel__text">
+                The Lead-Wire Monitoring System is a separate 4-in-1 monitoring equipment option that should also be shown on the website, but more minimally than the S-Patch system. It should be clearly labeled as a different monitoring system so physicians understand that it is a second option and do not confuse it with the S-Patch. The Lead Wire system also supports Holter, Extended Holter, Event, and Telemetry (MCT) and does not require manual uploading.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="equipment-spec-box equipment-spec-box--full">
-          <h3 className="equipment-spec-box__title">Specifications</h3>
-          <ul className="equipment-list equipment-list--diamond equipment-list--columns">
-            {LEAD_SPECS.map((item) => (
-              <li key={item}>{item}</li>
+        <div className="eq-card eq-card--lead">
+          <h3 className="eq-card__title">Lead-Wire Monitoring System Specifications</h3>
+          <hr className="eq-card__rule" aria-hidden />
+          <ul className="eq-list">
+            {LEAD_SPECS.map((line) => (
+              <li key={line}>{line}</li>
             ))}
           </ul>
         </div>
       </div>
     </section>
 
-    <section
-      className="section-cta equipment-page-cta"
-      aria-labelledby="equipment-cta-heading"
-    >
-      <div className="container">
-        <h2 id="equipment-cta-heading">
-          Start Your No-Risk <span className="accent">Beta Trial</span>
-        </h2>
-        <p>
-          See how our monitoring programs can support your practice—schedule time
-          with our team or start a no-obligation trial to evaluate workflows,
-          reporting, and patient experience.
-        </p>
-        <div className="section-cta__actions equipment-page-cta__actions">
-          <Link className="btn btn--primary" to="/contact/">
-            Start Your No-Risk Beta Trial
-          </Link>
-          <Link className="equipment-page-cta__link" to="/contact/">
-            Talk to Our Team<span aria-hidden>→</span>
-          </Link>
+    <section className="figma-section figma-cta svc-figma-cta" aria-labelledby="eq-cta-heading">
+      <div className="figma-container">
+        <div className="figma-cta__box">
+          <h2
+            id="eq-cta-heading"
+            className="figma-h2 figma-h2--center figma-h2--narrow"
+          >
+            Start Your No-Risk
+            <br />
+            <span className="figma-h2__accent">Beta Trial</span>
+          </h2>
+          <p className="figma-cta__p figma-cta__p--lead">
+            See how Specialized Medical can support your practice with: live-streaming ECG data; simplified office workflow.
+          </p>
+          <p className="figma-cta__p">
+            No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try Specialized Medical on a few patients. If it is not the right fit, we will take everything back - no hassle, no obligation. Let us prove our value to you and your patients.
+          </p>
+          <div className="figma-cta__actions">
+            <Link className="figma-btn figma-btn--solid" to="/contact/">
+              Start Your No-Risk Beta Trial
+            </Link>
+            <Link className="figma-cta__talk" to="/contact/">
+              Talk to Our Team→
+            </Link>
+          </div>
         </div>
       </div>
     </section>
@@ -180,10 +202,10 @@ export default EquipmentPage
 export function Head() {
   return (
     <>
-      <title>Monitoring Equipment Options | Specialized Medical Services</title>
+      <title>Monitoring Equipment Options | Specialized Medical</title>
       <meta
         name="description"
-        content="S-Patch and lead-wire monitoring systems—specifications, features, and options for physician practices."
+        content="S-Patch and lead-wire monitoring systems—full specifications, feature highlights, and equipment options for physician practices."
       />
     </>
   )
