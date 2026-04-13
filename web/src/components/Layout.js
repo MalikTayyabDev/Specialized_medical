@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { PATIENT_PORTAL_URL } from "../config/urls"
 
 export const ICON = (p) => `/icons/${encodeURIComponent(p)}`
 
@@ -108,6 +109,15 @@ function SiteHeader({ location }) {
           >
             Request a Demo
           </Link>
+          <a
+            className="figma-header__portal"
+            href={PATIENT_PORTAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setNavOpen(false)}
+          >
+            Patient Portal
+          </a>
         </div>
       </div>
     </header>
@@ -145,6 +155,13 @@ function SiteFooter() {
               <Link to="/services/">Services</Link>
               <Link to="/faq/">FAQ’s</Link>
               <Link to="/contact/">Contact</Link>
+              <a
+                href={PATIENT_PORTAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Patient Portal
+              </a>
             </nav>
             <div className="figma-footer__line">
               <span
@@ -214,7 +231,15 @@ function SiteFooter() {
               className="figma-footer__fb"
               aria-label="Facebook"
             >
-              Facebook
+              <img
+                src={ICON("vector3527-h9kk.svg")}
+                alt=""
+                width={20}
+                height={20}
+                className="figma-footer__fb-icon"
+                decoding="async"
+              />
+              <span>Facebook</span>
             </a>
           </div>
         </div>

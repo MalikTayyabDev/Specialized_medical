@@ -2120,6 +2120,21 @@ p.hero__pill {
   gap: 0.65rem 1rem;
 }
 
+.figma-header__portal {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+}
+
+.figma-header__portal:hover {
+  color: var(--color-red);
+}
+
 .figma-phone {
   display: inline-flex;
   align-items: center;
@@ -3067,51 +3082,52 @@ video.figma-ecg__video {
   }
 }
 
-/* AI */
-section.figma-section.figma-ai{
-  width: 100%;
-  max-width: 1064px ;
+/* Patient experience video — proof module below testimonials */
+.figma-proof-patient-experience {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(35, 31, 30, 0.12);
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.figma-proof-patient-experience__title {
+  margin-bottom: 12px;
+}
+
+.figma-proof-patient-experience__support {
+  margin: 0 auto 24px;
+  max-width: 640px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(35, 31, 30, 0.78);
+}
+
+.figma-proof-patient-experience__media {
+  max-width: 360px;
   margin: 0 auto;
-}
-
-.figma-ai__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 50%);
-  gap: 20px 20px;
-  align-items: center;
-}
-
-.figma-ai__media {
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
 }
 
-.figma-ai__media img {
+.figma-ai__video {
   width: 100%;
   height: auto;
   display: block;
-  min-height: 400px;
+}
+
+.figma-ai__video--proof {
+  max-height: 520px;
   object-fit: cover;
 }
 
-@media (max-width: 900px) {
-  .figma-ai__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .figma-ai__media {
-    order: -1;
+@media (max-width: 600px) {
+  .figma-proof-patient-experience__media {
     max-width: 100%;
-    margin: 0 auto;
-  }
-
-  .figma-ai__copy {
-    text-align: center;
-  }
-
-  .figma-ai .figma-h2 {
-    text-align: center;
   }
 }
 
@@ -3289,10 +3305,18 @@ section.figma-section.figma-ai{
 }
 
 .figma-footer__fb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 24px;
   color: #486fba;
+  text-decoration: none;
+}
+
+.figma-footer__fb-icon {
+  flex-shrink: 0;
 }
 
 .figma-footer__fb:hover {

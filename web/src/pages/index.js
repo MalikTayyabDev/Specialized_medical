@@ -15,8 +15,11 @@ const VIDEO = {
   ai: `/video/${encodeURIComponent("Avatar_Video_Take_14_buttons.mp4")}`,
 }
 
+const ECG_VIDEO_TRIM_END_SEC = 1.5
+
 const IndexPage = () => {
   const overviewFrameRef = React.useRef(null)
+  const ecgVideoRef = React.useRef(null)
 
   React.useEffect(() => {
     const frame = overviewFrameRef.current
@@ -57,6 +60,38 @@ const IndexPage = () => {
       video.removeEventListener("click", onVideoClick)
       video.removeEventListener("playing", onPlaying)
       video.removeEventListener("pause", onPause)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    const v = ecgVideoRef.current
+    if (!v) return
+    const trim = ECG_VIDEO_TRIM_END_SEC
+    const capTime = () => {
+      if (!v.duration || Number.isNaN(v.duration)) return
+      if (v.duration < trim + 1) return
+      const end = v.duration - trim
+      if (v.currentTime > end) v.currentTime = end
+    }
+    const onTimeUpdate = () => {
+      if (!v.duration || Number.isNaN(v.duration)) return
+      if (v.duration < trim + 1) return
+      if (v.currentTime >= v.duration - trim - 0.04) {
+        v.pause()
+        if (v.loop) {
+          v.currentTime = 0
+          v.play().catch(() => {})
+        }
+      }
+    }
+    const onSeeking = () => capTime()
+    v.addEventListener("timeupdate", onTimeUpdate)
+    v.addEventListener("seeking", onSeeking)
+    v.addEventListener("loadedmetadata", capTime)
+    return () => {
+      v.removeEventListener("timeupdate", onTimeUpdate)
+      v.removeEventListener("seeking", onSeeking)
+      v.removeEventListener("loadedmetadata", capTime)
     }
   }, [])
 
@@ -208,7 +243,7 @@ const IndexPage = () => {
                 />
               </div>
               <h3 className="figma-card__title">
-                Live Streaming , Real-Time Data
+                Live Streaming, Real-Time Data
               </h3>
               <p className="figma-card__body">
                 Our platform is designed for continuous, resilient real-time data
@@ -216,7 +251,7 @@ const IndexPage = () => {
                 rural areas. This supports uninterrupted data capture, reduces the
                 likelihood of incomplete studies, and gives physicians greater
                 confidence in every test. Data is sent live to our monitoring
-                center no manual uploading, no data delays.
+                center—no manual uploading, no data delays.
               </p>
             </article>
             <article className="figma-card figma-card--apart">
@@ -287,19 +322,19 @@ const IndexPage = () => {
           <div className="figma-services__row">
             <article className="figma-svc">
               <h3 className="figma-svc__title">Holter</h3>
-              <p className="figma-svc__meta">24–48 Hours</p>
+              <p className="figma-svc__meta">24–48 hours</p>
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">Extended Holter</h3>
-              <p className="figma-svc__meta">Greater than 48 hours up to 7 days</p>
+              <p className="figma-svc__meta">48 hours to 7 days</p>
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">Extended Holter</h3>
-              <p className="figma-svc__meta">Greater than 7 days up to 14 days</p>
+              <p className="figma-svc__meta">8 to 14 days</p>
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">Event Monitoring</h3>
-              <p className="figma-svc__meta">01 to 30 Days</p>
+              <p className="figma-svc__meta">1 to 30 days</p>
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">MCT (Telemetry)</h3>
@@ -307,7 +342,7 @@ const IndexPage = () => {
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">MCT (Telemetry)</h3>
-              <p className="figma-svc__meta">for Post TAVR Patients</p>
+              <p className="figma-svc__meta">Post TAVR program</p>
             </article>
           </div>
         </div>
@@ -333,18 +368,18 @@ const IndexPage = () => {
               <div className="figma-wstep__head">
                 <span className="figma-wstep__badge">01</span>
               </div>
-              <h3 className="figma-wstep__title">Enroll</h3>
+              <h3 className="figma-wstep__title">Hook-Up</h3>
               <p className="figma-wstep__body">
-                Register the patient in our system with a quick digital enrollment.
+                Attach electrodes and the monitor to the patient in your office.
               </p>
             </article>
             <article className="figma-wstep">
               <div className="figma-wstep__head">
                 <span className="figma-wstep__badge">02</span>
               </div>
-              <h3 className="figma-wstep__title">Hook-Up</h3>
+              <h3 className="figma-wstep__title">Enroll</h3>
               <p className="figma-wstep__body">
-                Attach electrodes and the monitor to the patient in your office.
+                Register the patient in our system with a quick digital enrollment.
               </p>
             </article>
             <article className="figma-wstep">
@@ -391,6 +426,7 @@ const IndexPage = () => {
         <div className="figma-container figma-ecg__grid">
           <div className="figma-ecg__visual">
             <video
+              ref={ecgVideoRef}
               className="figma-ecg__video"
               src={VIDEO.ecg}
               controls
@@ -414,20 +450,19 @@ const IndexPage = () => {
               asymptomatic.
             </p>
             <ul className="figma-ecg__list">
-              <li>Physicians see live rhythm data as it is acquired.</li>
-              <li>Patients log symptoms digitally during the study.</li>
+              <li>
+                Physicians see live rhythm data as it is acquired, with digital
+                symptom entries tied to the timeline of the study.
+              </li>
+              <li>
+                Reports make symptomatic vs. asymptomatic context clear—without a
+                separate handwritten diary.
+              </li>
               <li className="figma-ecg__emph">
-                Symptoms are logged digitally and matched directly to ECG events on
-                the final report.
+                Symptoms are matched to ECG segments on the final report for
+                defensible documentation.
               </li>
             </ul>
-            <p
-              className="figma-ecg__lead"
-              style={{ color: "#231F1E", fontSize: 16, fontWeight: 500 }}
-            >
-              Symptoms are logged digitally and matched directly to ECG events on
-              the final report.
-            </p>
           </div>
         </div>
       </section>
@@ -492,7 +527,7 @@ const IndexPage = () => {
               <h3 className="figma-card__title">Patient-Friendly Design</h3>
               <p className="figma-card__body">
                 Each monitor weighs less than four sheets of paper (0.6 oz), runs
-                up to 10 days per battery, is waterresistant (IP55), and offers
+                up to 10 days per battery, is water-resistant (IP55), and offers
                 industry-leading ECG clarity, including precise P-wave definition.
               </p>
             </article>
@@ -548,7 +583,7 @@ const IndexPage = () => {
                 <h3 className="figma-tcard__label">Life-saving detection</h3>
                 <p className="figma-tcard__quote">
                   “If it was not for Specialized Medical’s technology and service I
-                  am not sureif this patient would be around today.”
+                  am not sure if this patient would be around today.”
                 </p>
                 <a
                   className="figma-tcard__link"
@@ -590,33 +625,36 @@ const IndexPage = () => {
                   height={24}
                   decoding="async"
                 />
-                <p className="figma-tcard__author">— Michael</p>
+                <p className="figma-tcard__author">— Michael R., M.D.</p>
               </div>
             </article>
           </div>
-        </div>
-      </section>
 
-      <section className="figma-section figma-ai" aria-labelledby="figma-ai-heading">
-        <div className="figma-container figma-ai__grid">
-          <div className="figma-ai__copy">
-            <h2 id="figma-ai-heading" className="figma-h2 figma-h2--left">
-              AI-Generated Testimonial: What It’s Like Wearing the
-              <br />
-              <span className="figma-h2__accent figma-h2__accent--bold">
-                S-Patch Monitor
-              </span>
+          <div
+            className="figma-proof-patient-experience"
+            aria-labelledby="figma-patient-experience-heading"
+          >
+            <h2
+              id="figma-patient-experience-heading"
+              className="figma-h2 figma-h2--center figma-proof-patient-experience__title"
+            >
+              A Better Patient Experience
             </h2>
-          </div>
-          <div className="figma-ai__media">
-            <video
-              className="figma-ai__video"
-              src={VIDEO.ai}
-              width={520}
-              height={906}
-              controls
-              loop
-            />
+            <p className="figma-proof-patient-experience__support">
+              Small, comfortable, and easy to wear—designed to make cardiac
+              monitoring simpler for patients and easier for practices.
+            </p>
+            <div className="figma-proof-patient-experience__media">
+              <video
+                className="figma-ai__video figma-ai__video--proof"
+                src={VIDEO.ai}
+                width={520}
+                height={906}
+                controls
+                loop
+                playsInline
+              />
+            </div>
           </div>
         </div>
       </section>

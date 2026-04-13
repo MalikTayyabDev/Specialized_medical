@@ -145,6 +145,32 @@
     });
   }
 
+  function initEcgVideoEndTrim() {
+    var v = qs(".figma-ecg__video");
+    if (!v) return;
+    var trim = 1.5;
+    function capTime() {
+      if (!v.duration || isNaN(v.duration)) return;
+      if (v.duration < trim + 1) return;
+      var end = v.duration - trim;
+      if (v.currentTime > end) v.currentTime = end;
+    }
+    function onTimeUpdate() {
+      if (!v.duration || isNaN(v.duration)) return;
+      if (v.duration < trim + 1) return;
+      if (v.currentTime >= v.duration - trim - 0.04) {
+        v.pause();
+        if (v.loop) {
+          v.currentTime = 0;
+          v.play().catch(function () {});
+        }
+      }
+    }
+    v.addEventListener("timeupdate", onTimeUpdate);
+    v.addEventListener("seeking", capTime);
+    v.addEventListener("loadedmetadata", capTime);
+  }
+
   function initOverviewVideo() {
     var frame = qs("[data-overview-video]");
     var video = frame ? frame.querySelector(".figma-video__media") : null;
@@ -189,5 +215,6 @@
     initContactPage();
     initVideoPlayStub();
     initOverviewVideo();
+    initEcgVideoEndTrim();
   });
 })();
