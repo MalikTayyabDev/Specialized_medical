@@ -1,45 +1,46 @@
 import * as React from "react"
-import { ICON } from "../components/Layout"
+import { ICON, imagesPath } from "../components/Layout"
 
-const HERO_BG =
-  "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=2000&q=80"
+const IMG = {
+  hero: "/images/figma-contact/contact-hero.jpg",
+}
 
 const WHY_POINTS = [
-  "Live-streaming, real-time ECG data with industry-leading waveform clarity.",
-  "Four tests from one device—Holter, extended Holter, event, and telemetry (MCT).",
-  "Complete turn-key cardiac monitoring with enrollment through final report.",
-  "Billing support and resources to help your practice navigate coding questions.",
-  "No-risk beta trial options for practices evaluating a better monitoring partner.",
-  "24/7 monitoring with alerts by phone, text, or email when timing matters.",
-  "Detailed reporting designed for efficient clinical review and follow-up.",
-  "Wireless technology built for patient comfort and reliable connectivity.",
-  "Dedicated onboarding and technical support for your team and patients.",
-  "HIPAA-aligned workflows with attention to privacy and data handling.",
-  "Experienced technicians and clinical staff focused on quality and turnaround.",
+  "Live-streaming, real-time ECG data",
+  "Four tests from one device",
+  "Simple office workflow",
+  "24/7 live monitoring and alerts",
+  "Report integration and physician interpretation workflow",
+  "Billing support",
+  "Zero-cost equipment",
+  "Patient-friendly monitor design",
+  "Reimbursement value",
+  "TAVR monitoring support",
+  "No-risk beta trial",
 ]
 
 const ACTION_CARDS = [
   {
     title: "Request a Demo",
-    text: "See Specialized Medical in action with a live demonstration tailored to your workflow.",
+    text: "See Specialized Medical in action with a live demonstration.",
     hash: "demo",
     icon: "chat",
   },
   {
     title: "Start Your No-Risk Beta Trial",
-    text: "Try it on a few patients — no obligation — with guided onboarding from our team.",
+    text: "Try it on a few patients — no obligation.",
     hash: "beta",
     icon: "play",
   },
   {
     title: "Talk to Sales",
-    text: "Speak directly with our team about partnership opportunities and program fit.",
+    text: "Speak directly with our team about partnership opportunities.",
     hash: "sales",
     icon: "phone",
   },
   {
     title: "Existing Client Support",
-    text: "Get help with your current Specialized Medical system, supplies, and logistics.",
+    text: "Get help with your current Specialized Medical system.",
     hash: "support",
     icon: "gear",
   },
@@ -54,7 +55,7 @@ const INTEREST_OPTIONS = [
 ]
 
 function CardIcon({ name }) {
-  const common = { width: 24, height: 24, viewBox: "0 0 24 24", fill: "none" }
+  const common = { width: 20, height: 20, viewBox: "0 0 24 24", fill: "none" }
   switch (name) {
     case "chat":
       return (
@@ -153,33 +154,34 @@ const ContactPage = () => {
   }
 
   return (
-    <main className="contact-page">
-      <section className="contact-hero" aria-labelledby="contact-hero-heading">
-        <div
-          className="contact-hero__bg"
-          style={{ backgroundImage: `url(${HERO_BG})` }}
-          role="presentation"
-        />
-        <div className="contact-hero__overlay" />
-        <div className="container contact-hero__inner">
-          <p className="contact-hero__pill">
-            <span className="contact-hero__pill-dot" aria-hidden />
-            Contact Us
-          </p>
-          <h1 id="contact-hero-heading" className="contact-hero__title">
-            Let&apos;s Talk About{" "}
-            <span className="contact-hero__title-accent">
-              Better Cardiac Monitoring
-            </span>
-          </h1>
-          <p className="contact-hero__lead">
-            Choose the right path for your practice.
-          </p>
+    <main className="contact-page contact-page--figma" data-design="figma-19-604">
+      <section className="contact-figma-hero" aria-labelledby="contact-hero-heading">
+        <div className="contact-figma-hero__plate">
+          <div
+            className="contact-figma-hero__bg"
+            style={{ backgroundImage: `url(${IMG.hero})` }}
+            role="presentation"
+          />
+          <div className="contact-figma-hero__gradient" aria-hidden="true" />
+          <div className="figma-container contact-figma-hero__inner">
+            <p className="figma-hero__pill">
+              <span className="figma-hero__pill-dot" aria-hidden="true" />
+              Contact Us
+            </p>
+            <h1 id="contact-hero-heading" className="contact-figma-hero__title">
+              Let&apos;s Talk About{" "}
+              <span className="contact-figma-hero__title-accent">Better Cardiac</span>{" "}
+              Monitoring
+            </h1>
+            <p className="contact-figma-hero__lead">
+              Choose the right path for your practice.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="contact-actions" aria-label="Contact options">
-        <div className="container">
+      <section className="figma-section contact-actions" aria-label="Contact options">
+        <div className="figma-container">
           <div className="contact-actions__grid">
             {ACTION_CARDS.map((card) => (
               <button
@@ -200,46 +202,75 @@ const ContactPage = () => {
       </section>
 
       <section
-        className="contact-main"
+        className="figma-section contact-main"
         id="contact-form"
         aria-labelledby="contact-main-heading"
       >
-        <div className="container">
+        <div className="figma-container">
           <div className="contact-main__panel">
             <div className="contact-main__info">
               <h2 id="contact-main-heading" className="contact-main__title">
-                Why <span className="accent">Specialized Medical?</span>
+                Why{" "}
+                <span className="contact-main__title-accent">
+                  Specialized Medical?
+                </span>
               </h2>
               <ul className="contact-main__list">
                 {WHY_POINTS.map((point) => (
                   <li key={point}>{point}</li>
                 ))}
               </ul>
-              <blockquote className="contact-main__quote">
-                <p>
-                  &ldquo;Trusted by physicians and appreciated by patients… This
-                  monitor system is SO MUCH better than the old way!&rdquo;
+              <div className="contact-main__quote" role="figure">
+                <p className="contact-main__quote-line">
+                  &ldquo;Trusted by physicians and appreciated by patients for
+                  real-time data, rapid reporting, and easy-to-wear monitor
+                  design.&rdquo;
                 </p>
-                <footer>— R. Gail</footer>
-              </blockquote>
+                <p className="contact-main__quote-line contact-main__quote-line--emph">
+                  &ldquo;This monitor system is SO MUCH better than the old
+                  way!&rdquo; — R. Gall
+                </p>
+              </div>
               <div className="contact-main__direct">
                 <div className="contact-main__line">
-                  <img src={ICON("vector3527-jgyk.svg")} alt="" width={18} height={18} />
-                  <a href="tel:+18557732633">1-855-SPEC-MED (1-855-773-2633)</a>
+                  <img
+                    src={ICON("vector3527-jgyk.svg")}
+                    alt=""
+                    width={20}
+                    height={20}
+                    decoding="async"
+                  />
+                  <p>
+                    <span className="contact-main__phone-muted">
+                      1-855-SPEC-MED
+                    </span>{" "}
+                    <span className="contact-main__phone-strong">
+                      (1-855-773-2633)
+                    </span>
+                  </p>
                 </div>
                 <div className="contact-main__line">
-                  <img src={ICON("fi62447103527-gtjs.svg")} alt="" width={18} height={18} />
+                  <img
+                    src={ICON("fi62447103527-gtjs.svg")}
+                    alt=""
+                    width={20}
+                    height={20}
+                    decoding="async"
+                  />
                   <a href="mailto:info@specialized-med.com">
                     info@specialized-med.com
                   </a>
                 </div>
                 <div className="contact-main__line">
-                  <img src={ICON("vector3527-rp3.svg")} alt="" width={18} height={18} />
+                  <img
+                    src={imagesPath("figma-assets/location_icon.png")}
+                    alt=""
+                    width={20}
+                    height={20}
+                    decoding="async"
+                  />
                   <span>
-                    Specialized Medical, LLC
-                    <br />
-                    34145 Pacific Coast Highway, #700
-                    <br />
+                    Specialized Medical, LLC 34145 Pacific Coast Highway, #700
                     Dana Point, CA 92629
                   </span>
                 </div>
@@ -279,16 +310,16 @@ const ContactPage = () => {
                     />
                   </label>
                   <label className="contact-form__field">
-                    <span className="contact-form__label">Phone</span>
-                    <input
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                    />
+                    <span className="contact-form__label">
+                      Phone number (optional)
+                    </span>
+                    <input name="phone" type="tel" autoComplete="tel" />
                   </label>
                 </div>
                 <label className="contact-form__field contact-form__field--full">
-                  <span className="contact-form__label">I am interested in…</span>
+                  <span className="contact-form__label">
+                    I am interested in…
+                  </span>
                   <select name="interest" defaultValue="">
                     <option value="">Select an option</option>
                     {INTEREST_OPTIONS.map((opt) => (
@@ -300,7 +331,7 @@ const ContactPage = () => {
                 </label>
                 <label className="contact-form__field contact-form__field--full">
                   <span className="contact-form__label">Message</span>
-                  <textarea name="message" rows={5} placeholder="How can we help?" />
+                  <textarea name="message" rows={5} placeholder="" />
                 </label>
                 <button type="submit" className="contact-form__submit">
                   Submit
@@ -312,45 +343,40 @@ const ContactPage = () => {
       </section>
 
       <section
-        className="section-cta contact-page-cta"
+        className="figma-section figma-cta contact-figma-cta"
         aria-labelledby="contact-cta-heading"
       >
-        <div className="container">
-          <h2 id="contact-cta-heading">
-            Start Your No-Risk <span className="accent">Beta Trial</span>
-          </h2>
-          <p>
-            Try Specialized Medical with guided onboarding and support—so your
-            team can evaluate workflows, reporting, and patient experience with
-            no long-term obligation.
-          </p>
-          <p>
-            Questions before you begin? We&apos;re happy to walk through options
-            for your practice.
-          </p>
-          <div className="section-cta__actions contact-page-cta__actions">
-            <a className="btn btn--primary" href="#contact-form">
-              Start Your No-Risk Beta Trial
-            </a>
-            <a className="contact-page-cta__link" href="tel:+18557732633">
-              Talk to Our Team<span aria-hidden>→</span>
-            </a>
+        <div className="figma-container">
+          <div className="figma-cta__box">
+            <h2
+              id="contact-cta-heading"
+              className="figma-h2 figma-h2--center figma-h2--narrow"
+            >
+              Start Your No-Risk
+              <br />
+              <span className="figma-h2__accent">Beta Trial</span>
+            </h2>
+            <p className="figma-cta__p figma-cta__p--lead">
+              See how Specialized Medical can support your practice with:
+              live-streaming ECG data; simplified office workflow.
+            </p>
+            <p className="figma-cta__p">
+              No-Risk Beta Trial. Anyone can make promises. We would rather prove
+              it. Try Specialized Medical on a few patients. If it is not the
+              right fit, we will take everything back - no hassle, no obligation.
+              Let us prove our value to you and your patients.
+            </p>
+            <div className="figma-cta__actions">
+              <a className="figma-btn figma-btn--solid" href="#contact-form">
+                Start Your No-Risk Beta Trial
+              </a>
+              <a className="figma-cta__talk" href="tel:+18557732633">
+                Talk to Our Team→
+              </a>
+            </div>
           </div>
         </div>
       </section>
-
-      <div className="contact-trust" aria-label="Trust">
-        <div className="container contact-trust__inner">
-          <span className="contact-trust__badge">HIPAA Compliant</span>
-          <a
-            href="https://www.facebook.com/"
-            className="contact-trust__social"
-            aria-label="Facebook"
-          >
-            <img src={ICON("vector3527-h9kk.svg")} alt="" width={22} height={22} />
-          </a>
-        </div>
-      </div>
     </main>
   )
 }
