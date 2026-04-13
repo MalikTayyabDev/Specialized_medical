@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Services | Specialized Medical Services</title>
-  <meta name="description" content="Holter, event, MCT, and extended monitoring from one device—wireless technology, detailed reporting, and 24/7 support.">
+  <title>Services | Specialized Medical</title>
+  <meta name="description" content="Four tests, one device—Holter, extended Holter, event, and MCT with live-streaming ECG, real-time data, and zero-cost equipment.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
@@ -14,376 +14,453 @@
 </head>
 <body>
   <div class="site-root">
-    <header class="site-header">
-      <div class="container site-header__topbar">
-        <a class="site-header__topbar-phone" href="tel:+18557732633">
-          <img src="icons/vector3525-jq8.svg" alt="">
-          1-855-773-2633
-        </a>
-        <div class="site-header__social">
-          <a href="https://www.facebook.com/" aria-label="Facebook">
-            <img src="icons/vector3527-h9kk.svg" alt="" width="20" height="20">
-          </a>
-        </div>
-      </div>
-      <div class="container site-header__inner">
-        <a href="index.html" class="site-brand">
-          <img class="site-brand__logo" src="icons/brand-logo.svg" alt="Specialized Medical — Expert Cardiac Monitoring Services" width="236" height="71">
+    <header class="site-header site-header--figma">
+      <div class="figma-container figma-header__inner site-header__inner">
+        <a href="index.html" class="figma-brand" aria-label="Specialized Medical home">
+          <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="236" height="52" decoding="async">
         </a>
         <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">Menu</button>
-        <nav id="primary-nav" class="site-nav" aria-label="Primary">
-          <a class="site-nav__link" href="index.html">Home</a>
-          <a class="site-nav__link" href="about.html">About Us</a>
-          <a class="site-nav__link is-active" href="services.html">Services</a>
-          <a class="site-nav__link" href="faq.html">FAQs</a>
-          <a class="site-nav__link" href="contact.html">Contact Us</a>
+        <nav id="primary-nav" class="figma-nav" aria-label="Primary">
+          <a class="figma-nav__link" href="index.html">Home</a>
+          <a class="figma-nav__link" href="about.html">About Us</a>
+          <a class="figma-nav__link is-active" href="services.html">Services</a>
+          <a class="figma-nav__link" href="faq.html">FAQ’s</a>
+          <a class="figma-nav__link" href="contact.html">Contact</a>
         </nav>
-        <div class="site-header__cta">
-          <a class="btn btn--portal" href="#patient-portal">Patient Portal</a>
+        <div class="figma-header__cta">
+          <a class="figma-phone" href="tel:+18557732633">
+            <img class="figma-phone__icon" src="icons/vector3527-jgyk.svg" alt="" width="14" height="14" decoding="async">
+            <span class="figma-phone__num">1-855-773-2633</span>
+          </a>
+          <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+          <a class="figma-header__portal" href="https://www.specialized-med.com/patient-portal/" target="_blank" rel="noopener noreferrer">Patient Portal</a>
         </div>
       </div>
     </header>
 
-    <main class="services-page">
-    <section class="services-hero" aria-label="Services hero">
-      <div class="services-hero__bg" style="background-image:url(https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=2000&q=80)" role="presentation"></div>
-      <div class="services-hero__overlay"></div>
-      <div class="container">
-        <div class="services-hero__grid">
-          <div class="services-hero__copy">
-            <h1 class="services-hero__title">Your Tests. <span class="accent">One Device.</span></h1>
-            <p class="services-hero__lead">The future of cardiac monitoring is here.</p>
-            <div class="services-hero__actions">
-              <a class="btn btn--primary" href="contact.html">Get Started</a>
-              <a class="btn btn--outline" href="#capabilities">Learn More</a>
+    <main class="services-page services-page--figma" data-design="figma-20-816">
+      <section class="svc-hero" aria-labelledby="svc-hero-heading">
+        <div class="svc-hero__plate">
+          <div class="svc-hero__bg" role="presentation"></div>
+          <div class="svc-hero__gradient" aria-hidden="true"></div>
+          <div class="figma-container svc-hero__inner">
+            <p class="figma-hero__pill">
+              <span class="figma-hero__pill-dot" aria-hidden="true"></span>
+              Our Services
+            </p>
+            <h1 id="svc-hero-heading" class="svc-hero__title">
+              Four tests<br>
+              <span class="svc-hero__title-accent">One device</span>
+            </h1>
+            <p class="svc-hero__lead">Real-Time Data. Zero-Cost Equipment.</p>
+            <div class="svc-hero__actions">
+              <a class="figma-btn figma-btn--outline-dark" href="contact.html">Request a Demo</a>
+              <a class="figma-btn figma-btn--solid" href="contact.html">Start Your No-Risk Beta Trial</a>
             </div>
-          </div>
-          <div class="services-hero__photo">
-            <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=900&q=80" alt="Patient resting while connected to monitoring equipment" loading="eager" decoding="async" width="640" height="480">
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="services-subpage-banner" aria-label="Equipment detail">
-      <div class="container">
-        <a class="services-subpage-banner__link" href="services/equipment.html">
-          Monitoring equipment options<span class="services-subpage-banner__arrow" aria-hidden> →</span>
-        </a>
-      </div>
-    </section>
-
-    <section class="services-cap" id="capabilities" aria-labelledby="cap-heading">
-      <div class="container">
-        <h2 id="cap-heading" class="services-cap__title">Our Test Capabilities</h2>
-        <div class="services-cap__grid">
-          <div class="services-cap__item">
-            <div class="services-cap__icon">
-              <img src="icons/vector3526-3i69.svg" alt="" width="48" height="48">
-            </div>
-            <p class="services-cap__label">Holter Monitoring</p>
-          </div>
-          <div class="services-cap__item">
-            <div class="services-cap__icon">
-              <img src="icons/vector3526-633n.svg" alt="" width="48" height="48">
-            </div>
-            <p class="services-cap__label">Cardiac Event Monitoring</p>
-          </div>
-          <div class="services-cap__item">
-            <div class="services-cap__icon">
-              <img src="icons/vector3526-fv7g.svg" alt="" width="48" height="48">
-            </div>
-            <p class="services-cap__label">Mobile Cardiac Telemetry</p>
-          </div>
-          <div class="services-cap__item">
-            <div class="services-cap__icon">
-              <img src="icons/vector3526-owz9.svg" alt="" width="48" height="48">
-            </div>
-            <p class="services-cap__label">Extended Holter</p>
-          </div>
-          <div class="services-cap__item">
-            <div class="services-cap__icon">
-              <img src="icons/fi151927003526-1meh.svg" alt="" width="48" height="48">
-            </div>
-            <p class="services-cap__label">Home Sleep Testing</p>
-          </div>
-          <div class="services-cap__item">
-            <div class="services-cap__icon">
-              <img src="icons/fi68134193542-mcs9.svg" alt="" width="48" height="48">
-            </div>
-            <p class="services-cap__label">Pacemaker / ICD Monitoring</p>
+      <section class="figma-section svc-breakdown" aria-labelledby="svc-breakdown-heading">
+        <div class="figma-container">
+          <h2 id="svc-breakdown-heading" class="svc-breakdown__heading">
+            Full Test <span class="svc-breakdown__heading-accent">Breakdown</span>
+          </h2>
+          <div class="svc-breakdown__grid">
+            <article class="svc-breakdown-card">
+              <h3 class="svc-breakdown-card__title">Holter</h3>
+              <p class="svc-breakdown-card__meta">24–48 Hours</p>
+            </article>
+            <article class="svc-breakdown-card">
+              <h3 class="svc-breakdown-card__title">Extended Holter</h3>
+              <p class="svc-breakdown-card__meta">Greater than 48 hours up to 7 days</p>
+            </article>
+            <article class="svc-breakdown-card">
+              <h3 class="svc-breakdown-card__title">Extended Holter</h3>
+              <p class="svc-breakdown-card__meta">Greater than 7 days up to 14 days</p>
+            </article>
+            <article class="svc-breakdown-card">
+              <h3 class="svc-breakdown-card__title">Event Monitoring</h3>
+              <p class="svc-breakdown-card__meta">01 to 30 Days</p>
+            </article>
+            <article class="svc-breakdown-card">
+              <h3 class="svc-breakdown-card__title">MCT (Telemetry)</h3>
+              <p class="svc-breakdown-card__meta">1 to 30 days</p>
+            </article>
+            <article class="svc-breakdown-card">
+              <h3 class="svc-breakdown-card__title">MCT (Telemetry)</h3>
+              <p class="svc-breakdown-card__meta">for Post TAVR Patients</p>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="services-split" aria-labelledby="split-a">
-      <div class="container">
-        <div class="services-split__inner">
-          <div class="services-split__copy">
-            <h2 id="split-a" class="services-split__title"><span class="accent">Four Tests.</span> One Device.</h2>
-            <p class="services-split__text">Perform Holter, Extended Holter, Cardiac Event, and Mobile Cardiac Telemetry from a single monitor—so your team can standardize workflows while patients benefit from one familiar device.</p>
-            <p class="services-split__text">Flexible test sequencing supports evolving clinical questions without swapping hardware or re-training staff on multiple systems.</p>
-          </div>
-          <div class="services-split__media">
-            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80" alt="Patient wearing cardiac monitoring sensors" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services-split services-split--alt services-split--reverse" aria-labelledby="split-b">
-      <div class="container">
-        <div class="services-split__inner">
-          <div class="services-split__media">
-            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1000&q=80" alt="ECG rhythm strip example" loading="lazy" decoding="async">
-          </div>
-          <div class="services-split__copy">
-            <h2 id="split-b" class="services-split__title">The <span class="accent">3-Lead ECG</span> Advantage</h2>
-            <p class="services-split__text">Three-lead acquisition delivers robust rhythm assessment with clarity physicians can trust—supporting confident reads across common arrhythmias and capture scenarios.</p>
-            <p class="services-split__text">Consistent lead placement and high-quality signal processing help reduce noise and ambiguity in long-term recordings.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services-split" aria-labelledby="split-c">
-      <div class="container">
-        <div class="services-split__inner">
-          <div class="services-split__copy">
-            <h2 id="split-c" class="services-split__title"><span class="accent">Mobile Cardiac</span> Monitoring System</h2>
-            <ul class="services-split__list">
-              <li>Real-time transmission during daily activities</li>
-              <li>Symptom correlation with rhythm data</li>
-              <li>Designed for longer monitoring windows when indicated</li>
-            </ul>
-            <a class="btn btn--primary" href="contact.html">Learn More</a>
-          </div>
-          <div class="services-split__media">
-            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f62b?auto=format&fit=crop&w=1000&q=80" alt="Patient wearing mobile cardiac telemetry device" loading="lazy" decoding="async">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services-split services-split--alt services-split--reverse" aria-labelledby="split-d">
-      <div class="container">
-        <div class="services-split__inner">
-          <div class="services-split__media">
-            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80" alt="Patient holding Holter recording device" loading="lazy" decoding="async">
-          </div>
-          <div class="services-split__copy">
-            <h2 id="split-d" class="services-split__title"><span class="accent">24 / 48 / 72 / 96 Hour</span> Holter Monitoring System</h2>
-            <ul class="services-split__list">
-              <li>Flexible duration options to match the clinical question</li>
-              <li>High-quality Holter acquisition and reporting</li>
-              <li>Support from enrollment through final report delivery</li>
-            </ul>
-            <a class="btn btn--primary" href="contact.html">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="services-wireless" aria-labelledby="wireless-heading">
-      <div class="container">
-        <h2 id="wireless-heading" class="services-wireless__title">Benefit From <span class="accent">Wireless Technology</span></h2>
-        <div class="services-wireless__grid">
-          <article class="services-wireless__card">
-            <div class="services-wireless__card-icon">
-              <img src="icons/vector3525-f3b.svg" alt="" width="40" height="40">
+      <section class="figma-section svc-split" aria-labelledby="svc-four-heading">
+        <div class="figma-container">
+          <div class="svc-split__inner">
+            <div class="svc-split__copy">
+              <h2 id="svc-four-heading" class="svc-split__title">
+                Four Tests, <span class="svc-split__title-accent">One Device</span>
+              </h2>
+              <p class="svc-split__text">Perform Holter, Extended Holter, Event, and Telemetry (MCT) tests — individually or in sequence — using a single monitor.</p>
             </div>
-            <h3>Continuous connectivity</h3>
-            <p>Wireless transmission keeps data flowing from the patient to our monitoring center without manual uploads or gaps that slow care.</p>
-          </article>
-          <article class="services-wireless__card">
-            <div class="services-wireless__card-icon">
-              <img src="icons/vector3525-kmvj.svg" alt="" width="40" height="40">
+            <div class="svc-split__media">
+              <img src="images/figma-services/four-tests-device.jpg" alt="Patient with cardiac monitoring device" width="522" height="662" loading="lazy" decoding="async">
             </div>
-            <h3>Comfortable wear</h3>
-            <p>Lightweight, patient-friendly designs help improve compliance so studies finish with complete, actionable data.</p>
-          </article>
-          <article class="services-wireless__card">
-            <div class="services-wireless__card-icon">
-              <img src="icons/vector3525-wjr6.svg" alt="" width="40" height="40">
-            </div>
-            <h3>Rapid awareness</h3>
-            <p>Timely visibility into rhythm changes supports faster clinical decisions when every minute matters.</p>
-          </article>
-          <article class="services-wireless__card">
-            <div class="services-wireless__card-icon">
-              <img src="icons/fi18181343526-83wj.svg" alt="" width="40" height="40">
-            </div>
-            <h3>Streamlined workflow</h3>
-            <p>Enrollment, hook-up, and reporting fit into your office routine with support from our team.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="services-advantage" aria-labelledby="adv-heading">
-      <div class="container">
-        <h2 id="adv-heading" class="services-advantage__title">The <span class="accent">Specialized Medical</span> Advantage</h2>
-        <ul class="services-advantage__list">
-          <li><svg class="services-advantage__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>One platform for Holter, Extended Holter, Event, and Telemetry (MCT) testing.</span></li>
-          <li><svg class="services-advantage__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Live ECG streaming with industry-leading waveform clarity.</span></li>
-          <li><svg class="services-advantage__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Digital symptom capture tied to ECG segments on the final report.</span></li>
-          <li><svg class="services-advantage__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>24/7 monitoring with alerts by phone, text, or email.</span></li>
-          <li><svg class="services-advantage__check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Reports designed for clear clinical review and faster follow-up.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="services-reporting" aria-labelledby="report-heading">
-      <div class="container">
-        <div class="services-reporting__inner">
-          <div>
-            <h2 id="report-heading" class="services-reporting__title"><span class="accent">Detailed Reporting</span> That Supports Better Clinical Decisions</h2>
-            <p class="services-reporting__text">Comprehensive reports combine rhythm summaries, representative strips, and symptom context—presented for efficient review so you can move from data to decision with confidence.</p>
-          </div>
-          <div class="services-reporting__shot">
-            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="Sample monitoring report with charts and ECG strips" loading="lazy" decoding="async">
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="services-products" aria-labelledby="products-heading">
-      <div class="container">
-        <h2 id="products-heading" class="services-products__title">Our <span class="accent">Products</span></h2>
-        <div class="services-products__list">
-          <article class="services-product-card">
-            <div class="services-product-card__thumb"><img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=400&q=80" alt="" loading="lazy"></div>
-            <div class="services-product-card__body">
-              <h3>Cardiac Event Monitor</h3>
-              <p>Capture transient symptoms with patient-friendly event logging and clear ECG correlation on the final report.</p>
-              <div class="services-product-card__meta"><div class="stars" aria-hidden><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"></div><a class="services-product-card__link" href="#split-b">Read More</a></div>
+      <section class="figma-section svc-split svc-split--muted svc-split--reverse" aria-labelledby="svc-live-heading">
+        <div class="figma-container">
+          <div class="svc-split__inner">
+            <div class="svc-split__media">
+              <img src="images/figma-services/live-streaming-ecg.jpg" alt="Live ECG monitoring display" width="522" height="390" loading="lazy" decoding="async">
             </div>
-          </article>
-          <article class="services-product-card">
-            <div class="services-product-card__thumb"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=400&q=80" alt="" loading="lazy"></div>
-            <div class="services-product-card__body">
-              <h3>Mobile Cardiac Telemetry</h3>
-              <p>Extended real-time monitoring with alerts and clinical review from our monitoring center.</p>
-              <div class="services-product-card__meta"><a class="services-product-card__link" href="#split-c">Read More</a></div>
+            <div class="svc-split__copy">
+              <h2 id="svc-live-heading" class="svc-split__title">
+                Live Streaming,<br>
+                <span class="svc-split__title-accent">Real-Time Data</span>
+              </h2>
+              <p class="svc-split__text">Our platform is designed for continuous, resilient real-time data streaming across a wide range of patient environments, including rural areas. This supports uninterrupted data capture, reduces the likelihood of incomplete studies, and gives physicians greater confidence in every test. Data is sent live to our monitoring center no manual uploading, no data delays.</p>
             </div>
-          </article>
-          <article class="services-product-card">
-            <div class="services-product-card__thumb"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=400&q=80" alt="" loading="lazy"></div>
-            <div class="services-product-card__body">
-              <h3>Holter &amp; Extended Holter</h3>
-              <p>From 24-hour studies through multi-day extended Holter—one platform and consistent reporting.</p>
-              <div class="services-product-card__meta"><div class="stars" aria-hidden><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"><img src="icons/star13663-lr4m.svg" alt="" width="18" height="18"></div><a class="services-product-card__link" href="#split-d">Read More</a></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section svc-split" aria-labelledby="svc-spatch-heading">
+        <div class="figma-container">
+          <div class="svc-split__inner">
+            <div class="svc-split__copy">
+              <a class="svc-split__eyebrow" href="services/equipment.html">
+                <span class="svc-split__eyebrow-dot" aria-hidden="true"></span>
+                Monitoring Equipment options
+              </a>
+              <h2 id="svc-spatch-heading" class="svc-split__title">
+                The S-Patch <span class="svc-split__title-accent">Monitoring System</span>
+              </h2>
+              <p class="svc-split__text">The S-Patch Monitoring System is our primary featured 4-in-1 monitoring system. It is designed to support Holter, Extended Holter, Event, and Telemetry (MCT) from one device while delivering live-streaming, real-time ECG data. The S-Patch should be presented as our main monitoring solution throughout the website.</p>
+              <p class="svc-split__text">It is especially important to emphasize that the S-Patch is designed for continuous, resilient real-time data streaming even in rural areas, helping support uninterrupted data capture, fewer incomplete studies, and greater physician confidence in every test. Data is sent live to our monitoring center with no manual uploading and no data delays</p>
+              <ul class="svc-split__list">
+                <li>4-in-1 monitoring system</li>
+                <li>Supports Holter, Extended Holter, Event, and Telemetry (MCT)</li>
+                <li>Live-streaming, real-time ECG data</li>
+                <li>No manual uploading</li>
+              </ul>
+              <a class="figma-btn figma-btn--solid" href="services/equipment.html">See More</a>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="services-split services-split--reverse" aria-labelledby="split-e">
-      <div class="container">
-        <div class="services-split__inner">
-          <div class="services-split__media">
-            <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=900&q=80" alt="Smartphone showing ECG monitoring application" loading="lazy" decoding="async">
-          </div>
-          <div class="services-split__copy">
-            <h2 id="split-e" class="services-split__title"><span class="accent">Real-time ECG</span> &amp; Arrhythmia Analysis</h2>
-            <ul class="services-split__list">
-              <li>Live rhythm visibility for your clinical team</li>
-              <li>Designed for timely awareness of concerning patterns</li>
-              <li>Digital tools that support patient engagement</li>
-            </ul>
+            <div class="svc-split__media">
+              <img src="images/figma-services/s-patch.jpg" alt="S-Patch monitoring system in use" width="522" height="727" loading="lazy" decoding="async">
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="services-split services-split--alt" aria-labelledby="split-f">
-      <div class="container">
-        <div class="services-split__inner">
-          <div class="services-split__copy">
-            <h2 id="split-f" class="services-split__title"><span class="accent">Faster,</span> Reliable Insights</h2>
-            <p class="services-split__text">Our workflows prioritize signal quality, timely review, and delivery of reports into your practice—so you spend less time chasing data and more time with patients.</p>
-          </div>
-          <div class="services-split__media">
-            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=900&q=80" alt="Clinical sensor and monitoring equipment" loading="lazy" decoding="async">
+      <section class="figma-section svc-split svc-split--muted svc-split--reverse" aria-labelledby="svc-lead-heading">
+        <div class="figma-container">
+          <div class="svc-split__inner">
+            <div class="svc-split__media">
+              <img src="images/figma-services/lead-wire.jpg" alt="Lead-wire monitoring system" width="522" height="748" loading="lazy" decoding="async">
+            </div>
+            <div class="svc-split__copy">
+              <h2 id="svc-lead-heading" class="svc-split__title">
+                Lead-Wire<br>
+                <span class="svc-split__title-accent">Monitoring System</span>
+              </h2>
+              <p class="svc-split__text">The Lead-Wire Monitoring System is a separate 4-in-1 monitoring equipment option that should also be shown on the website, but more minimally than the S-Patch system. It should be clearly labeled as a different monitoring system so physicians understand that it is a second option and do not confuse it with the S-Patch. The Lead Wire system also supports Holter, Extended Holter, Event, and Telemetry (MCT) and does not require manual uploading.</p>
+              <ul class="svc-split__list">
+                <li>4-in-1 live-streaming monitoring system</li>
+                <li>Supports Holter, Extended Holter, Event, and Telemetry (MCT)</li>
+                <li>Live-streaming monitoring capability</li>
+                <li>No manual uploading</li>
+              </ul>
+              <a class="figma-btn figma-btn--solid" href="services/equipment.html">See More</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section class="services-trust" aria-labelledby="trust-heading">
-      <div class="container">
-        <h2 id="trust-heading" class="services-trust__title"><span class="accent">Trust</span> the Expert Reports</h2>
-        <p class="services-trust__text">Experienced technicians and clinical staff review recordings with attention to detail—so your team receives reports that are clear, complete, and ready for clinical action.</p>
-      </div>
-    </section>
-
-    <section class="services-cta" aria-labelledby="cta-heading">
-      <div class="container">
-        <h2 id="cta-heading" class="services-cta__title"><span class="accent">Don't Wait!</span> Contact Us Today!</h2>
-        <p class="services-cta__lead">Speak with our team about enrollment, monitoring options, and how Specialized Medical can support your practice.</p>
-        <div class="services-cta__actions">
-          <a class="btn btn--primary" href="contact.html">Contact Us</a>
-          <a class="btn btn--outline" href="tel:+18557732633">Call Us</a>
+      <section class="figma-section svc-workflow" aria-labelledby="svc-workflow-heading">
+        <div class="figma-container">
+          <h2 id="svc-workflow-heading" class="svc-workflow__heading">
+            Streamlined Workflow<br>
+            <span class="svc-workflow__heading-accent">for Your Office</span>
+          </h2>
+          <p class="svc-workflow__sub">Your medical assistant completes a simple 3-step process: Hook-Up → Enroll → Disconnect (Under 15 Minutes)</p>
+          <div class="svc-workflow__panel">
+            <p>Once the patient leaves, we take over the rest:</p>
+            <div class="svc-workflow__grid">
+              <div class="svc-workflow__cell"><span class="svc-workflow__dot" aria-hidden="true"></span>24/7 live monitoring across all test types</div>
+              <div class="svc-workflow__cell"><span class="svc-workflow__dot" aria-hidden="true"></span>Real-time arrhythmia alerts by email, text, or phone call</div>
+              <div class="svc-workflow__cell"><span class="svc-workflow__dot" aria-hidden="true"></span>Automatic generation and delivery of final reports</div>
+              <div class="svc-workflow__cell"><span class="svc-workflow__dot" aria-hidden="true"></span>Patient support through our 24/7 multilingual call center</div>
+            </div>
+            <p class="svc-workflow__footer">When the patient returns the device, it is ready for the next patient.</p>
+          </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="site-footer__top">
-          <div class="site-footer__brand">
-            <a href="index.html" class="site-brand">
-              <img class="site-brand__logo" src="icons/brand-logo.svg" alt="Specialized Medical — Expert Cardiac Monitoring Services" width="236" height="71">
+      <section class="figma-section svc-practice" aria-labelledby="svc-practice-heading">
+        <div class="figma-container">
+          <h2 id="svc-practice-heading" class="svc-practice__heading">
+            Practice Integration<br>
+            <span class="svc-practice__heading-accent">Made Easy</span>
+          </h2>
+          <ul class="svc-practice__list">
+            <li class="svc-practice__item">Final reports are EMR-ready and can be automatically pushed into your system</li>
+            <li class="svc-practice__item">Electronically review, interpret, date, and sign final reports</li>
+            <li class="svc-practice__item">Customized billing templates with all CPT and ICD-10 codes provided</li>
+            <li class="svc-practice__item">We work directly with your billing staff or third-party biller for seamless claims submission</li>
+            <li class="svc-practice__item">Our portal tracks device usage and alerts your staff about any inactive or unreturned monitors</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="figma-section svc-reporting" aria-labelledby="svc-reporting-heading">
+        <div class="figma-container">
+          <h2 id="svc-reporting-heading" class="svc-reporting__heading">
+            Detailed Reporting That <span class="svc-reporting__heading-accent">Supports Faster Clinical Decisions.</span>
+          </h2>
+          <div class="svc-reporting__inner">
+            <div class="svc-reporting__blocks">
+              <div class="svc-reporting__block">
+                <h3>Symptomatic vs. Asymptomatic Clarity</h3>
+                <p>Patient symptoms are entered digitally during the test and automatically populate on the final report above the corresponding ECG strips, making it immediately clear whether an event was symptomatic or asymptomatic - with no separate handwritten symptom diary required.</p>
+              </div>
+              <div class="svc-reporting__block">
+                <h3>ECG strip detail</h3>
+                <p>Experience industry-leading ECG clarity, including precise P-wave definition. Our reports provide the granular detail necessary for accurate rhythm interpretation.</p>
+              </div>
+              <div class="svc-reporting__block">
+                <h3>EMR-Ready Final Reports</h3>
+                <p>Stop wasting time with manual data entry. Final reports are EMR-ready and can be pushed automatically into your existing system for a seamless digital record.</p>
+              </div>
+              <div class="svc-reporting__block">
+                <h3>Streamlined Physician Interpretation Workflow</h3>
+                <p>We have simplified the professional review process to fit into your busy schedule. Through our secure provider portal, you can manage the entire interpretation cycle in one place:</p>
+                <ul class="svc-reporting__sublist">
+                  <li><strong>Electronic Review:</strong> Access comprehensive data and full-disclosure strips from any secure device.</li>
+                  <li><strong>Professional Interpretation:</strong> Document your findings directly within the digital report interface.</li>
+                  <li><strong>Digital Authentication:</strong> Finalize reports with an electronic signature, date, and time stamp—ready for billing and clinical filing.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="svc-reporting__shot">
+              <img src="images/figma-services/report-sample.jpg" alt="Sample cardiac monitoring report" width="630" height="925" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section svc-cases" aria-labelledby="svc-cases-heading">
+        <div class="figma-container">
+          <h2 id="svc-cases-heading" class="svc-cases__heading">
+            Clinical <span class="svc-cases__heading-accent">Proof</span>
+          </h2>
+          <div class="svc-cases__list">
+            <article class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-01.jpg" alt="" width="305" height="394" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">patient-friendly design, small monitor size, comfort, and ease of wear.</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 01 (S-Patch System)</span>
+                <h3 class="svc-case-card__title">Easy for Patients to Wear</h3>
+                <p class="svc-case-card__body">"I wore the S-Patch Monitor from Specialized Medical all week. It was easy and hassle free. Was not a problem at all. The monitor I wore was very small. I didn't even realize I was wearing it. The technology is incredible. I'm looking forward to seeing the results, since I'm pretty sure I have occasional Afib. This monitor system is SO MUCH better than the old way!"</p>
+                <div class="svc-case-card__stars" aria-hidden="true">
+                  <img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24">
+                </div>
+                <p class="svc-case-card__by">— R. Gall</p>
+              </div>
+            </article>
+            <article class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-02.jpg" alt="" width="305" height="394" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Detected, reported, and escalated quickly</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 02 (S-Patch)</span>
+                <h3 class="svc-case-card__title">The ER Missed It</h3>
+                <p class="svc-case-card__body">"I am so grateful for Specialized Medical and the care I received during my heart monitoring. I wore the monitor for a 15-day test, and on day 12 it detected a serious rhythm issue that needed immediate attention. I truly believe that this monitoring made a life-saving difference for me. What stood out to me just as much as the technology was the people behind it. The customer service team at Specialized Medical was outstanding from beginning to end."</p>
+                <div class="svc-case-card__stars" aria-hidden="true">
+                  <img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24">
+                </div>
+                <p class="svc-case-card__by">— Marguerite C.</p>
+              </div>
+            </article>
+            <article class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-03.jpg" alt="" width="305" height="394" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Detected, reported, and escalated quickly</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 03 (S-Patch)</span>
+                <h3 class="svc-case-card__title">The ER Missed It</h3>
+                <p class="svc-case-card__body">"I am so thankful for Specialized Medical. I wore the monitor from March 4 to March 6, 2026, and it found a serious heart problem that I did not know was happening. I truly believe that test may have saved my life. What meant the most to me was how kind and helpful everyone was. The customer service was outstanding."</p>
+                <div class="svc-case-card__stars" aria-hidden="true">
+                  <img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24">
+                </div>
+                <p class="svc-case-card__by">— Rhonda B.</p>
+              </div>
+            </article>
+            <article class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-04.jpg" alt="" width="305" height="394" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Detected, reported, and escalated quickly</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 04 (Lead Wire System)</span>
+                <h3 class="svc-case-card__title">The ER Missed It</h3>
+                <p class="svc-case-card__body">"I am a Family Medicine doctor located in Central New York and applied Specialized Medical's Cardiac Holter Monitor to a 60-year-old male patient complaining of cardiac-related issues. The patient wore the Specialized Medical Cardiac Holter Monitor for 24 hours. During this test the Cardiac Monitor picked up 3 Paroxysmal AV blocks between 2:18 p.m. and 2:42 p.m. When Specialized Medical saw these results they immediately transmitted the reports to me and then called me on my cell phone."</p>
+                <div class="svc-case-card__stars" aria-hidden="true">
+                  <img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24">
+                </div>
+                <p class="svc-case-card__by">— Michael</p>
+              </div>
+            </article>
+            <article class="svc-case-card">
+              <div>
+                <div class="svc-case-card__media">
+                  <img src="images/figma-services/case-05.jpg" alt="" width="305" height="394" loading="lazy" decoding="async">
+                </div>
+                <p class="svc-case-card__caption">Example of the detail captured and reported by Specialized Medical.</p>
+              </div>
+              <div>
+                <span class="svc-case-card__tag">Case Study 05 (Lead Wire System)</span>
+                <h3 class="svc-case-card__title">A Life-Saving Second Opinion</h3>
+                <p class="svc-case-card__body">"I am an Internal Medicine doctor located in Brooklyn, NY and applied a Specialized Medical Cardiac Monitor to a female patient complaining of cardiac related issues. The patient wore a Cardiac Event Monitor and on the 5th day into the test at approximately 9:00 a.m., the patient experienced a cardiac episode that caused her to call me."</p>
+                <div class="svc-case-card__stars" aria-hidden="true">
+                  <img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24"><img src="icons/star13663-lr4m.svg" alt="" width="24" height="24">
+                </div>
+                <p class="svc-case-card__by">— Dr. Catalina R.S.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section svc-split svc-split--reverse" aria-labelledby="svc-symptom-heading">
+        <div class="figma-container">
+          <div class="svc-split__inner">
+            <div class="svc-split__media">
+              <img src="images/figma-services/live-ecg-phone.jpg" alt="Mobile app showing live ECG" width="414" height="746" loading="lazy" decoding="async">
+            </div>
+            <div class="svc-split__copy">
+              <h2 id="svc-symptom-heading" class="svc-split__title">
+                See Live ECG &amp;<br>
+                <span class="svc-split__title-accent">Symptom Logging</span>
+              </h2>
+              <p class="svc-split__text">Our platform streams ECG data in real-time, allowing physicians to monitor patients remotely with confidence. Patient symptoms are entered digitally and automatically populate on the final report, making it immediately clear whether an event was symptomatic or asymptomatic.</p>
+              <ul class="svc-split__list">
+                <li>Live ECG streaming for remote monitoring workflows</li>
+                <li>Digital symptom logging tied to ECG events</li>
+                <li>Clear symptomatic vs. asymptomatic labeling on the final report</li>
+              </ul>
+              <p class="svc-split__text" style="margin-top:1rem;font-weight:500;color:rgba(35,31,30,0.85)">Symptoms are logged digitally and matched directly to ECG events on the final report.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section svc-patient svc-split" aria-labelledby="svc-patient-heading">
+        <div class="figma-container">
+          <div class="svc-split__inner">
+            <div class="svc-split__copy">
+              <h2 id="svc-patient-heading" class="svc-split__title">
+                Patient-Friendly<br>
+                <span class="svc-split__title-accent">Design</span>
+              </h2>
+              <p class="svc-split__text">Each monitor weighs less than four sheets of paper (0.6 oz). The monitor runs for a minimum of 10 days per battery, supporting longer monitoring periods with less interruption, is water-resistant (IP55), and offers industry-leading ECG clarity, including precise P-wave definition.</p>
+            </div>
+            <div class="svc-split__media" style="border-radius:30px">
+              <img src="images/figma-services/patient-friendly.jpg" alt="Hand holding compact cardiac monitor" width="630" height="604" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="figma-section svc-tavr" aria-labelledby="svc-tavr-heading">
+        <div class="figma-container">
+          <h2 id="svc-tavr-heading" class="svc-tavr__heading">
+            Ideal for <span class="svc-tavr__heading-accent">TAVR Programs</span>
+          </h2>
+          <p class="svc-tavr__sub">Post-TAVR Monitoring, Built for Continuity</p>
+          <p class="svc-tavr__text">Patients recovering from TAVR remain at risk for delayed conduction abnormalities and other clinically significant rhythm changes, making reliable post-procedure monitoring essential. Our monitoring system combines the S-Patch ECG monitor with an adaptive, multi-path cellular transmission platform designed for continuous, real-time ECG streaming. The differentiator is not simply the monitor itself, but the resilient connectivity infrastructure behind it, which helps maintain transmission across changing environments, including rural and lower-coverage areas. This supports more consistent ECG data capture and faster awareness of actionable rhythm changes to inform timely clinical decision-making.</p>
+        </div>
+      </section>
+
+      <section class="figma-section figma-cta svc-figma-cta" aria-labelledby="svc-cta-heading">
+        <div class="figma-container">
+          <div class="figma-cta__box">
+            <h2 id="svc-cta-heading" class="figma-h2 figma-h2--center figma-h2--narrow">
+              Start Your No-Risk<br>
+              <span class="figma-h2__accent">Beta Trial</span>
+            </h2>
+            <p class="figma-cta__p figma-cta__p--lead">See how Specialized Medical can support your practice with: live-streaming ECG data; simplified office workflow.</p>
+            <p class="figma-cta__p">No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try Specialized Medical on a few patients. If it is not the right fit, we will take everything back - no hassle, no obligation. Let us prove our value to you and your patients.</p>
+            <div class="figma-cta__actions">
+              <a class="figma-btn figma-btn--solid" href="contact.html">Start Your No-Risk Beta Trial</a>
+              <a class="figma-cta__talk" href="contact.html">Talk to Our Team→</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer site-footer--figma">
+      <div class="figma-container">
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__main">
+          <div class="figma-footer__brand">
+            <a href="index.html" class="figma-brand figma-brand--footer">
+              <img class="figma-brand__mark" src="images/figma-assets/Group 1261157085.svg" alt="" width="412" height="90" decoding="async">
             </a>
-            <p>Complete turn-key cardiac monitoring. Live ECG data. Four tests. One device.</p>
+            <p class="figma-footer__tagline">Complete turn-key cardiac monitoring. Live ECG data. Four tests. One device.</p>
           </div>
-          <div class="site-footer__cols">
-            <div class="site-footer__col">
-              <h4>Company</h4>
-              <ul>
-                <li><a href="about.html">About</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
+          <div class="figma-footer__contact">
+            <nav class="figma-footer__nav" aria-label="Footer">
+              <a href="index.html">Home</a>
+              <a href="about.html">About Us</a>
+              <a href="services.html">Services</a>
+              <a href="faq.html">FAQ’s</a>
+              <a href="contact.html">Contact</a>
+              <a href="https://www.specialized-med.com/patient-portal/" target="_blank" rel="noopener noreferrer">Patient Portal</a>
+            </nav>
+            <div class="figma-footer__line">
+              <span class="figma-footer__icon figma-footer__icon--phone" aria-hidden="true">
+                <img src="icons/vector3527-jgyk.svg" alt="Phone Icon" width="20" height="20" decoding="async">
+              </span>
+              <p><span class="figma-footer__muted">1-855-SPEC-MED</span> <span class="figma-footer__strong">(1-855-773-2633)</span></p>
             </div>
-            <div class="site-footer__col">
-              <h4>Services</h4>
-              <ul>
-                <li><a href="services.html">Holter</a></li>
-                <li><a href="services.html">Telemetry (MCT)</a></li>
-                <li><a href="services.html">Event Monitoring</a></li>
-              </ul>
+            <div class="figma-footer__line">
+              <img src="icons/fi62447103527-gtjs.svg" alt="" width="20" height="20" decoding="async">
+              <a href="mailto:info@specialized-med.com">info@specialized-med.com</a>
             </div>
-            <div class="site-footer__col">
-              <h4>Contact</h4>
-              <div class="contact-line">
-                <img src="icons/vector3527-jgyk.svg" alt="">
-                <span>1-855-SPEC-MED (1-855-773-2633)</span>
-              </div>
-              <div class="contact-line">
-                <img src="icons/fi62447103527-gtjs.svg" alt="">
-                <span>info@specialized-med.com</span>
-              </div>
-              <div class="contact-line">
-                <img src="icons/vector3527-rp3.svg" alt="">
-                <span>Specialized Medical, LLC<br>34145 Pacific Coast Highway, #700<br>Dana Point, CA 92629</span>
-              </div>
-              <div class="social-row">
-                <a href="https://www.facebook.com/" aria-label="Facebook">
-                  <img src="icons/vector3527-h9kk.svg" alt="">
-                </a>
-              </div>
+            <div class="figma-footer__line">
+              <img src="images/figma-assets/location_icon.png" alt="" width="20" height="20" decoding="async">
+              <p class="figma-footer__address">Specialized Medical, LLC 34145 Pacific Coast Highway, #700 Dana Point, CA 92629</p>
             </div>
           </div>
         </div>
-        <div class="site-footer__bottom">
-          <span>© <span id="footer-year">2026</span> Specialized Medical, LLC.</span>
-          <div class="site-footer__legal">
-            <a href="#privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
+        <div class="figma-footer__triple">
+          <span>Mobile Cardiac Telemetry</span>
+          <span>Holter Monitoring</span>
+          <span>Event Monitoring</span>
+        </div>
+        <div class="figma-footer__hr" aria-hidden="true"></div>
+        <div class="figma-footer__bottom">
+          <p class="figma-footer__copy">© <span id="footer-year">2026</span> Specialized Medical, LLC. All rights reserved.</p>
+          <div class="figma-footer__social">
+            <img src="images/figma-assets/hipaa-badge.png" alt="HIPAA" width="69" height="20" class="figma-footer__hipaa" loading="lazy" decoding="async">
+            <a href="https://www.facebook.com/" class="figma-footer__fb" aria-label="Facebook"><img src="icons/vector3527-h9kk.svg" alt="" width="20" height="20" class="figma-footer__fb-icon" loading="lazy" decoding="async"><span>Facebook</span></a>
           </div>
         </div>
       </div>
