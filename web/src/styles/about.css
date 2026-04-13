@@ -80,6 +80,11 @@
   padding: clamp(2.5rem, 5vw, 4rem) 0;
 }
 
+.about-figma-who--text .about-figma-who__story {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
 .about-figma-who__grid {
   display: grid;
   grid-template-columns: minmax(0, 630px) minmax(0, 1fr);
@@ -127,8 +132,13 @@
   color: rgba(35, 31, 30, 0.7);
 }
 
-.about-figma-who__p:last-child {
-  margin-bottom: 0;
+.about-figma-who__tagline {
+  margin: 1.75rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #231f1e;
 }
 
 /* ----- Why Practices Choose Us ----- */
@@ -159,8 +169,8 @@
 
 .about-figma-why__grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
   align-items: stretch;
 }
 
@@ -168,30 +178,11 @@
   background: #fafafa;
   border: 1px solid #e0e0e0;
   border-radius: 20px;
-  padding: 1.25rem 1.25rem 1.5rem;
-  min-height: 280px;
+  padding: 1.5rem 1.35rem 1.65rem;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-}
-
-.about-figma-why-card__icon {
-  width: 44px;
-  height: 44px;
-  margin-bottom: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about-figma-why-card__icon img {
-  max-width: 100%;
-  height: auto;
-}
-
-.about-figma-why-card__icon--tint {
-  background: rgba(201, 34, 47, 0.13);
-  border-radius: 10px;
 }
 
 .about-figma-why-card__title {
@@ -207,9 +198,37 @@
   margin: 0;
   flex: 1;
   font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.35;
-  color: rgba(35, 31, 30, 0.5);
+  font-size: 15px;
+  line-height: 1.45;
+  color: rgba(35, 31, 30, 0.65);
+}
+
+.about-figma-why__kicker {
+  margin: clamp(2rem, 4vw, 2.75rem) auto 0;
+  max-width: 52rem;
+  padding: 1.5rem 1.5rem 1.65rem;
+  text-align: center;
+  border: 1px solid #e8e4e5;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #fffefb 0%, #faf8f9 100%);
+}
+
+.about-figma-why__kicker-lead {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  line-height: 1.3;
+  color: var(--color-red);
+}
+
+.about-figma-why__kicker-text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(35, 31, 30, 0.72);
 }
 
 /* ----- Compact design ----- */
@@ -238,10 +257,28 @@
 
 .about-figma-compact__title {
   margin: 0 0 1rem;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.12;
+  font-size: clamp(1.65rem, 3.5vw, 2.5rem);
+  line-height: 1.15;
   font-weight: 500;
   color: #231f1e;
+}
+
+.about-figma-compact__title-line {
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.about-figma-compact__title-sep {
+  margin: 0 0.15em;
+  font-weight: 400;
+  color: rgba(35, 31, 30, 0.35);
+}
+
+.about-figma-compact__title-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-red);
 }
 
 .about-figma-compact__lead {
@@ -283,20 +320,36 @@
   margin-bottom: 0;
 }
 
+.about-figma-compact__list strong {
+  font-weight: 600;
+  color: #231f1e;
+}
+
+.about-figma-compact__foot {
+  margin: 1.35rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: rgba(35, 31, 30, 0.6);
+}
+
 .about-figma-cta {
   padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.about-figma-cta__actions {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem 1rem;
 }
 
 /* -------------------------------------------------------------------------- */
 /* Responsive                                                                */
 /* -------------------------------------------------------------------------- */
-@media (max-width: 1200px) {
+@media (max-width: 1100px) {
   .about-figma-why__grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .about-figma-why-card {
-    min-height: 0;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -355,6 +408,7 @@
   }
 
   .figma-btn--solid,
+  .figma-btn--outline-dark,
   .figma-cta__talk {
     width: 100%;
     text-align: center;
