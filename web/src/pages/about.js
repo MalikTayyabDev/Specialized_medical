@@ -3,29 +3,14 @@ import { Link } from "gatsby"
 
 const IMG = {
   hero: "/images/figma-about/hero-about.jpg",
-  /** S-Patch in hand — Section 4 */
   spatchInHand: "/images/figma-services/patient-friendly.jpg",
 }
 
-const WHY_CARDS = [
-  {
-    key: "turnkey",
-    title: "Complete Turn-Key Cardiac Monitoring",
-    body:
-      "Physician practices choose Specialized Medical because we provide more than a monitor — we deliver complete turn-key cardiac monitoring built around real-time data, operational support, and a workflow designed for both the office and the patient.",
-  },
-  {
-    key: "friction",
-    title: "Reduce Friction at Every Step",
-    body:
-      "Our model is designed to reduce friction at every step. Practices can perform multiple test types from one device, access live-streaming ECG data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and ready for physician review. This means less delay, less manual work, and greater confidence in the monitoring process.",
-  },
-  {
-    key: "integration",
-    title: "Practice Integration Made Easy",
-    body:
-      "We make practice integration simple. From EMR-ready reporting and electronic physician interpretation workflows to billing support, customized templates, and device tracking, our system is built to fit seamlessly into how modern practices operate.",
-  },
+const WHO_PARAS = [
+  "Specialized Medical is redefining what cardiac monitoring should look like for today’s medical practices. We partner with physicians, cardiology groups, and cardiovascular programs to provide a smarter, more complete monitoring model built around live-streaming ECG data, operational simplicity, and real clinical support.",
+  "Our system is designed to do more than record data. It delivers continuous, real-time ECG visibility through a connected monitoring platform that helps reduce delays, improve clinical awareness, and support faster decision-making. With four tests from one device — Holter, Extended Holter, Event, and Telemetry (MCT) — we make it easier for practices to manage monitoring needs without added complexity.",
+  "Specialized Medical also removes much of the workload that typically falls on the practice. From simplified setup and 24/7 monitoring to real-time alerts, EMR-ready reporting, physician review workflow, billing support, and zero-cost equipment, our model is built to support the office from start to finish.",
+  "We are not just providing a monitor. We are providing a better way for practices to monitor patients, manage workflow, and gain confidence in the data they receive.",
 ]
 
 const DEVICE_FEATURES = [
@@ -72,58 +57,51 @@ const AboutPage = () => (
             <span className="about-figma-who__title-w">Who We</span>
             <span className="about-figma-who__title-a"> Are</span>
           </h2>
-          <p className="about-figma-who__p">
-            Specialized Medical is a cardiac monitoring partner built for modern physician
-            practices. We help cardiology groups, cardiovascular programs, and medical
-            offices deliver better monitoring through a more complete, more connected
-            system.
-          </p>
-          <p className="about-figma-who__p">
-            Our model combines the S-Patch ECG monitor with live-streaming, real-time
-            monitoring and reporting support, helping practices gain faster visibility
-            into rhythm activity without the delays, gaps, or workflow burden associated
-            with traditional monitoring models. We support multiple monitoring needs from
-            one device while making the process simpler for both the practice and the
-            patient.
-          </p>
-          <p className="about-figma-who__p">
-            What defines Specialized Medical is not just the monitor itself, but the full
-            operational support behind it. From real-time monitoring and alerts to report
-            delivery, physician interpretation workflow, billing support, and patient
-            support, our system is designed to help practices monitor more efficiently
-            and operate with greater confidence. That includes resilient live-streaming
-            performance across a wide range of patient environments, including rural
-            areas, to support uninterrupted data capture and stronger confidence in every
-            test.
-          </p>
-          <p className="about-figma-who__tagline">
-            More than a monitor. A better partner for cardiac monitoring.
-          </p>
+          {WHO_PARAS.map((text) => (
+            <p key={text.slice(0, 48)} className="about-figma-who__p">
+              {text}
+            </p>
+          ))}
         </div>
       </div>
     </section>
 
-    <section className="figma-section about-figma-why" aria-labelledby="why-heading">
+    <section className="figma-section about-figma-why about-figma-why--prose" aria-labelledby="why-heading">
       <div className="figma-container">
         <h2 id="why-heading" className="about-figma-why__heading">
           <span className="about-figma-why__heading-w">Why Practices</span>
           <span className="about-figma-why__heading-a"> Choose Us</span>
         </h2>
-        <div className="about-figma-why__grid">
-          {WHY_CARDS.map((c) => (
-            <article key={c.key} className="about-figma-why-card">
-              <h3 className="about-figma-why-card__title">{c.title}</h3>
-              <p className="about-figma-why-card__body">{c.body}</p>
-            </article>
-          ))}
-        </div>
-        <div className="about-figma-why__kicker">
-          <p className="about-figma-why__kicker-lead">
-            Accuracy. Speed. Simplicity. Profitability.
+        <div className="about-figma-why__story">
+          <p className="about-figma-why__p">
+            Physician practices choose Specialized Medical because we provide more
+            than a monitor — we provide{" "}
+            <strong>complete turn-key cardiac monitoring</strong> built around
+            real-time data, operational support, and a workflow that is easier for
+            both the office and the patient.
           </p>
-          <p className="about-figma-why__kicker-text">
-            Specialized Medical helps practices monitor more effectively, respond faster,
-            and manage cardiac monitoring with greater efficiency from start to finish.
+          <p className="about-figma-why__p">
+            Our model is designed to reduce friction at every step. Practices can
+            perform multiple test types from one device, access live-streaming ECG
+            data, receive real-time arrhythmia alerts, and count on final reports
+            that are clear, actionable, and ready for physician review. This means
+            less delay, less manual work, and more confidence in the monitoring
+            process.
+          </p>
+          <p className="about-figma-why__p">
+            We also make <strong>Practice Integration Made Easy</strong>. Final
+            reports are EMR-ready and can be automatically pushed into your system.
+            Reports are typically delivered within 24 to 48 hours after test
+            completion, supporting faster physician review and a more efficient
+            office workflow. From electronic physician interpretation workflow to
+            billing support, customized templates, and device tracking, our system
+            is built to fit into the way modern practices actually operate.
+          </p>
+          <p className="about-figma-why__p">
+            At the end of the day, the value is simple:{" "}
+            <strong>Accuracy. Speed. Simplicity. Profitability.</strong> Specialized
+            Medical helps practices monitor more effectively, respond more quickly, and
+            manage cardiac monitoring with greater efficiency from start to finish.
           </p>
         </div>
       </div>
@@ -148,10 +126,11 @@ const AboutPage = () => (
             <span className="about-figma-compact__title-accent">Compact Design</span>
           </h2>
           <p className="about-figma-compact__lead">
-            The S-Patch Monitoring System is designed to make advanced cardiac monitoring
-            easier for both practices and patients. Its very small, lightweight dual-disk
-            design supports comfortable everyday wear while helping practices deliver
-            real-time ECG monitoring through a simple, patient-friendly form factor.
+            The S-Patch Monitoring System is designed to make advanced cardiac
+            monitoring easier for both practices and patients. Its very small,
+            lightweight dual-disk design supports comfortable everyday wear while
+            helping practices deliver real-time ECG monitoring through a simple,
+            patient-friendly form factor.
           </p>
           <ul className="about-figma-compact__list">
             {DEVICE_FEATURES.map((line) => (
@@ -161,8 +140,8 @@ const AboutPage = () => (
             ))}
           </ul>
           <p className="about-figma-compact__foot">
-            Designed for comfort, simplicity, and dependable wear throughout the monitoring
-            period.
+            Designed for comfort, simplicity, and dependable wear throughout the
+            monitoring period.
           </p>
         </div>
       </div>
@@ -180,8 +159,8 @@ const AboutPage = () => (
             <span className="figma-h2__accent">In Your Practice?</span>
           </h2>
           <p className="figma-cta__p figma-cta__p--lead">
-            Request a demo or start a no-risk beta trial — we will help you evaluate fit,
-            workflow, and outcomes with your team.
+            Request a demo or start a no-risk beta trial — we will help you evaluate
+            fit, workflow, and outcomes with your team.
           </p>
           <div className="figma-cta__actions about-figma-cta__actions">
             <Link className="figma-btn figma-btn--outline-dark" to="/contact/">

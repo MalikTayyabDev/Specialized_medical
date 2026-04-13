@@ -231,6 +231,28 @@
   color: rgba(35, 31, 30, 0.72);
 }
 
+.about-figma-why--prose .about-figma-why__story {
+  max-width: 42rem;
+  margin: 0 auto;
+}
+
+.about-figma-why--prose .about-figma-why__p {
+  margin: 0 0 1.15rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(35, 31, 30, 0.72);
+}
+
+.about-figma-why--prose .about-figma-why__p:last-child {
+  margin-bottom: 0;
+}
+
+.about-figma-why--prose .about-figma-why__p strong {
+  font-weight: 600;
+  color: #231f1e;
+}
+
 /* ----- Compact design ----- */
 .about-figma-compact {
   padding: clamp(2rem, 5vw, 4rem) 0;

@@ -2231,6 +2231,25 @@ p.hero__pill {
   margin-top: 14px;
 }
 
+.figma-hero--wide .figma-container {
+  max-width: 1600px;
+}
+
+.figma-hero--wide .figma-hero__split-inner {
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 560px);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  min-height: min(720px, 88vh);
+  align-items: center;
+}
+
+.figma-hero--wide .figma-hero__visual .figma-hero__photo {
+  object-position: right center;
+}
+
+.figma-hero__title--deserve .figma-hero__lc {
+  white-space: normal;
+}
+
 .figma-hero__split-plate {
   margin: 0 10px;
   background: #fff;

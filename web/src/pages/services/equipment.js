@@ -33,7 +33,7 @@ const FEATURE_HIGHLIGHTS = [
   "Very small, lightweight dual-disk design that many patients often forget they are wearing",
   "Symptomatic vs. asymptomatic event clarity",
   "No data delays",
-  "Ideal for TAVR monitoring support",
+  "For TAVR monitoring support",
   "Built for uninterrupted live-streaming performance across a wide range of patient environments, including rural areas",
 ]
 

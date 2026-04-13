@@ -14,7 +14,7 @@ const BREAKDOWN = [
 ]
 
 const PRACTICE = [
-  "Final reports are EMR-ready and can be automatically pushed into your system",
+  "Final reports are EMR-ready and can be automatically pushed into your system. Reports are typically delivered within 24 to 48 hours after test completion, supporting faster physician review and a more efficient office workflow.",
   "Electronically review, interpret, date, and sign final reports",
   "Customized billing templates with all CPT and ICD-10 codes provided",
   "We work directly with your billing staff or third-party biller for seamless claims submission",
@@ -295,8 +295,8 @@ const ServicesPage = () => (
           <span className="svc-workflow__heading-accent">for Your Office</span>
         </h2>
         <p className="svc-workflow__sub">
-          Your medical assistant completes a simple 3-step process: Hook-Up → Enroll
-          → Disconnect (Under 15 Minutes)
+          Your medical assistant completes a simple 3-step process: Enroll in Web
+          Portal → Hook-Up → Disconnect (Under 15 Minutes)
         </p>
         <div className="svc-workflow__panel">
           <p>Once the patient leaves, we take over the rest:</p>
@@ -531,7 +531,7 @@ const ServicesPage = () => (
     <section className="figma-section svc-tavr" aria-labelledby="svc-tavr-heading">
       <div className="figma-container">
         <h2 id="svc-tavr-heading" className="svc-tavr__heading">
-          Ideal for <span className="svc-tavr__heading-accent">TAVR Programs</span>
+          For <span className="svc-tavr__heading-accent">TAVR Programs</span>
         </h2>
         <p className="svc-tavr__sub">Post-TAVR Monitoring, Built for Continuity</p>
         <p className="svc-tavr__text">

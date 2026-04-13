@@ -12,19 +12,19 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "How does the office workflow work?",
-        a: "Your medical assistant completes a simple 3-step process: Enroll the patient in the web portal, Hook-Up, and Disconnect. The workflow is designed to be straightforward for office staff and easy to repeat across patients. Once the patient is enrolled and leaves the office, Specialized Medical takes over the rest with continuous monitoring, real-time alerts, report generation, and patient support.",
+        a: "Your medical assistant completes a simple 3-step process: Enroll in Web Portal → Hook-Up → Disconnect (Under 15 Minutes). The workflow is designed to be straightforward for office staff and easy to repeat across patients. Once the patient is enrolled and leaves the office, Specialized Medical takes over the rest with continuous monitoring, real-time alerts, report generation, and patient support.",
       },
       {
         q: "How long does setup take?",
-        a: "Most hook-ups are completed in minutes: enroll the patient, apply the monitor, and confirm the connection. We provide training materials and support so your team can repeat the same simple steps confidently across patients.",
+        a: "In most cases, setup takes under 15 minutes. The process is designed to fit into normal office workflow without adding unnecessary burden to staff.",
       },
       {
         q: "What happens after the patient leaves?",
-        a: "Specialized Medical provides 24/7 monitoring, real-time alerts when clinically appropriate, report generation, and patient support—so your practice is not managing connectivity, uploads, or study logistics after the visit.",
+        a: "Once the patient leaves, Specialized Medical manages the active monitoring process for you. That includes 24/7 live monitoring across all test types, real-time arrhythmia alerts by email, text, or phone call, automatic generation and delivery of final reports, and patient support through our 24/7 multilingual call center.",
       },
       {
         q: "How are alerts delivered?",
-        a: "Alerts can be delivered by phone, text, or email based on your practice preferences and escalation protocols, so the right clinician is notified quickly when action may be needed.",
+        a: "Real-time arrhythmia alerts are delivered by email, text, or phone call, helping practices receive important findings quickly and respond appropriately.",
       },
     ],
   },
@@ -33,19 +33,19 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "Are reports EMR-ready?",
-        a: "Yes. Final reports are formatted for integration with your workflow and can be delivered in EMR-ready formats where supported, helping your team document and close the loop without chasing files.",
+        a: "Yes. Final reports are EMR-ready and can be automatically pushed into your system. Reports are typically delivered within 24 to 48 hours after test completion, supporting faster physician review and a more efficient office workflow.",
       },
       {
         q: "Can physicians electronically review, interpret, date, and sign reports?",
-        a: "Yes. Physicians can complete review, interpretation, dating, and electronic signature through the supported workflow we configure with your practice.",
+        a: "Yes. Our workflow supports electronic physician review, interpretation, dating, and signature of final reports.",
       },
       {
         q: "How are symptomatic vs. asymptomatic events shown?",
-        a: "Reporting distinguishes patient-triggered (symptomatic) events from device-detected (asymptomatic) events so clinicians can interpret findings in the right clinical context.",
+        a: "Symptoms are entered digitally during the test and automatically appear on the final report above the matching ECG strips, making symptomatic vs. asymptomatic events immediately clear.",
       },
       {
         q: "Is data live, or is it uploaded later?",
-        a: "Our platform is built around live-streaming ECG data—there is no manual uploading step and no unnecessary delay in rhythm visibility during the monitoring period.",
+        a: "Data is transmitted live to our monitoring center with no manual uploading and no data delays.",
       },
     ],
   },
@@ -54,15 +54,15 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "Are CPT and ICD-10 billing templates provided?",
-        a: "Yes. We provide customized billing templates with applicable CPT and ICD-10 codes to support clean claims submission aligned to your documentation and payer requirements.",
+        a: "Yes. Customized billing templates with CPT and ICD-10 codes are provided to support efficient billing workflow.",
       },
       {
         q: "Do you work with billing staff or third-party billers?",
-        a: "Yes. We coordinate directly with your billing team or third-party biller to streamline submission and reduce back-and-forth on routine monitoring claims.",
+        a: "Yes. We work directly with your billing staff or third-party biller to support seamless claims submission.",
       },
       {
         q: "What is the reimbursement potential?",
-        a: "Reimbursement depends on medical necessity, payer rules, coding, and documentation. Your billing team or coding advisor should confirm coverage and fee schedules for your contracts and patient population.",
+        a: "Practices routinely receive gross reimbursements exceeding $875.00 for a Holter test followed by a Telemetry test, based on current Medicare rates.",
       },
     ],
   },
@@ -71,15 +71,15 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "Do practices have to buy equipment?",
-        a: "In most programs, practices do not purchase hardware upfront. Your agreement outlines what is included so you can scale monitoring without a capital equipment burden.",
+        a: "No. Specialized Medical provides the equipment needed to support your program, with no equipment purchase required.",
       },
       {
         q: "What supplies are included?",
-        a: "Typical kits include monitors, electrodes, and patient instruction materials appropriate to the study type. We confirm the exact contents during onboarding.",
+        a: "Supplies include electrodes, batteries, razors, alcohol wipes, and other essentials needed for monitoring.",
       },
       {
         q: "How many monitors can be provided?",
-        a: "Inventory scales with your expected volume and workflow. Our team works with you to right-size device availability so you are not waiting on equipment during busy weeks.",
+        a: "We provide as many monitors as your patient volume requires.",
       },
     ],
   },
@@ -88,19 +88,19 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "Is the monitor comfortable?",
-        a: "The S-Patch monitor is designed to be lightweight and low-profile for ambulatory wear, supporting better compliance across multi-day studies.",
+        a: "Yes. The monitor is designed to be lightweight, easy to wear, and simple for patients to manage throughout the test. Comfort and ease of wear are a key part of our Patient-Friendly Design approach.",
       },
       {
         q: "Is it water-resistant?",
-        a: "Yes. The device is water-resistant (IP55 rated). Patients receive clear wear-and-care instructions so daily routines match the device specifications.",
+        a: "Yes. The monitor is water-resistant (IP55) to better support everyday wear.",
       },
       {
         q: "How long does the battery last?",
-        a: "Battery life supports extended monitoring—typically a minimum of about 10 days per charge depending on study settings—so patients are not constantly swapping power during the test.",
+        a: "The monitor runs for a minimum of 10 days per battery, supporting longer monitoring periods with less interruption.",
       },
       {
         q: "How small is the monitor?",
-        a: "The monitor is extremely compact—about the weight of a few sheets of paper—with a minimal footprint that many patients barely notice during wear.",
+        a: "Each monitor weighs just 0.6 oz, or less than four sheets of paper, making it compact, lightweight, and easier for patients to wear.",
       },
     ],
   },
@@ -109,11 +109,11 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "What is the No-Risk Beta Trial?",
-        a: "It is a no-obligation way to try Specialized Medical on a small number of patients with guided onboarding and support—so you can evaluate workflow, reporting, and fit for your practice before committing long term.",
+        a: "The No-Risk Beta Trial allows your practice to try Specialized Medical on a few patients and experience the value of our system firsthand, including live-streaming ECG data and a simplified office workflow.",
       },
       {
         q: "What happens if it is not the right fit?",
-        a: "If it is not the right fit, we take everything back—no hassle, no obligation. We would rather prove our value on your terms than lock you into a program that does not work for your team or your patients.",
+        a: "If Specialized Medical is not the right fit for your practice, we will take everything back — no hassle, no obligation.",
       },
     ],
   },

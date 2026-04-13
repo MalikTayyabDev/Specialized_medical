@@ -97,7 +97,7 @@ const IndexPage = () => {
 
   return (
     <main className="home-page home-page--figma">
-      <section className="figma-hero figma-hero--split" aria-label="Hero">
+      <section className="figma-hero figma-hero--split figma-hero--wide" aria-label="Hero">
         <div className="figma-hero__split-plate">
           <div className="figma-container figma-hero__split-inner">
             <div className="figma-hero__copy">
@@ -105,22 +105,19 @@ const IndexPage = () => {
                 <span className="figma-hero__pill-dot" aria-hidden="true" />
                 Complete Turn-Key Cardiac Monitoring
               </p>
-              <h1 className="figma-hero__title">
-                <span className="figma-hero__lc">DOCTORS DESERVE</span>
-                <span className="figma-hero__title-accent">Better.</span>
+              <h1 className="figma-hero__title figma-hero__title--deserve">
+                <span className="figma-hero__lc">DOCTORS DESERVE </span>
+                <span className="figma-hero__title-accent">BETTER.</span>
               </h1>
               <div className="figma-hero__sub">
                 <p className="figma-hero__sub-line figma-hero__sub-line--lg">
                   LIVE ECG DATA
                 </p>
                 <p className="figma-hero__sub-line">
-                  Holter - Extended Holter - Event - Telemetry (MCT)
+                  Holter / Extended Holter / Event / Telemetry (MCT)
                 </p>
                 <p className="figma-hero__sub-line figma-hero__sub-line--spaced">
                   <span className="figma-hero__allcaps">ALL FROM ONE DEVICE</span>
-                </p>
-                <p className="figma-hero__sub-line">
-                  Industry-Leading ECG / P-Wave Clarity
                 </p>
               </div>
               <div className="figma-hero__actions">
@@ -298,7 +295,7 @@ const IndexPage = () => {
                   height={22}
                 />
               </div>
-              <h3 className="figma-card__title">Ideal for TAVR Programs</h3>
+              <h3 className="figma-card__title">For TAVR Programs</h3>
               <p className="figma-card__body">
                 Continuous live-streaming ECG data supports closer post-procedure
                 monitoring and faster awareness of concerning rhythm changes.
@@ -361,6 +358,7 @@ const IndexPage = () => {
           </h2>
           <p className="figma-workflow__intro">
             Your medical assistant completes a simple 3-step process:{" "}
+            <strong>Enroll in Web Portal → Hook-Up → Disconnect</strong>{" "}
             <strong className="figma-workflow__highlight">(Under 15 Minutes)</strong>
           </p>
           <div className="figma-workflow__steps">
@@ -368,18 +366,19 @@ const IndexPage = () => {
               <div className="figma-wstep__head">
                 <span className="figma-wstep__badge">01</span>
               </div>
-              <h3 className="figma-wstep__title">Hook-Up</h3>
+              <h3 className="figma-wstep__title">Enroll in Web Portal</h3>
               <p className="figma-wstep__body">
-                Attach electrodes and the monitor to the patient in your office.
+                Enroll the patient in the web portal as part of your standard office
+                workflow.
               </p>
             </article>
             <article className="figma-wstep">
               <div className="figma-wstep__head">
                 <span className="figma-wstep__badge">02</span>
               </div>
-              <h3 className="figma-wstep__title">Enroll</h3>
+              <h3 className="figma-wstep__title">Hook-Up</h3>
               <p className="figma-wstep__body">
-                Register the patient in our system with a quick digital enrollment.
+                Attach electrodes and the monitor to the patient in your office.
               </p>
             </article>
             <article className="figma-wstep">
@@ -527,7 +526,8 @@ const IndexPage = () => {
               <h3 className="figma-card__title">Patient-Friendly Design</h3>
               <p className="figma-card__body">
                 Each monitor weighs less than four sheets of paper (0.6 oz), runs
-                up to 10 days per battery, is water-resistant (IP55), and offers
+                for a minimum of 10 days per battery, is water-resistant
+                (IP55), and offers
                 industry-leading ECG clarity, including precise P-wave definition.
               </p>
             </article>
