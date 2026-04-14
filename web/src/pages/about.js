@@ -16,26 +16,25 @@ const WHO_PARAS = [
 
 const WHY_CARDS = [
   {
-    icon: "/images/figma-about/figma-why-card1-icon.png",
-    iconFull: true,
+    icon: "/images/figma-about/Vector.png",
     title: "Complete Turn-Key Cardiac Monitoring",
     body:
       "Physician practices choose Specialized Medical because we provide more than a monitor — we deliver complete turn-key cardiac monitoring built around real-time data, operational support, and a workflow designed for both the office and the patient.",
   },
   {
-    icon: "/images/figma-about/figma-why-card2-icon.png",
+    icon: "/images/figma-about/Group.png",
     titleLines: ["Practice Integration", "Made Easy"],
     body:
       "Final reports are EMR-ready and can be automatically pushed into your system. Reports are typically delivered within 24 to 48 hours after test completion, supporting faster physician review and a more efficient office workflow. Electronically review, interpret, date, and sign final reports. Customized billing templates with all CPT and ICD-10 codes provided. We work directly with your billing staff or third-party biller for seamless claims submission. Our portal tracks device usage and alerts your staff about any inactive or unreturned monitors",
   },
   {
-    icon: "/images/figma-about/figma-why-card3-icon.png",
+    icon: "/images/figma-about/Group 1261157411.png",
     title: "Accuracy. Speed. Simplicity. Profitability.",
     body:
       "Because our devices transmit in real time, there is no delay in data, no manual uploading, and no gaps in rhythm interpretation. Our reporting is faster, more accurate, and designed to support efficient workflow for your practice.",
   },
   {
-    icon: "/images/figma-about/figma-why-card3-icon.png",
+    icon: "/images/figma-about/Group 1261157411.png",
     title: "Reduce Friction at Every Step",
     body:
       "Our model is designed to reduce friction at every step. Practices can support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT), access live-streaming ECG data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and ready for physician review. This means less delay, less manual work, and greater confidence in the monitoring process.",
@@ -123,19 +122,12 @@ const AboutPage = () => (
               key={card.title || card.titleLines?.join("-")}
               className="about-figma-why-card"
             >
-              <div
-                className={
-                  card.iconFull
-                    ? "about-figma-why-card__icon about-figma-why-card__icon--full"
-                    : "about-figma-why-card__icon"
-                }
-                aria-hidden="true"
-              >
+              <div className="about-figma-why-card__icon" aria-hidden="true">
                 <img
                   src={card.icon}
                   alt=""
-                  width={card.iconFull ? 44 : 20}
-                  height={card.iconFull ? 44 : 20}
+                  width={20}
+                  height={20}
                   loading="lazy"
                   decoding="async"
                 />

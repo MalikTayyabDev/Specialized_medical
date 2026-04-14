@@ -175,7 +175,6 @@ const ServicesPage = () => (
         <div className="svc-split__inner">
           <div className="svc-split__media svc-split__media--live-ecg">
             <div className="svc-live-ecg-card">
-              <p className="svc-live-ecg-card__label">Live ECG Signal</p>
               <div className="svc-live-ecg-card__frame">
                 <img
                   src={IMG("live-streaming-ecg.jpg")}

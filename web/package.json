@@ -8,9 +8,9 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
+    "develop": "node scripts/sync-static-site-assets.mjs && gatsby develop",
+    "start": "node scripts/sync-static-site-assets.mjs && gatsby develop",
+    "build": "node scripts/sync-static-site-assets.mjs && gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
   },
