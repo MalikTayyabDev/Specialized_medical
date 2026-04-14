@@ -121,8 +121,8 @@ const main = `<main class="services-page">
       <div class="container">
         <div class="services-hero__grid">
           <div class="services-hero__copy">
-            <h1 class="services-hero__title">Your Tests. <span class="accent">One Device.</span></h1>
-            <p class="services-hero__lead">The future of cardiac monitoring is here.</p>
+            <h1 class="services-hero__title">Better cardiac monitoring for <span class="accent">modern physician practices.</span></h1>
+            <p class="services-hero__lead">Live ECG data, streamlined workflow, and turnkey monitoring support built around the S-Patch Monitoring System.</p>
             <div class="services-hero__actions">
               <a class="btn btn--primary" href="contact.html">Get Started</a>
               <a class="btn btn--outline" href="#capabilities">Learn More</a>
@@ -155,9 +155,9 @@ const main = `<main class="services-page">
       <div class="container">
         <div class="services-split__inner">
           <div class="services-split__copy">
-            <h2 id="split-a" class="services-split__title"><span class="accent">Four Tests.</span> One Device.</h2>
-            <p class="services-split__text">Perform Holter, Extended Holter, Cardiac Event, and Mobile Cardiac Telemetry from a single monitor—so your team can standardize workflows while patients benefit from one familiar device.</p>
-            <p class="services-split__text">Flexible test sequencing supports evolving clinical questions without swapping hardware or re-training staff on multiple systems.</p>
+            <h2 id="split-a" class="services-split__title"><span class="accent">Four test types.</span> One consistent workflow.</h2>
+            <p class="services-split__text">Support Holter, Extended Holter, Event Monitoring, and Mobile Cardiac Telemetry (MCT) through a turnkey program built around the S-Patch Monitoring System.</p>
+            <p class="services-split__text">Lead-Wire remains available as a secondary monitoring option where appropriate.</p>
           </div>
           <div class="services-split__media">
             <img src="${IMG.fourTests}" alt="Patient wearing cardiac monitoring sensors" loading="lazy" decoding="async">
@@ -338,10 +338,10 @@ const shell = (body) => `<!DOCTYPE html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Services | Specialized Medical Services</title>
-  <meta name="description" content="Holter, event, MCT, and extended monitoring from one device—wireless technology, detailed reporting, and 24/7 support.">
+  <meta name="description" content="Holter, event monitoring, MCT, and extended monitoring—live ECG data, streamlined workflow, and 24/7 support built around the S-Patch Monitoring System.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/services.css">
@@ -387,7 +387,7 @@ const shell = (body) => `<!DOCTYPE html>
             <a href="index.html" class="site-brand">
               <img class="site-brand__logo" src="icons/brand-logo.svg" alt="Specialized Medical — Expert Cardiac Monitoring Services" width="236" height="71">
             </a>
-            <p>Complete turn-key cardiac monitoring. Live ECG data. Four tests. One device.</p>
+            <p>Turnkey cardiac monitoring. Live ECG data. S-Patch as the primary featured system.</p>
           </div>
           <div class="site-footer__cols">
             <div class="site-footer__col">

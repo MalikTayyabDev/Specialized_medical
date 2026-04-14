@@ -123,7 +123,7 @@ const html = `<!DOCTYPE html>
   <meta name="description" content="S-Patch and lead-wire monitoring systems—specifications, features, and options for physician practices.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${p}/css/global.css">
   <link rel="stylesheet" href="${p}/css/home.css">
   <link rel="stylesheet" href="${p}/css/services.css">
@@ -170,7 +170,7 @@ const html = `<!DOCTYPE html>
             <a href="${p}/index.html" class="site-brand">
               <img class="site-brand__logo" src="${p}/icons/brand-logo.svg" alt="Specialized Medical — Expert Cardiac Monitoring Services" width="236" height="71">
             </a>
-            <p>Complete turn-key cardiac monitoring. Live ECG data. Four tests. One device.</p>
+            <p>Turnkey cardiac monitoring. Live ECG data. S-Patch as the primary featured system.</p>
           </div>
           <div class="site-footer__cols">
             <div class="site-footer__col">

@@ -18,7 +18,7 @@ const html = `<!DOCTYPE html>
   <meta name="description" content="Everything you need to know about Specialized Medical's cardiac monitoring services—workflow, reports, billing, supplies, patient experience, and the no-risk beta trial.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/faq.css">
@@ -90,7 +90,7 @@ ${frag}
               <span class="figma-h2__accent">Beta Trial</span>
             </h2>
             <p class="figma-cta__p figma-cta__p--lead">See how Specialized Medical can support your practice with: live-streaming ECG data; simplified office workflow.</p>
-            <p class="figma-cta__p">No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try Specialized Medical on a few patients. If it is not the right fit, we will take everything back - no hassle, no obligation. Let us prove our value to you and your patients.</p>
+            <p class="figma-cta__p">Evaluate Specialized Medical with a small, no-obligation beta trial. If it isn’t the right fit, we’ll take everything back—no hassle.</p>
             <div class="figma-cta__actions">
               <a class="figma-btn figma-btn--solid" href="contact.html">Start Your No-Risk Beta Trial</a>
               <a class="figma-cta__talk" href="contact.html">Talk to Our Team→</a>
