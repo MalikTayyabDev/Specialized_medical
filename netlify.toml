@@ -1,10 +1,5 @@
-# Netlify build for Gatsby app in /web
+# Netlify deploy for the static HTML site in /static-site
 # Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  base = "web"
-  command = "npm run build"
-  publish = "public"
-
-[build.environment]
-  NODE_VERSION = "20"
+  publish = "static-site"
