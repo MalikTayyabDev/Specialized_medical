@@ -103,21 +103,25 @@ const IndexPage = () => {
             <div className="figma-hero__copy">
               <p className="figma-hero__pill">
                 <span className="figma-hero__pill-dot" aria-hidden="true" />
-                Complete Turn-Key Cardiac Monitoring
+                Turnkey cardiac monitoring
               </p>
               <h1 className="figma-hero__title figma-hero__title--deserve">
-                <span className="figma-hero__lc">DOCTORS DESERVE </span>
-                <span className="figma-hero__title-accent">BETTER.</span>
+                Better cardiac monitoring for
+                <br />
+                <span className="figma-hero__title-accent">
+                  modern physician practices.
+                </span>
               </h1>
               <div className="figma-hero__sub">
                 <p className="figma-hero__sub-line figma-hero__sub-line--lg">
                   LIVE ECG DATA
                 </p>
                 <p className="figma-hero__sub-line">
-                  Holter / Extended Holter / Event / Telemetry (MCT)
+                  Holter / Extended Holter / Event Monitoring / Telemetry (MCT)
                 </p>
                 <p className="figma-hero__sub-line figma-hero__sub-line--spaced">
-                  <span className="figma-hero__allcaps">ALL FROM ONE DEVICE</span>
+                  A turnkey monitoring program built around the{" "}
+                  <strong>S-Patch Monitoring System</strong>.
                 </p>
               </div>
               <div className="figma-hero__actions">
@@ -137,7 +141,7 @@ const IndexPage = () => {
             </div>
             <div className="figma-hero__visual">
               <p className="figma-hero__chip figma-hero__chip--tl">
-                Four tests from one device
+                S-Patch is the primary featured system
               </p>
               <p className="figma-hero__chip figma-hero__chip--bl">
                 Live-streaming ECG data
@@ -260,10 +264,13 @@ const IndexPage = () => {
                   height={22}
                 />
               </div>
-              <h3 className="figma-card__title">Four Tests, One Device</h3>
+              <h3 className="figma-card__title">
+                Four test types, one streamlined workflow
+              </h3>
               <p className="figma-card__body">
-                Perform Holter, Extended Holter, Event, and Telemetry (MCT) tests
-                — individually or in sequence — using a single monitor.
+                Holter, Extended Holter, Event Monitoring, and Telemetry (MCT)
+                supported through a consistent, turnkey workflow—built around the
+                S-Patch Monitoring System.
               </p>
             </article>
             <article className="figma-card figma-card--apart">
@@ -314,7 +321,7 @@ const IndexPage = () => {
             Services <span className="figma-h2__accent">Summary</span>
           </h2>
           <p className="figma-services__eyebrow">
-            one system, multiple monitoring options.
+            Turnkey cardiac monitoring support for physician practices.
           </p>
           <div className="figma-services__row">
             <article className="figma-svc">
@@ -675,10 +682,8 @@ const IndexPage = () => {
               live-streaming ECG data; simplified office workflow.
             </p>
             <p className="figma-cta__p">
-              No-Risk Beta Trial. Anyone can make promises. We would rather prove
-              it. Try Specialized Medical on a few patients. If it is not the right
-              fit, we will take everything back - no hassle, no obligation. Let us
-              prove our value to you and your patients.
+              Evaluate Specialized Medical with a small, no-obligation beta trial.
+              If it isn’t the right fit, we’ll take everything back—no hassle.
             </p>
             <div className="figma-cta__actions">
               <Link className="figma-btn figma-btn--solid" to="/contact/">

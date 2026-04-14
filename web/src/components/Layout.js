@@ -169,8 +169,8 @@ function SiteFooter() {
               />
             </Link>
             <p className="figma-footer__tagline">
-              Complete turn-key cardiac monitoring. Live ECG data. Four tests. One
-              device.
+              Turnkey cardiac monitoring. Live ECG data. S-Patch as the primary
+              featured system.
             </p>
           </div>
           <div className="figma-footer__contact">

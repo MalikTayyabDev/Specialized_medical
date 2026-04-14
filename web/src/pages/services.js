@@ -103,11 +103,13 @@ const ServicesPage = () => (
             Our Services
           </p>
           <h1 id="svc-hero-heading" className="svc-hero__title">
-            <span className="svc-hero__title-line">Four tests</span>
+            <span className="svc-hero__title-line">Services built for</span>
             <br />
-            <span className="svc-hero__title-accent">One device</span>
+            <span className="svc-hero__title-accent">modern physician practices</span>
           </h1>
-          <p className="svc-hero__lead">Real-Time Data. Zero-Cost Equipment.</p>
+          <p className="svc-hero__lead">
+            Live ECG data, streamlined workflow, and turnkey monitoring support.
+          </p>
           <div className="svc-hero__actions">
             <Link className="figma-btn figma-btn--outline-dark" to="/contact/">
               Request a Demo
@@ -141,12 +143,14 @@ const ServicesPage = () => (
         <div className="svc-split__inner">
           <div className="svc-split__copy">
             <h2 id="svc-four-heading" className="svc-split__title">
-              Four Tests, <span className="svc-split__title-accent">One Device</span>
+              Four test types,
+              <br />
+              <span className="svc-split__title-accent">one consistent workflow</span>
             </h2>
             <p className="svc-split__text">
-              Perform Holter, Extended Holter, Event, and Telemetry{"\u00a0\u00a0"}
-              (MCT) tests — individually or in sequence — using a{"\u00a0\u00a0"}
-              single monitor.
+              Support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT)
+              through a turnkey monitoring program built around the S-Patch Monitoring
+              System.
             </p>
           </div>
           <div className="svc-split__media">
@@ -215,22 +219,20 @@ const ServicesPage = () => (
               The S-Patch <span className="svc-split__title-accent">Monitoring System</span>
             </h2>
             <p className="svc-split__text">
-              The S-Patch Monitoring System is our primary featured 4-in-1 monitoring
-              system. It is designed to support Holter, Extended Holter, Event, and
-              Telemetry (MCT) from one device while delivering live-streaming,
-              real-time ECG data. The S-Patch should be presented as our main
-              monitoring solution throughout the website.
+              <strong>Primary Featured System.</strong> The S-Patch Monitoring System is
+              Specialized Medical’s primary featured monitoring solution. It supports
+              Holter, Extended Holter, Event Monitoring, and Telemetry (MCT) while
+              delivering live-streaming, real-time ECG data through a compact,
+              patient-friendly design.
             </p>
             <p className="svc-split__text">
-              It is especially important to emphasize that the S-Patch is designed for
-              continuous, resilient real-time data streaming even in rural areas,
-              helping support uninterrupted data capture, fewer incomplete studies,
-              and greater physician confidence in every test. Data is sent live to
-              our monitoring center with no manual uploading and no data delays
+              Our platform is designed for continuous, resilient real-time data streaming
+              across a wide range of patient environments, including rural areas. Data is
+              sent live to our monitoring center—no manual uploading and no data delays.
             </p>
             <ul className="svc-split__list">
-              <li>4-in-1 monitoring system</li>
-              <li>Supports Holter, Extended Holter, Event, and Telemetry (MCT)</li>
+              <li>Primary featured system for Specialized Medical</li>
+              <li>Supports Holter, Extended Holter, Event Monitoring, and Telemetry (MCT)</li>
               <li>Live-streaming, real-time ECG data</li>
               <li>No manual uploading</li>
             </ul>
@@ -275,19 +277,14 @@ const ServicesPage = () => (
               <span className="svc-split__title-accent">Monitoring System</span>
             </h2>
             <p className="svc-split__text">
-              The Lead-Wire Monitoring System is a separate 4-in-1 monitoring
-              equipment option that should also be shown on the website, but more
-              minimally than the S-Patch system. It should be clearly labeled as a
-              different monitoring system so physicians understand that it is a second
-              option and do not confuse it with the S-Patch. The Lead Wire system
-              also supports Holter, Extended Holter, Event, and Telemetry (MCT) and
-              does not require manual uploading.
+              <strong>Secondary / legacy monitoring option.</strong> Lead-Wire remains
+              available as an older secondary monitoring option where appropriate. It is
+              shown separately so practices understand it is not the primary system
+              being promoted.
             </p>
             <ul className="svc-split__list">
-              <li>4-in-1 live-streaming monitoring system</li>
-              <li>Supports Holter, Extended Holter, Event, and Telemetry (MCT)</li>
-              <li>Live-streaming monitoring capability</li>
-              <li>No manual uploading</li>
+              <li>Secondary option where needed</li>
+              <li>Separate system from S-Patch</li>
             </ul>
             <Link className="figma-btn figma-btn--solid" to="/services/equipment/">
               See More
@@ -574,10 +571,8 @@ const ServicesPage = () => (
             ECG data; simplified office workflow.
           </p>
           <p className="figma-cta__p">
-            No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try
-            Specialized Medical on a few patients. If it is not the right fit, we will
-            take everything back - no hassle, no obligation. Let us prove our value to
-            you and your patients.
+            Evaluate Specialized Medical with a small, no-obligation beta trial. If it
+            isn’t the right fit, we’ll take everything back—no hassle.
           </p>
           <div className="figma-cta__actions">
             <Link className="figma-btn figma-btn--solid" to="/contact/">
@@ -601,7 +596,7 @@ export function Head() {
       <title>Services | Specialized Medical</title>
       <meta
         name="description"
-        content="Four tests, one device—Holter, extended Holter, event, and MCT with live-streaming ECG, real-time data, and zero-cost equipment."
+        content="Holter, extended Holter, event monitoring, and MCT with live-streaming ECG data, streamlined workflow, and zero-cost equipment—built around the S-Patch Monitoring System."
       />
     </>
   )

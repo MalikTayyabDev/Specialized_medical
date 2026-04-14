@@ -7,7 +7,7 @@ const IMG = {
 
 const WHY_POINTS = [
   "Live-streaming, real-time ECG data",
-  "Four tests from one device",
+  "Holter, Extended Holter, Event Monitoring, and Telemetry (MCT)",
   "Simple office workflow",
   "24/7 live monitoring and alerts",
   "Report integration and physician interpretation workflow",
@@ -305,10 +305,8 @@ const ContactPage = () => {
               live-streaming ECG data; simplified office workflow.
             </p>
             <p className="figma-cta__p">
-              No-Risk Beta Trial. Anyone can make promises. We would rather prove
-              it. Try Specialized Medical on a few patients. If it is not the
-              right fit, we will take everything back - no hassle, no obligation.
-              Let us prove our value to you and your patients.
+              Evaluate Specialized Medical with a small, no-obligation beta trial.
+              If it isn’t the right fit, we’ll take everything back—no hassle.
             </p>
             <div className="figma-cta__actions">
               <a className="figma-btn figma-btn--solid" href="#contact-form">

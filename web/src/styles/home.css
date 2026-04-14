@@ -5,7 +5,7 @@
   /* Body, nav, buttons, card titles, non-accent headings */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   /* Red / emphasized words in headings (italic) */
-  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-display: "Inter", system-ui, -apple-system, sans-serif;
   --color-red: #c9222f;
   --color-red-dark: #a01d28;
   --color-red-soft: rgba(192, 36, 45, 0.85);
@@ -121,7 +121,7 @@
   color: var(--color-text);
 }
 
-/* Red italic words/phrases inside headings — Playfair Display */
+/* Red italic words/phrases inside headings */
 .accent {
   font-family: var(--font-display);
   font-style: italic;
@@ -2708,32 +2708,38 @@ main .figma-container {
     overflow: hidden;
   }
 
+  /* On phones, chips should not overlay the portrait image */
+  .figma-hero__visual {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .figma-hero__visual .figma-hero__photo {
+    order: 1;
+  }
+
   .figma-hero__chip {
+    position: static;
+    order: 2;
     font-size: 0.8125rem;
     height: auto;
     min-height: 44px;
+    width: 100%;
+    max-width: none;
     padding: 0.5rem 0.75rem;
     white-space: normal;
-    max-width: min(240px, calc(100% - 1rem));
+    box-sizing: border-box;
   }
 
-  /* Replace negative % offsets — they caused overflow and overlap on narrow viewports */
-  .figma-hero__chip--tl {
-    top: 6%;
-    left: 0.5rem;
-    right: auto;
-  }
-
-  .figma-hero__chip--bl {
-    bottom: 5%;
-    left: 0.5rem;
-    right: auto;
-  }
-
+  .figma-hero__chip--tl,
+  .figma-hero__chip--bl,
   .figma-hero__chip--mr {
-    top: 38%;
-    right: 0.5rem;
+    top: auto;
+    right: auto;
+    bottom: auto;
     left: auto;
+    transform: none;
   }
 
   .figma-hero__sub-line--spaced {

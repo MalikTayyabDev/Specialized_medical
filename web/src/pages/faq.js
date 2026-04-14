@@ -70,6 +70,14 @@ const FAQ_SECTIONS = [
     title: "Supplies and Equipment",
     items: [
       {
+        q: "What monitoring equipment does Specialized Medical use?",
+        a: "Our primary featured monitoring system is S-Patch. Lead-Wire remains available as a secondary monitoring option where appropriate. For device-specific details, see our equipment options page: /services/equipment/.",
+      },
+      {
+        q: "Are all monitor specifications the same?",
+        a: "No. Device-specific details should be shown under the correct system so practices are not given the impression that every monitor shares the same physical specifications. See /services/equipment/ for the current specs.",
+      },
+      {
         q: "Do practices have to buy equipment?",
         a: "No. Specialized Medical provides the equipment needed to support your program, with no equipment purchase required.",
       },
@@ -92,15 +100,15 @@ const FAQ_SECTIONS = [
       },
       {
         q: "Is it water-resistant?",
-        a: "Yes. The monitor is water-resistant (IP55) to better support everyday wear.",
+        a: "S-Patch is water-resistant (IP55) to better support everyday wear. Specifications can vary by system, so please refer to the device-specific details under the correct equipment option.",
       },
       {
         q: "How long does the battery last?",
-        a: "The monitor runs for a minimum of 10 days per battery, supporting longer monitoring periods with less interruption.",
+        a: "S-Patch runs for a minimum of 10 days per battery, supporting longer monitoring periods with less interruption. Battery performance can vary by system.",
       },
       {
         q: "How small is the monitor?",
-        a: "Each monitor weighs just 0.6 oz, or less than four sheets of paper, making it compact, lightweight, and easier for patients to wear.",
+        a: "S-Patch weighs just 0.6 oz, or less than four sheets of paper, making it compact, lightweight, and easier for patients to wear. Dimensions and weight can vary by system.",
       },
     ],
   },
@@ -296,10 +304,8 @@ function FaqPage() {
               live-streaming ECG data; simplified office workflow.
             </p>
             <p className="figma-cta__p">
-              No-Risk Beta Trial. Anyone can make promises. We would rather prove
-              it. Try Specialized Medical on a few patients. If it is not the
-              right fit, we will take everything back - no hassle, no obligation.
-              Let us prove our value to you and your patients.
+              Evaluate Specialized Medical with a small, no-obligation beta trial.
+              If it isn’t the right fit, we’ll take everything back—no hassle.
             </p>
             <div className="figma-cta__actions">
               <Link className="figma-btn figma-btn--solid" to="/contact/">
@@ -324,7 +330,7 @@ export function Head() {
       <title>FAQ | Specialized Medical</title>
       <meta
         name="description"
-        content="Everything you need to know about Specialized Medical's cardiac monitoring services—workflow, reports, billing, supplies, patient experience, and the no-risk beta trial."
+        content="Answers about Specialized Medical's cardiac monitoring services—workflow, reports, billing, equipment options, patient experience, and the no-risk beta trial."
       />
     </>
   )

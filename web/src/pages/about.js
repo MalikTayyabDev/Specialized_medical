@@ -9,7 +9,7 @@ const IMG = {
 
 const WHO_PARAS = [
   "Specialized Medical is redefining what cardiac monitoring should look like for today’s medical practices. We partner with physicians, cardiology groups, and cardiovascular programs to provide a smarter, more complete monitoring model built around live-streaming ECG data, operational simplicity, and real clinical support.",
-  "Our system is designed to do more than record data. It delivers continuous, real-time ECG visibility through a connected monitoring platform that helps reduce delays, improve clinical awareness, and support faster decision-making. With four tests from one device — Holter, Extended Holter, Event, and Telemetry (MCT) — we make it easier for practices to manage monitoring needs without added complexity.",
+  "Our primary featured monitor is the S-Patch Monitoring System. We also maintain Lead-Wire as a secondary monitoring option where appropriate. This keeps the lineup clear while supporting a range of practice needs.",
   "Specialized Medical also removes much of the workload that typically falls on the practice. From simplified setup and 24/7 monitoring to real-time alerts, EMR-ready reporting, physician review workflow, billing support, and zero-cost equipment, our model is built to support the office from start to finish.",
   "We are not just providing a monitor. We are providing a better way for practices to monitor patients, manage workflow, and gain confidence in the data they receive.",
 ]
@@ -38,7 +38,7 @@ const WHY_CARDS = [
     icon: "/images/figma-about/figma-why-card3-icon.png",
     title: "Reduce Friction at Every Step",
     body:
-      "Our model is designed to reduce friction at every step. Practices can perform multiple test types from one device, access live-streaming ECG data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and ready for physician review. This means less delay, less manual work, and greater confidence in the monitoring process.",
+      "Our model is designed to reduce friction at every step. Practices can support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT), access live-streaming ECG data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and ready for physician review. This means less delay, less manual work, and greater confidence in the monitoring process.",
   },
 ]
 
@@ -71,9 +71,9 @@ const AboutPage = () => (
             <span className="about-figma-hero__title-accent">Cardiac Monitoring</span>
           </h1>
           <p className="about-figma-hero__lead">
-            Specialized Medical provides complete turn-key cardiac monitoring support
-            designed specifically for physician practices. We believe doctors deserve
-            better — better technology, better workflow, and better support.
+            Specialized Medical provides turnkey cardiac monitoring support designed for
+            physician practices that need faster visibility, simplified workflow, and
+            dependable reporting.
           </p>
         </div>
       </div>
@@ -207,10 +207,8 @@ const AboutPage = () => (
             data; simplified office workflow.
           </p>
           <p className="figma-cta__p figma-cta__p--about-italic">
-            No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try
-            Specialized Medical on a few patients. If it is not the right fit, we will take
-            everything back - no hassle, no obligation. Let us prove our value to you and
-            your patients.
+            Evaluate Specialized Medical with a small, no-obligation beta trial. If it isn’t
+            the right fit, we’ll take everything back—no hassle.
           </p>
           <div className="figma-cta__actions about-figma-cta__actions">
             <Link className="figma-btn figma-btn--solid" to="/contact/">

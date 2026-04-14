@@ -27,7 +27,7 @@ const SPATCH_SPECS = [
 ]
 
 const FEATURE_HIGHLIGHTS = [
-  "Four tests from one device",
+  "Supports Holter, Extended Holter, Event Monitoring, and Telemetry (MCT)",
   "Simplified office workflow",
   "Designed for strong patient comfort and wearability",
   "Very small, lightweight dual-disk design that many patients often forget they are wearing Symptomatic vs. asymptomatic event clarity",
@@ -81,13 +81,13 @@ const EquipmentPage = () => (
               </h2>
               <p className="eq-panel__tag">Primary Featured System</p>
               <p className="eq-panel__text">
-                The S-Patch Monitoring System is our primary featured 4-in-1 monitoring system. It is designed to support Holter, Extended Holter, Event, and Telemetry (MCT) from one device while delivering live-streaming, real-time ECG data. The S-Patch should be presented as our main monitoring solution throughout the website.
+                The S-Patch Monitoring System is Specialized Medical’s primary featured monitoring solution. It supports Holter, Extended Holter, Event Monitoring, and Telemetry (MCT) while delivering live-streaming, real-time ECG data through a compact, patient-friendly design.
               </p>
               <p className="eq-panel__text">
-                It is especially important to emphasize that the S-Patch is designed for continuous, resilient real-time data streaming even in rural areas, helping support uninterrupted data capture, fewer incomplete studies, and greater physician confidence in every test. Data is sent live to our monitoring center with no manual uploading and no data delays.
+                Our platform is designed for continuous, resilient real-time data streaming across a wide range of patient environments, including rural areas. Data is sent live to our monitoring center—no manual uploading and no data delays.
               </p>
               <p className="eq-panel__text">
-                A major advantage of the S-Patch Monitoring System is patient comfort and wearability. Its very small, lightweight dual-disk design is intended to make the monitor easier for patients to wear during normal daily life. This is an important point the website should communicate clearly, because patients often report that they forget they are even wearing it.
+                A major advantage of the S-Patch Monitoring System is patient comfort and wearability. Its compact, lightweight dual-disk design is intended to make the monitor easier for patients to wear during normal daily life.
               </p>
             </div>
             <div className="eq-panel__media">
@@ -146,9 +146,9 @@ const EquipmentPage = () => (
                 Lead-Wire
                 <span className="eq-panel__h2-accent">Monitoring System</span>
               </h2>
-              <p className="eq-panel__tag">Secondary Monitoring Option</p>
+              <p className="eq-panel__tag">Secondary / Legacy Monitoring Option</p>
               <p className="eq-panel__text">
-                The Lead-Wire Monitoring System is a separate 4-in-1 monitoring equipment option that should also be shown on the website, but more minimally than the S-Patch system. It should be clearly labeled as a different monitoring system so physicians understand that it is a second option and do not confuse it with the S-Patch. The Lead Wire system also supports Holter, Extended Holter, Event, and Telemetry (MCT) and does not require manual uploading.
+                Lead-Wire remains available as an older secondary monitoring option where appropriate. It is shown separately so practices understand it is not the primary system being promoted.
               </p>
             </div>
           </div>
@@ -188,10 +188,8 @@ const EquipmentPage = () => (
             data; simplified office workflow.
           </p>
           <p className="figma-cta__p figma-cta__p--about-italic">
-            No-Risk Beta Trial. Anyone can make promises. We would rather prove it. Try
-            Specialized Medical on a few patients. If it is not the right fit, we will take
-            everything back - no hassle, no obligation. Let us prove our value to you and
-            your patients.
+            Evaluate Specialized Medical with a small, no-obligation beta trial. If it isn’t
+            the right fit, we’ll take everything back—no hassle.
           </p>
           <div className="figma-cta__actions">
             <Link className="figma-btn figma-btn--solid" to="/contact/">
@@ -215,7 +213,7 @@ export function Head() {
       <title>Monitoring Equipment Options | Specialized Medical</title>
       <meta
         name="description"
-        content="S-Patch and lead-wire monitoring systems—full specifications, feature highlights, and equipment options for physician practices."
+        content="S-Patch (primary) and Lead-Wire (secondary) monitoring systems—specifications, feature highlights, and equipment options for physician practices."
       />
     </>
   )
