@@ -241,14 +241,14 @@
   padding: 0.75rem 0 0;
 }
 
-.faq-testimonials__dots span {
+.faq-testimonials__dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: rgba(35, 31, 30, 0.2);
 }
 
-.faq-testimonials__dots span:first-child {
+.faq-testimonials__dot.is-active {
   background: var(--color-red);
 }
 

@@ -839,6 +839,11 @@
     grid-template-columns: 1fr;
   }
 
+  /* Mobile/tablet: image first, then content */
+  .svc-split__media {
+    order: -1;
+  }
+
   .svc-split--reverse .svc-split__inner {
     direction: ltr;
   }
@@ -847,7 +852,7 @@
 
 @media (max-width: 640px) {
   .svc-breakdown__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .svc-workflow__grid {

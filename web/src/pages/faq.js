@@ -191,6 +191,21 @@ function Chevron({ open }) {
 
 function FaqPage() {
   const [openKey, setOpenKey] = React.useState("0-0")
+  const PHOTO_SLIDES = React.useMemo(
+    () => [
+      { src: IMG.testimonial, alt: "Patient during daily activity" },
+      {
+        src: "/images/figma-services/case-01.jpg",
+        alt: "Patient-friendly design and wear experience",
+      },
+      {
+        src: "/images/figma-services/case-02.jpg",
+        alt: "Clinical story and rapid detection experience",
+      },
+    ],
+    []
+  )
+  const [photoIdx, setPhotoIdx] = React.useState(0)
 
   const toggle = (sectionIndex, itemIndex) => {
     const key = `${sectionIndex}-${itemIndex}`
@@ -278,17 +293,25 @@ function FaqPage() {
           <div className="faq-testimonials__layout">
             <div className="faq-testimonials__photo">
               <img
-                src={IMG.testimonial}
-                alt="Patient during daily activity"
+                src={PHOTO_SLIDES[photoIdx].src}
+                alt={PHOTO_SLIDES[photoIdx].alt}
                 loading="lazy"
                 decoding="async"
                 width={305}
                 height={426}
               />
               <div className="faq-testimonials__dots" aria-hidden="true">
-                <span />
-                <span />
-                <span />
+                {PHOTO_SLIDES.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    className={`faq-testimonials__dot${
+                      i === photoIdx ? " is-active" : ""
+                    }`}
+                    onClick={() => setPhotoIdx(i)}
+                    aria-label={`Show image ${i + 1}`}
+                  />
+                ))}
               </div>
             </div>
             <div className="faq-testimonials__right">

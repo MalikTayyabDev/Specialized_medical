@@ -2710,37 +2710,45 @@ main .figma-container {
     overflow: hidden;
   }
 
-  /* On phones, chips should not overlay the portrait image */
+  /* On phones: keep the 3 points on-image, small and safely positioned */
   .figma-hero__visual {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .figma-hero__visual .figma-hero__photo {
-    order: 1;
+    overflow: hidden;
   }
 
   .figma-hero__chip {
-    position: static;
-    order: 2;
-    font-size: 0.8125rem;
+    position: absolute;
+    font-size: 0.75rem;
     height: auto;
-    min-height: 44px;
-    width: 100%;
-    max-width: none;
-    padding: 0.5rem 0.75rem;
+    min-height: 38px;
+    max-width: min(240px, calc(100% - 1rem));
+    padding: 0.45rem 0.65rem;
     white-space: normal;
     box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.92);
+    pointer-events: none;
   }
 
-  .figma-hero__chip--tl,
-  .figma-hero__chip--bl,
-  .figma-hero__chip--mr {
-    top: auto;
+  .figma-hero__chip--tl {
+    top: 10%;
+    left: 6%;
     right: auto;
     bottom: auto;
+    transform: none;
+  }
+
+  .figma-hero__chip--mr {
+    top: 38%;
+    right: 6%;
     left: auto;
+    bottom: auto;
+    transform: none;
+  }
+
+  .figma-hero__chip--bl {
+    bottom: 6%;
+    left: 6%;
+    right: auto;
+    top: auto;
     transform: none;
   }
 
@@ -2887,6 +2895,18 @@ main .figma-container {
 
 .figma-video__play-circle img {
   display: block;
+}
+
+@media (max-width: 900px) {
+  .figma-video__play-circle {
+    width: 56px;
+    height: 56px;
+  }
+
+  .figma-video__play-circle img {
+    width: 56px;
+    height: 56px;
+  }
 }
 
 .figma-video__caption {
@@ -3112,6 +3132,12 @@ main .figma-container {
   padding: 28px 32px 32px;
   max-width: 1280px;
   margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .figma-workflow__panel {
+    padding: 20px;
+  }
 }
 
 .figma-workflow__panel-lead {
