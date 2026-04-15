@@ -6,7 +6,7 @@ const IMG = (file) => `/images/figma-services/${file}`
 
 /** Same asset as static-site/video (Gatsby `static/video/`) — Figma node 27:358 */
 const ECG_APP_VIDEO_SRC =
-  "/video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4"
+  "/video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4#t=0.001"
 
 const BREAKDOWN = [
   ["Holter", "24–48 Hours"],
@@ -470,6 +470,7 @@ const ServicesPage = () => (
             <video
               className="figma-ecg__video"
               src={ECG_APP_VIDEO_SRC}
+              poster={IMG("live-streaming-ecg.jpg")}
               controls
               loop
               playsInline

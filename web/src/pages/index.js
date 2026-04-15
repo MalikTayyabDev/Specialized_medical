@@ -5,14 +5,24 @@ import { ICON, imagesPath } from "../components/Layout"
 const HERO_IMG_FALLBACK =
   "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=85"
 
+/** iOS Safari often shows a black frame until the video decodes; `#t=0.001` nudges a first frame + poster covers idle state */
+const IOS_VIDEO_HINT = "#t=0.001"
+
 const VIDEO = {
   overview: `/video/${encodeURIComponent(
     "WhatsApp Video 2026-04-02 at 1.51.27 AM.mp4"
-  )}`,
+  )}${IOS_VIDEO_HINT}`,
   ecg: `/video/${encodeURIComponent(
     "WhatsApp Video 2026-04-02 at 10.32.10 PM.mp4"
-  )}`,
-  ai: `/video/${encodeURIComponent("Avatar_Video_Take_14_buttons.mp4")}`,
+  )}${IOS_VIDEO_HINT}`,
+  ai: `/video/${encodeURIComponent(
+    "Avatar_Video_Take_14_buttons.mp4"
+  )}${IOS_VIDEO_HINT}`,
+}
+
+const VIDEO_POSTER = {
+  ecg: imagesPath("figma-services/live-streaming-ecg.jpg"),
+  ai: imagesPath("figma-services/patient-friendly.jpg"),
 }
 
 const ECG_VIDEO_TRIM_END_SEC = 1.5
@@ -435,6 +445,9 @@ const IndexPage = () => {
               ref={ecgVideoRef}
               className="figma-ecg__video"
               src={VIDEO.ecg}
+              poster={VIDEO_POSTER.ecg}
+              playsInline
+              preload="metadata"
               controls
               loop
             />
@@ -655,11 +668,13 @@ const IndexPage = () => {
               <video
                 className="figma-ai__video figma-ai__video--proof"
                 src={VIDEO.ai}
+                poster={VIDEO_POSTER.ai}
                 width={520}
                 height={906}
                 controls
                 loop
                 playsInline
+                preload="metadata"
               />
             </div>
           </div>

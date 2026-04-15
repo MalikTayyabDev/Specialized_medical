@@ -3185,6 +3185,8 @@ main .figma-container {
 
 video.figma-ecg__video {
   border-radius: 20px;
+  /* iOS Safari: avoid pure black before poster / first frame paints */
+  background-color: #ececec;
 }
 
 .figma-ecg__visual img {
@@ -3402,6 +3404,7 @@ video.figma-ecg__video {
   width: 100%;
   height: auto;
   display: block;
+  background-color: #ececec;
 }
 
 .figma-ai__video--proof {
