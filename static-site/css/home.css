@@ -2830,6 +2830,7 @@ main .figma-container {
   display: block;
   width: 100%;
   height: 100%;
+  min-height: 100%;
   object-fit: cover;
   background: #111;
 }
@@ -3181,13 +3182,23 @@ main .figma-container {
 }
 
 .figma-ecg__visual {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 414 / 746;
   border-radius: 20px;
   overflow: hidden;
+  background: #ececec;
 }
 
 video.figma-ecg__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   border-radius: 20px;
-  /* iOS Safari: avoid pure black before poster / first frame paints */
+  object-fit: contain;
   background-color: #ececec;
 }
 
@@ -3395,22 +3406,30 @@ video.figma-ecg__video {
 }
 
 .figma-proof-patient-experience__media {
+  position: relative;
   max-width: 360px;
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  aspect-ratio: 520 / 906;
+  max-height: min(520px, 85vh);
+  background: #ececec;
 }
 
 .figma-ai__video {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
   background-color: #ececec;
 }
 
 .figma-ai__video--proof {
-  max-height: 520px;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-height: none;
   object-fit: contain;
 }
 
