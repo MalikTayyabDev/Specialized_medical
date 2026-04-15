@@ -373,6 +373,22 @@
   line-height: 24px;
 }
 
+@media (max-width: 1100px) {
+  /* Tablet + mobile: stack media above copy */
+  .svc-split--symptom .svc-split__inner {
+    grid-template-columns: 1fr;
+    gap: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .svc-split--symptom .figma-ecg__visual {
+    max-width: min(360px, 100%);
+    margin: 0 auto;
+    /* Reduce vertical bloat on narrow screens */
+    max-height: min(72vh, 640px);
+    aspect-ratio: 9 / 16;
+  }
+}
+
 /* ----- Workflow ----- */
 .svc-workflow {
   padding: clamp(2.5rem, 6vw, 4rem) 0;
