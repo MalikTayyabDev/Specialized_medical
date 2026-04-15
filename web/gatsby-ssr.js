@@ -16,6 +16,7 @@ export const wrapPageElement = ({ element, props }) => (
 export const onRenderBody = ({ setHeadComponents, setHtmlAttributes }) => {
   setHtmlAttributes({ lang: "en" })
   setHeadComponents([
+    <link key="favicon-svg" rel="icon" href="/favicon.svg" type="image/svg+xml" />,
     <link
       key="preconnect-gfonts"
       rel="preconnect"
