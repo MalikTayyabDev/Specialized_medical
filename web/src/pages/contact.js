@@ -56,6 +56,8 @@ const INTEREST_OPTIONS = [
 
 const ContactPage = () => {
   const formRef = React.useRef(null)
+  const [submitState, setSubmitState] = React.useState("idle")
+  const [submitError, setSubmitError] = React.useState("")
 
   const scrollToForm = (interest) => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -67,28 +69,47 @@ const ContactPage = () => {
     }
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const fd = new FormData(e.currentTarget)
-    const first = String(fd.get("firstName") || "").trim()
-    const last = String(fd.get("lastName") || "").trim()
-    const email = String(fd.get("email") || "").trim()
-    const phone = String(fd.get("phone") || "").trim()
-    const interest = String(fd.get("interest") || "").trim()
-    const message = String(fd.get("message") || "").trim()
+  const encode = (data) =>
+    Object.keys(data)
+      .map(
+        (key) =>
+          `${encodeURIComponent(key)}=${encodeURIComponent(
+            data[key] == null ? "" : String(data[key])
+          )}`
+      )
+      .join("&")
 
-    const subject = encodeURIComponent("Contact form — Specialized Medical")
-    const body = encodeURIComponent(
-      [
-        `Name: ${first} ${last}`,
-        `Email: ${email}`,
-        `Phone: ${phone}`,
-        `Interest: ${interest || "(not selected)"}`,
-        "",
-        message,
-      ].join("\n")
-    )
-    window.location.href = `mailto:info@specialized-med.com?subject=${subject}&body=${body}`
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (submitState === "submitting") return
+    setSubmitState("submitting")
+    setSubmitError("")
+
+    const form = e.currentTarget
+    const fd = new FormData(form)
+
+    try {
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({
+          "form-name": "contact",
+          firstName: fd.get("firstName"),
+          lastName: fd.get("lastName"),
+          email: fd.get("email"),
+          phone: fd.get("phone"),
+          interest: fd.get("interest"),
+          message: fd.get("message"),
+          "bot-field": fd.get("bot-field"),
+        }),
+      })
+      setSubmitState("success")
+      form.reset()
+      window.location.assign("/thanks/")
+    } catch (err) {
+      setSubmitState("error")
+      setSubmitError("Sorry—something went wrong. Please try again.")
+    }
   }
 
   return (
@@ -222,7 +243,22 @@ const ContactPage = () => {
             </div>
 
             <div className="contact-main__form-wrap" ref={formRef}>
-              <form className="contact-form" onSubmit={handleSubmit} noValidate>
+              <form
+                className="contact-form"
+                name="contact"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                action="/thanks/"
+                onSubmit={handleSubmit}
+                noValidate
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <p style={{ display: "none" }}>
+                  <label>
+                    Don’t fill this out: <input name="bot-field" />
+                  </label>
+                </p>
                 <div className="contact-form__row">
                   <label className="contact-form__field">
                     <span className="contact-form__label">First name</span>
@@ -277,8 +313,13 @@ const ContactPage = () => {
                   <span className="contact-form__label">Message</span>
                   <textarea name="message" rows={5} placeholder="" />
                 </label>
+                {submitState === "error" ? (
+                  <p className="contact-form__error" role="status">
+                    {submitError}
+                  </p>
+                ) : null}
                 <button type="submit" className="contact-form__submit">
-                  Submit
+                  {submitState === "submitting" ? "Submitting…" : "Submit"}
                 </button>
               </form>
             </div>
