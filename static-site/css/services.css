@@ -605,6 +605,41 @@
   color: var(--color-red);
 }
 
+.svc-cases__intro {
+  margin: 0 auto clamp(1.5rem, 3vw, 2rem);
+  max-width: 42rem;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.55;
+  color: rgba(35, 31, 30, 0.65);
+}
+
+.svc-cases__more-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+}
+
+.svc-cases__list--more {
+  margin-top: 1.5rem;
+}
+
+.svc-case-card--featured {
+  border-color: rgba(201, 34, 47, 0.2);
+}
+
+.svc-split__inline-link {
+  color: var(--color-red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.svc-split__inline-link:hover {
+  color: #231f1e;
+}
+
 .svc-cases__list {
   display: flex;
   flex-direction: column;

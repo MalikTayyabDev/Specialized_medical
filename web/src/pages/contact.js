@@ -301,12 +301,10 @@ const ContactPage = () => {
               <span className="figma-h2__accent">Beta Trial</span>
             </h2>
             <p className="figma-cta__p figma-cta__p--lead">
-              See how Specialized Medical can support your practice with:
-              live-streaming ECG data; simplified office workflow.
-            </p>
-            <p className="figma-cta__p">
-              Evaluate Specialized Medical with a small, no-obligation beta trial.
-              If it isn’t the right fit, we’ll take everything back—no hassle.
+              See how Specialized Medical can support your practice with live-streaming
+              ECG data and a simplified office workflow—then start a no-obligation beta
+              from the form above. If it isn’t the right fit, we’ll take everything
+              back—no hassle.
             </p>
             <div className="figma-cta__actions">
               <a className="figma-btn figma-btn--solid" href="#contact-form">

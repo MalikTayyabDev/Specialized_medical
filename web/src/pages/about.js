@@ -42,11 +42,11 @@ const WHY_CARDS = [
 ]
 
 const COMPACT_BULLETS = [
-  "Weighs less than four sheets of paper (0.6 oz)",
-  "Simple, minimal form factor",
-  "The monitor runs for a minimum of 10 days per battery, supporting longer monitoring periods with less interruption.",
-  "Water-resistant (IP55 rated)",
-  "Industry-leading ECG clarity",
+  "S-Patch weighs 0.6 oz—less than four sheets of paper",
+  "Simple, minimal form factor (S-Patch)",
+  "S-Patch runs at least 10 days per battery, supporting longer monitoring periods with less interruption",
+  "S-Patch is water-resistant (IP55) for everyday wear",
+  "Industry-leading ECG clarity on S-Patch",
   "Precise P-wave definition",
 ]
 

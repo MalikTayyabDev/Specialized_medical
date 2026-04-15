@@ -545,10 +545,12 @@ const IndexPage = () => {
               </div>
               <h3 className="figma-card__title">Patient-Friendly Design</h3>
               <p className="figma-card__body">
-                Each monitor weighs less than four sheets of paper (0.6 oz), runs
-                for a minimum of 10 days per battery, is water-resistant
-                (IP55), and offers
-                industry-leading ECG clarity, including precise P-wave definition.
+                <strong>S-Patch</strong> weighs 0.6 oz, runs at least 10 days per
+                battery, and is water-resistant (IP55), with industry-leading ECG
+                clarity—including precise P-wave definition.{" "}
+                <strong>Lead-Wire</strong> specifications differ and are shown
+                separately on{" "}
+                <Link to="/services/equipment/">Monitoring Equipment Options</Link>.
               </p>
             </article>
           </div>
@@ -577,13 +579,9 @@ const IndexPage = () => {
                   “I wore the S-Patch Monitor from Specialized Medical all week. It
                   was easy and hassle free. Was not a problem at all. The monitor I
                   wore was very small. I didn’t even realize I was wearing it...”{" "}
-                  <a
-                    className="figma-tcard__more"
-                    href="#"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    see more
-                  </a>
+                  <Link className="figma-tcard__more" to="/services/#clinical-stories">
+                    See more clinical stories
+                  </Link>
                 </p>
               </div>
               <div className="figma-tcard__stars-container">
@@ -605,13 +603,12 @@ const IndexPage = () => {
                   “If it was not for Specialized Medical’s technology and service I
                   am not sure if this patient would be around today.”
                 </p>
-                <a
+                <Link
                   className="figma-tcard__link"
-                  href="#"
-                  onClick={(e) => e.preventDefault()}
+                  to="/services/#clinical-stories"
                 >
-                  View Full Case Study→
-                </a>
+                  View clinical stories→
+                </Link>
               </div>
               <div className="figma-tcard__stars-container">
                 <img

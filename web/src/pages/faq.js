@@ -71,11 +71,26 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "What monitoring equipment does Specialized Medical use?",
-        a: "Our primary featured monitoring system is S-Patch. Lead-Wire remains available as a secondary monitoring option where appropriate. For device-specific details, see our equipment options page: /services/equipment/.",
+        a: (
+          <>
+            Our primary featured monitoring system is <strong>S-Patch</strong>.{" "}
+            <strong>Lead-Wire</strong> remains available as a secondary monitoring
+            option where appropriate. For device-specific details, see{" "}
+            <Link to="/services/equipment/">Monitoring Equipment Options</Link>.
+          </>
+        ),
       },
       {
         q: "Are all monitor specifications the same?",
-        a: "No. Device-specific details should be shown under the correct system so practices are not given the impression that every monitor shares the same physical specifications. See /services/equipment/ for the current specs.",
+        a: (
+          <>
+            No. Device-specific details should be shown under the correct system so
+            practices are not given the impression that every monitor shares the same
+            physical specifications. See{" "}
+            <Link to="/services/equipment/">Monitoring Equipment Options</Link> for
+            the current specs.
+          </>
+        ),
       },
       {
         q: "Do practices have to buy equipment?",
@@ -96,7 +111,16 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "Is the monitor comfortable?",
-        a: "Yes. The monitor is designed to be lightweight, easy to wear, and simple for patients to manage throughout the test. Comfort and ease of wear are a key part of our Patient-Friendly Design approach.",
+        a: (
+          <>
+            Yes. <strong>S-Patch</strong> is designed to be lightweight, easy to wear,
+            and simple for patients to manage throughout the test. Comfort and ease of
+            wear are central to our patient-friendly approach.{" "}
+            <strong>Lead-Wire</strong> specifications differ—see{" "}
+            <Link to="/services/equipment/">Monitoring Equipment Options</Link> for
+            details.
+          </>
+        ),
       },
       {
         q: "Is it water-resistant?",
@@ -235,7 +259,7 @@ function FaqPage() {
                         className="faq-item__panel"
                         hidden={!isOpen}
                       >
-                        <p>{item.a}</p>
+                        <div className="faq-item__answer">{item.a}</div>
                       </div>
                     </div>
                   )

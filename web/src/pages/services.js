@@ -9,12 +9,12 @@ const ECG_APP_VIDEO_SRC =
   "/video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4#t=0.001"
 
 const BREAKDOWN = [
-  ["Holter", "24–48 Hours"],
+  ["Holter", "24–48 hours"],
   ["Extended Holter", "Greater than 48 hours up to 7 days"],
   ["Extended Holter", "Greater than 7 days up to 14 days"],
-  ["Event Monitoring", "01 to 30 Days"],
+  ["Event Monitoring", "1 to 30 days"],
   ["MCT (Telemetry)", "1 to 30 days"],
-  ["MCT (Telemetry)", "for Post TAVR Patients"],
+  ["MCT (Telemetry)", "For post-TAVR patients"],
 ]
 
 const PRACTICE = [
@@ -29,9 +29,8 @@ const CASE_STUDIES = [
   {
     key: "1",
     image: "case-01.jpg",
-    caption:
-      "patient-friendly design, small monitor size, comfort, and ease of wear.",
-    tag: "Case Study 01 (S-Patch System)",
+    caption: "S-Patch patient experience",
+    tag: "S-Patch",
     title: "Easy for Patients to Wear",
     body:
       '"I wore the S-Patch Monitor from Specialized Medical all week. It was easy and hassle free. Was not a problem at all. The monitor I wore was very small. I didn\'t even realize I was wearing it. The technology is incredible. I\'m looking forward to seeing the results, since I\'m pretty sure I have occasional Afib. This monitor system is SO MUCH better than the old way!"',
@@ -41,7 +40,7 @@ const CASE_STUDIES = [
     key: "2",
     image: "case-02.jpg",
     caption: "Detected, reported, and escalated quickly",
-    tag: "Case Study 02 (S-Patch)",
+    tag: "S-Patch",
     title: "The ER Missed It",
     body:
       '"I am so grateful for Specialized Medical and the care I received during my heart monitoring. I wore the monitor for a 15-day test, and on day 12 it detected a serious rhythm issue that needed immediate attention. I truly believe that this monitoring made a life-saving difference for me. What stood out to me just as much as the technology was the people behind it. The customer service team at Specialized Medical was outstanding from beginning to end. They were kind, responsive, patient, and made me feel supported every step of the way.\n\nThe monitor itself was also much easier than I expected. It was simple to use, comfortable to wear, and easy to manage throughout the testing period. That gave me peace of mind and made it possible for me to go about my normal routine while still being monitored. I\'m incredibly thankful that this issue was found when it was. Specialized Medical gave me not only answers, but confidence that someone was looking out for me".',
@@ -51,8 +50,8 @@ const CASE_STUDIES = [
     key: "3",
     image: "case-03.jpg",
     caption: "Detected, reported, and escalated quickly",
-    tag: "Case Study 03 (S-Patch)",
-    title: "The ER Missed It",
+    tag: "S-Patch",
+    title: "Serious Rhythm Issue Found During Wear",
     body:
       '"I am so thankful for Specialized Medical. I wore the monitor from March 4 to March 6, 2026, and it found a serious heart problem that I did not know was happening. I truly believe that test may have saved my life. What meant the most to me was how kind and helpful everyone was. The customer service was outstanding. Any time I had a question, someone was there to help me and explain things in a way I could understand. That made a scary situation feel a little easier. The monitor itself was also very easy to use. It was simple, comfortable to wear, and did not make my day harder. I was able to go about my normal routine while feeling better knowing my heart was being watched. I will always be grateful to Specialized Medical for finding something so important and for treating me with so much care and respect. I would recommend them to anyone who needs heart monitoring."',
     by: "— Rhonda B.",
@@ -61,8 +60,8 @@ const CASE_STUDIES = [
     key: "4",
     image: "case-04.jpg",
     caption: "Detected, reported, and escalated quickly",
-    tag: "Case Study 04 (Lead Wire System)",
-    title: "The ER Missed It",
+    tag: "Lead-Wire",
+    title: "Rapid Physician Notification",
     body:
       "\"I am a Family Medicine doctor located in Central New York and applied Specialized Medical's Cardiac Holter Monitor to a 60-year-old male patient complaining of cardiac-related issues. The patient wore the Specialized Medical Cardiac Holter Monitor for 24 hours. During this test the Cardiac Monitor picked up 3 Paroxysmal AV blocks between 2:18 p.m. and 2:42 p.m. When Specialized Medical saw these results they immediately transmitted the reports to me and then called me on my cell phone. That day the doctor discussed the results with the patient and then referred him to a Cardiologist. We later found out the patient had been walking up a hill and after about 5 minutes into his walk he experienced the aforementioned cardiac arrhythmia. I highly recommend Specialized Medical for their cardiac monitoring services.\"",
     by: "- Michael",
@@ -72,7 +71,7 @@ const CASE_STUDIES = [
     image: "case-05.jpg",
     caption:
       "Example of the detail captured and reported by Specialized Medical.",
-    tag: "Case Study 05 (Lead Wire System)",
+    tag: "Lead-Wire",
     title: "A Life-Saving Second Opinion",
     body:
       "\"I am an Internal Medicine doctor located in Brooklyn, NY and applied a Specialized Medical Cardiac Monitor to a female patient complaining of cardiac related issues. The patient wore a Cardiac Event Monitor and on the 5th day into the test at approximately 9:00 a.m., the patient experienced a cardiac episode that caused her to call me. I immediately had the patient go to hospital emergency room where I met her. I removed the monitor as they admitted her and sent the data into Specialized Medical. Shortly thereafter, I received a phone call on my cellular number that Specialized Medical found a significant cardiac arrhythmia. After reviewing the cardiac reports supplied by Specialized Medical, I called the hospital and forwarded the test results to the 'Fellow Cardiologist' who to my surprise was in the process of releasing my patient because they could not find anything wrong. When the cardiologist at the hospital received the test results they determined that the patient required immediate medical care and scheduled the necessary procedures to take place. If it was not for Specialized Medical's technology and service I am not sure if this patient would be around today.\"",
@@ -91,7 +90,13 @@ function CaseStars() {
   )
 }
 
-const ServicesPage = () => (
+function ServicesPage() {
+  const [showMoreClinicalStories, setShowMoreClinicalStories] =
+    React.useState(false)
+  const featuredCase = CASE_STUDIES[0]
+  const moreClinicalStories = CASE_STUDIES.slice(1)
+
+  return (
   <main className="services-page services-page--figma" data-design="figma-27-13">
     <section className="svc-hero" aria-labelledby="svc-hero-heading">
       <div className="svc-hero__plate">
@@ -198,8 +203,8 @@ const ServicesPage = () => (
               streaming across a wide range of patient environments, including rural
               areas. This supports uninterrupted data capture, reduces the
               likelihood of incomplete studies, and gives physicians greater
-              confidence in every test. Data is sent live to our monitoring center
-              no manual uploading, no data delays.
+              confidence in every test. Data is sent live to our monitoring center—no
+              manual uploading, no data delays.
             </p>
           </div>
         </div>
@@ -212,7 +217,7 @@ const ServicesPage = () => (
           <div className="svc-split__copy">
             <Link className="svc-split__eyebrow" to="/services/equipment/">
               <span className="svc-split__eyebrow-dot" aria-hidden />
-              Monitoring Equipment options
+              Monitoring Equipment Options
             </Link>
             <h2 id="svc-spatch-heading" className="svc-split__title">
               The S-Patch <span className="svc-split__title-accent">Monitoring System</span>
@@ -301,8 +306,9 @@ const ServicesPage = () => (
           <span className="svc-workflow__heading-accent">for Your Office</span>
         </h2>
         <p className="svc-workflow__sub">
-          Your medical assistant completes a simple 3-step process: Hook-Up -&gt;
-          Enroll -&gt; Disconnect (Under 15 Minutes)
+          Your medical assistant completes a simple 3-step process:{" "}
+          <strong>Enroll in Web Portal → Hook-Up → Disconnect</strong>{" "}
+          <strong>(Under 15 Minutes)</strong>
         </p>
         <div className="svc-workflow__panel">
           <p>Once the patient leaves, we take over the rest:</p>
@@ -392,19 +398,19 @@ const ServicesPage = () => (
               </p>
               <ul className="svc-reporting__sublist">
                 <li>
-                  <span className="svc-reporting__label">Electronic Review :</span>{" "}
+                  <span className="svc-reporting__label">Electronic review:</span>{" "}
                   Access comprehensive data and full-disclosure strips from any secure
                   device.
                 </li>
                 <li>
                   <span className="svc-reporting__label">
-                    Professional Interpretation :
+                    Professional interpretation:
                   </span>{" "}
                   Document your findings directly within the digital report interface.
                 </li>
                 <li>
                   <span className="svc-reporting__label">
-                    Digital Authentication :
+                    Digital authentication:
                   </span>{" "}
                   Finalize reports with an electronic signature, date, and time
                   stamp—ready for billing and clinical filing.
@@ -426,37 +432,82 @@ const ServicesPage = () => (
       </div>
     </section>
 
-    <section className="figma-section svc-cases" aria-labelledby="svc-cases-heading">
+    <section
+      className="figma-section svc-cases"
+      id="clinical-stories"
+      aria-labelledby="svc-cases-heading"
+    >
       <div className="figma-container">
         <h2 id="svc-cases-heading" className="svc-cases__heading">
           Clinical <span className="svc-cases__heading-accent">Proof</span>
         </h2>
+        <p className="svc-cases__intro">
+          Featured patient and physician experience. Additional stories are available
+          below on request.
+        </p>
         <div className="svc-cases__list">
-          {CASE_STUDIES.map((c) => (
-            <article key={c.key} className="svc-case-card">
-              <div>
-                <div className="svc-case-card__media">
-                  <img
-                    src={IMG(c.image)}
-                    alt=""
-                    width={305}
-                    height={394}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <p className="svc-case-card__caption">{c.caption}</p>
+          <article className="svc-case-card svc-case-card--featured">
+            <div>
+              <div className="svc-case-card__media">
+                <img
+                  src={IMG(featuredCase.image)}
+                  alt=""
+                  width={305}
+                  height={394}
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
-              <div>
-                <span className="svc-case-card__tag">{c.tag}</span>
-                <h3 className="svc-case-card__title">{c.title}</h3>
-                <p className="svc-case-card__body">{c.body}</p>
-                <CaseStars />
-                <p className="svc-case-card__by">{c.by}</p>
-              </div>
-            </article>
-          ))}
+              <p className="svc-case-card__caption">{featuredCase.caption}</p>
+            </div>
+            <div>
+              <span className="svc-case-card__tag">{featuredCase.tag}</span>
+              <h3 className="svc-case-card__title">{featuredCase.title}</h3>
+              <p className="svc-case-card__body">{featuredCase.body}</p>
+              <CaseStars />
+              <p className="svc-case-card__by">{featuredCase.by}</p>
+            </div>
+          </article>
         </div>
+        {!showMoreClinicalStories ? (
+          <div className="svc-cases__more-wrap">
+            <button
+              type="button"
+              className="figma-btn figma-btn--outline-dark svc-cases__more-btn"
+              onClick={() => setShowMoreClinicalStories(true)}
+              aria-expanded="false"
+            >
+              View more clinical stories
+            </button>
+          </div>
+        ) : (
+          <div className="svc-cases__list svc-cases__list--more">
+            {moreClinicalStories.map((c) => (
+              <article key={c.key} className="svc-case-card">
+                <div>
+                  <div className="svc-case-card__media">
+                    <img
+                      src={IMG(c.image)}
+                      alt=""
+                      width={305}
+                      height={394}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <p className="svc-case-card__caption">{c.caption}</p>
+                </div>
+                <div>
+                  <span className="svc-case-card__tag">{c.tag}</span>
+                  <h3 className="svc-case-card__title">{c.title}</h3>
+                  <p className="svc-case-card__body">{c.body}</p>
+                  <CaseStars />
+                  <p className="svc-case-card__by">{c.by}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
       </div>
     </section>
 
@@ -514,10 +565,14 @@ const ServicesPage = () => (
               <span className="svc-split__title-accent">Design</span>
             </h2>
             <p className="svc-split__text">
-              Each monitor weighs less than four sheets of paper (0.6 oz). The monitor
-              runs for a minimum of 10 days per battery, supporting longer monitoring
-              periods with less interruption, is water-resistant (IP55), and offers
-              industry-leading ECG clarity, including precise P-wave definition.
+              <strong>S-Patch</strong> weighs 0.6 oz (less than four sheets of paper),
+              runs at least 10 days per battery, and is water-resistant (IP55)—with
+              industry-leading ECG clarity, including precise P-wave definition.{" "}
+              <strong>Lead-Wire</strong> specifications differ; see{" "}
+              <Link className="svc-split__inline-link" to="/services/equipment/">
+                Monitoring Equipment Options
+              </Link>
+              .
             </p>
           </div>
           <div className="svc-split__media" style={{ borderRadius: 30 }}>
@@ -586,7 +641,8 @@ const ServicesPage = () => (
       </div>
     </section>
   </main>
-)
+  )
+}
 
 export default ServicesPage
 

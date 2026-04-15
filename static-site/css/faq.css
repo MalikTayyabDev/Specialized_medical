@@ -184,13 +184,25 @@
   padding-top: 0.25rem;
 }
 
-.faq-item__panel p {
+.faq-item__panel p,
+.faq-item__answer {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   line-height: 1.55;
   color: rgba(35, 31, 30, 0.7);
   margin: 0;
   max-width: none;
+}
+
+.faq-item__answer a {
+  color: var(--color-red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.faq-item__answer a:hover {
+  color: #231f1e;
 }
 
 /* ----- Testimonials ----- */

@@ -30,9 +30,10 @@ const FEATURE_HIGHLIGHTS = [
   "Supports Holter, Extended Holter, Event Monitoring, and Telemetry (MCT)",
   "Simplified office workflow",
   "Designed for strong patient comfort and wearability",
-  "Very small, lightweight dual-disk design that many patients often forget they are wearing Symptomatic vs. asymptomatic event clarity",
+  "Very small, lightweight dual-disk design—many patients forget they are wearing it",
+  "Symptomatic vs. asymptomatic event clarity on reports",
   "No data delays",
-  "Ideal for TAVR Monitoring support",
+  "Ideal for TAVR monitoring support",
   "Built for uninterrupted live-streaming performance across a wide range of patient environments, including rural areas",
 ]
 

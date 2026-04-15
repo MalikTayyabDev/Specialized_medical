@@ -1,0 +1,5 @@
+# Legacy .jsp URLs (301) — mirrors netlify.toml for hosts that read _redirects only
+/about.jsp /about/ 301
+/services.jsp /services/ 301
+/faq.jsp /faq/ 301
+/contact.jsp /contact/ 301
