@@ -89,26 +89,28 @@ const ContactPage = () => {
     const fd = new FormData(form)
 
     try {
-      await fetch("/", {
+      const res = await fetch("/.netlify/functions/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({
-          "form-name": "contact",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
           firstName: fd.get("firstName"),
           lastName: fd.get("lastName"),
           email: fd.get("email"),
           phone: fd.get("phone"),
           interest: fd.get("interest"),
           message: fd.get("message"),
-          "bot-field": fd.get("bot-field"),
+          botField: fd.get("bot-field"),
         }),
       })
+      if (!res.ok) throw new Error("send-failed")
       setSubmitState("success")
       form.reset()
       window.location.assign("/thanks/")
     } catch (err) {
       setSubmitState("error")
-      setSubmitError("Sorry—something went wrong. Please try again.")
+      setSubmitError(
+        "Sorry—something went wrong. Please try again or call 1-855-773-2633."
+      )
     }
   }
 
