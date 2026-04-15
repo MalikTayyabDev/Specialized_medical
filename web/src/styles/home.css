@@ -1447,8 +1447,9 @@ p.hero__pill {
 
 .ai-band__media img {
   width: 100%;
-  min-height: 280px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .ai-band--split {
@@ -2491,6 +2492,7 @@ main .figma-container {
   width: 100%;
   max-width: 631px;
   border-radius: 20px;
+  background: #f4f4f4;
 }
 
 .figma-hero__visual .figma-hero__photo {
@@ -2498,8 +2500,8 @@ main .figma-container {
   width: 100%;
   height: auto;
   border-radius: 20px;
-  object-fit: cover;
-  aspect-ratio: 631 / 745;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .figma-hero__chip {
@@ -3409,7 +3411,7 @@ video.figma-ecg__video {
 
 .figma-ai__video--proof {
   max-height: 520px;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 @media (max-width: 600px) {
