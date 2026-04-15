@@ -324,30 +324,10 @@
   top: 7px;
 }
 
-@media (min-width: 901px) {
-  .svc-split--lead .svc-split__media {
-    height: 748px;
-    max-height: 748px;
-  }
-
-  .svc-split--lead .svc-split__media img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    object-position: center 22%;
-  }
-}
-
-@media (max-width: 900px) {
-  .svc-split--lead .svc-split__media {
-    height: auto;
-    max-height: none;
-  }
-
-  .svc-split--lead .svc-split__media img {
-    height: auto;
-    object-position: center center;
-  }
+/* Lead-Wire image: no fixed frame height — show full asset without cropping */
+.svc-split--lead .svc-split__media img {
+  object-fit: contain;
+  object-position: center center;
 }
 
 .svc-split__media--patient-radius {
