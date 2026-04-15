@@ -526,6 +526,8 @@ function ServicesPage() {
               loop
               playsInline
               preload="metadata"
+              muted
+              defaultMuted
               aria-label="S-Patch app: live ECG and symptom logging"
             />
           </div>

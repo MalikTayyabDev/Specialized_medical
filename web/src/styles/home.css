@@ -3631,6 +3631,17 @@ video.figma-ecg__video {
   text-decoration: underline;
 }
 
+.figma-footer__link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.figma-footer__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 @media (max-width: 1000px) {
   .figma-footer__main {
     flex-direction: column;
@@ -3661,5 +3672,44 @@ video.figma-ecg__video {
 
   .figma-footer__triple {
     flex-direction: column;
+  }
+
+  .figma-footer__bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .figma-footer__social {
+    justify-content: center;
+  }
+}
+
+/* Mobile nav extras (phone + buttons inside hamburger) */
+.figma-nav__mobile {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .site-header--figma .figma-nav__mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 0.9rem 1.15rem 1.1rem;
+    border-top: 1px solid rgba(35, 31, 30, 0.08);
+  }
+
+  .site-header--figma .figma-nav__phone {
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(35, 31, 30, 0.9);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .site-header--figma .figma-nav__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
   }
 }

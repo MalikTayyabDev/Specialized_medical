@@ -201,6 +201,8 @@ const IndexPage = () => {
               poster={imagesPath("figma-assets/Rectangle 34.png")}
               playsInline
               preload="metadata"
+              muted
+              defaultMuted
               width={738}
               height={442}
             >
@@ -448,6 +450,8 @@ const IndexPage = () => {
               poster={VIDEO_POSTER.ecg}
               playsInline
               preload="metadata"
+              muted
+              defaultMuted
               controls
               loop
             />
@@ -672,6 +676,8 @@ const IndexPage = () => {
                 loop
                 playsInline
                 preload="metadata"
+                muted
+                defaultMuted
               />
             </div>
           </div>

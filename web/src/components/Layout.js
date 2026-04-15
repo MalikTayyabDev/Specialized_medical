@@ -114,6 +114,29 @@ function SiteHeader({ location }) {
           >
             Contact
           </Link>
+          <div className="figma-nav__mobile">
+            <a className="figma-nav__phone" href="tel:+18557732633">
+              Call: 1-855-773-2633
+            </a>
+            <div className="figma-nav__actions">
+              <Link
+                className="figma-btn figma-btn--outline-dark"
+                to="/contact/#contact-form"
+                onClick={() => setNavOpen(false)}
+              >
+                Request a Demo
+              </Link>
+              <a
+                className="figma-btn figma-btn--solid"
+                href={PATIENT_PORTAL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setNavOpen(false)}
+              >
+                Physician Portal
+              </a>
+            </div>
+          </div>
         </nav>
         <div className="figma-header__cta">
           <a className="figma-phone" href="tel:+18557732633">
@@ -201,10 +224,10 @@ function SiteFooter() {
                   decoding="async"
                 />
               </span>
-              <p>
+              <a className="figma-footer__link" href="tel:+18557732633">
                 <span className="figma-footer__muted">1-855-SPEC-MED</span>{" "}
                 <span className="figma-footer__strong">(1-855-773-2633)</span>
-              </p>
+              </a>
             </div>
             <div className="figma-footer__line">
               <img
@@ -224,10 +247,15 @@ function SiteFooter() {
                 height={20}
                 decoding="async"
               />
-              <p className="figma-footer__address">
-                Specialized Medical, LLC 34145 Pacific Coast Highway, #700 Dana
-                Point, CA 92629
-              </p>
+              <a
+                className="figma-footer__link figma-footer__address"
+                href="https://www.google.com/maps?q=34145+Pacific+Coast+Highway,+%23700,+Dana+Point,+CA+92629"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Specialized Medical, LLC 34145 Pacific Coast Highway, #700 Dana Point,
+                CA 92629
+              </a>
             </div>
           </div>
         </div>

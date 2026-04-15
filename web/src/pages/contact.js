@@ -207,14 +207,14 @@ const ContactPage = () => {
                     height={20}
                     decoding="async"
                   />
-                  <p>
+                  <a href="tel:+18557732633">
                     <span className="contact-main__phone-muted">
                       1-855-SPEC-MED
                     </span>{" "}
                     <span className="contact-main__phone-strong">
                       (1-855-773-2633)
                     </span>
-                  </p>
+                  </a>
                 </div>
                 <div className="contact-main__line">
                   <img
@@ -236,10 +236,14 @@ const ContactPage = () => {
                     height={20}
                     decoding="async"
                   />
-                  <span>
-                    Specialized Medical, LLC 34145 Pacific Coast Highway, #700
-                    Dana Point, CA 92629
-                  </span>
+                  <a
+                    href="https://www.google.com/maps?q=34145+Pacific+Coast+Highway,+%23700,+Dana+Point,+CA+92629"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Specialized Medical, LLC 34145 Pacific Coast Highway, #700 Dana
+                    Point, CA 92629
+                  </a>
                 </div>
               </div>
             </div>
