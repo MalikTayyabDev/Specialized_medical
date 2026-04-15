@@ -8,11 +8,15 @@
     "gatsby"
   ],
   "scripts": {
+    "predevelop": "node scripts/sync-static-site-assets.mjs",
     "develop": "gatsby develop",
+    "prestart": "node scripts/sync-static-site-assets.mjs",
     "start": "gatsby develop",
+    "prebuild": "node scripts/sync-static-site-assets.mjs && node scripts/verify-static-assets.mjs",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "sync-assets": "node scripts/sync-static-site-assets.mjs"
   },
   "license": "0BSD",
   "dependencies": {
