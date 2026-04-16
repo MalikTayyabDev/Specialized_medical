@@ -242,10 +242,34 @@
   position: absolute;
   left: 0;
   top: 0.45rem;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--color-red);
+}
+
+@media (max-width: 900px) {
+  .svc-split__list li::before,
+  .svc-workflow__dot,
+  .svc-practice__item::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .svc-split__list li::before,
+  .svc-workflow__dot,
+  .svc-practice__item::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 900px) {
+  .svc-practice__item {
+    font-size: 0.9375rem;
+  }
 }
 
 .svc-split__media {
@@ -423,6 +447,7 @@
 
 .svc-workflow__cell {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.65rem;
   min-height: 74px;
@@ -435,8 +460,8 @@
 }
 
 .svc-workflow__dot {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--color-red);
   flex-shrink: 0;
@@ -444,9 +469,9 @@
 
 .svc-workflow__footer {
   text-align: center;
-  margin-top: 1.25rem;
+  margin-top: 20px;
   font-size: 1rem;
-  color: var(--color-red);
+  color: rgba(201, 34, 47, 1);
   font-weight: 500;
 }
 
@@ -496,8 +521,8 @@
 
 .svc-practice__item::before {
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--color-red);
   flex-shrink: 0;

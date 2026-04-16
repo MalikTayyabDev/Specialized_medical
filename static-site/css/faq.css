@@ -272,7 +272,7 @@
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 500;
-  color: var(--color-red);
+  color: rgba(201, 34, 47, 1);
 }
 
 .faq-testimonials__cards {
@@ -307,7 +307,7 @@
   font-size: 1rem;
   line-height: 1.4;
   font-weight: 500;
-  color: var(--color-red);
+  color: rgba(201, 34, 47, 1);
   text-transform: capitalize;
 }
 
