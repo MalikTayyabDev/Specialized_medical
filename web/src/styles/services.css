@@ -514,6 +514,8 @@
 }
 
 .svc-practice__heading-accent {
+  display: inline-block;
+  margin-top: 20px;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
