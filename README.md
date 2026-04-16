@@ -34,6 +34,14 @@ Output: `web/public/`.
 
 Repository root includes **`netlify.toml`**: base directory **`web`**, publish **`public`**, Node **20**. Connect this repo to Netlify and deploy with the default settings from that file.
 
+## Contact form (Web3Forms)
+
+The contact form submits via **Web3Forms** (client-side).
+
+- Create `web/.env.development` (for local dev) and/or set an environment variable in Netlify:
+  - `GATSBY_WEB3FORMS_ACCESS_KEY`
+- You can copy `web/.env.example` as a starting point.
+
 ## Repository
 
 **https://github.com/MalikTayyabDev/Specialized_medical**

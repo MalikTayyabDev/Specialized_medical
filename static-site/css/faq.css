@@ -242,8 +242,8 @@
 }
 
 .faq-testimonials__dots span {
-  width: 7px;
-  height: 7px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: rgba(35, 31, 30, 0.2);
 }
@@ -254,6 +254,8 @@
 
 .faq-testimonials__right {
   min-width: 0;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .faq-testimonials__title {
@@ -269,7 +271,7 @@
 .faq-testimonials__title-accent {
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-red);
 }
 
@@ -304,8 +306,8 @@
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.4;
-  font-weight: 400;
-  color: #231f1e;
+  font-weight: 500;
+  color: var(--color-red);
   text-transform: capitalize;
 }
 
@@ -328,6 +330,11 @@
 @media (max-width: 900px) {
   .faq-testimonials__layout {
     grid-template-columns: 1fr;
+  }
+
+  .faq-testimonials__right {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .faq-testimonials__photo {

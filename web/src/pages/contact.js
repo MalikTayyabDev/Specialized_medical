@@ -58,6 +58,9 @@ const ContactPage = () => {
   const formRef = React.useRef(null)
   const [submitState, setSubmitState] = React.useState("idle")
   const [submitError, setSubmitError] = React.useState("")
+  const WEB3FORMS_ACCESS_KEY =
+    process.env.GATSBY_WEB3FORMS_ACCESS_KEY ||
+    "cd55309f-65b0-4323-9136-c10affdcee18"
 
   const scrollToForm = (interest) => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -89,27 +92,44 @@ const ContactPage = () => {
     const fd = new FormData(form)
 
     try {
-      const res = await fetch("/.netlify/functions/contact", {
+      if (!WEB3FORMS_ACCESS_KEY) {
+        throw new Error("missing-web3forms-access-key")
+      }
+
+      const payload = {
+        access_key: WEB3FORMS_ACCESS_KEY,
+        name: `${fd.get("firstName") || ""} ${fd.get("lastName") || ""}`.trim(),
+        email: fd.get("email"),
+        phone: fd.get("phone"),
+        interest: fd.get("interest"),
+        message: fd.get("message"),
+        botcheck: fd.get("botcheck"),
+        subject: "New contact request — Specialized Medical",
+      }
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: fd.get("firstName"),
-          lastName: fd.get("lastName"),
-          email: fd.get("email"),
-          phone: fd.get("phone"),
-          interest: fd.get("interest"),
-          message: fd.get("message"),
-          botField: fd.get("bot-field"),
-        }),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
       })
-      if (!res.ok) throw new Error("send-failed")
+
+      const json = await res.json().catch(() => null)
+      if (!res.ok || !json || json.success !== true) {
+        throw new Error("send-failed")
+      }
+
       setSubmitState("success")
       form.reset()
       window.location.assign("/thanks/")
     } catch (err) {
       setSubmitState("error")
       setSubmitError(
-        "Sorry—something went wrong. Please try again or call 1-855-773-2633."
+        err?.message === "missing-web3forms-access-key"
+          ? "Form is not configured yet. Please set GATSBY_WEB3FORMS_ACCESS_KEY and try again."
+          : "Sorry—something went wrong. Please try again or call 1-855-773-2633."
       )
     }
   }
@@ -251,18 +271,12 @@ const ContactPage = () => {
             <div className="contact-main__form-wrap" ref={formRef}>
               <form
                 className="contact-form"
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                action="/thanks/"
                 onSubmit={handleSubmit}
                 noValidate
               >
-                <input type="hidden" name="form-name" value="contact" />
-                <p style={{ display: "none" }}>
+                <p style={{ display: "none" }} aria-hidden="true">
                   <label>
-                    Don’t fill this out: <input name="bot-field" />
+                    Don’t fill this out: <input name="botcheck" tabIndex={-1} />
                   </label>
                 </p>
                 <div className="contact-form__row">

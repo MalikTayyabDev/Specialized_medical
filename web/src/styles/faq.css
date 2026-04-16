@@ -242,8 +242,10 @@
 }
 
 .faq-testimonials__dot {
-  width: 7px;
-  height: 7px;
+  width: 10px;
+  height: 10px;
+  padding: 5px;
+  border: 0;
   border-radius: 50%;
   background: rgba(35, 31, 30, 0.2);
 }
@@ -254,6 +256,8 @@
 
 .faq-testimonials__right {
   min-width: 0;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .faq-testimonials__title {
@@ -269,7 +273,7 @@
 .faq-testimonials__title-accent {
   font-family: var(--font-display);
   font-style: italic;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-red);
 }
 
@@ -304,8 +308,8 @@
   font-family: var(--font-sans);
   font-size: 1rem;
   line-height: 1.4;
-  font-weight: 400;
-  color: #231f1e;
+  font-weight: 500;
+  color: var(--color-red);
   text-transform: capitalize;
 }
 
@@ -330,14 +334,58 @@
     grid-template-columns: 1fr;
   }
 
+  .faq-testimonials__right {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .faq-testimonials__photo {
-    max-width: 22rem;
+    max-width: min(22rem, 100%);
     margin-left: auto;
     margin-right: auto;
   }
 
   .faq-testimonials__title {
     text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .faq-testimonials {
+    padding: 2.25rem 0;
+  }
+
+  .faq-testimonials__layout {
+    gap: 1.25rem;
+  }
+
+  .faq-testimonials__photo {
+    border-radius: 16px;
+    box-shadow: 0 10px 26px rgba(35, 31, 30, 0.12);
+  }
+
+  .faq-testimonials__dots {
+    padding-top: 0.65rem;
+  }
+
+  .faq-testimonials__dot {
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+  }
+
+  .faq-testimonials__cards {
+    gap: 0.85rem;
+  }
+
+  .faq-testimonial-card {
+    border-radius: 16px;
+    padding: 1rem 0.9rem;
+  }
+
+  .faq-testimonial-card p,
+  .faq-testimonial-card footer {
+    font-size: 0.9375rem;
   }
 }
 
