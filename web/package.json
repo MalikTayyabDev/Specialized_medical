@@ -8,15 +8,17 @@
     "gatsby"
   ],
   "scripts": {
-    "predevelop": "node scripts/sync-static-site-assets.mjs",
     "develop": "gatsby develop",
-    "prestart": "node scripts/sync-static-site-assets.mjs",
+    "develop:stable": "nodemon --delay 750ms --signal SIGINT --watch gatsby-node.js --watch gatsby-config.js --watch src --ext js,jsx,css,json --ignore public --ignore .cache --ignore node_modules --exec \"gatsby develop\"",
     "start": "gatsby develop",
-    "prebuild": "node scripts/sync-static-site-assets.mjs && node scripts/verify-static-assets.mjs",
+    "prebuild": "node scripts/verify-static-assets.mjs",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "sync-assets": "node scripts/sync-static-site-assets.mjs"
+    "verify-assets": "node scripts/verify-static-assets.mjs"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   },
   "license": "0BSD",
   "dependencies": {

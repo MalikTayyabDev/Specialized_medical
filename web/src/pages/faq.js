@@ -198,14 +198,23 @@ function FaqPage() {
         src: "/images/figma-services/case-01.jpg",
         alt: "Patient-friendly design and wear experience",
       },
-      {
-        src: "/images/figma-services/case-02.jpg",
-        alt: "Clinical story and rapid detection experience",
-      },
     ],
     []
   )
   const [photoIdx, setPhotoIdx] = React.useState(0)
+  const [photoPaused, setPhotoPaused] = React.useState(false)
+
+  React.useEffect(() => {
+    if (photoPaused) return
+    if (typeof window === "undefined") return
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return
+
+    const id = window.setInterval(() => {
+      setPhotoIdx((i) => (i + 1) % PHOTO_SLIDES.length)
+    }, 3500)
+
+    return () => window.clearInterval(id)
+  }, [photoPaused, PHOTO_SLIDES.length])
 
   const toggle = (sectionIndex, itemIndex) => {
     const key = `${sectionIndex}-${itemIndex}`
@@ -291,7 +300,13 @@ function FaqPage() {
       >
         <div className="figma-container">
           <div className="faq-testimonials__layout">
-            <div className="faq-testimonials__photo">
+            <div
+              className="faq-testimonials__photo"
+              onPointerEnter={() => setPhotoPaused(true)}
+              onPointerLeave={() => setPhotoPaused(false)}
+              onFocusCapture={() => setPhotoPaused(true)}
+              onBlurCapture={() => setPhotoPaused(false)}
+            >
               <img
                 src={PHOTO_SLIDES[photoIdx].src}
                 alt={PHOTO_SLIDES[photoIdx].alt}

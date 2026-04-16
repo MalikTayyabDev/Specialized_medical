@@ -417,6 +417,20 @@
   background: var(--color-red);
 }
 
+@media (max-width: 900px) {
+  .about-figma-compact__list li::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .about-figma-compact__list li::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
 .about-figma-compact__list li:last-child {
   margin-bottom: 0;
 }

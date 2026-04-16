@@ -4,7 +4,15 @@ import { ICON } from "../components/Layout"
 
 const IMG = (file) => `/images/figma-services/${file}`
 
-/** Same asset as static-site/video (Gatsby `static/video/`) — Figma node 27:358 */
+function forceVideoMuted(e) {
+  const video = e?.currentTarget
+  if (!video) return
+  video.muted = true
+  video.defaultMuted = true
+  video.volume = 0
+}
+
+/** Gatsby `static/video/` — Figma node 27:358 */
 const ECG_APP_VIDEO_SRC =
   "/video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4#t=0.001"
 
@@ -528,6 +536,9 @@ function ServicesPage() {
               preload="metadata"
               muted
               defaultMuted
+              onLoadedMetadata={forceVideoMuted}
+              onPlay={forceVideoMuted}
+              onVolumeChange={forceVideoMuted}
               aria-label="S-Patch app: live ECG and symptom logging"
             />
           </div>

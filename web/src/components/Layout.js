@@ -1,7 +1,5 @@
 /**
  * Site-wide header and footer for the Gatsby app — edit here to change all pages.
- * Static HTML mirrors live in static-site/partials/header.html and footer.html
- * (run npm run static:partials after editing those).
  */
 import * as React from "react"
 import { Link } from "gatsby"
@@ -285,14 +283,13 @@ function SiteFooter() {
               aria-label="Facebook"
             >
               <img
-                src={ICON("vector3527-h9kk.svg")}
-                alt=""
-                width={20}
-                height={20}
-                className="figma-footer__fb-icon"
+                src={imagesPath("facebook-like.jpg")}
+                alt="Like us on Facebook"
+                width={102}
+                height={24}
+                loading="lazy"
                 decoding="async"
               />
-              <span>Facebook</span>
             </a>
           </div>
         </div>

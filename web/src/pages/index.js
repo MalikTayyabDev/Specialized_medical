@@ -27,6 +27,14 @@ const VIDEO_POSTER = {
 
 const ECG_VIDEO_TRIM_END_SEC = 1.5
 
+function forceVideoMuted(e) {
+  const video = e?.currentTarget
+  if (!video) return
+  video.muted = true
+  video.defaultMuted = true
+  video.volume = 0
+}
+
 const IndexPage = () => {
   const overviewFrameRef = React.useRef(null)
   const ecgVideoRef = React.useRef(null)
@@ -453,6 +461,9 @@ const IndexPage = () => {
               muted
               defaultMuted
               controls
+              onLoadedMetadata={forceVideoMuted}
+              onPlay={forceVideoMuted}
+              onVolumeChange={forceVideoMuted}
               loop
             />
           </div>

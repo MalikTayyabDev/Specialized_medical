@@ -94,12 +94,12 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 522px);
   gap: clamp(1.25rem, 4vw, 2rem);
-  align-items: center;
+  align-items: start;
 }
 
 /* Lead-Wire: image left, copy right (Figma) */
 .eq-panel__split--lead {
-  grid-template-columns: minmax(0, 522px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 460px) minmax(0, 1fr);
 }
 
 .eq-panel__split--lead > .eq-panel__media {
@@ -120,6 +120,8 @@
 
 .eq-panel__copy {
   min-width: 0;
+  margin-top: 80px;
+  margin-bottom: 80px;
 }
 
 .eq-panel__h2 {
@@ -261,6 +263,20 @@
   background: var(--color-red);
 }
 
+@media (max-width: 900px) {
+  .eq-list li::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 767px) {
+  .eq-list li::before {
+    width: 8px;
+    height: 8px;
+  }
+}
+
 .eq-card--lead {
   background: #fcf4f5;
   border: 1px solid #e0e0e0;
@@ -314,5 +330,12 @@
 
   .eq-card--lead .eq-list {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .eq-panel__copy {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
