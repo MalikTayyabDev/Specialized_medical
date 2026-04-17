@@ -132,7 +132,7 @@ const IndexPage = () => {
               </h1>
               <div className="figma-hero__sub">
                 <p className="figma-hero__sub-line figma-hero__sub-line--lg">
-                  LIVE ECG DATA
+                  Live ECG data
                 </p>
                 <p className="figma-hero__sub-line">
                   Holter / Extended Holter / Event Monitoring / Telemetry (MCT)
@@ -153,8 +153,13 @@ const IndexPage = () => {
                   Start Your No-Risk Beta Trial
                 </Link>
               </div>
+              <div className="figma-hero__proof" aria-label="Key proof points">
+                <div className="figma-hero__proof-item">Physician-ready reporting</div>
+                <div className="figma-hero__proof-item">24/7 monitoring and alerts</div>
+                <div className="figma-hero__proof-item">Zero-cost equipment</div>
+              </div>
               <p className="figma-hero__talk">
-                <Link to="/contact/">Talk to Our Team→</Link>
+                <Link to="/contact/">Talk to our team →</Link>
               </p>
             </div>
             <div className="figma-hero__visual">
@@ -350,19 +355,19 @@ const IndexPage = () => {
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">Extended Holter</h3>
-              <p className="figma-svc__meta">48 hours to 7 days</p>
+              <p className="figma-svc__meta">48 hours–7 days</p>
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">Extended Holter</h3>
-              <p className="figma-svc__meta">8 to 14 days</p>
+              <p className="figma-svc__meta">8–14 days</p>
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">Event Monitoring</h3>
-              <p className="figma-svc__meta">1 to 30 days</p>
+              <p className="figma-svc__meta">1–30 days</p>
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">MCT (Telemetry)</h3>
-              <p className="figma-svc__meta">1 to 30 days</p>
+              <p className="figma-svc__meta">1–30 days</p>
             </article>
             <article className="figma-svc">
               <h3 className="figma-svc__title">MCT (Telemetry)</h3>
@@ -385,7 +390,7 @@ const IndexPage = () => {
           </h2>
           <p className="figma-workflow__intro">
             Your medical assistant completes a simple 3-step process:{" "}
-            <strong>Enroll in Web Portal → Hook-Up → Disconnect</strong>{" "}
+            <strong>Hook-Up → Enroll in Web Portal → Disconnect</strong>{" "}
             <strong className="figma-workflow__highlight">(Under 15 Minutes)</strong>
           </p>
           <div className="figma-workflow__steps">
@@ -393,19 +398,19 @@ const IndexPage = () => {
               <div className="figma-wstep__head">
                 <span className="figma-wstep__badge">01</span>
               </div>
-              <h3 className="figma-wstep__title">Enroll in Web Portal</h3>
+              <h3 className="figma-wstep__title">Hook-Up</h3>
               <p className="figma-wstep__body">
-                Enroll the patient in the web portal as part of your standard office
-                workflow.
+                Attach electrodes and the monitor to the patient in your office.
               </p>
             </article>
             <article className="figma-wstep">
               <div className="figma-wstep__head">
                 <span className="figma-wstep__badge">02</span>
               </div>
-              <h3 className="figma-wstep__title">Hook-Up</h3>
+              <h3 className="figma-wstep__title">Enroll in Web Portal</h3>
               <p className="figma-wstep__body">
-                Attach electrodes and the monitor to the patient in your office.
+                Enroll the patient in the web portal as part of your standard office
+                workflow.
               </p>
             </article>
             <article className="figma-wstep">
@@ -719,7 +724,7 @@ const IndexPage = () => {
                 Start Your No-Risk Beta Trial
               </Link>
               <Link className="figma-cta__talk" to="/contact/">
-                Talk to Our Team→
+                Talk to our team →
               </Link>
             </div>
           </div>

@@ -274,11 +274,14 @@ const ContactPage = () => {
                 onSubmit={handleSubmit}
                 noValidate
               >
-                <p style={{ display: "none" }} aria-hidden="true">
+                <div
+                  style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}
+                  aria-hidden="true"
+                >
                   <label>
-                    Don’t fill this out: <input name="botcheck" tabIndex={-1} />
+                    <input name="botcheck" tabIndex={-1} autoComplete="off" />
                   </label>
-                </p>
+                </div>
                 <div className="contact-form__row">
                   <label className="contact-form__field">
                     <span className="contact-form__label">First name</span>
@@ -362,17 +365,16 @@ const ContactPage = () => {
               <span className="figma-h2__accent">Beta Trial</span>
             </h2>
             <p className="figma-cta__p figma-cta__p--lead">
-              See how Specialized Medical can support your practice with live-streaming
-              ECG data and a simplified office workflow—then start a no-obligation beta
-              from the form above. If it isn’t the right fit, we’ll take everything
-              back—no hassle.
+              Evaluate Specialized Medical with a small, no-obligation beta trial—or
+              request a demo. If it isn’t the right fit, we’ll take everything back—no
+              hassle.
             </p>
             <div className="figma-cta__actions">
               <a className="figma-btn figma-btn--solid" href="#contact-form">
                 Start Your No-Risk Beta Trial
               </a>
               <a className="figma-cta__talk" href="tel:+18557732633">
-                Talk to Our Team→
+                Call our team →
               </a>
             </div>
           </div>

@@ -71,6 +71,49 @@ const EquipmentPage = () => (
       </div>
     </section>
 
+    <section className="eq-compare" aria-labelledby="eq-compare-heading">
+      <div className="figma-container">
+        <h2 id="eq-compare-heading" className="eq-compare__title">
+          Compare monitoring systems
+        </h2>
+        <p className="eq-compare__sub">
+          S-Patch is the <strong>primary featured system</strong>. Lead-Wire is available as a{" "}
+          <strong>secondary / legacy option</strong>. Specifications differ and are shown separately below.
+        </p>
+        <div className="eq-compare__table" role="table" aria-label="Monitoring systems comparison">
+          <div className="eq-compare__row eq-compare__row--head" role="row">
+            <div className="eq-compare__cell eq-compare__cell--feature" role="columnheader" />
+            <div className="eq-compare__cell" role="columnheader">
+              S-Patch
+            </div>
+            <div className="eq-compare__cell" role="columnheader">
+              Lead-Wire
+            </div>
+          </div>
+
+          {[
+            ["Weight", "0.6 oz", "4 oz (113 g)"],
+            ["Battery", "Minimum 10 days", "Change every 2 days"],
+            ["Water resistance", "IP55", "Varies (see device specs)"],
+            ["Workflow", "Hook-Up → Enroll in Web Portal → Disconnect", "Hook-Up → Enroll in Web Portal → Disconnect"],
+            ["Positioning", "Primary featured system", "Secondary / legacy option"],
+          ].map(([feature, sp, lw]) => (
+            <div key={feature} className="eq-compare__row" role="row">
+              <div className="eq-compare__cell eq-compare__cell--feature" role="rowheader">
+                {feature}
+              </div>
+              <div className="eq-compare__cell" role="cell">
+                {sp}
+              </div>
+              <div className="eq-compare__cell" role="cell">
+                {lw}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section className="eq-section" aria-labelledby="eq-spatch-heading">
       <div className="figma-container">
         <div className="eq-panel">
@@ -197,7 +240,7 @@ const EquipmentPage = () => (
               Start Your No-Risk Beta Trial
             </Link>
             <Link className="figma-cta__talk" to="/contact/">
-              Talk to Our Team→
+                Talk to our team →
             </Link>
           </div>
         </div>

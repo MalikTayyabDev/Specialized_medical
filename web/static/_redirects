@@ -3,3 +3,6 @@
 /services.jsp /services/ 301
 /faq.jsp /faq/ 301
 /contact.jsp /contact/ 301
+
+# Catch-all: any other legacy .jsp paths → homepage (avoid duplicate crawl paths)
+/*.jsp / 301

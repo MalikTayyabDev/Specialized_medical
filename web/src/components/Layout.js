@@ -80,6 +80,14 @@ function SiteHeader({ location }) {
             <span />
           </span>
         </button>
+        {navOpen && (
+          <button
+            type="button"
+            className="nav-overlay"
+            aria-label="Close menu"
+            onClick={() => setNavOpen(false)}
+          />
+        )}
         <nav id="primary-nav" className="figma-nav" aria-label="Primary">
           <Link className={navClass("/")} to="/" onClick={() => setNavOpen(false)}>
             Home
@@ -285,8 +293,8 @@ function SiteFooter() {
               <img
                 src={imagesPath("facebook-like.jpg")}
                 alt="Like us on Facebook"
-                width={102}
-                height={24}
+                width={80}
+                height={19}
                 loading="lazy"
                 decoding="async"
               />

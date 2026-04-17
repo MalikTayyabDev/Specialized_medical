@@ -12,7 +12,7 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "How does the office workflow work?",
-        a: "Your medical assistant completes a simple 3-step process: Enroll in Web Portal → Hook-Up → Disconnect (Under 15 Minutes). The workflow is designed to be straightforward for office staff and easy to repeat across patients. Once the patient is enrolled and leaves the office, Specialized Medical takes over the rest with continuous monitoring, real-time alerts, report generation, and patient support.",
+        a: "Your medical assistant completes a simple 3-step process: Hook-Up → Enroll in Web Portal → Disconnect (Under 15 Minutes). The workflow is designed to be straightforward for office staff and easy to repeat across patients. Once the patient is enrolled and leaves the office, Specialized Medical takes over the rest with continuous monitoring, real-time alerts, report generation, and patient support.",
       },
       {
         q: "How long does setup take?",
@@ -33,7 +33,7 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "Are reports EMR-ready?",
-        a: "Yes. Final reports are EMR-ready and can be automatically pushed into your system. Reports are typically delivered within 24 to 48 hours after test completion, supporting faster physician review and a more efficient office workflow.",
+        a: "Yes. Final reports are EMR-ready and can be automatically pushed into your system. Reports are typically delivered within 24–48 hours after test completion, supporting faster physician review and a more efficient office workflow.",
       },
       {
         q: "Can physicians electronically review, interpret, date, and sign reports?",
@@ -315,19 +315,6 @@ function FaqPage() {
                 width={305}
                 height={426}
               />
-              <div className="faq-testimonials__dots" aria-hidden="true">
-                {PHOTO_SLIDES.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    className={`faq-testimonials__dot${
-                      i === photoIdx ? " is-active" : ""
-                    }`}
-                    onClick={() => setPhotoIdx(i)}
-                    aria-label={`Show image ${i + 1}`}
-                  />
-                ))}
-              </div>
             </div>
             <div className="faq-testimonials__right">
               <h2 id="testimonials-heading" className="faq-testimonials__title">
@@ -342,6 +329,26 @@ function FaqPage() {
                   </blockquote>
                 ))}
               </div>
+            </div>
+            <div
+              className="faq-testimonials__dots"
+              aria-hidden="true"
+              onPointerEnter={() => setPhotoPaused(true)}
+              onPointerLeave={() => setPhotoPaused(false)}
+              onFocusCapture={() => setPhotoPaused(true)}
+              onBlurCapture={() => setPhotoPaused(false)}
+            >
+              {PHOTO_SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={`faq-testimonials__dot${
+                    i === photoIdx ? " is-active" : ""
+                  }`}
+                  onClick={() => setPhotoIdx(i)}
+                  aria-label={`Show image ${i + 1}`}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -374,7 +381,7 @@ function FaqPage() {
                 Start Your No-Risk Beta Trial
               </Link>
               <Link className="figma-cta__talk" to="/contact/">
-                Talk to Our Team→
+                Talk to our team →
               </Link>
             </div>
           </div>

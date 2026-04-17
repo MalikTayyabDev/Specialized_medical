@@ -21,6 +21,7 @@ const REQUIRED = [
   "images/figma-about/Vector.png",
   "images/figma-about/Group.png",
   "images/figma-about/Group 1261157411.png",
+  "images/figma-about/image.png",
   "images/figma-about/Rectangle 4 (1).png",
   "images/figma-services/hero.jpg",
   "images/figma-contact/contact-hero.jpg",

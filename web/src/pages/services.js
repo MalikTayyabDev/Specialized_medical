@@ -99,10 +99,7 @@ function CaseStars() {
 }
 
 function ServicesPage() {
-  const [showMoreClinicalStories, setShowMoreClinicalStories] =
-    React.useState(false)
   const featuredCase = CASE_STUDIES[0]
-  const moreClinicalStories = CASE_STUDIES.slice(1)
 
   return (
   <main className="services-page services-page--figma" data-design="figma-27-13">
@@ -249,7 +246,7 @@ function ServicesPage() {
               <li>No manual uploading</li>
             </ul>
             <Link className="figma-btn figma-btn--solid" to="/services/equipment/">
-              See More
+              Compare Monitoring Systems
             </Link>
           </div>
           <div className="svc-split__media">
@@ -299,7 +296,7 @@ function ServicesPage() {
               <li>Separate system from S-Patch</li>
             </ul>
             <Link className="figma-btn figma-btn--solid" to="/services/equipment/">
-              See More
+              Compare Monitoring Systems
             </Link>
           </div>
         </div>
@@ -315,7 +312,7 @@ function ServicesPage() {
         </h2>
         <p className="svc-workflow__sub">
           Your medical assistant completes a simple 3-step process:{" "}
-          <strong>Enroll in Web Portal → Hook-Up → Disconnect</strong>{" "}
+          <strong>Hook-Up → Enroll in Web Portal → Disconnect</strong>{" "}
           <strong>(Under 15 Minutes)</strong>
         </p>
         <div className="svc-workflow__panel">
@@ -345,23 +342,6 @@ function ServicesPage() {
       </div>
     </section>
 
-    <section className="figma-section svc-practice" aria-labelledby="svc-practice-heading">
-      <div className="figma-container">
-        <h2 id="svc-practice-heading" className="svc-practice__heading">
-          Practice Integration
-          <br />
-          <span className="svc-practice__heading-accent">Made Easy</span>
-        </h2>
-        <ul className="svc-practice__list">
-          {PRACTICE.map((line) => (
-            <li key={line} className="svc-practice__item">
-              {line}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-
     <section className="figma-section svc-reporting" aria-labelledby="svc-reporting-heading">
       <div className="figma-container">
         <h2 id="svc-reporting-heading" className="svc-reporting__heading">
@@ -378,7 +358,7 @@ function ServicesPage() {
                 Patient symptoms are entered digitally during the test and
                 automatically populate on the final report above the corresponding ECG
                 strips, making it immediately clear whether an event was symptomatic
-                or asymptomatic - with no separate handwritten symptom diary required.
+                or asymptomatic—with no separate handwritten symptom diary required.
               </p>
             </div>
             <div className="svc-reporting__block">
@@ -440,6 +420,23 @@ function ServicesPage() {
       </div>
     </section>
 
+    <section className="figma-section svc-practice" aria-labelledby="svc-practice-heading">
+      <div className="figma-container">
+        <h2 id="svc-practice-heading" className="svc-practice__heading">
+          Practice Integration
+          <br />
+          <span className="svc-practice__heading-accent">Made Easy</span>
+        </h2>
+        <ul className="svc-practice__list">
+          {PRACTICE.map((line) => (
+            <li key={line} className="svc-practice__item">
+              {line}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
     <section
       className="figma-section svc-cases"
       id="clinical-stories"
@@ -477,45 +474,15 @@ function ServicesPage() {
             </div>
           </article>
         </div>
-        {!showMoreClinicalStories ? (
-          <div className="svc-cases__more-wrap">
-            <button
-              type="button"
-              className="figma-btn figma-btn--outline-dark svc-cases__more-btn"
-              onClick={() => setShowMoreClinicalStories(true)}
-              aria-expanded="false"
-            >
-              View more clinical stories
-            </button>
-          </div>
-        ) : (
-          <div className="svc-cases__list svc-cases__list--more">
-            {moreClinicalStories.map((c) => (
-              <article key={c.key} className="svc-case-card">
-                <div>
-                  <div className="svc-case-card__media">
-                    <img
-                      src={IMG(c.image)}
-                      alt=""
-                      width={305}
-                      height={394}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <p className="svc-case-card__caption">{c.caption}</p>
-                </div>
-                <div>
-                  <span className="svc-case-card__tag">{c.tag}</span>
-                  <h3 className="svc-case-card__title">{c.title}</h3>
-                  <p className="svc-case-card__body">{c.body}</p>
-                  <CaseStars />
-                  <p className="svc-case-card__by">{c.by}</p>
-                </div>
-              </article>
-            ))}
-          </div>
-        )}
+        <div className="svc-cases__more-wrap">
+          <Link
+            type="button"
+            className="figma-btn figma-btn--outline-dark svc-cases__more-btn"
+            to="/clinical-stories/"
+          >
+            View clinical stories
+          </Link>
+        </div>
       </div>
     </section>
 
@@ -647,7 +614,7 @@ function ServicesPage() {
               Start Your No-Risk Beta Trial
             </Link>
             <Link className="figma-cta__talk" to="/contact/">
-              Talk to Our Team→
+                Talk to our team →
             </Link>
           </div>
         </div>

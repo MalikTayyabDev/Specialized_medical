@@ -2207,6 +2207,7 @@ main .figma-container {
   }
 
   .site-header--figma .site-header__inner {
+    position: relative;
     grid-template-columns: 1fr auto;
     gap: 0.75rem 0.75rem;
     align-items: center;
@@ -2214,14 +2215,27 @@ main .figma-container {
     padding-bottom: 0.85rem;
   }
 
+  .site-header--figma .nav-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(17, 14, 14, 0.35);
+    backdrop-filter: blur(2px);
+    border: 0;
+    padding: 0;
+    cursor: default;
+  }
+
   .site-header--figma .nav-toggle {
     justify-self: end;
+    z-index: 60;
   }
 
   .site-header--figma .figma-nav {
     grid-column: 1 / -1;
     display: flex;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
     width: 100%;
     margin: 0;
@@ -2232,6 +2246,11 @@ main .figma-container {
     background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
     box-shadow: 0 0 0 rgba(35, 31, 30, 0);
     overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 10px);
+    z-index: 55;
     max-height: 0;
     opacity: 0;
     visibility: hidden;
@@ -2246,14 +2265,22 @@ main .figma-container {
       visibility 0s linear 0.38s;
   }
 
+  /* Explicitly target the hamburger <nav> element */
+  .site-header--figma nav#primary-nav.figma-nav {
+    display: flex;
+    flex-direction: column;
+  }
+
   .site-header--figma .site-header__inner.nav-open .figma-nav {
-    max-height: min(70vh, 420px);
+    max-height: calc(100vh - 96px);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     padding: 0.35rem 0;
     border-color: rgba(35, 31, 30, 0.08);
     box-shadow: 0 12px 40px rgba(35, 31, 30, 0.08);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
     transition:
       max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
       opacity 0.3s ease 0.04s,
@@ -2264,6 +2291,10 @@ main .figma-container {
   }
 
   .site-header--figma .figma-nav__link {
+    order: 1;
+    display: block;
+    width: 100%;
+    text-align: left;
     font-size: 1rem;
     font-weight: 500;
     letter-spacing: 0.02em;
@@ -2276,6 +2307,18 @@ main .figma-container {
       background 0.2s ease,
       color 0.2s ease,
       opacity 0.2s ease;
+  }
+
+  /* Safety net: ensure all items in the opened panel stack full-width */
+  .site-header--figma .figma-nav a.figma-nav__link {
+    display: block;
+    width: 100%;
+  }
+
+  .site-header--figma .figma-nav .figma-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .site-header--figma .site-header__inner.nav-open .figma-nav__link {
@@ -2338,6 +2381,10 @@ main .figma-container {
     box-shadow: 0 2px 8px rgba(35, 31, 30, 0.06);
     padding: 0;
     color: #231f1e;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
   }
 
   .site-header--figma .nav-toggle--figma:hover {
@@ -2642,6 +2689,33 @@ main .figma-container {
   gap: 16px;
   align-items: center;
   margin-bottom: 12px;
+}
+
+.figma-hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.figma-hero__proof-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 18px;
+  color: rgba(35, 31, 30, 0.78);
+}
+
+.figma-hero__proof-item::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #C9222F;
+  flex-shrink: 0;
 }
 
 .figma-hero__talk {
@@ -3612,9 +3686,11 @@ video.figma-ecg__video {
 
 .figma-footer__nav {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
-  justify-content: center;
+  align-items: flex-start;
+  gap: 0.75rem;
+  justify-content: flex-start;
   font-family: var(--font-sans);
   font-size: 18px;
   font-weight: 500;
@@ -3636,8 +3712,10 @@ video.figma-ecg__video {
 .figma-footer__line {
   display: flex;
   align-items: flex-start;
+  justify-content: flex-start;
   gap: 12px;
   margin-bottom: 12px;
+  text-align: left;
 }
 
 .figma-footer__line p {
@@ -3658,8 +3736,14 @@ video.figma-ecg__video {
   max-width: 352px;
 }
 
+.figma-footer__link.figma-footer__address {
+  justify-content: flex-start;
+  text-align: left;
+}
+
 .figma-footer__triple {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   text-align: center;
   gap: 16px;
@@ -3728,8 +3812,9 @@ video.figma-ecg__video {
     text-align: center;
   }
 
-  .figma-footer__nav{
-    flex-direction: column;
+  .figma-footer__nav {
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px;
   }
@@ -3751,7 +3836,7 @@ video.figma-ecg__video {
   }
 
   .figma-footer__triple {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .figma-footer__bottom {
@@ -3774,14 +3859,24 @@ video.figma-ecg__video {
     margin-bottom: 32px;
   }
 
+  .figma-footer__brand {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .figma-footer__contact {
+    padding-top: 24px;
+  }
+
   .figma-footer__tagline {
     font-size: 0.9375rem;
     line-height: 1.5;
   }
 
   .figma-footer__nav {
-    display: grid;
-    grid-template-columns: repeat(3, auto);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 8px 0;
@@ -3791,12 +3886,23 @@ video.figma-ecg__video {
   }
 
   .figma-footer__nav a {
-    padding: 0 10px;
+    position: relative;
+    padding: 0 12px;
     white-space: nowrap;
   }
 
-  .figma-footer__nav a:not(:nth-child(3n)) {
-    border-right: 1px solid rgba(35, 31, 30, 0.35);
+  .figma-footer__nav a::after {
+    content: "|";
+    position: absolute;
+    right: -2px;
+    top: 50%;
+    transform: translateY(-52%);
+    color: rgba(35, 31, 30, 0.35);
+    pointer-events: none;
+  }
+
+  .figma-footer__nav a:last-child::after {
+    content: none;
   }
 
   .figma-footer__contact {
@@ -3807,7 +3913,8 @@ video.figma-ecg__video {
   }
 
   .figma-footer__line {
-    justify-content: center;
+    justify-content: flex-start;
+    text-align: left;
   }
 
   .figma-footer__address {
@@ -3837,14 +3944,19 @@ video.figma-ecg__video {
 
 @media (max-width: 900px) {
   .site-header--figma .figma-nav__mobile {
+    order: 2;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    width: 100%;
     gap: 0.75rem;
     padding: 0.9rem 1.15rem 1.1rem;
     border-top: 1px solid rgba(35, 31, 30, 0.08);
   }
 
   .site-header--figma .figma-nav__phone {
+    display: block;
+    width: 100%;
     font-family: var(--font-sans);
     font-size: 0.95rem;
     font-weight: 600;
@@ -3854,8 +3966,15 @@ video.figma-ecg__video {
   }
 
   .site-header--figma .figma-nav__actions {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
     gap: 0.65rem;
+  }
+
+  .site-header--figma .figma-nav__actions .figma-btn {
+    width: 100%;
+    min-width: 0;
   }
 }

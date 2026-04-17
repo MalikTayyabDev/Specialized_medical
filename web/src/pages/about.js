@@ -25,7 +25,7 @@ const WHY_CARDS = [
     icon: "/images/figma-about/Group.png",
     titleLines: ["Practice Integration", "Made Easy"],
     body:
-      "Final reports are EMR-ready and can be automatically pushed into your system. Reports are typically delivered within 24 to 48 hours after test completion, supporting faster physician review and a more efficient office workflow. Electronically review, interpret, date, and sign final reports. Customized billing templates with all CPT and ICD-10 codes provided. We work directly with your billing staff or third-party biller for seamless claims submission. Our portal tracks device usage and alerts your staff about any inactive or unreturned monitors",
+      "Final reports are EMR-ready and can be pushed into your system. Review, interpret, date, and sign reports through our secure provider portal. Billing templates (CPT and ICD-10) and operational support help your team stay efficient.",
   },
   {
     icon: "/images/figma-about/Group 1261157411.png",
@@ -34,7 +34,8 @@ const WHY_CARDS = [
       "Because our devices transmit in real time, there is no delay in data, no manual uploading, and no gaps in rhythm interpretation. Our reporting is faster, more accurate, and designed to support efficient workflow for your practice.",
   },
   {
-    icon: "/images/figma-about/Group 1261157411.png",
+    icon: "/images/figma-about/image.png",
+    iconSize: 46,
     title: "Reduce Friction at Every Step",
     body:
       "Our model is designed to reduce friction at every step. Practices can support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT), access live-streaming ECG data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and ready for physician review. This means less delay, less manual work, and greater confidence in the monitoring process.",
@@ -116,18 +117,28 @@ const AboutPage = () => (
           <span className="about-figma-why__heading-w">Why Practices</span>
           <span className="about-figma-why__heading-a"> Choose Us</span>
         </h2>
+        <ul className="about-figma-why__bullets">
+          <li>Physician-ready reports and secure portal workflow</li>
+          <li>24/7 monitoring and real-time arrhythmia alerts</li>
+          <li>Zero-cost equipment and practice-ready onboarding</li>
+          <li>24/7 multilingual patient support</li>
+        </ul>
         <div className="about-figma-why__grid">
           {WHY_CARDS.map((card) => (
             <article
               key={card.title || card.titleLines?.join("-")}
-              className="about-figma-why-card"
+              className={
+                card.iconSize
+                  ? "about-figma-why-card about-figma-why-card--large-icon"
+                  : "about-figma-why-card"
+              }
             >
               <div className="about-figma-why-card__icon" aria-hidden="true">
                 <img
                   src={card.icon}
                   alt=""
-                  width={20}
-                  height={20}
+                  width={card.iconSize ?? 20}
+                  height={card.iconSize ?? 20}
                   loading="lazy"
                   decoding="async"
                 />
@@ -207,7 +218,7 @@ const AboutPage = () => (
               Start Your No-Risk Beta Trial
             </Link>
             <Link className="figma-cta__talk" to="/contact/">
-              Talk to Our Team →
+              Talk to our team →
             </Link>
           </div>
         </div>
