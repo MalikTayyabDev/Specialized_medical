@@ -10,6 +10,13 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# PDFs: serve inline so browsers can render inside iframes/embeds on Netlify
+[[headers]]
+  for = "/documents/*.pdf"
+  [headers.values]
+    Content-Disposition = "inline"
+    X-Content-Type-Options = "nosniff"
+
 # Legacy .jsp URLs → Gatsby routes (single public experience per page)
 [[redirects]]
   from = "/about.jsp"

@@ -6,6 +6,33 @@ const IMG = (file) => `/images/figma-services/${file}`
 
 const REPORT_SAMPLE_PDF_URL = "/documents/SAMPLE-04-16-2026-HolterL1-CA-1.pdf"
 
+function ReportPdfEmbed() {
+  const [src, setSrc] = React.useState(REPORT_SAMPLE_PDF_URL)
+
+  React.useEffect(() => {
+    if (typeof window === "undefined") return
+    setSrc(`${window.location.origin}${REPORT_SAMPLE_PDF_URL}`)
+  }, [])
+
+  return (
+    <div className="figma-proof-patient-experience__pdf-wrap">
+      <iframe
+        className="figma-proof-patient-experience__pdf"
+        title="Sample cardiac monitoring report"
+        src={src}
+      />
+      <a
+        className="figma-proof-patient-experience__pdf-open"
+        href={src}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open sample report (PDF) in a new tab
+      </a>
+    </div>
+  )
+}
+
 const CASE_STUDIES = [
   {
     key: "cp-1",
@@ -123,9 +150,9 @@ export default function ClinicalStoriesPage() {
 
       <section className="figma-section" aria-label="Reporting proof">
         <div className="figma-container">
-          <div className="figma-proof-patient-experience figma-proof-patient-experience--split">
+          <div className="figma-proof-patient-experience figma-proof-patient-experience--split figma-proof-patient-experience--centered figma-proof-patient-experience--copy-center">
             <div className="figma-proof-patient-experience__content">
-              <h2 className="figma-h2 figma-h2--left figma-proof-patient-experience__title">
+              <h2 className="figma-h2 figma-h2--center figma-proof-patient-experience__title">
                 Reporting that supports faster{" "}
                 <span className="figma-h2__accent">clinical decisions</span>
               </h2>
@@ -135,11 +162,7 @@ export default function ClinicalStoriesPage() {
               </p>
             </div>
             <div className="figma-proof-patient-experience__media">
-              <iframe
-                className="figma-proof-patient-experience__pdf"
-                title="Sample cardiac monitoring report"
-                src={REPORT_SAMPLE_PDF_URL}
-              />
+              <ReportPdfEmbed />
             </div>
           </div>
         </div>
