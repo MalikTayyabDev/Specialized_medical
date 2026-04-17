@@ -3567,8 +3567,14 @@ video.figma-ecg__video {
   overflow: hidden;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
   aspect-ratio: 520 / 906;
-  max-height: min(520px, 85vh);
+  height: 500px;
   background: #ececec;
+}
+
+.figma-proof-patient-experience__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .figma-ai__video {
