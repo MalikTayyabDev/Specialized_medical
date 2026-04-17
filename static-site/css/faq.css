@@ -9,7 +9,7 @@
 
 /* ----- Hero (rounded plate + photo + gradient, matches About flow) ----- */
 .faq-figma-hero {
-  padding: 14px 0 0;
+  padding: var(--page-hero-gutter) 0 0;
 }
 
 .faq-figma-hero__plate {
@@ -25,7 +25,7 @@
 .faq-figma-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("../images/figma-faq/faq-hero.jpg");
+  background-image: url("/images/figma-faq/faq-hero.jpg");
   background-size: cover;
   background-position: center 35%;
   pointer-events: none;
@@ -47,8 +47,8 @@
   margin-right: 0;
   position: relative;
   z-index: 1;
-  padding-top: clamp(3rem, 8vw, 7rem);
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-top: var(--hero-plate-inner-pt);
+  padding-bottom: var(--hero-plate-inner-pb);
   padding-inline: var(--figma-inline);
   max-width: 720px;
 }
@@ -81,7 +81,7 @@
 
 /* ----- Accordion ----- */
 .faq-accordion {
-  padding: clamp(2rem, 5vw, 3rem) 0 clamp(2.5rem, 6vw, 4rem);
+  padding: var(--section-y-md) 0 var(--section-y-lg);
   background: #fff;
 }
 
@@ -207,7 +207,7 @@
 
 /* ----- Testimonials ----- */
 .faq-testimonials {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fff;
 }
 
@@ -236,19 +236,24 @@
 
 .faq-testimonials__dots {
   display: flex;
+  align-items: center;
   gap: 6px;
   justify-content: center;
-  padding: 0.75rem 0 0;
+  margin-top: -35px;
+  margin-bottom: -35px;
+  padding: 10px 0 0;
 }
 
-.faq-testimonials__dots span {
+.faq-testimonials__dot {
   width: 10px;
   height: 10px;
+  padding: 5px;
+  border: 0;
   border-radius: 50%;
   background: rgba(35, 31, 30, 0.2);
 }
 
-.faq-testimonials__dots span:first-child {
+.faq-testimonials__dot.is-active {
   background: var(--color-red);
 }
 
@@ -313,7 +318,7 @@
 
 /* ----- CTA (uses home.css figma-cta tokens) ----- */
 .faq-figma-cta {
-  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: var(--section-y-lg);
 }
 
 /* ----- Responsive ----- */
@@ -332,19 +337,70 @@
     grid-template-columns: 1fr;
   }
 
-  .faq-testimonials__right {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
+  /* DOM order is photo → cards → dots; visually show photo → dots → cards */
   .faq-testimonials__photo {
-    max-width: 22rem;
+    order: 1;
+    max-width: min(22rem, 100%);
     margin-left: auto;
     margin-right: auto;
   }
 
+  .faq-testimonials__dots {
+    order: 2;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: min(22rem, 100%);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .faq-testimonials__right {
+    order: 3;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .faq-testimonials__title {
     text-align: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .faq-testimonials {
+    padding: 2.25rem 0;
+  }
+
+  .faq-testimonials__layout {
+    gap: 1.25rem;
+  }
+
+  .faq-testimonials__photo {
+    border-radius: 16px;
+    box-shadow: 0 10px 26px rgba(35, 31, 30, 0.12);
+  }
+
+  .faq-testimonials__dots {
+    padding-top: 0.65rem;
+  }
+
+  .faq-testimonials__dot {
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+  }
+
+  .faq-testimonials__cards {
+    gap: 0.85rem;
+  }
+
+  .faq-testimonial-card {
+    border-radius: 16px;
+    padding: 1rem 0.9rem;
+  }
+
+  .faq-testimonial-card p,
+  .faq-testimonial-card footer {
+    font-size: 0.9375rem;
   }
 }
 

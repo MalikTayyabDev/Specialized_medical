@@ -9,7 +9,7 @@
 
 /* ----- Hero ----- */
 .contact-figma-hero {
-  padding: 14px 0 0;
+  padding: var(--page-hero-gutter) 0 0;
 }
 
 .contact-figma-hero__plate {
@@ -25,7 +25,7 @@
 .contact-figma-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("../images/figma-contact/contact-hero.jpg");
+  background-image: url("/images/figma-contact/contact-hero.jpg");
   background-size: cover;
   background-position: center 22%;
   pointer-events: none;
@@ -47,8 +47,8 @@
   margin-right: 0;
   position: relative;
   z-index: 1;
-  padding-top: clamp(3rem, 8vw, 7rem);
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-top: var(--hero-plate-inner-pt);
+  padding-bottom: var(--hero-plate-inner-pb);
   padding-inline: var(--figma-inline);
   max-width: 720px;
 }
@@ -150,13 +150,13 @@
 
 /* ----- Main panel ----- */
 .contact-main {
-  padding: 0 0 clamp(2.5rem, 6vw, 4rem);
+  padding: 0 0 var(--section-y-lg);
   background: #fff;
 }
 
 .contact-main__panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: start;
   padding: clamp(1.75rem, 3vw, 2.5rem);
@@ -206,24 +206,10 @@
   position: absolute;
   left: 0;
   top: 0.45rem;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--color-red);
-}
-
-@media (max-width: 900px) {
-  .contact-main__list li::before {
-    width: 8px;
-    height: 8px;
-  }
-}
-
-@media (max-width: 767px) {
-  .contact-main__list li::before {
-    width: 8px;
-    height: 8px;
-  }
 }
 
 .contact-main__quote {
@@ -259,7 +245,7 @@
 
 .contact-main__line {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 0.65rem;
   font-family: var(--font-sans);
   font-size: 1rem;
@@ -269,6 +255,7 @@
 
 .contact-main__line img {
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .contact-main__phone-muted {
@@ -338,8 +325,8 @@
   color: #231f1e;
   background: rgba(0, 0, 0, 0.03);
   border: none;
-  padding: 10px;
   border-radius: 20px;
+  padding: 0 1rem;
   min-height: 60px;
   box-sizing: border-box;
 }
@@ -382,9 +369,17 @@
   background: var(--color-red-dark);
 }
 
+.contact-form__error {
+  margin: 0.5rem 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--color-red);
+}
+
 /* ----- CTA ----- */
 .contact-figma-cta {
-  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: var(--section-y-lg);
 }
 
 /* ----- Responsive ----- */

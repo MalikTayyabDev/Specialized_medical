@@ -9,7 +9,7 @@
 
 /* ----- Hero ----- */
 .svc-hero {
-  padding: 14px 0 0;
+  padding: var(--page-hero-gutter) 0 0;
 }
 
 .svc-hero__plate {
@@ -47,8 +47,8 @@
   margin-right: 0;
   position: relative;
   z-index: 1;
-  padding-top: clamp(2.75rem, 7vw, 6.5rem);
-  padding-bottom: clamp(2rem, 4vw, 3rem);
+  padding-top: var(--hero-plate-inner-pt);
+  padding-bottom: var(--hero-plate-inner-pb);
   padding-inline: var(--figma-inline);
   max-width: 720px;
 }
@@ -95,7 +95,7 @@
 
 /* ----- Full test breakdown ----- */
 .svc-breakdown {
-  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  padding: var(--section-y-md-wide) 0;
   background: #fff;
 }
 
@@ -152,7 +152,7 @@
 
 /* ----- Split sections ----- */
 .svc-split {
-  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  padding: var(--section-y-md-wide) 0;
   background: #fff;
 }
 
@@ -415,7 +415,7 @@
 
 /* ----- Workflow ----- */
 .svc-workflow {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fff;
 }
 
@@ -500,7 +500,7 @@ p.svc-workflow__footer {
 
 /* ----- Practice integration ----- */
 .svc-practice {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fafafa;
 }
 
@@ -559,7 +559,7 @@ p.svc-workflow__footer {
 
 /* ----- Detailed reporting ----- */
 .svc-reporting {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fff;
 }
 
@@ -658,7 +658,7 @@ p.svc-workflow__footer {
 
 /* ----- Clinical proof ----- */
 .svc-cases {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fafafa;
 }
 
@@ -802,7 +802,7 @@ p.svc-workflow__footer {
 
 /* ----- Patient-friendly + TAVR ----- */
 .svc-patient {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fff;
 }
 
@@ -841,7 +841,7 @@ p.svc-workflow__footer {
 }
 
 .svc-figma-cta {
-  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: var(--section-y-lg);
 }
 
 @media (max-width: 700px) {

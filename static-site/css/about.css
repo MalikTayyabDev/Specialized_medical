@@ -7,9 +7,14 @@
   background: #fff;
 }
 
+.about-page--figma .figma-container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 /* ----- Hero (rounded plate + photo + gradient) ----- */
 .about-figma-hero {
-  padding: 14px 0 0;
+  padding: var(--page-hero-gutter) 0 0;
 }
 
 .about-figma-hero__plate {
@@ -25,7 +30,7 @@
 .about-figma-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("../images/figma-about/Rectangle 4 (1).png");
+  background-image: url("/images/figma-about/Rectangle%204%20(1).png");
   background-size: cover;
   background-position: center center;
   pointer-events: none;
@@ -47,8 +52,8 @@
   margin-right: 0;
   position: relative;
   z-index: 1;
-  padding-top: clamp(3rem, 8vw, 7rem);
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-top: var(--hero-plate-inner-pt);
+  padding-bottom: var(--hero-plate-inner-pb);
   padding-inline: var(--figma-inline);
   max-width: 720px;
 }
@@ -81,7 +86,7 @@
 
 /* ----- Who we are ----- */
 .about-figma-who {
-  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
 }
 
 .about-figma-who__grid .about-figma-who__story {
@@ -124,7 +129,7 @@
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
-  color: var(--color-red);
+  color: #C9222F;
 }
 
 .about-figma-who__p {
@@ -168,6 +173,37 @@
   font-style: italic;
   font-weight: 600;
   color: var(--color-red);
+}
+
+.about-figma-why__bullets {
+  margin: -1.75rem auto 2rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  justify-content: center;
+  max-width: 72rem;
+}
+
+.about-figma-why__bullets li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 20px;
+  color: rgba(35, 31, 30, 0.78);
+}
+
+.about-figma-why__bullets li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #C9222F;
+  flex-shrink: 0;
 }
 
 .about-figma-why__grid {
@@ -224,6 +260,16 @@
   width: 20px;
   height: 20px;
   object-fit: contain;
+}
+
+.about-figma-why-card--large-icon .about-figma-why-card__icon {
+  width: 46px;
+  height: 46px;
+}
+
+.about-figma-why-card--large-icon .about-figma-why-card__icon img {
+  width: 46px;
+  height: 46px;
 }
 
 .about-figma-why-card__icon--full {
@@ -450,7 +496,7 @@
 }
 
 .about-figma-cta {
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: var(--section-y-lg);
 }
 
 .about-figma-cta .figma-cta__box {
@@ -466,6 +512,11 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem 1rem;
+}
+
+.about-page--figma .figma-btn--solid {
+  background-color: rgba(160, 29, 40, 1);
+  border-color: rgba(160, 29, 40, 1);
 }
 
 /* -------------------------------------------------------------------------- */

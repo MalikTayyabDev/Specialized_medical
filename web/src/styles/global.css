@@ -5,6 +5,14 @@
   --color-text: #231f1e;
   /* Horizontal inset for banners + .figma-container (70 / 50 / 20) */
   --figma-inline: 70px;
+  /* Vertical rhythm — shared across pages (see home.css --section-y for home-only blocks) */
+  --page-hero-gutter: 14px; /* gap below header before rounded hero plates */
+  --home-page-gutter: 10px; /* home outer inset + hero frame (matches Figma) */
+  --hero-plate-inner-pt: clamp(3rem, 8vw, 7rem);
+  --hero-plate-inner-pb: clamp(2.5rem, 5vw, 4rem);
+  --section-y-lg: clamp(2.5rem, 6vw, 4rem); /* major bands: FAQ, testimonials, services, contact */
+  --section-y-md: clamp(2rem, 5vw, 3rem);
+  --section-y-md-wide: clamp(2rem, 5vw, 3.5rem); /* services split / breakdown */
 }
 
 @media (max-width: 1440px) {

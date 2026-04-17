@@ -9,7 +9,7 @@
 
 /* ----- Hero ----- */
 .svc-hero {
-  padding: 14px 0 0;
+  padding: var(--page-hero-gutter) 0 0;
 }
 
 .svc-hero__plate {
@@ -25,7 +25,7 @@
 .svc-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("../images/figma-services/hero.jpg");
+  background-image: url("/images/figma-services/hero.jpg");
   background-size: cover;
   background-position: center 40%;
   pointer-events: none;
@@ -47,8 +47,8 @@
   margin-right: 0;
   position: relative;
   z-index: 1;
-  padding-top: clamp(2.75rem, 7vw, 6.5rem);
-  padding-bottom: clamp(2rem, 4vw, 3rem);
+  padding-top: var(--hero-plate-inner-pt);
+  padding-bottom: var(--hero-plate-inner-pb);
   padding-inline: var(--figma-inline);
   max-width: 720px;
 }
@@ -95,7 +95,7 @@
 
 /* ----- Full test breakdown ----- */
 .svc-breakdown {
-  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  padding: var(--section-y-md-wide) 0;
   background: #fff;
 }
 
@@ -152,13 +152,17 @@
 
 /* ----- Split sections ----- */
 .svc-split {
-  padding: clamp(2rem, 5vw, 3.5rem) 0;
+  padding: var(--section-y-md-wide) 0;
   background: #fff;
+}
+
+.svc-split--muted {
+  background: #fafafa;
 }
 
 .svc-split__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 50%);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 522px);
   gap: clamp(1.5rem, 4vw, 2.5rem);
   align-items: center;
 }
@@ -295,8 +299,26 @@
   border-radius: 0;
 }
 
+.svc-live-ecg-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: clamp(0.85rem, 2vw, 1rem);
+  box-shadow: 0 16px 48px rgba(35, 31, 30, 0.1);
+}
+
+.svc-live-ecg-card__label {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #1e3a5f;
+}
+
 .svc-live-ecg-card__frame {
   border-radius: 12px;
+  border: 1px solid #1e3a5f;
   overflow: hidden;
   background: #e8f2fa;
 }
@@ -393,7 +415,7 @@
 
 /* ----- Workflow ----- */
 .svc-workflow {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fff;
 }
 
@@ -465,6 +487,7 @@
   border-radius: 50%;
   background: var(--color-red);
   flex-shrink: 0;
+  margin-top: 0;
 }
 
 p.svc-workflow__footer {
@@ -477,7 +500,8 @@ p.svc-workflow__footer {
 
 /* ----- Practice integration ----- */
 .svc-practice {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
+  background: #fafafa;
 }
 
 .svc-practice__heading {
@@ -511,6 +535,8 @@ p.svc-workflow__footer {
 .svc-practice__item {
   display: flex;
   align-items: center;
+  justify-content: flex-start;
+  text-align: left;
   gap: 0.75rem;
   min-height: 74px;
   padding: 0.85rem 1.25rem;
@@ -528,11 +554,12 @@ p.svc-workflow__footer {
   border-radius: 50%;
   background: var(--color-red);
   flex-shrink: 0;
+  margin-top: 0;
 }
 
 /* ----- Detailed reporting ----- */
 .svc-reporting {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fff;
 }
 
@@ -567,7 +594,8 @@ p.svc-workflow__footer {
 }
 
 .svc-reporting__block {
-  padding-block:3rem ;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
@@ -630,7 +658,8 @@ p.svc-workflow__footer {
 
 /* ----- Clinical proof ----- */
 .svc-cases {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
+  background: #fafafa;
 }
 
 .svc-cases__heading {
@@ -773,7 +802,7 @@ p.svc-workflow__footer {
 
 /* ----- Patient-friendly + TAVR ----- */
 .svc-patient {
-  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  padding: var(--section-y-lg) 0;
   background: #fff;
 }
 
@@ -812,7 +841,7 @@ p.svc-workflow__footer {
 }
 
 .svc-figma-cta {
-  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: var(--section-y-lg);
 }
 
 @media (max-width: 700px) {
@@ -839,14 +868,20 @@ p.svc-workflow__footer {
     grid-template-columns: 1fr;
   }
 
+  /* Mobile/tablet: image first, then content */
+  .svc-split__media {
+    order: -1;
+  }
+
   .svc-split--reverse .svc-split__inner {
     direction: ltr;
   }
+
 }
 
 @media (max-width: 640px) {
   .svc-breakdown__grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .svc-workflow__grid {

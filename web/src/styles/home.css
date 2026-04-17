@@ -53,7 +53,7 @@
   overflow-x: hidden;
   position: relative;
   background-color: #fff;
-  padding: 10px;
+  padding: var(--home-page-gutter);
 }
 
 /* Subtle full-page background (design reference) — sits behind sections */
@@ -496,9 +496,9 @@
   z-index: 1;
 }
 
-/* 10px inset from main container edges */
+/* Inset from main container edges — matches --home-page-gutter */
 .hero__frame {
-  padding: 10px;
+  padding: var(--home-page-gutter);
 }
 
 .hero__plate {
@@ -784,7 +784,7 @@ p.hero__pill {
 
 @media (max-width: 767px) {
   .hero__frame {
-    padding: 10px;
+    padding: var(--home-page-gutter);
   }
 
   .hero__chips {

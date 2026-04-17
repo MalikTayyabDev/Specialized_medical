@@ -9,7 +9,7 @@
 
 /* ----- Hero ----- */
 .contact-figma-hero {
-  padding: 14px 0 0;
+  padding: var(--page-hero-gutter) 0 0;
 }
 
 .contact-figma-hero__plate {
@@ -47,8 +47,8 @@
   margin-right: 0;
   position: relative;
   z-index: 1;
-  padding-top: clamp(3rem, 8vw, 7rem);
-  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-top: var(--hero-plate-inner-pt);
+  padding-bottom: var(--hero-plate-inner-pb);
   padding-inline: var(--figma-inline);
   max-width: 720px;
 }
@@ -150,7 +150,7 @@
 
 /* ----- Main panel ----- */
 .contact-main {
-  padding: 0 0 clamp(2.5rem, 6vw, 4rem);
+  padding: 0 0 var(--section-y-lg);
   background: #fff;
 }
 
@@ -379,7 +379,7 @@
 
 /* ----- CTA ----- */
 .contact-figma-cta {
-  padding-bottom: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: var(--section-y-lg);
 }
 
 /* ----- Responsive ----- */
