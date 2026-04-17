@@ -3670,14 +3670,42 @@ video.figma-ecg__video {
   object-fit: contain;
 }
 
+/* Clinical Stories: preview image + embedded PDF + link */
+.figma-proof-patient-experience__media--pdf {
+  height: auto;
+  aspect-ratio: auto;
+  max-height: none;
+}
+
+.figma-proof-patient-experience__pdf-preview {
+  display: block;
+  width: 500px;
+  max-width: 100%;
+  height: auto;
+  max-height: min(450px, 48vh);
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 8px;
+  flex-shrink: 0;
+  background: #f0f0f0;
+}
+
+.figma-proof-patient-experience__media--pdf img.figma-proof-patient-experience__pdf-preview {
+  height: auto;
+  max-height: min(450px, 48vh);
+}
+
 .figma-proof-patient-experience__pdf-wrap {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 0.75rem;
   width: 100%;
-  height: 100%;
-  min-height: 400px;
-  flex: 1;
+  flex: 1 1 auto;
+}
+
+.figma-proof-patient-experience__media--pdf .figma-proof-patient-experience__pdf-wrap {
+  min-height: 0;
 }
 
 .figma-proof-patient-experience__pdf-open {
@@ -3695,29 +3723,23 @@ video.figma-ecg__video {
   color: var(--color-red-dark);
 }
 
-.figma-proof-patient-experience__media iframe.figma-proof-patient-experience__pdf {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 400px;
-  border: 0;
-  background: #fff;
-  flex: 1;
-}
-
 @media (min-width: 901px) {
-  .figma-proof-patient-experience__media {
+  .figma-proof-patient-experience__media:not(.figma-proof-patient-experience__media--pdf) {
     height: 600px;
   }
 
-  .figma-proof-patient-experience__media img {
+  .figma-proof-patient-experience__media:not(.figma-proof-patient-experience__media--pdf) img {
     height: 100%;
     max-height: 100%;
   }
 
-  .figma-proof-patient-experience__media iframe.figma-proof-patient-experience__pdf {
-    min-height: 0;
-    max-height: 100%;
+  .figma-proof-patient-experience__media--pdf {
+    height: auto;
+  }
+
+  .figma-proof-patient-experience__media--pdf img.figma-proof-patient-experience__pdf-preview {
+    height: auto;
+    max-height: min(450px, 48vh);
   }
 }
 
@@ -3763,12 +3785,6 @@ video.figma-ecg__video {
   .figma-proof-patient-experience__media img {
     height: auto;
     max-height: 100%;
-  }
-
-  .figma-proof-patient-experience__media iframe.figma-proof-patient-experience__pdf {
-    min-height: min(360px, 55vh);
-    height: min(480px, 72vh);
-    max-height: min(560px, 78vh);
   }
 }
 

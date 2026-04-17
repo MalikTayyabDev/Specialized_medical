@@ -5,25 +5,23 @@ import { ICON } from "../components/Layout"
 const IMG = (file) => `/images/figma-services/${file}`
 
 const REPORT_SAMPLE_PDF_URL = "/documents/SAMPLE-04-16-2026-HolterL1-CA-1.pdf"
+const REPORT_SAMPLE_PREVIEW = IMG("report-sample.jpg")
 
 function ReportPdfEmbed() {
-  const [src, setSrc] = React.useState(REPORT_SAMPLE_PDF_URL)
-
-  React.useEffect(() => {
-    if (typeof window === "undefined") return
-    setSrc(`${window.location.origin}${REPORT_SAMPLE_PDF_URL}`)
-  }, [])
-
   return (
     <div className="figma-proof-patient-experience__pdf-wrap">
-      <iframe
-        className="figma-proof-patient-experience__pdf"
-        title="Sample cardiac monitoring report"
-        src={src}
+      <img
+        className="figma-proof-patient-experience__pdf-preview"
+        src={REPORT_SAMPLE_PREVIEW}
+        alt="Sample report preview"
+        width={520}
+        height={360}
+        loading="lazy"
+        decoding="async"
       />
       <a
         className="figma-proof-patient-experience__pdf-open"
-        href={src}
+        href={REPORT_SAMPLE_PDF_URL}
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -161,7 +159,7 @@ export default function ClinicalStoriesPage() {
                 review, interpretation, dating, and signature.
               </p>
             </div>
-            <div className="figma-proof-patient-experience__media">
+            <div className="figma-proof-patient-experience__media figma-proof-patient-experience__media--pdf">
               <ReportPdfEmbed />
             </div>
           </div>
