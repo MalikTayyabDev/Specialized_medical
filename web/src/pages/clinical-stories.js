@@ -137,16 +137,16 @@ export default function ClinicalStoriesPage() {
               EMR-ready final reports with a workflow designed for physician review, interpretation, dating, and signature.
             </p>
           </div>
-          <div className="figma-proof-patient-experience__media">
-            <img
-              src={imagesPath("figma-services/report-sample.jpg")}
-              alt="Sample cardiac monitoring report"
-              width={630}
-              height={925}
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+        </div>
+        <div className="figma-proof-patient-experience__media">
+          <img
+            src={imagesPath("figma-services/report-sample.jpg")}
+            alt="Sample cardiac monitoring report"
+            width={630}
+            height={925}
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </section>
     </main>
