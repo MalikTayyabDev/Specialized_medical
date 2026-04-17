@@ -148,9 +148,9 @@ export default function ClinicalStoriesPage() {
 
       <section className="figma-section" aria-label="Reporting proof">
         <div className="figma-container">
-          <div className="figma-proof-patient-experience figma-proof-patient-experience--split figma-proof-patient-experience--centered figma-proof-patient-experience--copy-center">
+          <div className="figma-proof-patient-experience figma-proof-patient-experience--split figma-proof-patient-experience--centered">
             <div className="figma-proof-patient-experience__content">
-              <h2 className="figma-h2 figma-h2--center figma-proof-patient-experience__title">
+              <h2 className="figma-h2 figma-h2--left figma-proof-patient-experience__title">
                 Reporting that supports faster{" "}
                 <span className="figma-h2__accent">clinical decisions</span>
               </h2>
