@@ -668,19 +668,22 @@ const IndexPage = () => {
           </div>
 
           <div
-            className="figma-proof-patient-experience"
+            className="figma-proof-patient-experience figma-proof-patient-experience--split figma-proof-patient-experience--centered"
             aria-labelledby="figma-patient-experience-heading"
           >
-            <h2
-              id="figma-patient-experience-heading"
-              className="figma-h2 figma-h2--center figma-proof-patient-experience__title"
-            >
-              A Better Patient Experience
-            </h2>
-            <p className="figma-proof-patient-experience__support">
-              Small, comfortable, and easy to wear—designed to make cardiac
-              monitoring simpler for patients and easier for practices.
-            </p>
+            <div className="figma-proof-patient-experience__content">
+              <h2
+                id="figma-patient-experience-heading"
+                className="figma-h2 figma-h2--left figma-proof-patient-experience__title"
+              >
+                A Better Patient{" "}
+                <span className="figma-h2__accent">Experience</span>
+              </h2>
+              <p className="figma-proof-patient-experience__support">
+                Small, comfortable, and easy to wear—designed to make cardiac
+                monitoring simpler for patients and easier for practices.
+              </p>
+            </div>
             <div className="figma-proof-patient-experience__media">
               <video
                 className="figma-ai__video figma-ai__video--proof"

@@ -1,8 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { ICON, imagesPath } from "../components/Layout"
+import { ICON } from "../components/Layout"
 
 const IMG = (file) => `/images/figma-services/${file}`
+
+const REPORT_SAMPLE_PDF_URL = "/documents/SAMPLE-04-16-2026-HolterL1-CA-1.pdf"
 
 const CASE_STUDIES = [
   {
@@ -116,37 +118,30 @@ export default function ClinicalStoriesPage() {
               </article>
             ))}
           </div>
-
-          <div style={{ marginTop: "32px" }}>
-            <Link className="svc-split__eyebrow" to="/services/equipment/">
-              <span className="svc-split__eyebrow-dot" aria-hidden />
-              Compare Monitoring Systems
-            </Link>
-          </div>
         </div>
       </section>
 
-      <section className="figma-section figma-proof-patient-experience" aria-label="Reporting proof">
-        <div className="figma-container figma-proof-patient-experience__grid">
-          <div>
-            <h2 className="figma-h2 figma-h2--center figma-proof-patient-experience__title">
-              Reporting that supports faster{" "}
-              <span className="figma-h2__accent">clinical decisions</span>
-            </h2>
-            <p className="figma-proof-patient-experience__support">
-              EMR-ready final reports with a workflow designed for physician review, interpretation, dating, and signature.
-            </p>
+      <section className="figma-section" aria-label="Reporting proof">
+        <div className="figma-container">
+          <div className="figma-proof-patient-experience figma-proof-patient-experience--split">
+            <div className="figma-proof-patient-experience__content">
+              <h2 className="figma-h2 figma-h2--left figma-proof-patient-experience__title">
+                Reporting that supports faster{" "}
+                <span className="figma-h2__accent">clinical decisions</span>
+              </h2>
+              <p className="figma-proof-patient-experience__support">
+                EMR-ready final reports with a workflow designed for physician
+                review, interpretation, dating, and signature.
+              </p>
+            </div>
+            <div className="figma-proof-patient-experience__media">
+              <iframe
+                className="figma-proof-patient-experience__pdf"
+                title="Sample cardiac monitoring report"
+                src={REPORT_SAMPLE_PDF_URL}
+              />
+            </div>
           </div>
-        </div>
-        <div className="figma-proof-patient-experience__media">
-          <img
-            src={imagesPath("figma-services/report-sample.jpg")}
-            alt="Sample cardiac monitoring report"
-            width={630}
-            height={925}
-            loading="lazy"
-            decoding="async"
-          />
         </div>
       </section>
     </main>

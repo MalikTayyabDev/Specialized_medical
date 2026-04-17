@@ -3350,6 +3350,8 @@ video.figma-ecg__video {
 
 .figma-ecg__lead {
   margin: 0 0 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 24px;
@@ -3537,13 +3539,15 @@ video.figma-ecg__video {
 
 /* Patient experience video — proof module below testimonials */
 .figma-proof-patient-experience {
+  display: flex;
+  flex-direction: column;
   margin-top: 48px;
   padding-top: 40px;
   border-top: 1px solid rgba(35, 31, 30, 0.12);
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
+  text-align: left;
 }
 
 .figma-proof-patient-experience__title {
@@ -3551,12 +3555,68 @@ video.figma-ecg__video {
 }
 
 .figma-proof-patient-experience__support {
-  margin: 0 auto 24px;
+  margin: 0 0 0;
   max-width: 640px;
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 24px;
   color: rgba(35, 31, 30, 0.78);
+}
+
+.figma-proof-patient-experience--split {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px 40px;
+}
+
+/* Home: copy vertically centered beside video; text centered in column */
+.figma-proof-patient-experience--split.figma-proof-patient-experience--centered {
+  align-items: center;
+  justify-content: center;
+}
+
+.figma-proof-patient-experience--centered .figma-proof-patient-experience__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.figma-proof-patient-experience--centered .figma-proof-patient-experience__support {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .figma-proof-patient-experience--split {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: clamp(1.25rem, 4vw, 1.75rem);
+  }
+
+  .figma-proof-patient-experience--split.figma-proof-patient-experience--centered {
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .figma-proof-patient-experience--split .figma-proof-patient-experience__media {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.figma-proof-patient-experience__content {
+  flex: 1 1 260px;
+  min-width: 0;
+  text-align: left;
 }
 
 .figma-proof-patient-experience__media {
@@ -3576,12 +3636,28 @@ video.figma-ecg__video {
   background: #ececec;
 }
 
+.figma-proof-patient-experience--split .figma-proof-patient-experience__media {
+  flex: 1 1 260px;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: min(500px, 100%);
+}
+
 .figma-proof-patient-experience__media img {
   display: block;
   width: 100%;
   height: auto;
   max-height: 600px;
   object-fit: contain;
+}
+
+.figma-proof-patient-experience__media iframe.figma-proof-patient-experience__pdf {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border: 0;
+  background: #fff;
 }
 
 @media (min-width: 901px) {
@@ -3591,6 +3667,11 @@ video.figma-ecg__video {
 
   .figma-proof-patient-experience__media img {
     height: 100%;
+    max-height: 100%;
+  }
+
+  .figma-proof-patient-experience__media iframe.figma-proof-patient-experience__pdf {
+    min-height: 0;
     max-height: 100%;
   }
 }
@@ -3612,16 +3693,173 @@ video.figma-ecg__video {
 }
 
 @media (max-width: 600px) {
+  .figma-proof-patient-experience {
+    margin-top: clamp(2rem, 6vw, 3rem);
+    padding-top: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .figma-proof-patient-experience__title {
+    font-size: clamp(1.5rem, 5.5vw, var(--figma-h2));
+  }
+
   .figma-proof-patient-experience__media {
     max-width: 100%;
-    width: calc(100% - 40px);
+    width: 100%;
     height: auto;
-    max-height: min(600px, 80vh);
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
+  .figma-proof-patient-experience--split .figma-proof-patient-experience__media {
+    width: 100%;
+    max-width: 100%;
   }
 
   .figma-proof-patient-experience__media img {
     height: auto;
     max-height: 100%;
+  }
+
+  .figma-proof-patient-experience__media iframe.figma-proof-patient-experience__pdf {
+    min-height: min(360px, 55vh);
+    height: min(480px, 72vh);
+    max-height: min(560px, 78vh);
+  }
+}
+
+/* Thank you — confirmation */
+.thanks-page {
+  background: linear-gradient(180deg, rgba(252, 244, 245, 0.55) 0%, #fff 42%);
+  min-height: min(70vh, 720px);
+  display: flex;
+  flex-direction: column;
+}
+
+.thanks-page__section {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+.thanks-page__card {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 36px 44px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(35, 31, 30, 0.06);
+  text-align: center;
+}
+
+.thanks-page__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(201, 34, 47, 0.1);
+  color: var(--color-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thanks-page__icon svg {
+  display: block;
+}
+
+.thanks-page__title {
+  margin-bottom: 12px;
+}
+
+.thanks-page__lead {
+  margin: 0 0 28px;
+  font-size: 17px;
+  line-height: 1.55;
+  color: rgba(35, 31, 30, 0.78);
+}
+
+.thanks-page__next {
+  margin: 0 0 12px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(35, 31, 30, 0.5);
+}
+
+.thanks-page__list {
+  margin: 0 auto 32px;
+  padding: 0;
+  max-width: 420px;
+  list-style: none;
+  text-align: left;
+}
+
+.thanks-page__list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(35, 31, 30, 0.75);
+}
+
+.thanks-page__list li:last-child {
+  margin-bottom: 0;
+}
+
+.thanks-page__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-red);
+  opacity: 0.85;
+}
+
+.thanks-page__list a {
+  color: var(--color-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.thanks-page__list a:hover {
+  color: var(--color-red-dark);
+}
+
+.thanks-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 520px) {
+  .thanks-page__section {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  .thanks-page__card {
+    padding: 28px 1.25rem 1.75rem;
+  }
+
+  .thanks-page__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .thanks-page__actions .figma-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -3838,6 +4076,29 @@ video.figma-ecg__video {
   text-underline-offset: 2px;
 }
 
+@media (max-width: 900px) {
+  .site-footer--figma .figma-container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .site-footer--figma .figma-footer__hr {
+    margin-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .site-footer--figma .figma-footer__main {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .site-footer--figma .figma-footer__triple {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
 @media (max-width: 1000px) {
   .figma-footer__main {
     flex-direction: column;
@@ -3889,6 +4150,10 @@ video.figma-ecg__video {
   .figma-footer__main {
     gap: 24px;
     margin-bottom: 32px;
+  }
+
+  .site-footer--figma .figma-footer__main {
+    margin-bottom: 0;
   }
 
   .figma-footer__brand {
