@@ -32,6 +32,7 @@ const REQUIRED = [
   "images/figma-services/four-tests-device.jpg",
   "images/figma-services/report-sample.jpg",
   "images/figma-services/image 381.webp",
+  "images/figma-services/Group 1261157514.png",
   "video/WhatsApp Video 2026-04-02 at 1.51.27 AM.mp4",
   "video/WhatsApp Video 2026-04-02 at 10.32.10 PM.mp4",
   "video/Avatar_Video_Take_14_buttons.mp4",

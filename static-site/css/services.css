@@ -25,11 +25,17 @@
 .svc-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("/images/Specialized_Medical_Asian_Patient_Doctor_Assist_Wide_Bright_TopWhite_HiRes-wide.jpg.jpeg");
+  background-image: url("/images/figma-services/Group%201261157514.png");
   background-size: cover;
   /* Keep subjects (two people) visible: bias to top-right */
-  background-position: 100% 10%;
+  background-position: right center;
   pointer-events: none;
+}
+
+/* Clinical Stories page uses a different hero banner */
+.services-page[data-page="clinical-stories"] .svc-hero__bg {
+  background-image: url("/images/figma-services/Group%201261157514.png");
+  background-position: right center;
 }
 
 .svc-hero__gradient {
