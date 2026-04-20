@@ -27,7 +27,8 @@
   inset: 0;
   background-image: url("/images/Specialized_Medical_Asian_Patient_Doctor_Assist_Wide_Bright_TopWhite_HiRes-wide.jpg.jpeg");
   background-size: cover;
-  background-position: right center;
+  /* Keep subjects (two people) visible: bias to top-right */
+  background-position: 100% 10%;
   pointer-events: none;
 }
 
@@ -35,10 +36,12 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
+  /* Left half fades to transparent; right half is full image */
   background: linear-gradient(
-    60.11756752997465deg,
-    rgb(255, 255, 255) 40.977%,
-    rgba(255, 255, 255, 0) 72.62%
+    90deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(255, 255, 255, 0) 100%
   );
 }
 
@@ -101,7 +104,7 @@
   font-family: var(--font-sans);
   font-size: clamp(1.75rem, 3.5vw, 3rem);
   font-weight: 400;
-  text-align: center;
+  text-align: left;
   color: #231f1e;
   margin: 0 0 clamp(1.5rem, 3vw, 2rem);
   line-height: 1.15;
@@ -114,9 +117,19 @@
   color: var(--color-red);
 }
 
+.svc-breakdown__subhead {
+  margin: -0.75rem 0 1.25rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  color: rgba(35, 31, 30, 0.65);
+  text-align: left;
+  max-width: 42rem;
+}
+
 .svc-breakdown__grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  /* Fluid grid prevents cramped/cut cards on mid-width screens */
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 0.65rem;
 }
 
@@ -345,7 +358,8 @@
 }
 
 .svc-split--lead .svc-split__list li::before {
-  top: 7px;
+  /* Center bullet relative to 24px line-height text */
+  top: 8px;
 }
 
 .svc-split__media--patient-radius {

@@ -75,7 +75,7 @@ ${frag}
                   <footer>R. Gall</footer>
                 </blockquote>
                 <blockquote class="faq-testimonial-card">
-                  <p>I am not sure if this patient would be around today</p>
+                  <p>If it was not for Specialized Medical's technology and service I am not sure if this patient would be around today.</p>
                   <footer>Dr. Catalina R.S.</footer>
                 </blockquote>
               </div>

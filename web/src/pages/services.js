@@ -182,8 +182,9 @@ function ServicesPage() {
     <section className="figma-section svc-breakdown" aria-labelledby="svc-breakdown-heading">
       <div className="figma-container">
         <h2 id="svc-breakdown-heading" className="svc-breakdown__heading">
-          Full Test <span className="svc-breakdown__heading-accent">Breakdown</span>
+          Services <span className="svc-breakdown__heading-accent">Summary</span>
         </h2>
+        <p className="svc-breakdown__subhead">One system, Muliple Monitoring Options.</p>
         <div className="svc-breakdown__grid">
           {BREAKDOWN.map(([title, meta]) => (
             <article key={`${title}-${meta}`} className="svc-breakdown-card">

@@ -111,7 +111,7 @@ function SiteHeader({ location }) {
             to="/faq/"
             onClick={() => setNavOpen(false)}
           >
-            FAQ’s
+            FAQs
           </Link>
           <Link
             className={navClass("/contact")}
@@ -207,7 +207,7 @@ function SiteFooter() {
               <Link to="/">Home</Link>
               <Link to="/about/">About Us</Link>
               <Link to="/services/">Services</Link>
-              <Link to="/faq/">FAQ’s</Link>
+              <Link to="/faq/">FAQs</Link>
               <Link to="/contact/">Contact</Link>
               <a
                 href={PATIENT_PORTAL_URL}

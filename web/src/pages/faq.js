@@ -162,7 +162,8 @@ const TESTIMONIALS = [
     author: "R. Gall",
   },
   {
-    quote: "I am not sure if this patient would be around today",
+    quote:
+      "If it was not for Specialized Medical's technology and service I am not sure if this patient would be around today.",
     author: "Dr. Catalina R.S.",
   },
 ]

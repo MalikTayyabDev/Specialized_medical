@@ -25,7 +25,7 @@ function ReportPdfEmbed() {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Open sample report (PDF) in a new tab
+        Open in a New tab
       </a>
     </div>
   )
@@ -35,42 +35,52 @@ const CASE_STUDIES = [
   {
     key: "cp-1",
     image: "case-01.jpg",
-    caption: "Example: an alert that prompted faster clinical action.",
-    tag: "S-Patch",
-    title: "Earlier visibility, cleaner decisions",
+    caption: "patient-friendly design, small monitor size, comfort, and ease of wear.",
+    tag: "Case Study 01 (S-Patch System)",
+    title: "Easy for Patients to Wear",
     body:
-      "\"Specialized Medical gave us live-streaming data and clear alerts. The report quality and portal workflow made it easy to review, interpret, and sign without delays.\"",
-    by: "- Physician practice feedback",
+      `"I wore the S-Patch Monitor from Specialized Medical all week. It was easy and hassle free. Was not a problem at all. The monitor I wore was very small. I didn't even realize I was wearing it. The technology is incredible. I'm looking forward to seeing the results, since I'm pretty sure I have occasional Afib. This monitor system is SO MUCH better than the old way!"`,
+    by: "- R. Gall",
   },
   {
     key: "cp-2",
     image: "case-02.jpg",
-    caption: "Example of report clarity and symptom correlation.",
-    tag: "S-Patch",
-    title: "Symptom-to-ECG clarity without extra work",
+    caption: "Detected, reported, and escalated quickly",
+    tag: "Case Study 02 (S-Patch)",
+    title: "The ER Missed It",
     body:
-      "\"Symptoms were captured digitally and tied directly to ECG strips on the final report. It reduced uncertainty and saved our team time.\"",
-    by: "- Office staff feedback",
+      `"I am so grateful for Specialized Medical and the care I received during my heart monitoring. I wore the monitor for a 15-day test, and on day 12 it detected a serious rhythm issue that needed immediate attention. I truly believe that this monitoring made a life-saving difference for me. What stood out to me just as much as the technology was the people behind it. The customer service team at Specialized Medical was outstanding from beginning to end. They were kind, responsive, patient, and made me feel supported every step of the way.\n\nThe monitor itself was also much easier than I expected. It was simple to use, comfortable to wear, and easy to manage throughout the testing period. That gave me peace of mind and made it possible for me to go about my normal routine while still being monitored. I’m incredibly thankful that this issue was found when it was. Specialized Medical gave me not only answers, but confidence that someone was looking out for me”.`,
+    by: "— Marguerite C.",
   },
   {
     key: "cp-3",
     image: "case-03.jpg",
-    caption: "Example of patient wearability and adherence.",
-    tag: "S-Patch",
-    title: "Wearability that improves compliance",
+    caption: "Detected, reported, and escalated quickly",
+    tag: "Case Study 03 (S-Patch)",
+    title: "The ER Missed It",
     body:
-      "\"Patients tolerated the monitor well and data quality stayed strong. That made studies more reliable without adding burden to the office.\"",
-    by: "- Practice operations feedback",
+      `"I am so thankful for Specialized Medical. I wore the monitor from March 4 to March 6, 2026, and it found a serious heart problem that I did not know was happening. I truly believe that test may have saved my life. What meant the most to me was how kind and helpful everyone was. The customer service was outstanding. Any time I had a question, someone was there to help me and explain things in a way I could understand. That made a scary situation feel a little easier. The monitor itself was also very easy to use. It was simple, comfortable to wear, and did not make my day harder. I was able to go about my normal routine while feeling better knowing my heart was being watched. I will always be grateful to Specialized Medical for finding something so important and for treating me with so much care and respect. I would recommend them to anyone who needs heart monitoring."`,
+    by: "— Rhonda B.",
   },
   {
     key: "cp-4",
     image: "case-04.jpg",
-    caption: "Example of escalation workflow and response.",
-    tag: "Monitoring + Alerts",
-    title: "Escalation that feels operationally mature",
+    caption: "Detected, reported, and escalated quickly",
+    tag: "Case Study 04 (Lead Wire System)",
+    title: "The ER Missed It",
     body:
-      "\"Real-time alerts and a clear escalation process helped us act quickly, with fewer back-and-forth steps.\"",
-    by: "- Clinical operations feedback",
+      `"I am a Family Medicine doctor located in Central New York and applied Specialized Medical's Cardiac Holter Monitor to a 60-year-old male patient complaining of cardiac-related issues. The patient wore the Specialized Medical Cardiac Holter Monitor for 24 hours. During this test the Cardiac Monitor picked up 3 Paroxysmal AV blocks between 2:18 p.m. and 2:42 p.m. When Specialized Medical saw these results they immediately transmitted the reports to me and then called me on my cell phone. That day the doctor discussed the results with the patient and then referred him to a Cardiologist. We later found out the patient had been walking up a hill and after about 5 minutes into his walk he experienced the aforementioned cardiac arrhythmia. I highly recommend Specialized Medical for their cardiac monitoring services."`,
+    by: "- Michael",
+  },
+  {
+    key: "cp-5",
+    image: "case-05.jpg",
+    caption: "Example of the detail captured and reported by Specialized Medical.",
+    tag: "Case Study 05 (Lead Wire System)",
+    title: "A Life-Saving Second Opinion",
+    body:
+      `"I am an Internal Medicine doctor located in Brooklyn, NY and applied a Specialized Medical Cardiac Monitor to a female patient complaining of cardiac related issues. The patient wore a Cardiac Event Monitor and on the 5th day into the test at approximately 9:00 a.m., the patient experienced a cardiac episode that caused her to call me. I immediately had the patient go to hospital emergency room where I met her. I removed the monitor as they admitted her and sent the data into Specialized Medical. Shortly thereafter, I received a phone call on my cellular number that Specialized Medical found a significant cardiac arrhythmia. After reviewing the cardiac reports supplied by Specialized Medical, I called the hospital and forwarded the test results to the 'Fellow Cardiologist' who to my surprise was in the process of releasing my patient because they could not find anything wrong. When the cardiologist at the hospital received the test results they determined that the patient required immediate medical care and scheduled the necessary procedures to take place. If it was not for Specialized Medical's technology and service I am not sure if this patient would be around today."`,
+    by: "- Dr. Catalina R.S.",
   },
 ]
 

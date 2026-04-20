@@ -629,14 +629,13 @@ const IndexPage = () => {
           <div className="figma-testimonial-grid">
             <article className="figma-tcard">
               <div className="figma-tcard__contect-container">
-                <h3 className="figma-tcard__label">Patient comfort / ease of use</h3>
+                <h3 className="figma-tcard__label">Patient Comfort / Ease of Use</h3>
                 <p className="figma-tcard__quote">
                   “I wore the S-Patch Monitor from Specialized Medical all week. It
                   was easy and hassle free. Was not a problem at all. The monitor I
-                  wore was very small. I didn’t even realize I was wearing it...”{" "}
-                  <Link className="figma-tcard__more" to="/services/#clinical-stories">
-                    See more clinical stories
-                  </Link>
+                  wore was very small. I didn't even realize I was wearing it. The
+                  technology is incredible. I'm looking forward to seeing the
+                  results, since I'm pretty sure I have occasional Afib.”
                 </p>
               </div>
               <div className="figma-tcard__stars-container">
@@ -648,12 +647,12 @@ const IndexPage = () => {
                   height={24}
                   decoding="async"
                 />
-                <p className="figma-tcard__author">R. Gall</p>
+                <p className="figma-tcard__author">— R. Gall</p>
               </div>
             </article>
             <article className="figma-tcard">
               <div className="figma-tcard__contect-container">
-                <h3 className="figma-tcard__label">Life-saving detection</h3>
+                <h3 className="figma-tcard__label">Life-Saving Detection</h3>
                 <p className="figma-tcard__quote">
                   “If it was not for Specialized Medical’s technology and service I
                   am not sure if this patient would be around today.”
@@ -662,7 +661,7 @@ const IndexPage = () => {
                   className="figma-tcard__link"
                   to="/services/#clinical-stories"
                 >
-                  View clinical stories→
+                  Read Clinical Story
                 </Link>
               </div>
               <div className="figma-tcard__stars-container">
@@ -680,7 +679,7 @@ const IndexPage = () => {
             <article className="figma-tcard">
               <div className="figma-tcard__contect-container">
                 <h3 className="figma-tcard__label">
-                  Rapid physician notification
+                  Rapid Physician Notification
                 </h3>
                 <p className="figma-tcard__quote">
                   “When Specialized Medical saw these results they immediately
@@ -697,7 +696,7 @@ const IndexPage = () => {
                   height={24}
                   decoding="async"
                 />
-                <p className="figma-tcard__author">— Michael R., M.D.</p>
+                <p className="figma-tcard__author">— Michael</p>
               </div>
             </article>
           </div>

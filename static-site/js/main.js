@@ -176,29 +176,60 @@
     var form = qs(".contact-form");
     if (!form) return;
 
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var fd = new FormData(form);
-      var first = String(fd.get("firstName") || "").trim();
-      var last = String(fd.get("lastName") || "").trim();
-      var email = String(fd.get("email") || "").trim();
-      var phone = String(fd.get("phone") || "").trim();
-      var interest = String(fd.get("interest") || "").trim();
-      var message = String(fd.get("message") || "").trim();
+    var submitBtn = qs('button[type="submit"]', form);
+    var statusEl = qs(".contact-form__status", form);
 
-      var subject = encodeURIComponent("Contact form — Specialized Medical");
-      var body = encodeURIComponent(
-        [
-          "Name: " + first + " " + last,
-          "Email: " + email,
-          "Phone: " + phone,
-          "Interest: " + (interest || "(not selected)"),
-          "",
-          message,
-        ].join("\n")
+    function setStatus(msg, isError) {
+      if (!statusEl) return;
+      statusEl.textContent = msg || "";
+      statusEl.style.color = isError ? "#c9222f" : "rgba(35,31,30,0.7)";
+    }
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      if (submitBtn && submitBtn.disabled) return;
+
+      var fd = new FormData(form);
+      // If the hidden access_key input is missing, fallback to the configured key.
+      if (!fd.get("access_key")) {
+        fd.append("access_key", "8ec7a28a-1979-4c39-8791-18fbf60bba44");
+      }
+      fd.append("subject", "New contact request — Specialized Medical");
+      fd.append(
+        "name",
+        (String(fd.get("firstName") || "") + " " + String(fd.get("lastName") || "")).trim()
       );
-      window.location.href =
-        "mailto:info@specialized-med.com?subject=" + subject + "&body=" + body;
+
+      var originalText = submitBtn ? submitBtn.textContent : "";
+      if (submitBtn) {
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+      }
+      setStatus("Sending…", false);
+
+      try {
+        var response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: fd,
+        });
+        var data = await response.json().catch(function () {
+          return null;
+        });
+
+        if (response.ok && data && data.success === true) {
+          setStatus("Success! Your message has been sent.", false);
+          form.reset();
+        } else {
+          setStatus("Error: " + ((data && data.message) || "Unable to send."), true);
+        }
+      } catch (error) {
+        setStatus("Something went wrong. Please try again.", true);
+      } finally {
+        if (submitBtn) {
+          submitBtn.textContent = originalText || "Submit";
+          submitBtn.disabled = false;
+        }
+      }
     });
 
     qsa(".contact-action-card").forEach(function (card) {

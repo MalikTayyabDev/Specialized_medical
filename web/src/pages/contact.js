@@ -60,7 +60,7 @@ const ContactPage = () => {
   const [submitError, setSubmitError] = React.useState("")
   const WEB3FORMS_ACCESS_KEY =
     process.env.GATSBY_WEB3FORMS_ACCESS_KEY ||
-    "cd55309f-65b0-4323-9136-c10affdcee18"
+    "8ec7a28a-1979-4c39-8791-18fbf60bba44"
 
   const scrollToForm = (interest) => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
