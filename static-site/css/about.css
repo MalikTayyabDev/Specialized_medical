@@ -30,9 +30,9 @@
 .about-figma-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("/images/figma-about/Rectangle%204%20(1).png");
+  background-image: url("/images/figma-about/Group%201261157513.png");
   background-size: cover;
-  background-position: center center;
+  background-position: right center;
   pointer-events: none;
 }
 
@@ -263,13 +263,13 @@
 }
 
 .about-figma-why-card--large-icon .about-figma-why-card__icon {
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
 }
 
 .about-figma-why-card--large-icon .about-figma-why-card__icon img {
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
 }
 
 .about-figma-why-card__icon--full {
@@ -553,6 +553,12 @@
 }
 
 @media (max-width: 700px) {
+  .about-figma-why__bullets {
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: -1.75rem 0 2rem;
+  }
+
   .about-figma-why--cards .about-figma-why-card {
     min-height: 0;
   }
@@ -566,7 +572,7 @@
   }
 
   .about-figma-hero__bg {
-    background-position: center center;
+    background-position: right center;
   }
 
   .about-figma-hero__gradient {

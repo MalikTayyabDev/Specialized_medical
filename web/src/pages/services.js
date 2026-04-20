@@ -100,6 +100,61 @@ function CaseStars() {
 
 function ServicesPage() {
   const featuredCase = CASE_STUDIES[0]
+  const REPORT_SLIDES = React.useMemo(
+    () => [
+      {
+        src: IMG("report-sample.jpg"),
+        alt: "Sample cardiac monitoring report",
+      },
+      {
+        src: IMG("image 381.webp"),
+        alt: "Sample cardiac monitoring report (page 2)",
+      },
+    ],
+    []
+  )
+  const [reportIdx, setReportIdx] = React.useState(0)
+  const [reportPaused, setReportPaused] = React.useState(false)
+  const reportFrameRef = React.useRef(null)
+  const reportImgRef = React.useRef(null)
+
+  React.useEffect(() => {
+    if (reportPaused) return
+    if (typeof window === "undefined") return
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return
+
+    const id = window.setInterval(() => {
+      setReportIdx((i) => (i + 1) % REPORT_SLIDES.length)
+    }, 6500)
+
+    return () => window.clearInterval(id)
+  }, [reportPaused, REPORT_SLIDES.length])
+
+  const startReportScroll = React.useCallback(() => {
+    const frame = reportFrameRef.current
+    const img = reportImgRef.current
+    if (!frame || !img) return
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return
+
+    // Reset any prior animation / transform.
+    img.getAnimations?.().forEach((a) => a.cancel())
+    img.style.transform = "translateY(0px)"
+
+    const frameH = frame.clientHeight
+    const frameW = frame.clientWidth
+    const nw = img.naturalWidth || 0
+    const nh = img.naturalHeight || 0
+    if (!frameH || !frameW || !nw || !nh) return
+
+    const displayedH = frameW * (nh / nw)
+    const maxScroll = Math.max(0, Math.round(displayedH - frameH))
+    if (maxScroll < 4) return
+
+    img.animate(
+      [{ transform: "translateY(0px)" }, { transform: `translateY(-${maxScroll}px)` }],
+      { duration: 5200, easing: "linear", fill: "forwards", delay: 450 }
+    )
+  }, [])
 
   return (
   <main className="services-page services-page--figma" data-design="figma-27-13">
@@ -113,9 +168,9 @@ function ServicesPage() {
             Our Services
           </p>
           <h1 id="svc-hero-heading" className="svc-hero__title">
-            <span className="svc-hero__title-line">Services built for</span>
-            <br />
-            <span className="svc-hero__title-accent">modern physician practices</span>
+            <span className="svc-hero__title-line">Services Built For</span>
+            {" "}
+            <span className="svc-hero__title-accent">Modern Physician Practices</span>
           </h1>
           <p className="svc-hero__lead">
             Live ECG data, streamlined workflow, and turnkey monitoring support.
@@ -406,15 +461,36 @@ function ServicesPage() {
               </ul>
             </div>
           </div>
-          <div className="svc-reporting__shot">
+          <div
+            className="svc-reporting__shot"
+            ref={reportFrameRef}
+            onPointerEnter={() => setReportPaused(true)}
+            onPointerLeave={() => setReportPaused(false)}
+            onFocusCapture={() => setReportPaused(true)}
+            onBlurCapture={() => setReportPaused(false)}
+          >
             <img
-              src={IMG("report-sample.jpg")}
-              alt="Sample cardiac monitoring report"
+              key={REPORT_SLIDES[reportIdx].src}
+              ref={reportImgRef}
+              src={REPORT_SLIDES[reportIdx].src}
+              alt={REPORT_SLIDES[reportIdx].alt}
               width={630}
               height={925}
               loading="lazy"
               decoding="async"
+              onLoad={startReportScroll}
             />
+            <div className="svc-reporting__dots" aria-hidden="true">
+              {REPORT_SLIDES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  className={`svc-reporting__dot${i === reportIdx ? " is-active" : ""}`}
+                  onClick={() => setReportIdx(i)}
+                  aria-label={`Show report ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

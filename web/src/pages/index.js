@@ -27,14 +27,6 @@ const VIDEO_POSTER = {
 
 const ECG_VIDEO_TRIM_END_SEC = 1.5
 
-function forceVideoMuted(e) {
-  const video = e?.currentTarget
-  if (!video) return
-  video.muted = true
-  video.defaultMuted = true
-  video.volume = 0
-}
-
 const IndexPage = () => {
   const overviewFrameRef = React.useRef(null)
   const ecgVideoRef = React.useRef(null)
@@ -44,6 +36,7 @@ const IndexPage = () => {
     if (!frame) return
     const video = frame.querySelector(".figma-video__media")
     const btn = frame.querySelector("[data-overview-play]")
+    const muteBtn = frame.querySelector("[data-overview-mute]")
     if (!video || !btn) return
 
     function setPlaying(on) {
@@ -51,6 +44,17 @@ const IndexPage = () => {
       btn.setAttribute(
         "aria-label",
         on ? "Pause overview video" : "Play overview video"
+      )
+    }
+
+    function syncMuteUi() {
+      if (!muteBtn) return
+      const muted = video.muted
+      muteBtn.classList.toggle("figma-video__mute--muted", muted)
+      muteBtn.setAttribute("aria-pressed", muted ? "true" : "false")
+      muteBtn.setAttribute(
+        "aria-label",
+        muted ? "Unmute video" : "Mute video"
       )
     }
 
@@ -68,16 +72,36 @@ const IndexPage = () => {
     const onPlaying = () => setPlaying(true)
     const onPause = () => setPlaying(false)
 
+    const onMuteClick = (e) => {
+      e.stopPropagation()
+      if (video.muted) {
+        video.muted = false
+        video.volume = 1
+      } else {
+        video.muted = true
+      }
+      syncMuteUi()
+    }
+
+    const onVolumeChange = () => syncMuteUi()
+
     btn.addEventListener("click", onBtnClick)
     video.addEventListener("click", onVideoClick)
     video.addEventListener("playing", onPlaying)
     video.addEventListener("pause", onPause)
+    video.addEventListener("volumechange", onVolumeChange)
+    if (muteBtn) {
+      muteBtn.addEventListener("click", onMuteClick)
+      syncMuteUi()
+    }
 
     return () => {
       btn.removeEventListener("click", onBtnClick)
       video.removeEventListener("click", onVideoClick)
       video.removeEventListener("playing", onPlaying)
       video.removeEventListener("pause", onPause)
+      video.removeEventListener("volumechange", onVolumeChange)
+      if (muteBtn) muteBtn.removeEventListener("click", onMuteClick)
     }
   }, [])
 
@@ -174,10 +198,10 @@ const IndexPage = () => {
               </p>
               <img
                 className="figma-hero__photo"
-                src={imagesPath("figma-assets/hero-split-photo.jpg")}
+                src={imagesPath("Specialized_Medical_SPatch_Exam_Room_Hero_HiRes.jpg.jpeg")}
                 alt="Patient wearing a lightweight cardiac monitor"
-                width={631}
-                height={745}
+                width={1536}
+                height={1024}
                 decoding="async"
                 onError={(e) => {
                   const el = e.currentTarget
@@ -221,6 +245,24 @@ const IndexPage = () => {
             >
               <source src={VIDEO.overview} type="video/mp4" />
             </video>
+            <button
+              type="button"
+              className="figma-video__mute figma-video__mute--muted"
+              data-overview-mute
+              aria-label="Unmute video"
+              aria-pressed="true"
+            >
+              <span className="figma-video__mute-icon figma-video__mute-icon--off" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" focusable="false">
+                  <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                </svg>
+              </span>
+              <span className="figma-video__mute-icon figma-video__mute-icon--on" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" focusable="false">
+                  <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                </svg>
+              </span>
+            </button>
             <div className="figma-video__overlay" data-overview-overlay>
               <div className="figma-video__shade" aria-hidden="true" />
               <button
@@ -466,9 +508,6 @@ const IndexPage = () => {
               muted
               defaultMuted
               controls
-              onLoadedMetadata={forceVideoMuted}
-              onPlay={forceVideoMuted}
-              onVolumeChange={forceVideoMuted}
               loop
             />
           </div>

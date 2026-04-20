@@ -198,6 +198,10 @@ function FaqPage() {
         src: "/images/figma-services/case-01.jpg",
         alt: "Patient-friendly design and wear experience",
       },
+      {
+        src: "/images/figma-services/four-tests-device.jpg",
+        alt: "Cardiac monitoring device for four test types",
+      },
     ],
     []
   )

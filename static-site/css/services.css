@@ -25,9 +25,9 @@
 .svc-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("/images/figma-services/hero.jpg");
+  background-image: url("/images/Specialized_Medical_Asian_Patient_Doctor_Assist_Wide_Bright_TopWhite_HiRes-wide.jpg.jpeg");
   background-size: cover;
-  background-position: center 40%;
+  background-position: right center;
   pointer-events: none;
 }
 
@@ -64,18 +64,16 @@
 }
 
 .svc-hero__title-line {
-  display: block;
-  text-transform: uppercase;
+  display: inline;
 }
 
 .svc-hero__title-accent {
-  display: block;
-  margin-top: 0.1em;
+  display: inline;
+  margin-top: 0;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
   color: var(--color-red);
-  text-transform: uppercase;
 }
 
 .svc-hero__lead {

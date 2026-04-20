@@ -25,9 +25,9 @@
 .svc-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url("/images/figma-services/hero.jpg");
+  background-image: url("/images/Specialized_Medical_Asian_Patient_Doctor_Assist_Wide_Bright_TopWhite_HiRes-wide.jpg.jpeg");
   background-size: cover;
-  background-position: center 40%;
+  background-position: right center;
   pointer-events: none;
 }
 
@@ -64,18 +64,16 @@
 }
 
 .svc-hero__title-line {
-  display: block;
-  text-transform: uppercase;
+  display: inline;
 }
 
 .svc-hero__title-accent {
-  display: block;
-  margin-top: 0.1em;
+  display: inline;
+  margin-top: 0;
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 600;
   color: var(--color-red);
-  text-transform: uppercase;
 }
 
 .svc-hero__lead {
@@ -645,15 +643,47 @@ p.svc-workflow__footer {
 }
 
 .svc-reporting__shot {
+  position: relative;
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  height: min(860px, 80vh);
 }
 
 .svc-reporting__shot img {
   display: block;
   width: 100%;
   height: auto;
+  will-change: transform;
+}
+
+.svc-reporting__dots {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.svc-reporting__dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(35, 31, 30, 0.25);
+  cursor: pointer;
+}
+
+.svc-reporting__dot.is-active {
+  background: var(--color-red);
 }
 
 /* ----- Clinical proof ----- */

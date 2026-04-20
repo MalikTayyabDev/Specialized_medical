@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link } from "gatsby"
 
 const IMG = {
-  hero: "/images/figma-about/Rectangle%204%20(1).png",
+  hero: "/images/figma-about/Group%201261157513.png",
   whoTeam: "/images/figma-about/who-team.jpg",
   compactDevice: "/images/figma-about/compact-device.jpg",
 }
@@ -34,8 +34,8 @@ const WHY_CARDS = [
       "Because our devices transmit in real time, there is no delay in data, no manual uploading, and no gaps in rhythm interpretation. Our reporting is faster, more accurate, and designed to support efficient workflow for your practice.",
   },
   {
-    icon: "/images/figma-about/image.png",
-    iconSize: 46,
+    icon: "/images/figma-about/image%20(1)%201.png",
+    iconSize: 44,
     title: "Reduce Friction at Every Step",
     body:
       "Our model is designed to reduce friction at every step. Practices can support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT), access live-streaming ECG data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and ready for physician review. This means less delay, less manual work, and greater confidence in the monitoring process.",

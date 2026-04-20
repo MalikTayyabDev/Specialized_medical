@@ -2483,15 +2483,44 @@ main .figma-container {
   max-width: 1600px;
 }
 
+/* Copy ~40% / hero image ~60% — wider image column improves 3:2 height */
 .figma-hero--wide .figma-hero__split-inner {
-  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 560px);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   gap: clamp(2rem, 5vw, 4.5rem);
-  min-height: min(720px, 88vh);
+  min-height: min(820px, 92vh);
   align-items: center;
 }
 
+/* Exam-room hero is 3:2 landscape; make the frame taller on desktop */
+.figma-hero--wide .figma-hero__visual {
+  justify-self: stretch;
+  width: 100%;
+  max-width: none;
+  height: clamp(520px, 45vw, 760px);
+  overflow: visible;
+}
+
+.figma-hero--wide .figma-hero__chip--mr {
+  top: 50%;
+  right: clamp(-40px, -2.5vw, -16px);
+  left: auto;
+  bottom: auto;
+  transform: translateY(-50%);
+}
+
 .figma-hero--wide .figma-hero__visual .figma-hero__photo {
+  object-fit: cover;
   object-position: center center;
+}
+
+.figma-hero--wide .figma-hero__chip--tl {
+  top: clamp(72px, 18%, 140px);
+  left: clamp(-64px, -4vw, -24px);
+}
+
+.figma-hero--wide .figma-hero__chip--bl {
+  bottom: clamp(20px, 7%, 56px);
+  left: clamp(-80px, -5vw, -28px);
 }
 
 .figma-hero__title--deserve .figma-hero__lc {
@@ -2750,29 +2779,39 @@ main .figma-container {
     justify-self: center;
     width: 100%;
     max-width: min(631px, 100%);
-    overflow: hidden;
+    overflow: visible;
+  }
+
+  .figma-hero--wide .figma-hero__visual {
+    justify-self: center;
+    max-width: min(631px, 100%);
+    width: 100%;
+    height: clamp(360px, 62vw, 520px);
+    min-height: 0;
   }
 
   .figma-hero--wide .figma-hero__visual .figma-hero__photo {
+    object-fit: cover;
     object-position: center center;
   }
 
   .figma-hero__chip--tl {
-    top: 10%;
-    left: 4%;
+    top: clamp(16px, 8%, 40px);
+    left: clamp(16px, 4vw, 28px);
     right: auto;
   }
 
   .figma-hero__chip--bl {
-    bottom: 4%;
-    left: 4%;
+    bottom: clamp(16px, 6%, 32px);
+    left: clamp(16px, 4vw, 28px);
     right: auto;
   }
 
   .figma-hero__chip--mr {
-    top: 44%;
-    right: 4%;
+    top: 50%;
+    right: clamp(16px, 4vw, 28px);
     left: auto;
+    transform: translateY(-50%);
   }
 
   .figma-hero__copy {
@@ -2810,28 +2849,28 @@ main .figma-container {
   }
 
   .figma-hero__chip--tl {
-    top: 240px !important;
-    left: 40px;
+    top: clamp(14px, 6.5%, 28px);
+    left: clamp(12px, 5vw, 22px);
     right: auto;
     bottom: auto;
     transform: none;
-    width: 250px !important;
-    max-width: 70% !important;
+    width: auto !important;
+    max-width: min(240px, calc(100% - 1.25rem)) !important;
   }
 
   .figma-hero__chip.figma-hero__chip--tl {
     padding-top: 5px;
     padding-bottom: 5px;
-    width: 209px;
-    height: 38px;
+    width: auto;
+    height: auto;
   }
 
   .figma-hero__chip--mr {
-    top: 38%;
-    right: 6%;
+    top: 50%;
+    right: clamp(12px, 5vw, 22px);
     left: auto;
     bottom: auto;
-    transform: none;
+    transform: translateY(-50%);
   }
 
   /* Ensure the MR chip doesn't inherit the desktop-only font-size override */
@@ -2840,8 +2879,8 @@ main .figma-container {
   }
 
   .figma-hero__chip--bl {
-    bottom: 6%;
-    left: 6%;
+    bottom: clamp(12px, 6%, 22px);
+    left: clamp(12px, 5vw, 22px);
     right: auto;
     top: auto;
     transform: none;
@@ -2937,6 +2976,54 @@ main .figma-container {
   min-height: 100%;
   object-fit: cover;
   background: #111;
+}
+
+.figma-video__mute {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.figma-video__mute:hover {
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.figma-video__mute:active {
+  transform: scale(0.96);
+}
+
+.figma-video__mute:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.figma-video__mute-icon {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.figma-video__mute--muted .figma-video__mute-icon--off {
+  display: flex;
+}
+
+.figma-video__mute:not(.figma-video__mute--muted) .figma-video__mute-icon--on {
+  display: flex;
 }
 
 .figma-video__overlay {

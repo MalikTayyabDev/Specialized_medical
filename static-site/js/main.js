@@ -101,6 +101,77 @@
     });
   }
 
+  function initFaqTestimonialsCarousel() {
+    var photoWrap = qs(".faq-testimonials__photo");
+    if (!photoWrap) return;
+    var img = qs("img", photoWrap);
+    if (!img) return;
+
+    var dotsWrap = qs(".faq-testimonials__dots", photoWrap);
+    var slides = [
+      {
+        src: "images/figma-faq/faq-testimonial-portrait.jpg",
+        alt: "Patient during daily activity",
+      },
+      {
+        src: "images/figma-services/case-01.jpg",
+        alt: "Patient-friendly design and wear experience",
+      },
+      {
+        src: "images/figma-services/four-tests-device.jpg",
+        alt: "Cardiac monitoring device for four test types",
+      },
+    ];
+
+    var idx = 0;
+    var paused = false;
+
+    function syncDots() {
+      if (!dotsWrap) return;
+      var dots = qsa(".faq-testimonials__dot", dotsWrap);
+      dots.forEach(function (d, di) {
+        d.classList.toggle("is-active", di === idx);
+      });
+    }
+
+    function setSlide(i) {
+      idx = (i + slides.length) % slides.length;
+      img.src = slides[idx].src;
+      img.alt = slides[idx].alt;
+      syncDots();
+    }
+
+    if (dotsWrap) {
+      dotsWrap.innerHTML = "";
+      slides.forEach(function (_, i) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "faq-testimonials__dot" + (i === 0 ? " is-active" : "");
+        btn.setAttribute("aria-label", "Show image " + String(i + 1));
+        btn.addEventListener("click", function () {
+          setSlide(i);
+        });
+        dotsWrap.appendChild(btn);
+      });
+    }
+
+    photoWrap.addEventListener("pointerenter", function () {
+      paused = true;
+    });
+    photoWrap.addEventListener("pointerleave", function () {
+      paused = false;
+    });
+
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    window.setInterval(function () {
+      if (paused) return;
+      setSlide(idx + 1);
+    }, 3500);
+  }
+
   function initContactPage() {
     var form = qs(".contact-form");
     if (!form) return;
@@ -184,11 +255,20 @@
     var video = frame ? frame.querySelector(".figma-video__media") : null;
     var overlay = qs("[data-overview-overlay]");
     var btn = qs("[data-overview-play]");
+    var muteBtn = frame ? frame.querySelector("[data-overview-mute]") : null;
     if (!frame || !video || !overlay || !btn) return;
 
     function setPlaying(on) {
       frame.classList.toggle("is-playing", on);
       btn.setAttribute("aria-label", on ? "Pause overview video" : "Play overview video");
+    }
+
+    function syncMuteUi() {
+      if (!muteBtn) return;
+      var muted = video.muted;
+      muteBtn.classList.toggle("figma-video__mute--muted", muted);
+      muteBtn.setAttribute("aria-pressed", muted ? "true" : "false");
+      muteBtn.setAttribute("aria-label", muted ? "Unmute video" : "Mute video");
     }
 
     btn.addEventListener("click", function (e) {
@@ -199,6 +279,21 @@
         video.pause();
       }
     });
+
+    if (muteBtn) {
+      muteBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        if (video.muted) {
+          video.muted = false;
+          video.volume = 1;
+        } else {
+          video.muted = true;
+        }
+        syncMuteUi();
+      });
+      video.addEventListener("volumechange", syncMuteUi);
+      syncMuteUi();
+    }
 
     video.addEventListener("click", function () {
       if (!video.paused) {
@@ -220,6 +315,7 @@
     initFooterYear();
     initHeroVisualFallback();
     initFaqAccordion();
+    initFaqTestimonialsCarousel();
     initContactPage();
     initVideoPlayStub();
     initOverviewVideo();
