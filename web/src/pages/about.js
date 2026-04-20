@@ -35,7 +35,7 @@ const WHY_CARDS = [
   },
   {
     icon: "/images/figma-about/image%20(1)%201.png",
-    iconSize: 44,
+    iconSize: 24,
     title: "Reduce Friction at Every Step",
     body:
       "Our model is designed to reduce friction at every step. Practices can support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT), access live-streaming ECG data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and ready for physician review. This means less delay, less manual work, and greater confidence in the monitoring process.",
