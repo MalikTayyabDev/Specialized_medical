@@ -148,10 +148,10 @@ const IndexPage = () => {
                 Turnkey cardiac monitoring
               </p>
               <h1 className="figma-hero__title figma-hero__title--deserve">
-                Better cardiac monitoring for
+                Better Cardiac Monitoring For
                 <br />
                 <span className="figma-hero__title-accent">
-                  modern physician practices.
+                  Modern Physician Practices.
                 </span>
               </h1>
               <div className="figma-hero__sub">
@@ -238,8 +238,6 @@ const IndexPage = () => {
               poster={imagesPath("figma-assets/Rectangle 34.png")}
               playsInline
               preload="metadata"
-              muted
-              defaultMuted
               width={738}
               height={442}
             >
@@ -505,8 +503,6 @@ const IndexPage = () => {
               poster={VIDEO_POSTER.ecg}
               playsInline
               preload="metadata"
-              muted
-              defaultMuted
               controls
               loop
             />
@@ -734,8 +730,6 @@ const IndexPage = () => {
                 loop
                 playsInline
                 preload="metadata"
-                muted
-                defaultMuted
               />
             </div>
           </div>
