@@ -35,7 +35,8 @@ const WHY_CARDS = [
   },
   {
     icon: "/images/figma-about/image%20(1)%201.png",
-    iconSize: 24,
+    iconWidth: 20,
+    iconHeight: 24,
     title: "Reduce Friction at Every Step",
     body:
       "Our model is designed to reduce friction at every step. Practices can support Holter, Extended Holter, Event Monitoring, and Telemetry (MCT), access live-streaming ECG data, receive real-time arrhythmia alerts, and rely on final reports that are clear, actionable, and ready for physician review. This means less delay, less manual work, and greater confidence in the monitoring process.",
@@ -137,8 +138,8 @@ const AboutPage = () => (
                 <img
                   src={card.icon}
                   alt=""
-                  width={card.iconSize ?? 20}
-                  height={card.iconSize ?? 20}
+                  width={card.iconWidth ?? card.iconSize ?? 20}
+                  height={card.iconHeight ?? card.iconSize ?? 20}
                   loading="lazy"
                   decoding="async"
                 />

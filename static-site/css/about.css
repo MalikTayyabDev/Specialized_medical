@@ -263,13 +263,20 @@
 }
 
 .about-figma-why-card--large-icon .about-figma-why-card__icon {
-  width: 24px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
 }
 
 .about-figma-why-card--large-icon .about-figma-why-card__icon img {
-  width: 24px;
+  width: 20px;
   height: 24px;
+  display: block;
+  overflow: visible;
 }
 
 .about-figma-why-card__icon--full {
