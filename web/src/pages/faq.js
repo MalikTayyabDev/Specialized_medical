@@ -131,6 +131,10 @@ const FAQ_SECTIONS = [
         a: "S-Patch runs for a minimum of 10 days per battery, supporting longer monitoring periods with less interruption. Battery performance can vary by system.",
       },
       {
+        q: "How long can the S-Patch be worn?",
+        a: "S-Patch supports up to 30-day wear duration. Lead-Wire specifications differ and are shown separately under Monitoring Equipment Options.",
+      },
+      {
         q: "How small is the monitor?",
         a: "S-Patch weighs just 0.6 oz, or less than four sheets of paper, making it compact, lightweight, and easier for patients to wear. Dimensions and weight can vary by system.",
       },
