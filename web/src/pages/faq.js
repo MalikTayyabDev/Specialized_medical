@@ -12,7 +12,7 @@ const FAQ_SECTIONS = [
     items: [
       {
         q: "How does the office workflow work?",
-        a: "Your medical assistant completes a simple 3-step process: Hook-Up → Enroll in Web Portal → Disconnect (Under 15 Minutes). The workflow is designed to be straightforward for office staff and easy to repeat across patients. Once the patient is enrolled and leaves the office, Specialized Medical takes over the rest with continuous monitoring, real-time alerts, report generation, and patient support.",
+        a: "Your medical assistant completes a simple 3-step process: Enroll in web Portal → Hook Up → Disconnect (Under 15 Minutes). The workflow is designed to be straightforward for office staff and easy to repeat across patients. Once the patient is enrolled and leaves the office, Specialized Medical takes over the rest with continuous monitoring, real-time alerts, report generation, and patient support.",
       },
       {
         q: "How long does setup take?",
@@ -216,7 +216,7 @@ function FaqPage() {
 
     const id = window.setInterval(() => {
       setPhotoIdx((i) => (i + 1) % PHOTO_SLIDES.length)
-    }, 3500)
+    }, 5000)
 
     return () => window.clearInterval(id)
   }, [photoPaused, PHOTO_SLIDES.length])

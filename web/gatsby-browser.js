@@ -11,3 +11,20 @@ import Layout from "./src/components/Layout"
 export const wrapPageElement = ({ element, props }) => (
   <Layout {...props}>{element}</Layout>
 )
+
+export const onRouteUpdate = ({ location }) => {
+  if (typeof document === "undefined" || !location.hash || location.hash.length <= 1) {
+    return
+  }
+  const id = decodeURIComponent(location.hash.slice(1))
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const instant =
+        typeof window !== "undefined" &&
+        window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches
+      el.scrollIntoView({ behavior: instant ? "auto" : "smooth", block: "start" })
+    })
+  })
+}

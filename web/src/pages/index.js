@@ -148,7 +148,7 @@ const IndexPage = () => {
                 Turnkey cardiac monitoring
               </p>
               <h1 className="figma-hero__title figma-hero__title--deserve">
-                Better Cardiac Monitoring For
+                Better Cardiac Monitoring for
                 <br />
                 <span className="figma-hero__title-accent">
                   Modern Physician Practices.
@@ -430,7 +430,7 @@ const IndexPage = () => {
           </h2>
           <p className="figma-workflow__intro">
             Your medical assistant completes a simple 3-step process:{" "}
-            <strong>Hook-Up → Enroll in Web Portal → Disconnect</strong>{" "}
+            <strong>Enroll in web Portal → Hook Up → Disconnect</strong>{" "}
             <strong className="figma-workflow__highlight">(Under 15 Minutes)</strong>
           </p>
           <div className="figma-workflow__steps">
@@ -438,19 +438,19 @@ const IndexPage = () => {
               <div className="figma-wstep__head">
                 <span className="figma-wstep__badge">01</span>
               </div>
-              <h3 className="figma-wstep__title">Hook-Up</h3>
+              <h3 className="figma-wstep__title">Enroll in web Portal</h3>
               <p className="figma-wstep__body">
-                Attach electrodes and the monitor to the patient in your office.
+                Enroll the patient in the web portal as part of your standard office
+                workflow.
               </p>
             </article>
             <article className="figma-wstep">
               <div className="figma-wstep__head">
                 <span className="figma-wstep__badge">02</span>
               </div>
-              <h3 className="figma-wstep__title">Enroll in Web Portal</h3>
+              <h3 className="figma-wstep__title">Hook Up</h3>
               <p className="figma-wstep__body">
-                Enroll the patient in the web portal as part of your standard office
-                workflow.
+                Attach electrodes and the monitor to the patient in your office.
               </p>
             </article>
             <article className="figma-wstep">
@@ -532,7 +532,7 @@ const IndexPage = () => {
                 Reports make symptomatic vs. asymptomatic context clear—without a
                 separate handwritten diary.
               </li>
-              <li className="figma-ecg__emph">
+              <li>
                 Symptoms are matched to ECG segments on the final report for
                 defensible documentation.
               </li>
@@ -659,7 +659,7 @@ const IndexPage = () => {
                 </p>
                 <Link
                   className="figma-tcard__link"
-                  to="/services/#clinical-stories"
+                  to="/clinical-stories/#cp-5"
                 >
                   Read Clinical Story
                 </Link>

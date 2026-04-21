@@ -372,12 +372,6 @@
   border-radius: 30px;
 }
 
-.svc-split__text--symptom-footer {
-  margin-top: 1rem;
-  font-weight: 500;
-  color: rgba(35, 31, 30, 0.85);
-}
-
 /* See Live ECG + app video (Figma node 27:358) — video left, copy right */
 .svc-split--symptom .svc-split__inner {
   grid-template-columns: minmax(0, 414px) minmax(0, 1fr);
@@ -406,7 +400,7 @@
   background-color: #ececec;
 }
 
-.svc-split--symptom .svc-split__copy > .svc-split__text:not(.svc-split__text--symptom-footer) {
+.svc-split--symptom .svc-split__copy > .svc-split__text {
   line-height: 24px;
   color: rgba(35, 31, 30, 0.7);
 }
@@ -779,6 +773,10 @@ p.svc-workflow__footer {
   border-radius: 20px;
   padding: clamp(1.25rem, 4vw, 2.5rem);
   align-items: start;
+}
+
+.svc-cases__list--more .svc-case-card {
+  scroll-margin-top: 5.5rem;
 }
 
 .svc-case-card > div {

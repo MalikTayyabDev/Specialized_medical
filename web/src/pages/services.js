@@ -8,6 +8,12 @@ const IMG = (file) => `/images/figma-services/${file}`
 const ECG_APP_VIDEO_SRC =
   "/video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4#t=0.001"
 
+/** Vertical pan in the reporting preview — fixed duration made short/tall assets feel slow vs fast. */
+const REPORT_SCROLL_SPEED_PX_PER_SEC = 72
+const REPORT_SCROLL_DELAY_MS = 450
+const REPORT_PAUSE_AFTER_ANIM_MS = 1200
+const REPORT_STATIC_SLIDE_MS = 6500
+
 const BREAKDOWN = [
   ["Holter", "24–48 hours"],
   ["Extended Holter", "Greater than 48 hours up to 7 days"],
@@ -109,24 +115,47 @@ function ServicesPage() {
   const [reportPaused, setReportPaused] = React.useState(false)
   const reportFrameRef = React.useRef(null)
   const reportImgRef = React.useRef(null)
+  const reportPausedRef = React.useRef(false)
+  const reportAdvanceTimerRef = React.useRef(null)
 
   React.useEffect(() => {
-    if (reportPaused) return
-    if (typeof window === "undefined") return
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return
+    reportPausedRef.current = reportPaused
+  }, [reportPaused])
 
-    const id = window.setInterval(() => {
+  React.useEffect(
+    () => () => {
+      if (reportAdvanceTimerRef.current) {
+        window.clearTimeout(reportAdvanceTimerRef.current)
+      }
+    },
+    []
+  )
+
+  const scheduleReportAdvance = React.useCallback((delayMs) => {
+    if (reportAdvanceTimerRef.current) {
+      window.clearTimeout(reportAdvanceTimerRef.current)
+    }
+    reportAdvanceTimerRef.current = window.setTimeout(() => {
+      reportAdvanceTimerRef.current = null
+      if (reportPausedRef.current) return
       setReportIdx((i) => (i + 1) % REPORT_SLIDES.length)
-    }, 6500)
-
-    return () => window.clearInterval(id)
-  }, [reportPaused, REPORT_SLIDES.length])
+    }, delayMs)
+  }, [REPORT_SLIDES.length])
 
   const startReportScroll = React.useCallback(() => {
     const frame = reportFrameRef.current
     const img = reportImgRef.current
     if (!frame || !img) return
-    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) return
+
+    if (reportAdvanceTimerRef.current) {
+      window.clearTimeout(reportAdvanceTimerRef.current)
+      reportAdvanceTimerRef.current = null
+    }
+
+    if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
+      scheduleReportAdvance(REPORT_STATIC_SLIDE_MS)
+      return
+    }
 
     // Reset any prior animation / transform.
     img.getAnimations?.().forEach((a) => a.cancel())
@@ -140,13 +169,31 @@ function ServicesPage() {
 
     const displayedH = frameW * (nh / nw)
     const maxScroll = Math.max(0, Math.round(displayedH - frameH))
-    if (maxScroll < 4) return
+    if (maxScroll < 4) {
+      scheduleReportAdvance(REPORT_STATIC_SLIDE_MS)
+      return
+    }
 
-    img.animate(
-      [{ transform: "translateY(0px)" }, { transform: `translateY(-${maxScroll}px)` }],
-      { duration: 5200, easing: "linear", fill: "forwards", delay: 450 }
+    const duration = Math.round(
+      (maxScroll / REPORT_SCROLL_SPEED_PX_PER_SEC) * 1000
     )
-  }, [])
+    const anim = img.animate(
+      [{ transform: "translateY(0px)" }, { transform: `translateY(-${maxScroll}px)` }],
+      {
+        duration,
+        easing: "linear",
+        fill: "forwards",
+        delay: REPORT_SCROLL_DELAY_MS,
+      }
+    )
+
+    anim.finished
+      .then(() => {
+        if (reportPausedRef.current) return
+        scheduleReportAdvance(REPORT_PAUSE_AFTER_ANIM_MS)
+      })
+      .catch(() => {})
+  }, [scheduleReportAdvance])
 
   return (
   <main className="services-page services-page--figma" data-design="figma-27-13">
@@ -160,7 +207,7 @@ function ServicesPage() {
             Our Services
           </p>
           <h1 id="svc-hero-heading" className="svc-hero__title">
-            <span className="svc-hero__title-line">Services Built For</span>
+            <span className="svc-hero__title-line">Services Built for</span>
             {" "}
             <span className="svc-hero__title-accent">Modern Physician Practices</span>
           </h1>
@@ -184,7 +231,7 @@ function ServicesPage() {
         <h2 id="svc-breakdown-heading" className="svc-breakdown__heading">
           Services <span className="svc-breakdown__heading-accent">Summary</span>
         </h2>
-        <p className="svc-breakdown__subhead">One system, Muliple Monitoring Options.</p>
+        <p className="svc-breakdown__subhead">One system, Multiple Monitoring Options.</p>
         <div className="svc-breakdown__grid">
           {BREAKDOWN.map(([title, meta]) => (
             <article key={`${title}-${meta}`} className="svc-breakdown-card">
@@ -360,7 +407,7 @@ function ServicesPage() {
         </h2>
         <p className="svc-workflow__sub">
           Your medical assistant completes a simple 3-step process:{" "}
-          <strong>Hook-Up → Enroll in Web Portal → Disconnect</strong>{" "}
+          <strong>Enroll in web Portal → Hook Up → Disconnect</strong>{" "}
           <strong>(Under 15 Minutes)</strong>
         </p>
         <div className="svc-workflow__panel">
@@ -469,7 +516,7 @@ function ServicesPage() {
               alt={REPORT_SLIDES[reportIdx].alt}
               width={630}
               height={925}
-              loading="lazy"
+              loading="eager"
               decoding="async"
               onLoad={startReportScroll}
             />
@@ -590,7 +637,7 @@ function ServicesPage() {
               <li>Digital symptom logging tied to ECG events</li>
               <li>Clear symptomatic vs. asymptomatic labeling on the final report</li>
             </ul>
-            <p className="svc-split__text svc-split__text--symptom-footer">
+            <p className="svc-split__text">
               Symptoms are logged digitally and matched directly to ECG events on the
               final report.
             </p>

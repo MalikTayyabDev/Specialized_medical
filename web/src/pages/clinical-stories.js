@@ -129,7 +129,7 @@ export default function ClinicalStoriesPage() {
         <div className="figma-container">
           <div className="svc-cases__list svc-cases__list--more">
             {CASE_STUDIES.map((c) => (
-              <article key={c.key} className="svc-case-card">
+              <article key={c.key} id={c.key} className="svc-case-card">
                 <div>
                   <div className="svc-case-card__media">
                     <img

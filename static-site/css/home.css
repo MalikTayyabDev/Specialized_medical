@@ -2514,7 +2514,7 @@ main .figma-container {
 }
 
 .figma-hero--wide .figma-hero__chip--mr {
-  top: 50%;
+  top: 230px;
   right: 12px;
   left: auto;
   bottom: auto;
@@ -3498,11 +3498,6 @@ video.figma-ecg__video {
     width: 8px;
     height: 8px;
   }
-}
-
-.figma-ecg__emph {
-  font-weight: 500;
-  color: #231f1e;
 }
 
 @media (max-width: 1000px) {

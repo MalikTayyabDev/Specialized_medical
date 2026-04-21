@@ -95,7 +95,7 @@ const EquipmentPage = () => (
             ["Weight", "0.6 oz", "4 oz (113 g)"],
             ["Battery", "Minimum 10 days", "Change every 2 days"],
             ["Water resistance", "IP55", "Varies (see device specs)"],
-            ["Workflow", "Hook-Up → Enroll in Web Portal → Disconnect", "Hook-Up → Enroll in Web Portal → Disconnect"],
+            ["Workflow", "Enroll in web Portal → Hook Up → Disconnect", "Enroll in web Portal → Hook Up → Disconnect"],
             ["Positioning", "Primary featured system", "Secondary / legacy option"],
           ].map(([feature, sp, lw]) => (
             <div key={feature} className="eq-compare__row" role="row">
