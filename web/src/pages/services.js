@@ -9,7 +9,7 @@ const ECG_APP_VIDEO_SRC =
   "/video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4#t=0.001"
 
 /** Vertical pan in the reporting preview — fixed duration made short/tall assets feel slow vs fast. */
-const REPORT_SCROLL_SPEED_PX_PER_SEC = 72
+const REPORT_SCROLL_SPEED_PX_PER_SEC = 52
 const REPORT_SCROLL_DELAY_MS = 450
 const REPORT_PAUSE_AFTER_ANIM_MS = 1200
 const REPORT_STATIC_SLIDE_MS = 6500

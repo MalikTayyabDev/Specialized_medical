@@ -743,6 +743,10 @@ p.svc-workflow__footer {
   align-items: start;
 }
 
+.svc-cases__list--more .svc-case-card {
+  scroll-margin-top: 5.5rem;
+}
+
 .svc-case-card > div {
   min-width: 0;
 }
@@ -754,12 +758,21 @@ p.svc-workflow__footer {
   background: #f4f4f4;
 }
 
+.svc-cases__list--more .svc-case-card__media {
+  height: 240px;
+}
+
 .svc-case-card__media img {
   display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
   object-position: center center;
+}
+
+.svc-cases__list--more .svc-case-card__media img {
+  height: 100%;
+  object-fit: cover;
 }
 
 .svc-case-card__caption {
@@ -878,6 +891,15 @@ p.svc-workflow__footer {
   .svc-reporting__inner,
   .svc-case-card {
     grid-template-columns: 1fr;
+  }
+
+  .svc-cases__list--more .svc-case-card__media {
+    height: auto;
+  }
+
+  .svc-cases__list--more .svc-case-card__media img {
+    height: auto;
+    object-fit: contain;
   }
 
   /* Mobile/tablet: image first, then content */

@@ -35,7 +35,7 @@ const CASE_STUDIES = [
   {
     key: "cp-1",
     image: "case-01.jpg",
-    caption: "patient-friendly design, small monitor size, comfort, and ease of wear.",
+    caption: "Patient-friendly design, small monitor size, comfort, and ease of wear.",
     tag: "Case Study 01 (S-Patch System)",
     title: "Easy for Patients to Wear",
     body:
@@ -135,8 +135,6 @@ export default function ClinicalStoriesPage() {
                     <img
                       src={IMG(c.image)}
                       alt=""
-                      width={305}
-                      height={394}
                       loading="lazy"
                       decoding="async"
                     />

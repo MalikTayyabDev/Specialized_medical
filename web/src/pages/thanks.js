@@ -48,7 +48,7 @@ export default function ThanksPage() {
               </li>
               <li>
                 If you need immediate assistance, call{" "}
-                <a href="tel:+18557732633">1-855-SPEC-MED</a>.
+                <a href="tel:+18557732633">1-855-773-2633</a>.
               </li>
             </ul>
             <div className="thanks-page__actions">

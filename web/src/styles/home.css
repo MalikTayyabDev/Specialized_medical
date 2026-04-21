@@ -2514,7 +2514,7 @@ main .figma-container {
 }
 
 .figma-hero--wide .figma-hero__chip--mr {
-  top: 230px;
+  top: 320px;
   right: 12px;
   left: auto;
   bottom: auto;
@@ -2878,12 +2878,13 @@ main .figma-container {
     height: auto;
   }
 
+  .figma-hero--wide .figma-hero__chip--mr,
   .figma-hero__chip--mr {
-    top: 50%;
+    top: 210px;
     right: clamp(12px, 5vw, 22px);
     left: auto;
     bottom: auto;
-    transform: translateY(-50%);
+    transform: none;
   }
 
   /* Ensure the MR chip doesn't inherit the desktop-only font-size override */
