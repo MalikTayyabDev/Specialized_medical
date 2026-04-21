@@ -2851,7 +2851,7 @@ main .figma-container {
 
   .figma-hero__chip {
     position: absolute;
-    font-size: 10.5px !important;
+    font-size: 12px !important;
     height: auto;
     min-height: 34px;
     max-width: min(220px, calc(100% - 1rem));
@@ -2890,7 +2890,7 @@ main .figma-container {
 
   /* Ensure the MR chip doesn't inherit the desktop-only font-size override */
   .figma-hero__chip.figma-hero__chip--mr {
-    font-size: 10.5px !important;
+    font-size: 12px !important;
   }
 
   .figma-hero__chip--bl {
