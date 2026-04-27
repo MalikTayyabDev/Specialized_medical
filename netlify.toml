@@ -2,7 +2,7 @@
 # Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  command = "npm run build --prefix web && node static-site/scripts/sync-from-gatsby-public.mjs"
+  command = "npm ci --prefix web && npm run build --prefix web && node static-site/scripts/sync-from-gatsby-public.mjs"
   publish = "static-site"
   functions = "netlify/functions"
 
