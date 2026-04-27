@@ -2881,11 +2881,11 @@ main .figma-container {
 
   .figma-hero--wide .figma-hero__chip--mr,
   .figma-hero__chip--mr {
-    top: 210px;
+    top: 52%;
     right: clamp(12px, 5vw, 22px);
     left: auto;
     bottom: auto;
-    transform: none;
+    transform: translateY(-50%);
   }
 
   /* Ensure the MR chip doesn't inherit the desktop-only font-size override */
@@ -2900,6 +2900,14 @@ main .figma-container {
     top: auto;
     transform: none;
     width: fit-content;
+  }
+
+  /* Very small phones: keep the right chip from crowding the subject */
+  @media (max-width: 420px) {
+    .figma-hero__chip--mr {
+      top: 58%;
+      max-width: min(180px, calc(100% - 1.25rem));
+    }
   }
 
   .figma-hero__sub-line--spaced {
