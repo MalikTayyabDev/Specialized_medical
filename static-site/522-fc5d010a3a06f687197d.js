@@ -1,0 +1,1 @@
+(self.webpackChunkgatsby_starter_minimal=self.webpackChunkgatsby_starter_minimal||[]).push([[522],{8522:function(){}}]);
