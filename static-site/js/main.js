@@ -35,6 +35,7 @@
   function initNav() {
     var toggle = qs(".nav-toggle");
     var inner = qs(".site-header__inner");
+    var overlay = qs(".nav-overlay");
     if (!toggle || !inner) return;
 
     function setOpen(open) {
@@ -42,11 +43,20 @@
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
       document.body.style.overflow = open ? "hidden" : "";
+      if (overlay) {
+        overlay.hidden = !open;
+      }
     }
 
     toggle.addEventListener("click", function () {
       setOpen(!inner.classList.contains("nav-open"));
     });
+
+    if (overlay) {
+      overlay.addEventListener("click", function () {
+        setOpen(false);
+      });
+    }
 
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && inner.classList.contains("nav-open")) {
