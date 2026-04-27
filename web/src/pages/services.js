@@ -114,15 +114,21 @@ function ServicesPage() {
   )
   const [reportIdx, setReportIdx] = React.useState(0)
   const [reportPaused, setReportPaused] = React.useState(false)
+  const [reportInView, setReportInView] = React.useState(false)
   const reportFrameRef = React.useRef(null)
   const reportImgRef = React.useRef(null)
   const reportPausedRef = React.useRef(false)
+  const reportInViewRef = React.useRef(false)
   const reportAdvanceTimerRef = React.useRef(null)
   const reportScrollRafRef = React.useRef(null)
 
   React.useEffect(() => {
     reportPausedRef.current = reportPaused
   }, [reportPaused])
+
+  React.useEffect(() => {
+    reportInViewRef.current = reportInView
+  }, [reportInView])
 
   React.useEffect(
     () => () => {
@@ -143,14 +149,32 @@ function ServicesPage() {
     reportAdvanceTimerRef.current = window.setTimeout(() => {
       reportAdvanceTimerRef.current = null
       if (reportPausedRef.current) return
+      if (!reportInViewRef.current) return
       setReportIdx((i) => (i + 1) % REPORT_SLIDES.length)
     }, delayMs)
   }, [REPORT_SLIDES.length])
+
+  const stopReportScroll = React.useCallback(() => {
+    const img = reportImgRef.current
+
+    if (reportAdvanceTimerRef.current) {
+      window.clearTimeout(reportAdvanceTimerRef.current)
+      reportAdvanceTimerRef.current = null
+    }
+    if (reportScrollRafRef.current) {
+      window.cancelAnimationFrame(reportScrollRafRef.current)
+      reportScrollRafRef.current = null
+    }
+
+    img?.getAnimations?.().forEach((a) => a.cancel())
+  }, [])
 
   const startReportScroll = React.useCallback(() => {
     const frame = reportFrameRef.current
     const img = reportImgRef.current
     if (!frame || !img) return
+    if (!reportInViewRef.current) return
+    if (reportPausedRef.current) return
 
     if (reportAdvanceTimerRef.current) {
       window.clearTimeout(reportAdvanceTimerRef.current)
@@ -212,6 +236,7 @@ function ServicesPage() {
       anim.finished
         .then(() => {
           if (reportPausedRef.current) return
+        if (!reportInViewRef.current) return
           scheduleReportAdvance(REPORT_PAUSE_AFTER_ANIM_MS)
         })
         .catch(() => {
@@ -241,11 +266,42 @@ function ServicesPage() {
   React.useEffect(() => {
     const onResize = () => {
       if (reportPausedRef.current) return
+      if (!reportInViewRef.current) return
       startReportScroll()
     }
     window.addEventListener("resize", onResize)
     return () => window.removeEventListener("resize", onResize)
   }, [startReportScroll])
+
+  React.useEffect(() => {
+    const frame = reportFrameRef.current
+    if (!frame) return
+    if (typeof window === "undefined") return
+
+    if (!("IntersectionObserver" in window)) {
+      setReportInView(true)
+      return
+    }
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        setReportInView(Boolean(entry && entry.isIntersecting))
+      },
+      { root: null, threshold: 0.35 }
+    )
+
+    obs.observe(frame)
+    return () => obs.disconnect()
+  }, [])
+
+  React.useEffect(() => {
+    if (!reportInView) {
+      stopReportScroll()
+      return
+    }
+    startReportScroll()
+  }, [reportInView, startReportScroll, stopReportScroll])
 
   return (
   <main className="services-page services-page--figma" data-design="figma-27-13">
@@ -570,7 +626,11 @@ function ServicesPage() {
               height={925}
               loading="eager"
               decoding="async"
-              onLoad={startReportScroll}
+              onLoad={() => {
+                if (!reportInViewRef.current) return
+                if (reportPausedRef.current) return
+                startReportScroll()
+              }}
             />
             <div className="svc-reporting__dots" aria-hidden="true">
               {REPORT_SLIDES.map((_, i) => (

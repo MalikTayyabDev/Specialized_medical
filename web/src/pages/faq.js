@@ -291,9 +291,11 @@ function FaqPage() {
                         role="region"
                         aria-labelledby={triggerId}
                         className="faq-item__panel"
-                        hidden={!isOpen}
+                        aria-hidden={!isOpen}
                       >
-                        <div className="faq-item__answer">{item.a}</div>
+                        <div className="faq-item__panelInner">
+                          <div className="faq-item__answer">{item.a}</div>
+                        </div>
                       </div>
                     </div>
                   )

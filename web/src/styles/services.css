@@ -661,7 +661,8 @@ p.svc-workflow__footer {
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  height: min(760px, 72vh);
+  /* Keep the "auto-scroll" report viewport compact so both screenshots feel scrollable on mobile. */
+  height: min(720px, 68vh);
 }
 
 .svc-reporting__shot img {
@@ -941,6 +942,10 @@ p.svc-workflow__footer {
 @media (max-width: 640px) {
   .svc-breakdown__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .svc-reporting__shot {
+    height: min(560px, 62vh);
   }
 
   .svc-workflow__grid {
