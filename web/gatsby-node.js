@@ -5,6 +5,15 @@
  * Add permanent redirects so external links/bookmarks never break.
  */
 
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+// Load local env files for dev/preview; avoid pulling dotenv into HTML renderer bundles.
+if (!process.env.NETLIFY) {
+  // eslint-disable-next-line global-require
+  require("dotenv").config({ path: `.env.${activeEnv}` })
+}
+
 exports.createPages = async ({ actions }) => {
   const { createRedirect } = actions
 
