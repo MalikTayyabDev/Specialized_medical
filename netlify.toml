@@ -1,8 +1,8 @@
-# Netlify deploy for STATIC site in /static-site
+# Netlify deploy for STATIC site in /static-site (replicated from Gatsby build)
 # Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
-# Note: In Netlify UI, keep Base directory empty for this static deploy.
 
 [build]
+  command = "npm run build --prefix web && node static-site/scripts/sync-from-gatsby-public.mjs"
   publish = "static-site"
   functions = "netlify/functions"
 
