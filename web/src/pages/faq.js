@@ -160,7 +160,7 @@ const TESTIMONIALS = [
   {
     quote:
       "They immediately transmitted the reports to me and then called me on my cell phone.",
-    author: "Michael",
+    author: "Michael R, M.D.",
   },
   {
     quote: "I did not even realize I was wearing it",
