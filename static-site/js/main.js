@@ -383,6 +383,12 @@
     btn.addEventListener("click", function (e) {
       e.stopPropagation();
       if (video.paused) {
+        // Pause any other playing videos on the page (matches Gatsby UX).
+        qsa("video").forEach(function (v) {
+          try {
+            if (v !== video && !v.paused) v.pause();
+          } catch (_) {}
+        });
         video.play().catch(function () {});
       } else {
         video.pause();
@@ -404,6 +410,7 @@
       syncMuteUi();
     }
 
+    // Clicking the video pauses (matches Gatsby).
     video.addEventListener("click", function () {
       if (!video.paused) {
         video.pause();
@@ -416,6 +423,13 @@
 
     video.addEventListener("pause", function () {
       setPlaying(false);
+    });
+
+    video.addEventListener("ended", function () {
+      setPlaying(false);
+      try {
+        video.currentTime = 0;
+      } catch (_) {}
     });
   }
 
