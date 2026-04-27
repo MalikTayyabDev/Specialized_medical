@@ -1,5 +1,6 @@
 # Netlify deploy for STATIC site in /static-site
 # Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
+# Note: In Netlify UI, keep Base directory empty for this static deploy.
 
 [build]
   publish = "static-site"
