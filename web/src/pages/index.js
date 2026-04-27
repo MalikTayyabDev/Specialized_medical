@@ -704,7 +704,7 @@ const IndexPage = () => {
                   height={24}
                   decoding="async"
                 />
-                <p className="figma-tcard__author">— Michael</p>
+                <p className="figma-tcard__author">— Michael R, M.D.</p>
               </div>
             </article>
           </div>
