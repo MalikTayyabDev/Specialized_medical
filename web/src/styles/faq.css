@@ -180,6 +180,7 @@
   overflow: hidden;
   display: grid;
   grid-template-rows: 0fr;
+  min-height: 0;
   opacity: 0;
   transform: translateY(-4px);
   padding: 0 1rem;
@@ -201,6 +202,7 @@
 
 .faq-item__panelInner {
   overflow: hidden;
+  min-height: 0;
 }
 
 .faq-item__panel p,
