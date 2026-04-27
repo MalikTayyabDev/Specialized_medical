@@ -176,12 +176,24 @@
 }
 
 .faq-item__panel {
-  padding: 0 1rem 1rem;
   background: #fafafa;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  padding: 0 1rem;
+  transition:
+    max-height 320ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 220ms ease,
+    transform 220ms ease,
+    padding 220ms ease;
 }
 
 .faq-item.is-open .faq-item__panel {
-  padding-top: 0.25rem;
+  padding: 0.25rem 1rem 1rem;
+  max-height: 420px;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .faq-item__panel p,
@@ -431,7 +443,12 @@
   }
 
   .faq-item__panel {
-    padding: 0 0.85rem 0.85rem;
+    padding: 0 0.85rem;
+  }
+
+  .faq-item.is-open .faq-item__panel {
+    padding: 0.2rem 0.85rem 0.85rem;
+    max-height: 520px;
   }
 
   .faq-figma-cta .figma-cta__actions {
