@@ -1,11 +1,9 @@
-# Netlify build for Gatsby site in /web (output: /web/public)
+# Netlify deploy for STATIC site in /static-site
 # Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  base = "web"
-  command = "npm run build"
-  publish = "public"
-  functions = "../netlify/functions"
+  publish = "static-site"
+  functions = "netlify/functions"
 
 # PDFs: serve inline so browsers can render inside iframes/embeds on Netlify
 [[headers]]
