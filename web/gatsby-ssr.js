@@ -7,6 +7,7 @@ import "./src/styles/faq.css"
 import "./src/styles/contact.css"
 import "./src/styles/equipment.css"
 import Layout from "./src/components/Layout"
+import config from "./gatsby-config"
 
 export const wrapPageElement = ({ element, props }) => (
   <Layout {...props}>{element}</Layout>

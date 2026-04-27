@@ -1,0 +1,18 @@
+# Legacy .jsp URLs (301) — mirrors netlify.toml for hosts that read _redirects only
+/about.jsp /about/ 301
+/services.jsp /services/ 301
+/faq.jsp /faq/ 301
+/contact.jsp /contact/ 301
+
+# Legacy .html URLs → pretty URLs (301)
+/index.html / 301
+/about.html /about/ 301
+/services.html /services/ 301
+/faq.html /faq/ 301
+/contact.html /contact/ 301
+/clinical-stories.html /clinical-stories/ 301
+/thanks.html /thanks/ 301
+/services/equipment.html /services/equipment/ 301
+
+# Catch-all: any other legacy .jsp paths → homepage (avoid duplicate crawl paths)
+/*.jsp / 301

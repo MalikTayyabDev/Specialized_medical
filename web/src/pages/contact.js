@@ -1,5 +1,6 @@
 import * as React from "react"
 import { ICON, imagesPath } from "../components/Layout"
+import Seo from "../components/Seo"
 
 const IMG = {
   hero: "/images/figma-contact/contact-hero.jpg",
@@ -105,6 +106,8 @@ const ContactPage = () => {
         message: fd.get("message"),
         botcheck: fd.get("botcheck"),
         subject: "New contact request — Specialized Medical",
+        // Ensures Web3Forms (and any downstream tooling) uses the correct canonical thank-you URL.
+        redirect: "https://www.specialized-med.com/thanks/",
       }
 
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -123,7 +126,10 @@ const ContactPage = () => {
 
       setSubmitState("success")
       form.reset()
-      window.location.assign("/thanks/")
+      try {
+        sessionStorage.setItem("sm_contact_submitted", String(Date.now()))
+      } catch (_) {}
+      window.location.assign("https://www.specialized-med.com/thanks/")
     } catch (err) {
       setSubmitState("error")
       setSubmitError(
@@ -365,16 +371,20 @@ const ContactPage = () => {
               <span className="figma-h2__accent">Beta Trial</span>
             </h2>
             <p className="figma-cta__p figma-cta__p--lead">
-              Evaluate Specialized Medical with a small, no-obligation beta trial—or
-              request a demo. If it isn’t the right fit, we’ll take everything back—no
-              hassle.
+              Evaluate Specialized Medical with no long-term commitment.
+            </p>
+            <p className="figma-cta__p">
+              Anyone can make promises. We would rather prove it. Try Specialized
+              Medical on a few patients. If it is not the right fit, we will take
+              everything back - no hassle, no obligation. Let us prove our value to
+              you and your patients.
             </p>
             <div className="figma-cta__actions">
               <a className="figma-btn figma-btn--solid" href="#contact-form">
                 Start Your No-Risk Beta Trial
               </a>
-              <a className="figma-cta__talk" href="tel:+18557732633">
-                Call our team →
+              <a className="figma-cta__talk" href="#contact-form">
+                Talk to Our Team
               </a>
             </div>
           </div>
@@ -388,12 +398,11 @@ export default ContactPage
 
 export function Head() {
   return (
-    <>
-      <title>Contact Us | Specialized Medical</title>
-      <meta
-        name="description"
-        content="Contact Specialized Medical for demos, beta trials, sales, and support—turn-key cardiac monitoring for your practice."
-      />
-    </>
+    <Seo
+      title="Contact Us"
+      description="Contact Specialized Medical for demos, beta trials, sales, and support—turn-key cardiac monitoring for your practice."
+      pathname="/contact/"
+      image="/images/figma-contact/contact-hero.jpg"
+    />
   )
 }

@@ -1,14 +1,9 @@
-# Netlify build for Gatsby app in /web
+# Netlify build for STATIC site in /static-site
 # Docs: https://docs.netlify.com/configure-builds/file-based-configuration/
 
 [build]
-  base = "web"
-  command = "npm run build"
-  publish = "public"
+  publish = "static-site"
   functions = "netlify/functions"
-
-[build.environment]
-  NODE_VERSION = "20"
 
 # PDFs: serve inline so browsers can render inside iframes/embeds on Netlify
 [[headers]]
@@ -39,5 +34,54 @@
 [[redirects]]
   from = "/contact.jsp"
   to = "/contact/"
+  status = 301
+  force = true
+
+# Legacy .html URLs → pretty URLs (301)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about.html"
+  to = "/about/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services.html"
+  to = "/services/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/faq.html"
+  to = "/faq/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/clinical-stories.html"
+  to = "/clinical-stories/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/thanks.html"
+  to = "/thanks/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services/equipment.html"
+  to = "/services/equipment/"
   status = 301
   force = true

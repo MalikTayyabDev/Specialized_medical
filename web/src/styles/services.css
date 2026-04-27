@@ -661,7 +661,7 @@ p.svc-workflow__footer {
   border-radius: 20px;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.3);
-  height: min(860px, 80vh);
+  height: min(760px, 72vh);
 }
 
 .svc-reporting__shot img {

@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Seo from "../components/Seo"
 
 const IMG = {
   hero: "/images/figma-about/Group%201261157513.png",
@@ -211,8 +212,7 @@ const AboutPage = () => (
             data; simplified office workflow.
           </p>
           <p className="figma-cta__p figma-cta__p--about-italic">
-            Evaluate Specialized Medical with a small, no-obligation beta trial. If it isn’t
-            the right fit, we’ll take everything back—no hassle.
+            Evaluate Specialized Medical with no long-term commitment.
           </p>
           <div className="figma-cta__actions about-figma-cta__actions">
             <Link className="figma-btn figma-btn--solid" to="/contact/">
@@ -232,12 +232,11 @@ export default AboutPage
 
 export function Head() {
   return (
-    <>
-      <title>About Us | Specialized Medical</title>
-      <meta
-        name="description"
-        content="Who we are, why practices choose Specialized Medical, and how our S-Patch monitoring model supports modern physician practices."
-      />
-    </>
+    <Seo
+      title="About Us"
+      description="Who we are, why practices choose Specialized Medical, and how our S-Patch monitoring model supports modern physician practices."
+      pathname="/about/"
+      image="/images/figma-about/hero-about.jpg"
+    />
   )
 }

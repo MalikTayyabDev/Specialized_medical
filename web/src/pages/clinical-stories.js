@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { ICON } from "../components/Layout"
+import Seo from "../components/Seo"
 
 const IMG = (file) => `/images/figma-services/${file}`
 
@@ -179,13 +180,12 @@ export default function ClinicalStoriesPage() {
 
 export function Head() {
   return (
-    <>
-      <title>Clinical Stories | Specialized Medical</title>
-      <meta
-        name="description"
-        content="Clinical stories and proof points focused on physician workflow, reporting, and patient experience."
-      />
-    </>
+    <Seo
+      title="Clinical Stories"
+      description="Clinical stories and proof points focused on physician workflow, reporting, and patient experience."
+      pathname="/clinical-stories/"
+      image="/images/figma-services/case-01.jpg"
+    />
   )
 }
 

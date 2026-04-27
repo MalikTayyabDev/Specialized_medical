@@ -2,6 +2,28 @@
  * Specialized Medical — static site behaviors (nav, FAQ, contact form, hero CSS bg fallback).
  */
 (function () {
+  function getSiteRootPath() {
+    // We deploy sometimes under a subfolder (e.g. /specialized-medical/static-site/).
+    // Derive the site "root" from this script tag URL so asset paths always resolve.
+    var scripts = Array.prototype.slice.call(document.scripts || []);
+    var script = scripts.find(function (s) {
+      return (s.getAttribute("src") || "").indexOf("js/main.js") !== -1;
+    });
+    var src = script && script.src;
+    if (!src) return "";
+
+    try {
+      var u = new URL(src, window.location.href);
+      var p = u.pathname || "";
+      var idx = p.lastIndexOf("/js/main.js");
+      return idx >= 0 ? p.slice(0, idx) : "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  var SITE_ROOT = getSiteRootPath();
+
   function qs(sel, root) {
     return (root || document).querySelector(sel);
   }
@@ -110,15 +132,15 @@
     var dotsWrap = qs(".faq-testimonials__dots", photoWrap);
     var slides = [
       {
-        src: "images/figma-faq/faq-testimonial-portrait.jpg",
+        src: SITE_ROOT + "/images/figma-faq/faq-testimonial-portrait.jpg",
         alt: "Patient during daily activity",
       },
       {
-        src: "images/figma-services/case-01.jpg",
+        src: SITE_ROOT + "/images/figma-services/case-01.jpg",
         alt: "Patient-friendly design and wear experience",
       },
       {
-        src: "images/figma-services/four-tests-device.jpg",
+        src: SITE_ROOT + "/images/figma-services/four-tests-device.jpg",
         alt: "Cardiac monitoring device for four test types",
       },
     ];
@@ -190,7 +212,15 @@
       if (submitBtn && submitBtn.disabled) return;
 
       var fd = new FormData(form);
-      // If the hidden access_key input is missing, fallback to the configured key.
+      // Web3Forms requires an absolute redirect URL; set it at submit time.
+      try {
+        var redirectEl = form.querySelector('input[name="redirect"]');
+        if (redirectEl && !redirectEl.value) {
+          // Works for subfolder deployments like /specialized-medical/static-site/contact/
+          redirectEl.value = new URL("../thanks/", window.location.href).toString();
+        }
+      } catch (_) {}
+      // If access_key isn't in the form for any reason, add it (client-side mode).
       if (!fd.get("access_key")) {
         fd.append("access_key", "8ec7a28a-1979-4c39-8791-18fbf60bba44");
       }
@@ -208,8 +238,9 @@
       setStatus("Sending…", false);
 
       try {
-        var response = await fetch("https://api.web3forms.com/submit", {
+        var response = await fetch(form.getAttribute("action") || "https://api.web3forms.com/submit", {
           method: "POST",
+          headers: { Accept: "application/json" },
           body: fd,
         });
         var data = await response.json().catch(function () {
@@ -218,11 +249,48 @@
 
         if (response.ok && data && data.success === true) {
           setStatus("Success! Your message has been sent.", false);
+
+          var redirectEl = null;
+          var dest = String(window.location.origin || "") + "/thanks/";
+          try {
+            redirectEl = form.querySelector('input[name="redirect"]');
+            if (redirectEl && redirectEl.value) dest = String(redirectEl.value);
+          } catch (_) {}
+
+          try {
+            window.sessionStorage.setItem("sm_form_submitted", "1");
+            window.sessionStorage.setItem("sm_form_submitted_at", String(Date.now()));
+          } catch (_) {}
+
+          // Redirect first (some browsers/extensions can interfere after form.reset()).
+          try {
+            window.setTimeout(function () {
+              window.location.assign(dest);
+            }, 50);
+            return;
+          } catch (_) {}
+
           form.reset();
         } else {
-          setStatus("Error: " + ((data && data.message) || "Unable to send."), true);
+          // If the server didn't return JSON (common when PHP isn't executing on a static server),
+          // fall back to normal form submit so the server can handle it.
+          if (!data) {
+            try {
+              form.submit();
+              return;
+            } catch (_) {}
+            setStatus("Error: Server returned an unexpected response. (Is PHP running on your host?)", true);
+            return;
+          }
+          var msg = data.message || "Unable to send."
+          setStatus("Error: " + msg, true);
         }
       } catch (error) {
+        // If fetch is blocked (ad blockers / network / bot protection), fall back to normal form POST.
+        try {
+          form.submit();
+          return;
+        } catch (_) {}
         setStatus("Something went wrong. Please try again.", true);
       } finally {
         if (submitBtn) {

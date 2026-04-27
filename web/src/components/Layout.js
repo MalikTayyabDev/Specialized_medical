@@ -307,6 +307,24 @@ function SiteFooter() {
 }
 
 export default function Layout({ children, location }) {
+  React.useEffect(() => {
+    function onPlay(e) {
+      const target = e.target
+      if (!(target instanceof HTMLVideoElement)) return
+      document.querySelectorAll("video").forEach((v) => {
+        if (v !== target && !v.paused) v.pause()
+      })
+    }
+
+    // Some browsers fire `playing` more reliably than `play` in certain UI flows.
+    document.addEventListener("play", onPlay, true)
+    document.addEventListener("playing", onPlay, true)
+    return () => {
+      document.removeEventListener("play", onPlay, true)
+      document.removeEventListener("playing", onPlay, true)
+    }
+  }, [])
+
   return (
     <div className="site-root">
       <SiteHeader location={location} />

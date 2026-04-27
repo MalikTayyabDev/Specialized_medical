@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { ICON } from "../components/Layout"
+import Seo from "../components/Seo"
 
 const IMG = (file) => `/images/figma-services/${file}`
 
@@ -8,11 +9,11 @@ const IMG = (file) => `/images/figma-services/${file}`
 const ECG_APP_VIDEO_SRC =
   "/video/WhatsApp%20Video%202026-04-02%20at%2010.32.10%20PM.mp4#t=0.001"
 
-/** Vertical pan in the reporting preview — fixed duration made short/tall assets feel slow vs fast. */
-const REPORT_SCROLL_SPEED_PX_PER_SEC = 52
-const REPORT_SCROLL_DELAY_MS = 450
-const REPORT_PAUSE_AFTER_ANIM_MS = 1200
-const REPORT_STATIC_SLIDE_MS = 6500
+/** Vertical pan in the reporting preview. Tuned for a slower, smoother loop. */
+const REPORT_SCROLL_SPEED_PX_PER_SEC = 38
+const REPORT_SCROLL_DELAY_MS = 600
+const REPORT_PAUSE_AFTER_ANIM_MS = 1400
+const REPORT_STATIC_SLIDE_MS = 8000
 
 const BREAKDOWN = [
   ["Holter", "24–48 hours"],
@@ -117,6 +118,7 @@ function ServicesPage() {
   const reportImgRef = React.useRef(null)
   const reportPausedRef = React.useRef(false)
   const reportAdvanceTimerRef = React.useRef(null)
+  const reportScrollRafRef = React.useRef(null)
 
   React.useEffect(() => {
     reportPausedRef.current = reportPaused
@@ -126,6 +128,9 @@ function ServicesPage() {
     () => () => {
       if (reportAdvanceTimerRef.current) {
         window.clearTimeout(reportAdvanceTimerRef.current)
+      }
+      if (reportScrollRafRef.current) {
+        window.cancelAnimationFrame(reportScrollRafRef.current)
       }
     },
     []
@@ -151,6 +156,10 @@ function ServicesPage() {
       window.clearTimeout(reportAdvanceTimerRef.current)
       reportAdvanceTimerRef.current = null
     }
+    if (reportScrollRafRef.current) {
+      window.cancelAnimationFrame(reportScrollRafRef.current)
+      reportScrollRafRef.current = null
+    }
 
     if (window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches) {
       scheduleReportAdvance(REPORT_STATIC_SLIDE_MS)
@@ -161,39 +170,82 @@ function ServicesPage() {
     img.getAnimations?.().forEach((a) => a.cancel())
     img.style.transform = "translateY(0px)"
 
-    const frameH = frame.clientHeight
-    const frameW = frame.clientWidth
-    const nw = img.naturalWidth || 0
-    const nh = img.naturalHeight || 0
-    if (!frameH || !frameW || !nw || !nh) return
+    // iOS/Safari can report 0 natural size briefly (or before decode),
+    // and layout can shift on the same tick. Wait for decode + 2 RAFs.
+    const run = () => {
+      const frameH = frame.clientHeight
+      const frameW = frame.clientWidth
+      const nw = img.naturalWidth || 0
+      const nh = img.naturalHeight || 0
 
-    const displayedH = frameW * (nh / nw)
-    const maxScroll = Math.max(0, Math.round(displayedH - frameH))
-    if (maxScroll < 4) {
-      scheduleReportAdvance(REPORT_STATIC_SLIDE_MS)
-      return
+      // If we still can't measure, fall back to a timed slide advance
+      // so the UI doesn't appear stuck.
+      if (!frameH || !frameW || !nw || !nh) {
+        scheduleReportAdvance(REPORT_STATIC_SLIDE_MS)
+        return
+      }
+
+      const displayedH = frameW * (nh / nw)
+      const maxScroll = Math.max(0, Math.round(displayedH - frameH))
+      if (maxScroll < 4) {
+        scheduleReportAdvance(REPORT_STATIC_SLIDE_MS)
+        return
+      }
+
+      const duration = Math.round(
+        (maxScroll / REPORT_SCROLL_SPEED_PX_PER_SEC) * 1000
+      )
+
+      const anim = img.animate(
+        [
+          { transform: "translateY(0px)" },
+          { transform: `translateY(-${maxScroll}px)` },
+        ],
+        {
+          duration,
+          easing: "linear",
+          fill: "forwards",
+          delay: REPORT_SCROLL_DELAY_MS,
+        }
+      )
+
+      anim.finished
+        .then(() => {
+          if (reportPausedRef.current) return
+          scheduleReportAdvance(REPORT_PAUSE_AFTER_ANIM_MS)
+        })
+        .catch(() => {
+          scheduleReportAdvance(REPORT_STATIC_SLIDE_MS)
+        })
     }
 
-    const duration = Math.round(
-      (maxScroll / REPORT_SCROLL_SPEED_PX_PER_SEC) * 1000
-    )
-    const anim = img.animate(
-      [{ transform: "translateY(0px)" }, { transform: `translateY(-${maxScroll}px)` }],
-      {
-        duration,
-        easing: "linear",
-        fill: "forwards",
-        delay: REPORT_SCROLL_DELAY_MS,
-      }
-    )
-
-    anim.finished
-      .then(() => {
-        if (reportPausedRef.current) return
-        scheduleReportAdvance(REPORT_PAUSE_AFTER_ANIM_MS)
+    const startAfterLayout = () => {
+      reportScrollRafRef.current = window.requestAnimationFrame(() => {
+        reportScrollRafRef.current = window.requestAnimationFrame(() => {
+          reportScrollRafRef.current = null
+          run()
+        })
       })
-      .catch(() => {})
+    }
+
+    // Wait for decode when available.
+    const decode = img.decode?.()
+    if (decode && typeof decode.then === "function") {
+      decode.then(startAfterLayout).catch(startAfterLayout)
+    } else {
+      startAfterLayout()
+    }
   }, [scheduleReportAdvance])
+
+  // If the user resizes / rotates, restart the scroll with fresh measurements.
+  React.useEffect(() => {
+    const onResize = () => {
+      if (reportPausedRef.current) return
+      startReportScroll()
+    }
+    window.addEventListener("resize", onResize)
+    return () => window.removeEventListener("resize", onResize)
+  }, [startReportScroll])
 
   return (
   <main className="services-page services-page--figma" data-design="figma-27-13">
@@ -614,7 +666,6 @@ function ServicesPage() {
               src={ECG_APP_VIDEO_SRC}
               poster={IMG("live-streaming-ecg.jpg")}
               controls
-              loop
               playsInline
               preload="metadata"
               aria-label="S-Patch app: live ECG and symptom logging"
@@ -717,8 +768,8 @@ function ServicesPage() {
             ECG data; simplified office workflow.
           </p>
           <p className="figma-cta__p">
-            Evaluate Specialized Medical with a small, no-obligation beta trial. If it
-            isn’t the right fit, we’ll take everything back—no hassle.
+            Anyone can make promises. We would rather prove it. Try Specialized Medical
+            on a few patients with no hassle and no obligation.
           </p>
           <div className="figma-cta__actions">
             <Link className="figma-btn figma-btn--solid" to="/contact/">
@@ -739,12 +790,11 @@ export default ServicesPage
 
 export function Head() {
   return (
-    <>
-      <title>Services | Specialized Medical</title>
-      <meta
-        name="description"
-        content="Holter, extended Holter, event monitoring, and MCT with live-streaming ECG data, streamlined workflow, and zero-cost equipment—built around the S-Patch Monitoring System."
-      />
-    </>
+    <Seo
+      title="Services"
+      description="Holter, extended Holter, event monitoring, and MCT with live-streaming ECG data, streamlined workflow, and zero-cost equipment—built around the S-Patch Monitoring System."
+      pathname="/services/"
+      image="/images/figma-services/hero.jpg"
+    />
   )
 }

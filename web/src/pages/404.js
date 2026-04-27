@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Seo from "../components/Seo"
 
 const NotFoundPage = () => {
   return (
@@ -24,4 +25,11 @@ const NotFoundPage = () => {
 
 export default NotFoundPage
 
-export const Head = () => <title>Page not found | Specialized Medical</title>
+export const Head = ({ location }) => (
+  <Seo
+    title="Page not found"
+    description="The page you requested could not be found."
+    pathname={location?.pathname}
+    image="/images/figma-services/hero.jpg"
+  />
+)

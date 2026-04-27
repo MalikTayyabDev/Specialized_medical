@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { ICON, imagesPath } from "../components/Layout"
+import Seo from "../components/Seo"
 
 const HERO_IMG_FALLBACK =
   "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=85"
@@ -61,6 +62,9 @@ const IndexPage = () => {
     const onBtnClick = (e) => {
       e.stopPropagation()
       if (video.paused) {
+        document.querySelectorAll("video").forEach((v) => {
+          if (v !== video && !v.paused) v.pause()
+        })
         video.play().catch(() => {})
       } else {
         video.pause()
@@ -71,6 +75,12 @@ const IndexPage = () => {
     }
     const onPlaying = () => setPlaying(true)
     const onPause = () => setPlaying(false)
+    const onEnded = () => {
+      setPlaying(false)
+      try {
+        video.currentTime = 0
+      } catch (_) {}
+    }
 
     const onMuteClick = (e) => {
       e.stopPropagation()
@@ -89,6 +99,7 @@ const IndexPage = () => {
     video.addEventListener("click", onVideoClick)
     video.addEventListener("playing", onPlaying)
     video.addEventListener("pause", onPause)
+    video.addEventListener("ended", onEnded)
     video.addEventListener("volumechange", onVolumeChange)
     if (muteBtn) {
       muteBtn.addEventListener("click", onMuteClick)
@@ -100,6 +111,7 @@ const IndexPage = () => {
       video.removeEventListener("click", onVideoClick)
       video.removeEventListener("playing", onPlaying)
       video.removeEventListener("pause", onPause)
+      video.removeEventListener("ended", onEnded)
       video.removeEventListener("volumechange", onVolumeChange)
       if (muteBtn) muteBtn.removeEventListener("click", onMuteClick)
     }
@@ -120,10 +132,7 @@ const IndexPage = () => {
       if (v.duration < trim + 1) return
       if (v.currentTime >= v.duration - trim - 0.04) {
         v.pause()
-        if (v.loop) {
-          v.currentTime = 0
-          v.play().catch(() => {})
-        }
+        // Do not loop — user must press play again.
       }
     }
     const onSeeking = () => capTime()
@@ -504,7 +513,6 @@ const IndexPage = () => {
               playsInline
               preload="metadata"
               controls
-              loop
             />
           </div>
           <div className="figma-ecg__copy">
@@ -726,7 +734,6 @@ const IndexPage = () => {
                 width={520}
                 height={906}
                 controls
-                loop
                 playsInline
                 preload="metadata"
               />
@@ -751,15 +758,17 @@ const IndexPage = () => {
               live-streaming ECG data; simplified office workflow.
             </p>
             <p className="figma-cta__p">
-              Evaluate Specialized Medical with a small, no-obligation beta trial.
-              If it isn’t the right fit, we’ll take everything back—no hassle.
+              Anyone can make promises. We would rather prove it. Try Specialized
+              Medical on a few patients. If it is not the right fit, we will take
+              everything back - no hassle, no obligation. Let us prove our value to
+              you and your patients.
             </p>
             <div className="figma-cta__actions">
               <Link className="figma-btn figma-btn--solid" to="/contact/">
                 Start Your No-Risk Beta Trial
               </Link>
               <Link className="figma-cta__talk" to="/contact/">
-                Talk to our team →
+                Talk to Our Team
               </Link>
             </div>
           </div>
@@ -771,12 +780,11 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head = () => (
-  <>
-    <title>Specialized Medical | Cardiac Monitoring</title>
-    <meta
-      name="description"
-      content="Live ECG and remote cardiac monitoring for your practice. Holter, extended studies, event and MCT—no upfront costs, streamlined workflow, 24/7 support."
-    />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Specialized Medical"
+    description="Expert Cardiac Monitoring Services"
+    pathname={location?.pathname}
+    image="/images/Specialized_Medical_SPatch_Exam_Room_Hero_HiRes.jpg.jpeg"
+  />
 )

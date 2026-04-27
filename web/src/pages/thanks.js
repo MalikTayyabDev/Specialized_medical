@@ -1,7 +1,18 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Seo from "../components/Seo"
 
 export default function ThanksPage() {
+  React.useEffect(() => {
+    try {
+      const ts = sessionStorage.getItem("sm_contact_submitted")
+      // If they didn't arrive via a successful form submission, bounce them.
+      if (!ts) window.location.replace("/")
+    } catch (_) {
+      window.location.replace("/")
+    }
+  }, [])
+
   return (
     <main className="thanks-page">
       <section
@@ -69,7 +80,12 @@ export default function ThanksPage() {
 export function Head() {
   return (
     <>
-      <title>Thank you | Specialized Medical</title>
+      <Seo
+        title="Thank you"
+        description="Thank you for contacting Specialized Medical."
+        pathname="/thanks/"
+        image="/images/figma-services/hero.jpg"
+      />
       <meta name="robots" content="noindex" />
     </>
   )

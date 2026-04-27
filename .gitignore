@@ -17,3 +17,9 @@ Thumbs.db
 # Logs
 *.log
 npm-debug.log*
+
+# Editor / local config
+.vscode/
+
+# Build artifacts / archives
+*.zip

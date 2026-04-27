@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Seo from "../components/Seo"
 
 const IMG = {
   hero: "/images/figma-faq/faq-hero.jpg",
@@ -382,8 +383,7 @@ function FaqPage() {
               live-streaming ECG data; simplified office workflow.
             </p>
             <p className="figma-cta__p">
-              Evaluate Specialized Medical with a small, no-obligation beta trial.
-              If it isn’t the right fit, we’ll take everything back—no hassle.
+              Evaluate Specialized Medical with no long-term commitment.
             </p>
             <div className="figma-cta__actions">
               <Link className="figma-btn figma-btn--solid" to="/contact/">
@@ -404,12 +404,11 @@ export default FaqPage
 
 export function Head() {
   return (
-    <>
-      <title>FAQ | Specialized Medical</title>
-      <meta
-        name="description"
-        content="Answers about Specialized Medical's cardiac monitoring services—workflow, reports, billing, equipment options, patient experience, and the no-risk beta trial."
-      />
-    </>
+    <Seo
+      title="FAQ"
+      description="Answers about Specialized Medical's cardiac monitoring services—workflow, reports, billing, equipment options, patient experience, and the no-risk beta trial."
+      pathname="/faq/"
+      image="/images/figma-faq/faq-hero.jpg"
+    />
   )
 }

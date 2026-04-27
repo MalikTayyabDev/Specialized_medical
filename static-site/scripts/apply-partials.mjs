@@ -13,11 +13,25 @@ const STATIC_ROOT = join(__dirname, "..")
 
 /** faq.html is assembled by merge-faq-html.mjs (uses the same partials). */
 const PAGES = [
+  // Root pages
   { file: "index.html", base: "", active: "home" },
+  { file: "404.html", base: "", active: "home" },
   { file: "about.html", base: "", active: "about" },
   { file: "contact.html", base: "", active: "contact" },
+  { file: "faq.html", base: "", active: "faq" },
   { file: "services.html", base: "", active: "services" },
+  { file: "clinical-stories.html", base: "", active: "services" },
+  { file: "thanks.html", base: "", active: "contact" },
   { file: "services/equipment.html", base: "../", active: "services" },
+
+  // Pretty URLs (folder index.html)
+  { file: "about/index.html", base: "../", active: "about" },
+  { file: "contact/index.html", base: "../", active: "contact" },
+  { file: "faq/index.html", base: "../", active: "faq" },
+  { file: "services/index.html", base: "../", active: "services" },
+  { file: "clinical-stories/index.html", base: "../", active: "services" },
+  { file: "thanks/index.html", base: "../", active: "contact" },
+  { file: "services/equipment/index.html", base: "../../", active: "services" },
 ]
 
 const HEADER_RE =

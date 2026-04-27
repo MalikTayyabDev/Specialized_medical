@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import Seo from "../../components/Seo"
 
 const IMG = (file) => `/images/figma-services/${file}`
 
@@ -232,8 +233,7 @@ const EquipmentPage = () => (
             data; simplified office workflow.
           </p>
           <p className="figma-cta__p figma-cta__p--about-italic">
-            Evaluate Specialized Medical with a small, no-obligation beta trial. If it isn’t
-            the right fit, we’ll take everything back—no hassle.
+            Evaluate Specialized Medical with no long-term commitment.
           </p>
           <div className="figma-cta__actions">
             <Link className="figma-btn figma-btn--solid" to="/contact/">
@@ -253,12 +253,11 @@ export default EquipmentPage
 
 export function Head() {
   return (
-    <>
-      <title>Monitoring Equipment Options | Specialized Medical</title>
-      <meta
-        name="description"
-        content="S-Patch (primary) and Lead-Wire (secondary) monitoring systems—specifications, feature highlights, and equipment options for physician practices."
-      />
-    </>
+    <Seo
+      title="Monitoring Equipment Options"
+      description="S-Patch (primary) and Lead-Wire (secondary) monitoring systems—specifications, feature highlights, and equipment options for physician practices."
+      pathname="/services/equipment/"
+      image="/images/figma-services/s-patch.jpg"
+    />
   )
 }
