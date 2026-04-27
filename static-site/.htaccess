@@ -1,0 +1,25 @@
+# Apache/Hostinger helpers:
+# - Pretty URLs for folder routes
+# - Redirect legacy .html pages to pretty URLs
+
+Options -Indexes
+
+RewriteEngine On
+
+# Legacy .html → pretty URLs
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^about\.html$ /about/ [R=301,L]
+RewriteRule ^services\.html$ /services/ [R=301,L]
+RewriteRule ^faq\.html$ /faq/ [R=301,L]
+RewriteRule ^contact\.html$ /contact/ [R=301,L]
+RewriteRule ^clinical-stories\.html$ /clinical-stories/ [R=301,L]
+RewriteRule ^thanks\.html$ /thanks/ [R=301,L]
+RewriteRule ^services/equipment\.html$ /services/equipment/ [R=301,L]
+
+# If requesting a directory, serve its index.html
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.+)$ $1/ [R=301,L]
+
+DirectoryIndex index.html
+
