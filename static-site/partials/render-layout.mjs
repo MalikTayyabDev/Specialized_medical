@@ -18,6 +18,7 @@ const NAV = ["home", "about", "services", "faq", "contact"]
 export function renderHeader({ base = "", active = "home" } = {}) {
   const vars = {
     BASE: base,
+    BASE_HOME: base || "/",
     PORTAL_URL: PATIENT_PORTAL_URL,
   }
   for (const key of NAV) {

@@ -68,7 +68,7 @@ ${frag}
               <div class="faq-testimonials__cards">
                 <blockquote class="faq-testimonial-card">
                   <p>They immediately transmitted the reports to me and then called me on my cell phone.</p>
-                  <footer>Michael</footer>
+                  <footer>Michael R, M.D.</footer>
                 </blockquote>
                 <blockquote class="faq-testimonial-card">
                   <p>I did not even realize I was wearing it</p>
