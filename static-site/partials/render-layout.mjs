@@ -35,6 +35,7 @@ export function renderHeader({ base = "", active = "home" } = {}) {
 export function renderFooter({ base = "" } = {}) {
   return fillTemplate(footerTpl, {
     BASE: base,
+    BASE_HOME: base || "/",
     PORTAL_URL: PATIENT_PORTAL_URL,
   })
 }
