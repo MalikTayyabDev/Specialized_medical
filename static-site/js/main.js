@@ -32,6 +32,15 @@
     return Array.prototype.slice.call((root || document).querySelectorAll(sel));
   }
 
+  function pauseOtherVideos(current) {
+    qsa("video").forEach(function (v) {
+      if (v === current) return;
+      try {
+        if (!v.paused) v.pause();
+      } catch (_) {}
+    });
+  }
+
   function initNav() {
     var toggle = qs(".nav-toggle");
     var inner = qs(".site-header__inner");
@@ -380,15 +389,18 @@
       muteBtn.setAttribute("aria-label", muted ? "Unmute video" : "Mute video");
     }
 
+    // Default: sound ON (user requested). Browsers still may block autoplay-with-sound,
+    // but user-initiated play will be unmuted.
+    video.muted = false;
+    try {
+      video.volume = 1;
+    } catch (_) {}
+    syncMuteUi();
+
     btn.addEventListener("click", function (e) {
       e.stopPropagation();
       if (video.paused) {
-        // Pause any other playing videos on the page (matches Gatsby UX).
-        qsa("video").forEach(function (v) {
-          try {
-            if (v !== video && !v.paused) v.pause();
-          } catch (_) {}
-        });
+        pauseOtherVideos(video);
         video.play().catch(function () {});
       } else {
         video.pause();
@@ -434,6 +446,18 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    // Ensure only one video plays at a time (applies to all pages).
+    // Use capture because `play` doesn't bubble.
+    document.addEventListener(
+      "play",
+      function (e) {
+        var t = e && e.target;
+        if (!t || String(t.tagName).toLowerCase() !== "video") return;
+        pauseOtherVideos(t);
+      },
+      true
+    );
+
     initNav();
     initFooterYear();
     initHeroVisualFallback();
