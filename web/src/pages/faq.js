@@ -292,8 +292,18 @@ function FaqPage() {
                         aria-labelledby={triggerId}
                         className="faq-item__panel"
                         aria-hidden={!isOpen}
+                        style={{
+                          // Prevent a "flash of open accordions" before the page CSS loads
+                          // (e.g. first navigation to /faq/ where the CSS chunk arrives after HTML).
+                          display: "grid",
+                          overflow: "hidden",
+                          gridTemplateRows: isOpen ? "1fr" : "0fr",
+                        }}
                       >
-                        <div className="faq-item__panelInner">
+                        <div
+                          className="faq-item__panelInner"
+                          style={{ overflow: "hidden", minHeight: 0 }}
+                        >
                           <div className="faq-item__answer">{item.a}</div>
                         </div>
                       </div>
