@@ -1,0 +1,7 @@
+# Static Gatsby site — Hostinger (Apache / LiteSpeed)
+# Upload everything inside `public/` (or your zip contents) to public_html.
+
+DirectoryIndex index.html
+
+# Do not list directory contents if a folder has no index
+Options -Indexes
